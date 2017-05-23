@@ -1,0 +1,5 @@
+D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\Node-Capybara.cyprj|049c5840-0146-48f6-b1e7-c7b8814fc39d
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3c40a2a3-c209-4c87-a159-f106e0023e21
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|25919115-b5b6-453a-8001-94fed3f80dc5
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f03ad757-f848-4498-b3bf-346a56cb165e
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|df803fc8-38b3-4d8c-b5ea-8e49da4e34b9
