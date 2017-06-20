@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 1
 
 
    1              		.syntax unified
@@ -21,10 +21,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
   18              		.bss
   19              		.align	2
   20              	sd_timer_backup:
-  21 0000 00000000 		.space	12
-  21      00000000 
-  21      00000000 
-  22              		.section	.text.sd_timer_SaveConfig,"ax",%progbits
+  21 0000 00000000 		.space	6
+  21      0000
+  22 0006 0000     		.section	.text.sd_timer_SaveConfig,"ax",%progbits
   23              		.align	2
   24              		.global	sd_timer_SaveConfig
   25              		.thumb
@@ -58,10 +57,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
   23:Generated_Source\PSoC5/sd_timer_PM.c **** 
   24:Generated_Source\PSoC5/sd_timer_PM.c **** /*******************************************************************************
   25:Generated_Source\PSoC5/sd_timer_PM.c **** * Function Name: sd_timer_SaveConfig
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 2
-
-
   26:Generated_Source\PSoC5/sd_timer_PM.c **** ********************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 2
+
+
   27:Generated_Source\PSoC5/sd_timer_PM.c **** *
   28:Generated_Source\PSoC5/sd_timer_PM.c **** * Summary:
   29:Generated_Source\PSoC5/sd_timer_PM.c **** *     Save the current user configuration
@@ -94,52 +93,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
   46:Generated_Source\PSoC5/sd_timer_PM.c ****         sd_timer_backup.TimerUdb = sd_timer_ReadCounter();
   41              		.loc 1 46 0
   42 0004 FFF7FEFF 		bl	sd_timer_ReadCounter
-  43 0008 0246     		mov	r2, r0
-  44 000a 074B     		ldr	r3, .L2
-  45 000c 5A60     		str	r2, [r3, #4]
+  43 0008 0346     		mov	r3, r0
+  44 000a 1A46     		mov	r2, r3
+  45 000c 064B     		ldr	r3, .L2
+  46 000e 5A80     		strh	r2, [r3, #2]	@ movhi
   47:Generated_Source\PSoC5/sd_timer_PM.c ****         sd_timer_backup.InterruptMaskValue = sd_timer_STATUS_MASK;
-  46              		.loc 1 47 0
-  47 000e 074B     		ldr	r3, .L2+4
-  48 0010 1B78     		ldrb	r3, [r3]
-  49 0012 DAB2     		uxtb	r2, r3
-  50 0014 044B     		ldr	r3, .L2
-  51 0016 1A72     		strb	r2, [r3, #8]
+  47              		.loc 1 47 0
+  48 0010 064B     		ldr	r3, .L2+4
+  49 0012 1B78     		ldrb	r3, [r3]
+  50 0014 DAB2     		uxtb	r2, r3
+  51 0016 044B     		ldr	r3, .L2
+  52 0018 1A71     		strb	r2, [r3, #4]
   48:Generated_Source\PSoC5/sd_timer_PM.c ****         #if (sd_timer_UsingHWCaptureCounter)
   49:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_backup.TimerCaptureCounter = sd_timer_ReadCaptureCount();
   50:Generated_Source\PSoC5/sd_timer_PM.c ****         #endif /* Back Up capture counter register  */
   51:Generated_Source\PSoC5/sd_timer_PM.c **** 
   52:Generated_Source\PSoC5/sd_timer_PM.c ****         #if(!sd_timer_UDB_CONTROL_REG_REMOVED)
   53:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_backup.TimerControlRegister = sd_timer_ReadControlRegister();
-  52              		.loc 1 53 0
-  53 0018 FFF7FEFF 		bl	sd_timer_ReadControlRegister
-  54 001c 0346     		mov	r3, r0
-  55 001e 1A46     		mov	r2, r3
-  56 0020 014B     		ldr	r3, .L2
-  57 0022 5A72     		strb	r2, [r3, #9]
+  53              		.loc 1 53 0
+  54 001a FFF7FEFF 		bl	sd_timer_ReadControlRegister
+  55 001e 0346     		mov	r3, r0
+  56 0020 1A46     		mov	r2, r3
+  57 0022 014B     		ldr	r3, .L2
+  58 0024 5A71     		strb	r2, [r3, #5]
   54:Generated_Source\PSoC5/sd_timer_PM.c ****         #endif /* Backup the enable state of the Timer component */
   55:Generated_Source\PSoC5/sd_timer_PM.c ****     #endif /* Backup non retention registers in UDB implementation. All fixed function registers ar
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 3
 
 
   56:Generated_Source\PSoC5/sd_timer_PM.c **** }
-  58              		.loc 1 56 0
-  59 0024 80BD     		pop	{r7, pc}
-  60              	.L3:
-  61 0026 00BF     		.align	2
-  62              	.L2:
-  63 0028 00000000 		.word	sd_timer_backup
-  64 002c 84640040 		.word	1073767556
-  65              		.cfi_endproc
-  66              	.LFE0:
-  67              		.size	sd_timer_SaveConfig, .-sd_timer_SaveConfig
-  68              		.section	.text.sd_timer_RestoreConfig,"ax",%progbits
-  69              		.align	2
-  70              		.global	sd_timer_RestoreConfig
-  71              		.thumb
-  72              		.thumb_func
-  73              		.type	sd_timer_RestoreConfig, %function
-  74              	sd_timer_RestoreConfig:
-  75              	.LFB1:
+  59              		.loc 1 56 0
+  60 0026 80BD     		pop	{r7, pc}
+  61              	.L3:
+  62              		.align	2
+  63              	.L2:
+  64 0028 00000000 		.word	sd_timer_backup
+  65 002c 89650040 		.word	1073767817
+  66              		.cfi_endproc
+  67              	.LFE0:
+  68              		.size	sd_timer_SaveConfig, .-sd_timer_SaveConfig
+  69              		.section	.text.sd_timer_RestoreConfig,"ax",%progbits
+  70              		.align	2
+  71              		.global	sd_timer_RestoreConfig
+  72              		.thumb
+  73              		.thumb_func
+  74              		.type	sd_timer_RestoreConfig, %function
+  75              	sd_timer_RestoreConfig:
+  76              	.LFB1:
   57:Generated_Source\PSoC5/sd_timer_PM.c **** 
   58:Generated_Source\PSoC5/sd_timer_PM.c **** 
   59:Generated_Source\PSoC5/sd_timer_PM.c **** /*******************************************************************************
@@ -162,65 +162,65 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
   76:Generated_Source\PSoC5/sd_timer_PM.c **** *******************************************************************************/
   77:Generated_Source\PSoC5/sd_timer_PM.c **** void sd_timer_RestoreConfig(void) 
   78:Generated_Source\PSoC5/sd_timer_PM.c **** {   
-  76              		.loc 1 78 0
-  77              		.cfi_startproc
-  78              		@ args = 0, pretend = 0, frame = 0
-  79              		@ frame_needed = 1, uses_anonymous_args = 0
-  80 0000 80B5     		push	{r7, lr}
-  81              		.cfi_def_cfa_offset 8
-  82              		.cfi_offset 7, -8
-  83              		.cfi_offset 14, -4
-  84 0002 00AF     		add	r7, sp, #0
-  85              		.cfi_def_cfa_register 7
+  77              		.loc 1 78 0
+  78              		.cfi_startproc
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 1, uses_anonymous_args = 0
+  81 0000 80B5     		push	{r7, lr}
+  82              		.cfi_def_cfa_offset 8
+  83              		.cfi_offset 7, -8
+  84              		.cfi_offset 14, -4
+  85 0002 00AF     		add	r7, sp, #0
+  86              		.cfi_def_cfa_register 7
   79:Generated_Source\PSoC5/sd_timer_PM.c ****     #if (!sd_timer_UsingFixedFunction)
   80:Generated_Source\PSoC5/sd_timer_PM.c **** 
   81:Generated_Source\PSoC5/sd_timer_PM.c ****         sd_timer_WriteCounter(sd_timer_backup.TimerUdb);
-  86              		.loc 1 81 0
-  87 0004 074B     		ldr	r3, .L5
-  88 0006 5B68     		ldr	r3, [r3, #4]
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 4
+  87              		.loc 1 81 0
+  88 0004 074B     		ldr	r3, .L5
+  89 0006 5B88     		ldrh	r3, [r3, #2]
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 4
 
 
-  89 0008 1846     		mov	r0, r3
-  90 000a FFF7FEFF 		bl	sd_timer_WriteCounter
+  90 0008 1846     		mov	r0, r3
+  91 000a FFF7FEFF 		bl	sd_timer_WriteCounter
   82:Generated_Source\PSoC5/sd_timer_PM.c ****         sd_timer_STATUS_MASK =sd_timer_backup.InterruptMaskValue;
-  91              		.loc 1 82 0
-  92 000e 064B     		ldr	r3, .L5+4
-  93 0010 044A     		ldr	r2, .L5
-  94 0012 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
-  95 0014 1A70     		strb	r2, [r3]
+  92              		.loc 1 82 0
+  93 000e 064B     		ldr	r3, .L5+4
+  94 0010 044A     		ldr	r2, .L5
+  95 0012 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+  96 0014 1A70     		strb	r2, [r3]
   83:Generated_Source\PSoC5/sd_timer_PM.c ****         #if (sd_timer_UsingHWCaptureCounter)
   84:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_SetCaptureCount(sd_timer_backup.TimerCaptureCounter);
   85:Generated_Source\PSoC5/sd_timer_PM.c ****         #endif /* Restore Capture counter register*/
   86:Generated_Source\PSoC5/sd_timer_PM.c **** 
   87:Generated_Source\PSoC5/sd_timer_PM.c ****         #if(!sd_timer_UDB_CONTROL_REG_REMOVED)
   88:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_WriteControlRegister(sd_timer_backup.TimerControlRegister);
-  96              		.loc 1 88 0
-  97 0016 034B     		ldr	r3, .L5
-  98 0018 5B7A     		ldrb	r3, [r3, #9]	@ zero_extendqisi2
-  99 001a 1846     		mov	r0, r3
- 100 001c FFF7FEFF 		bl	sd_timer_WriteControlRegister
+  97              		.loc 1 88 0
+  98 0016 034B     		ldr	r3, .L5
+  99 0018 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 100 001a 1846     		mov	r0, r3
+ 101 001c FFF7FEFF 		bl	sd_timer_WriteControlRegister
   89:Generated_Source\PSoC5/sd_timer_PM.c ****         #endif /* Restore the enable state of the Timer component */
   90:Generated_Source\PSoC5/sd_timer_PM.c ****     #endif /* Restore non retention registers in the UDB implementation only */
   91:Generated_Source\PSoC5/sd_timer_PM.c **** }
- 101              		.loc 1 91 0
- 102 0020 80BD     		pop	{r7, pc}
- 103              	.L6:
- 104 0022 00BF     		.align	2
- 105              	.L5:
- 106 0024 00000000 		.word	sd_timer_backup
- 107 0028 84640040 		.word	1073767556
- 108              		.cfi_endproc
- 109              	.LFE1:
- 110              		.size	sd_timer_RestoreConfig, .-sd_timer_RestoreConfig
- 111              		.section	.text.sd_timer_Sleep,"ax",%progbits
- 112              		.align	2
- 113              		.global	sd_timer_Sleep
- 114              		.thumb
- 115              		.thumb_func
- 116              		.type	sd_timer_Sleep, %function
- 117              	sd_timer_Sleep:
- 118              	.LFB2:
+ 102              		.loc 1 91 0
+ 103 0020 80BD     		pop	{r7, pc}
+ 104              	.L6:
+ 105 0022 00BF     		.align	2
+ 106              	.L5:
+ 107 0024 00000000 		.word	sd_timer_backup
+ 108 0028 89650040 		.word	1073767817
+ 109              		.cfi_endproc
+ 110              	.LFE1:
+ 111              		.size	sd_timer_RestoreConfig, .-sd_timer_RestoreConfig
+ 112              		.section	.text.sd_timer_Sleep,"ax",%progbits
+ 113              		.align	2
+ 114              		.global	sd_timer_Sleep
+ 115              		.thumb
+ 116              		.thumb_func
+ 117              		.type	sd_timer_Sleep, %function
+ 118              	sd_timer_Sleep:
+ 119              	.LFB2:
   92:Generated_Source\PSoC5/sd_timer_PM.c **** 
   93:Generated_Source\PSoC5/sd_timer_PM.c **** 
   94:Generated_Source\PSoC5/sd_timer_PM.c **** /*******************************************************************************
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
  106:Generated_Source\PSoC5/sd_timer_PM.c **** *
  107:Generated_Source\PSoC5/sd_timer_PM.c **** * Global variables:
  108:Generated_Source\PSoC5/sd_timer_PM.c **** *  sd_timer_backup.TimerEnableState:  Is modified depending on the
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 5
 
 
  109:Generated_Source\PSoC5/sd_timer_PM.c **** *  enable state of the block before entering sleep mode.
@@ -246,76 +246,76 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
  111:Generated_Source\PSoC5/sd_timer_PM.c **** *******************************************************************************/
  112:Generated_Source\PSoC5/sd_timer_PM.c **** void sd_timer_Sleep(void) 
  113:Generated_Source\PSoC5/sd_timer_PM.c **** {
- 119              		.loc 1 113 0
- 120              		.cfi_startproc
- 121              		@ args = 0, pretend = 0, frame = 0
- 122              		@ frame_needed = 1, uses_anonymous_args = 0
- 123 0000 80B5     		push	{r7, lr}
- 124              		.cfi_def_cfa_offset 8
- 125              		.cfi_offset 7, -8
- 126              		.cfi_offset 14, -4
- 127 0002 00AF     		add	r7, sp, #0
- 128              		.cfi_def_cfa_register 7
+ 120              		.loc 1 113 0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 1, uses_anonymous_args = 0
+ 124 0000 80B5     		push	{r7, lr}
+ 125              		.cfi_def_cfa_offset 8
+ 126              		.cfi_offset 7, -8
+ 127              		.cfi_offset 14, -4
+ 128 0002 00AF     		add	r7, sp, #0
+ 129              		.cfi_def_cfa_register 7
  114:Generated_Source\PSoC5/sd_timer_PM.c ****     #if(!sd_timer_UDB_CONTROL_REG_REMOVED)
  115:Generated_Source\PSoC5/sd_timer_PM.c ****         /* Save Counter's enable state */
  116:Generated_Source\PSoC5/sd_timer_PM.c ****         if(sd_timer_CTRL_ENABLE == (sd_timer_CONTROL & sd_timer_CTRL_ENABLE))
- 129              		.loc 1 116 0
- 130 0004 094B     		ldr	r3, .L10
- 131 0006 1B78     		ldrb	r3, [r3]
- 132 0008 DBB2     		uxtb	r3, r3
- 133 000a DBB2     		uxtb	r3, r3
- 134 000c 5BB2     		sxtb	r3, r3
- 135 000e 002B     		cmp	r3, #0
- 136 0010 03DA     		bge	.L8
+ 130              		.loc 1 116 0
+ 131 0004 094B     		ldr	r3, .L10
+ 132 0006 1B78     		ldrb	r3, [r3]
+ 133 0008 DBB2     		uxtb	r3, r3
+ 134 000a DBB2     		uxtb	r3, r3
+ 135 000c 5BB2     		sxtb	r3, r3
+ 136 000e 002B     		cmp	r3, #0
+ 137 0010 03DA     		bge	.L8
  117:Generated_Source\PSoC5/sd_timer_PM.c ****         {
  118:Generated_Source\PSoC5/sd_timer_PM.c ****             /* Timer is enabled */
  119:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_backup.TimerEnableState = 1u;
- 137              		.loc 1 119 0
- 138 0012 074B     		ldr	r3, .L10+4
- 139 0014 0122     		movs	r2, #1
- 140 0016 1A70     		strb	r2, [r3]
- 141 0018 02E0     		b	.L9
- 142              	.L8:
+ 138              		.loc 1 119 0
+ 139 0012 074B     		ldr	r3, .L10+4
+ 140 0014 0122     		movs	r2, #1
+ 141 0016 1A70     		strb	r2, [r3]
+ 142 0018 02E0     		b	.L9
+ 143              	.L8:
  120:Generated_Source\PSoC5/sd_timer_PM.c ****         }
  121:Generated_Source\PSoC5/sd_timer_PM.c ****         else
  122:Generated_Source\PSoC5/sd_timer_PM.c ****         {
  123:Generated_Source\PSoC5/sd_timer_PM.c ****             /* Timer is disabled */
  124:Generated_Source\PSoC5/sd_timer_PM.c ****             sd_timer_backup.TimerEnableState = 0u;
- 143              		.loc 1 124 0
- 144 001a 054B     		ldr	r3, .L10+4
- 145 001c 0022     		movs	r2, #0
- 146 001e 1A70     		strb	r2, [r3]
- 147              	.L9:
+ 144              		.loc 1 124 0
+ 145 001a 054B     		ldr	r3, .L10+4
+ 146 001c 0022     		movs	r2, #0
+ 147 001e 1A70     		strb	r2, [r3]
+ 148              	.L9:
  125:Generated_Source\PSoC5/sd_timer_PM.c ****         }
  126:Generated_Source\PSoC5/sd_timer_PM.c ****     #endif /* Back up enable state from the Timer control register */
  127:Generated_Source\PSoC5/sd_timer_PM.c ****     sd_timer_Stop();
- 148              		.loc 1 127 0
- 149 0020 FFF7FEFF 		bl	sd_timer_Stop
+ 149              		.loc 1 127 0
+ 150 0020 FFF7FEFF 		bl	sd_timer_Stop
  128:Generated_Source\PSoC5/sd_timer_PM.c ****     sd_timer_SaveConfig();
- 150              		.loc 1 128 0
- 151 0024 FFF7FEFF 		bl	sd_timer_SaveConfig
+ 151              		.loc 1 128 0
+ 152 0024 FFF7FEFF 		bl	sd_timer_SaveConfig
  129:Generated_Source\PSoC5/sd_timer_PM.c **** }
- 152              		.loc 1 129 0
- 153 0028 80BD     		pop	{r7, pc}
- 154              	.L11:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 6
+ 153              		.loc 1 129 0
+ 154 0028 80BD     		pop	{r7, pc}
+ 155              	.L11:
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 6
 
 
- 155 002a 00BF     		.align	2
- 156              	.L10:
- 157 002c 72640040 		.word	1073767538
- 158 0030 00000000 		.word	sd_timer_backup
- 159              		.cfi_endproc
- 160              	.LFE2:
- 161              		.size	sd_timer_Sleep, .-sd_timer_Sleep
- 162              		.section	.text.sd_timer_Wakeup,"ax",%progbits
- 163              		.align	2
- 164              		.global	sd_timer_Wakeup
- 165              		.thumb
- 166              		.thumb_func
- 167              		.type	sd_timer_Wakeup, %function
- 168              	sd_timer_Wakeup:
- 169              	.LFB3:
+ 156 002a 00BF     		.align	2
+ 157              	.L10:
+ 158 002c 79650040 		.word	1073767801
+ 159 0030 00000000 		.word	sd_timer_backup
+ 160              		.cfi_endproc
+ 161              	.LFE2:
+ 162              		.size	sd_timer_Sleep, .-sd_timer_Sleep
+ 163              		.section	.text.sd_timer_Wakeup,"ax",%progbits
+ 164              		.align	2
+ 165              		.global	sd_timer_Wakeup
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.type	sd_timer_Wakeup, %function
+ 169              	sd_timer_Wakeup:
+ 170              	.LFB3:
  130:Generated_Source\PSoC5/sd_timer_PM.c **** 
  131:Generated_Source\PSoC5/sd_timer_PM.c **** 
  132:Generated_Source\PSoC5/sd_timer_PM.c **** /*******************************************************************************
@@ -338,573 +338,573 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 1
  149:Generated_Source\PSoC5/sd_timer_PM.c **** *******************************************************************************/
  150:Generated_Source\PSoC5/sd_timer_PM.c **** void sd_timer_Wakeup(void) 
  151:Generated_Source\PSoC5/sd_timer_PM.c **** {
- 170              		.loc 1 151 0
- 171              		.cfi_startproc
- 172              		@ args = 0, pretend = 0, frame = 0
- 173              		@ frame_needed = 1, uses_anonymous_args = 0
- 174 0000 80B5     		push	{r7, lr}
- 175              		.cfi_def_cfa_offset 8
- 176              		.cfi_offset 7, -8
- 177              		.cfi_offset 14, -4
- 178 0002 00AF     		add	r7, sp, #0
- 179              		.cfi_def_cfa_register 7
+ 171              		.loc 1 151 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 1, uses_anonymous_args = 0
+ 175 0000 80B5     		push	{r7, lr}
+ 176              		.cfi_def_cfa_offset 8
+ 177              		.cfi_offset 7, -8
+ 178              		.cfi_offset 14, -4
+ 179 0002 00AF     		add	r7, sp, #0
+ 180              		.cfi_def_cfa_register 7
  152:Generated_Source\PSoC5/sd_timer_PM.c ****     sd_timer_RestoreConfig();
- 180              		.loc 1 152 0
- 181 0004 FFF7FEFF 		bl	sd_timer_RestoreConfig
+ 181              		.loc 1 152 0
+ 182 0004 FFF7FEFF 		bl	sd_timer_RestoreConfig
  153:Generated_Source\PSoC5/sd_timer_PM.c ****     #if(!sd_timer_UDB_CONTROL_REG_REMOVED)
  154:Generated_Source\PSoC5/sd_timer_PM.c ****         if(sd_timer_backup.TimerEnableState == 1u)
- 182              		.loc 1 154 0
- 183 0008 034B     		ldr	r3, .L14
- 184 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 185 000c 012B     		cmp	r3, #1
- 186 000e 01D1     		bne	.L12
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 7
+ 183              		.loc 1 154 0
+ 184 0008 034B     		ldr	r3, .L14
+ 185 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 186 000c 012B     		cmp	r3, #1
+ 187 000e 01D1     		bne	.L12
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 7
 
 
  155:Generated_Source\PSoC5/sd_timer_PM.c ****         {     /* Enable Timer's operation */
  156:Generated_Source\PSoC5/sd_timer_PM.c ****                 sd_timer_Enable();
- 187              		.loc 1 156 0
- 188 0010 FFF7FEFF 		bl	sd_timer_Enable
- 189              	.L12:
+ 188              		.loc 1 156 0
+ 189 0010 FFF7FEFF 		bl	sd_timer_Enable
+ 190              	.L12:
  157:Generated_Source\PSoC5/sd_timer_PM.c ****         } /* Do nothing if Timer was disabled before */
  158:Generated_Source\PSoC5/sd_timer_PM.c ****     #endif /* Remove this code section if Control register is removed */
  159:Generated_Source\PSoC5/sd_timer_PM.c **** }
- 190              		.loc 1 159 0
- 191 0014 80BD     		pop	{r7, pc}
- 192              	.L15:
- 193 0016 00BF     		.align	2
- 194              	.L14:
- 195 0018 00000000 		.word	sd_timer_backup
- 196              		.cfi_endproc
- 197              	.LFE3:
- 198              		.size	sd_timer_Wakeup, .-sd_timer_Wakeup
- 199              		.text
- 200              	.Letext0:
- 201              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 202              		.file 3 "Generated_Source\\PSoC5\\sd_timer.h"
- 203              		.section	.debug_info,"",%progbits
- 204              	.Ldebug_info0:
- 205 0000 46010000 		.4byte	0x146
- 206 0004 0400     		.2byte	0x4
- 207 0006 00000000 		.4byte	.Ldebug_abbrev0
- 208 000a 04       		.byte	0x4
- 209 000b 01       		.uleb128 0x1
- 210 000c 45010000 		.4byte	.LASF25
- 211 0010 01       		.byte	0x1
- 212 0011 7C000000 		.4byte	.LASF26
- 213 0015 22000000 		.4byte	.LASF27
- 214 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 215 001d 00000000 		.4byte	0
- 216 0021 00000000 		.4byte	.Ldebug_line0
- 217 0025 02       		.uleb128 0x2
- 218 0026 01       		.byte	0x1
- 219 0027 06       		.byte	0x6
- 220 0028 F7010000 		.4byte	.LASF0
- 221 002c 02       		.uleb128 0x2
- 222 002d 01       		.byte	0x1
- 223 002e 08       		.byte	0x8
- 224 002f 29010000 		.4byte	.LASF1
- 225 0033 02       		.uleb128 0x2
- 226 0034 02       		.byte	0x2
- 227 0035 05       		.byte	0x5
- 228 0036 D3010000 		.4byte	.LASF2
- 229 003a 02       		.uleb128 0x2
- 230 003b 02       		.byte	0x2
- 231 003c 07       		.byte	0x7
- 232 003d E4010000 		.4byte	.LASF3
- 233 0041 02       		.uleb128 0x2
- 234 0042 04       		.byte	0x4
- 235 0043 05       		.byte	0x5
- 236 0044 3C010000 		.4byte	.LASF4
- 237 0048 02       		.uleb128 0x2
- 238 0049 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 8
+ 191              		.loc 1 159 0
+ 192 0014 80BD     		pop	{r7, pc}
+ 193              	.L15:
+ 194 0016 00BF     		.align	2
+ 195              	.L14:
+ 196 0018 00000000 		.word	sd_timer_backup
+ 197              		.cfi_endproc
+ 198              	.LFE3:
+ 199              		.size	sd_timer_Wakeup, .-sd_timer_Wakeup
+ 200              		.text
+ 201              	.Letext0:
+ 202              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 203              		.file 3 "Generated_Source\\PSoC5\\sd_timer.h"
+ 204              		.section	.debug_info,"",%progbits
+ 205              	.Ldebug_info0:
+ 206 0000 46010000 		.4byte	0x146
+ 207 0004 0400     		.2byte	0x4
+ 208 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 209 000a 04       		.byte	0x4
+ 210 000b 01       		.uleb128 0x1
+ 211 000c 43010000 		.4byte	.LASF25
+ 212 0010 01       		.byte	0x1
+ 213 0011 84000000 		.4byte	.LASF26
+ 214 0015 1B000000 		.4byte	.LASF27
+ 215 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 216 001d 00000000 		.4byte	0
+ 217 0021 00000000 		.4byte	.Ldebug_line0
+ 218 0025 02       		.uleb128 0x2
+ 219 0026 01       		.byte	0x1
+ 220 0027 06       		.byte	0x6
+ 221 0028 F5010000 		.4byte	.LASF0
+ 222 002c 02       		.uleb128 0x2
+ 223 002d 01       		.byte	0x1
+ 224 002e 08       		.byte	0x8
+ 225 002f 27010000 		.4byte	.LASF1
+ 226 0033 02       		.uleb128 0x2
+ 227 0034 02       		.byte	0x2
+ 228 0035 05       		.byte	0x5
+ 229 0036 D1010000 		.4byte	.LASF2
+ 230 003a 02       		.uleb128 0x2
+ 231 003b 02       		.byte	0x2
+ 232 003c 07       		.byte	0x7
+ 233 003d E2010000 		.4byte	.LASF3
+ 234 0041 02       		.uleb128 0x2
+ 235 0042 04       		.byte	0x4
+ 236 0043 05       		.byte	0x5
+ 237 0044 3A010000 		.4byte	.LASF4
+ 238 0048 02       		.uleb128 0x2
+ 239 0049 04       		.byte	0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 8
 
 
- 239 004a 07       		.byte	0x7
- 240 004b B6000000 		.4byte	.LASF5
- 241 004f 02       		.uleb128 0x2
- 242 0050 08       		.byte	0x8
- 243 0051 05       		.byte	0x5
- 244 0052 00000000 		.4byte	.LASF6
- 245 0056 02       		.uleb128 0x2
- 246 0057 08       		.byte	0x8
- 247 0058 07       		.byte	0x7
- 248 0059 C8000000 		.4byte	.LASF7
- 249 005d 03       		.uleb128 0x3
- 250 005e 04       		.byte	0x4
- 251 005f 05       		.byte	0x5
- 252 0060 696E7400 		.ascii	"int\000"
- 253 0064 02       		.uleb128 0x2
- 254 0065 04       		.byte	0x4
- 255 0066 07       		.byte	0x7
- 256 0067 15000000 		.4byte	.LASF8
- 257 006b 04       		.uleb128 0x4
- 258 006c B0000000 		.4byte	.LASF9
- 259 0070 02       		.byte	0x2
- 260 0071 9201     		.2byte	0x192
- 261 0073 2C000000 		.4byte	0x2c
- 262 0077 04       		.uleb128 0x4
- 263 0078 0E000000 		.4byte	.LASF10
- 264 007c 02       		.byte	0x2
- 265 007d 9401     		.2byte	0x194
- 266 007f 48000000 		.4byte	0x48
- 267 0083 02       		.uleb128 0x2
- 268 0084 04       		.byte	0x4
- 269 0085 04       		.byte	0x4
- 270 0086 13020000 		.4byte	.LASF11
- 271 008a 02       		.uleb128 0x2
- 272 008b 08       		.byte	0x8
- 273 008c 04       		.byte	0x4
- 274 008d DD010000 		.4byte	.LASF12
- 275 0091 02       		.uleb128 0x2
- 276 0092 01       		.byte	0x1
- 277 0093 08       		.byte	0x8
- 278 0094 37010000 		.4byte	.LASF13
- 279 0098 04       		.uleb128 0x4
- 280 0099 38020000 		.4byte	.LASF14
- 281 009d 02       		.byte	0x2
- 282 009e 3C02     		.2byte	0x23c
- 283 00a0 A4000000 		.4byte	0xa4
- 284 00a4 05       		.uleb128 0x5
- 285 00a5 6B000000 		.4byte	0x6b
- 286 00a9 02       		.uleb128 0x2
- 287 00aa 04       		.byte	0x4
- 288 00ab 07       		.byte	0x7
- 289 00ac 50020000 		.4byte	.LASF15
- 290 00b0 06       		.uleb128 0x6
- 291 00b1 0C       		.byte	0xc
- 292 00b2 03       		.byte	0x3
- 293 00b3 43       		.byte	0x43
- 294 00b4 E9000000 		.4byte	0xe9
- 295 00b8 07       		.uleb128 0x7
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 9
+ 240 004a 07       		.byte	0x7
+ 241 004b B4000000 		.4byte	.LASF5
+ 242 004f 02       		.uleb128 0x2
+ 243 0050 08       		.byte	0x8
+ 244 0051 05       		.byte	0x5
+ 245 0052 00000000 		.4byte	.LASF6
+ 246 0056 02       		.uleb128 0x2
+ 247 0057 08       		.byte	0x8
+ 248 0058 07       		.byte	0x7
+ 249 0059 C6000000 		.4byte	.LASF7
+ 250 005d 03       		.uleb128 0x3
+ 251 005e 04       		.byte	0x4
+ 252 005f 05       		.byte	0x5
+ 253 0060 696E7400 		.ascii	"int\000"
+ 254 0064 02       		.uleb128 0x2
+ 255 0065 04       		.byte	0x4
+ 256 0066 07       		.byte	0x7
+ 257 0067 0E000000 		.4byte	.LASF8
+ 258 006b 04       		.uleb128 0x4
+ 259 006c AE000000 		.4byte	.LASF9
+ 260 0070 02       		.byte	0x2
+ 261 0071 9201     		.2byte	0x192
+ 262 0073 2C000000 		.4byte	0x2c
+ 263 0077 04       		.uleb128 0x4
+ 264 0078 36020000 		.4byte	.LASF10
+ 265 007c 02       		.byte	0x2
+ 266 007d 9301     		.2byte	0x193
+ 267 007f 3A000000 		.4byte	0x3a
+ 268 0083 02       		.uleb128 0x2
+ 269 0084 04       		.byte	0x4
+ 270 0085 04       		.byte	0x4
+ 271 0086 11020000 		.4byte	.LASF11
+ 272 008a 02       		.uleb128 0x2
+ 273 008b 08       		.byte	0x8
+ 274 008c 04       		.byte	0x4
+ 275 008d DB010000 		.4byte	.LASF12
+ 276 0091 02       		.uleb128 0x2
+ 277 0092 01       		.byte	0x1
+ 278 0093 08       		.byte	0x8
+ 279 0094 35010000 		.4byte	.LASF13
+ 280 0098 04       		.uleb128 0x4
+ 281 0099 A9000000 		.4byte	.LASF14
+ 282 009d 02       		.byte	0x2
+ 283 009e 3C02     		.2byte	0x23c
+ 284 00a0 A4000000 		.4byte	0xa4
+ 285 00a4 05       		.uleb128 0x5
+ 286 00a5 6B000000 		.4byte	0x6b
+ 287 00a9 02       		.uleb128 0x2
+ 288 00aa 04       		.byte	0x4
+ 289 00ab 07       		.byte	0x7
+ 290 00ac 50020000 		.4byte	.LASF15
+ 291 00b0 06       		.uleb128 0x6
+ 292 00b1 06       		.byte	0x6
+ 293 00b2 03       		.byte	0x3
+ 294 00b3 43       		.byte	0x43
+ 295 00b4 E9000000 		.4byte	0xe9
+ 296 00b8 07       		.uleb128 0x7
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 9
 
 
- 296 00b9 18010000 		.4byte	.LASF16
- 297 00bd 03       		.byte	0x3
- 298 00be 45       		.byte	0x45
- 299 00bf 6B000000 		.4byte	0x6b
- 300 00c3 00       		.byte	0
- 301 00c4 07       		.uleb128 0x7
- 302 00c5 2F020000 		.4byte	.LASF17
- 303 00c9 03       		.byte	0x3
- 304 00ca 48       		.byte	0x48
- 305 00cb 77000000 		.4byte	0x77
- 306 00cf 04       		.byte	0x4
- 307 00d0 07       		.uleb128 0x7
- 308 00d1 3D020000 		.4byte	.LASF18
- 309 00d5 03       		.byte	0x3
- 310 00d6 49       		.byte	0x49
- 311 00d7 6B000000 		.4byte	0x6b
- 312 00db 08       		.byte	0x8
- 313 00dc 07       		.uleb128 0x7
- 314 00dd DF000000 		.4byte	.LASF19
- 315 00e1 03       		.byte	0x3
- 316 00e2 4F       		.byte	0x4f
- 317 00e3 6B000000 		.4byte	0x6b
- 318 00e7 09       		.byte	0x9
- 319 00e8 00       		.byte	0
- 320 00e9 08       		.uleb128 0x8
- 321 00ea 19020000 		.4byte	.LASF20
- 322 00ee 03       		.byte	0x3
- 323 00ef 53       		.byte	0x53
- 324 00f0 B0000000 		.4byte	0xb0
- 325 00f4 09       		.uleb128 0x9
- 326 00f5 F4000000 		.4byte	.LASF21
- 327 00f9 01       		.byte	0x1
- 328 00fa 2B       		.byte	0x2b
- 329 00fb 00000000 		.4byte	.LFB0
- 330 00ff 30000000 		.4byte	.LFE0-.LFB0
- 331 0103 01       		.uleb128 0x1
- 332 0104 9C       		.byte	0x9c
- 333 0105 09       		.uleb128 0x9
- 334 0106 65000000 		.4byte	.LASF22
- 335 010a 01       		.byte	0x1
- 336 010b 4D       		.byte	0x4d
- 337 010c 00000000 		.4byte	.LFB1
- 338 0110 2C000000 		.4byte	.LFE1-.LFB1
- 339 0114 01       		.uleb128 0x1
- 340 0115 9C       		.byte	0x9c
- 341 0116 09       		.uleb128 0x9
- 342 0117 A1000000 		.4byte	.LASF23
- 343 011b 01       		.byte	0x1
- 344 011c 70       		.byte	0x70
- 345 011d 00000000 		.4byte	.LFB2
- 346 0121 34000000 		.4byte	.LFE2-.LFB2
- 347 0125 01       		.uleb128 0x1
- 348 0126 9C       		.byte	0x9c
- 349 0127 09       		.uleb128 0x9
- 350 0128 03020000 		.4byte	.LASF24
- 351 012c 01       		.byte	0x1
- 352 012d 96       		.byte	0x96
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 10
+ 297 00b9 16010000 		.4byte	.LASF16
+ 298 00bd 03       		.byte	0x3
+ 299 00be 45       		.byte	0x45
+ 300 00bf 6B000000 		.4byte	0x6b
+ 301 00c3 00       		.byte	0
+ 302 00c4 07       		.uleb128 0x7
+ 303 00c5 2D020000 		.4byte	.LASF17
+ 304 00c9 03       		.byte	0x3
+ 305 00ca 48       		.byte	0x48
+ 306 00cb 77000000 		.4byte	0x77
+ 307 00cf 02       		.byte	0x2
+ 308 00d0 07       		.uleb128 0x7
+ 309 00d1 3D020000 		.4byte	.LASF18
+ 310 00d5 03       		.byte	0x3
+ 311 00d6 49       		.byte	0x49
+ 312 00d7 6B000000 		.4byte	0x6b
+ 313 00db 04       		.byte	0x4
+ 314 00dc 07       		.uleb128 0x7
+ 315 00dd DD000000 		.4byte	.LASF19
+ 316 00e1 03       		.byte	0x3
+ 317 00e2 4F       		.byte	0x4f
+ 318 00e3 6B000000 		.4byte	0x6b
+ 319 00e7 05       		.byte	0x5
+ 320 00e8 00       		.byte	0
+ 321 00e9 08       		.uleb128 0x8
+ 322 00ea 17020000 		.4byte	.LASF20
+ 323 00ee 03       		.byte	0x3
+ 324 00ef 53       		.byte	0x53
+ 325 00f0 B0000000 		.4byte	0xb0
+ 326 00f4 09       		.uleb128 0x9
+ 327 00f5 F2000000 		.4byte	.LASF21
+ 328 00f9 01       		.byte	0x1
+ 329 00fa 2B       		.byte	0x2b
+ 330 00fb 00000000 		.4byte	.LFB0
+ 331 00ff 30000000 		.4byte	.LFE0-.LFB0
+ 332 0103 01       		.uleb128 0x1
+ 333 0104 9C       		.byte	0x9c
+ 334 0105 09       		.uleb128 0x9
+ 335 0106 5E000000 		.4byte	.LASF22
+ 336 010a 01       		.byte	0x1
+ 337 010b 4D       		.byte	0x4d
+ 338 010c 00000000 		.4byte	.LFB1
+ 339 0110 2C000000 		.4byte	.LFE1-.LFB1
+ 340 0114 01       		.uleb128 0x1
+ 341 0115 9C       		.byte	0x9c
+ 342 0116 09       		.uleb128 0x9
+ 343 0117 75000000 		.4byte	.LASF23
+ 344 011b 01       		.byte	0x1
+ 345 011c 70       		.byte	0x70
+ 346 011d 00000000 		.4byte	.LFB2
+ 347 0121 34000000 		.4byte	.LFE2-.LFB2
+ 348 0125 01       		.uleb128 0x1
+ 349 0126 9C       		.byte	0x9c
+ 350 0127 09       		.uleb128 0x9
+ 351 0128 01020000 		.4byte	.LASF24
+ 352 012c 01       		.byte	0x1
+ 353 012d 96       		.byte	0x96
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 10
 
 
- 353 012e 00000000 		.4byte	.LFB3
- 354 0132 1C000000 		.4byte	.LFE3-.LFB3
- 355 0136 01       		.uleb128 0x1
- 356 0137 9C       		.byte	0x9c
- 357 0138 0A       		.uleb128 0xa
- 358 0139 08010000 		.4byte	.LASF28
- 359 013d 01       		.byte	0x1
- 360 013e 15       		.byte	0x15
- 361 013f E9000000 		.4byte	0xe9
- 362 0143 05       		.uleb128 0x5
- 363 0144 03       		.byte	0x3
- 364 0145 00000000 		.4byte	sd_timer_backup
- 365 0149 00       		.byte	0
- 366              		.section	.debug_abbrev,"",%progbits
- 367              	.Ldebug_abbrev0:
- 368 0000 01       		.uleb128 0x1
- 369 0001 11       		.uleb128 0x11
- 370 0002 01       		.byte	0x1
- 371 0003 25       		.uleb128 0x25
- 372 0004 0E       		.uleb128 0xe
- 373 0005 13       		.uleb128 0x13
- 374 0006 0B       		.uleb128 0xb
- 375 0007 03       		.uleb128 0x3
- 376 0008 0E       		.uleb128 0xe
- 377 0009 1B       		.uleb128 0x1b
- 378 000a 0E       		.uleb128 0xe
- 379 000b 55       		.uleb128 0x55
- 380 000c 17       		.uleb128 0x17
- 381 000d 11       		.uleb128 0x11
- 382 000e 01       		.uleb128 0x1
- 383 000f 10       		.uleb128 0x10
- 384 0010 17       		.uleb128 0x17
- 385 0011 00       		.byte	0
- 386 0012 00       		.byte	0
- 387 0013 02       		.uleb128 0x2
- 388 0014 24       		.uleb128 0x24
- 389 0015 00       		.byte	0
- 390 0016 0B       		.uleb128 0xb
- 391 0017 0B       		.uleb128 0xb
- 392 0018 3E       		.uleb128 0x3e
- 393 0019 0B       		.uleb128 0xb
- 394 001a 03       		.uleb128 0x3
- 395 001b 0E       		.uleb128 0xe
- 396 001c 00       		.byte	0
- 397 001d 00       		.byte	0
- 398 001e 03       		.uleb128 0x3
- 399 001f 24       		.uleb128 0x24
- 400 0020 00       		.byte	0
- 401 0021 0B       		.uleb128 0xb
- 402 0022 0B       		.uleb128 0xb
- 403 0023 3E       		.uleb128 0x3e
- 404 0024 0B       		.uleb128 0xb
- 405 0025 03       		.uleb128 0x3
- 406 0026 08       		.uleb128 0x8
- 407 0027 00       		.byte	0
- 408 0028 00       		.byte	0
- 409 0029 04       		.uleb128 0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 11
+ 354 012e 00000000 		.4byte	.LFB3
+ 355 0132 1C000000 		.4byte	.LFE3-.LFB3
+ 356 0136 01       		.uleb128 0x1
+ 357 0137 9C       		.byte	0x9c
+ 358 0138 0A       		.uleb128 0xa
+ 359 0139 06010000 		.4byte	.LASF28
+ 360 013d 01       		.byte	0x1
+ 361 013e 15       		.byte	0x15
+ 362 013f E9000000 		.4byte	0xe9
+ 363 0143 05       		.uleb128 0x5
+ 364 0144 03       		.byte	0x3
+ 365 0145 00000000 		.4byte	sd_timer_backup
+ 366 0149 00       		.byte	0
+ 367              		.section	.debug_abbrev,"",%progbits
+ 368              	.Ldebug_abbrev0:
+ 369 0000 01       		.uleb128 0x1
+ 370 0001 11       		.uleb128 0x11
+ 371 0002 01       		.byte	0x1
+ 372 0003 25       		.uleb128 0x25
+ 373 0004 0E       		.uleb128 0xe
+ 374 0005 13       		.uleb128 0x13
+ 375 0006 0B       		.uleb128 0xb
+ 376 0007 03       		.uleb128 0x3
+ 377 0008 0E       		.uleb128 0xe
+ 378 0009 1B       		.uleb128 0x1b
+ 379 000a 0E       		.uleb128 0xe
+ 380 000b 55       		.uleb128 0x55
+ 381 000c 17       		.uleb128 0x17
+ 382 000d 11       		.uleb128 0x11
+ 383 000e 01       		.uleb128 0x1
+ 384 000f 10       		.uleb128 0x10
+ 385 0010 17       		.uleb128 0x17
+ 386 0011 00       		.byte	0
+ 387 0012 00       		.byte	0
+ 388 0013 02       		.uleb128 0x2
+ 389 0014 24       		.uleb128 0x24
+ 390 0015 00       		.byte	0
+ 391 0016 0B       		.uleb128 0xb
+ 392 0017 0B       		.uleb128 0xb
+ 393 0018 3E       		.uleb128 0x3e
+ 394 0019 0B       		.uleb128 0xb
+ 395 001a 03       		.uleb128 0x3
+ 396 001b 0E       		.uleb128 0xe
+ 397 001c 00       		.byte	0
+ 398 001d 00       		.byte	0
+ 399 001e 03       		.uleb128 0x3
+ 400 001f 24       		.uleb128 0x24
+ 401 0020 00       		.byte	0
+ 402 0021 0B       		.uleb128 0xb
+ 403 0022 0B       		.uleb128 0xb
+ 404 0023 3E       		.uleb128 0x3e
+ 405 0024 0B       		.uleb128 0xb
+ 406 0025 03       		.uleb128 0x3
+ 407 0026 08       		.uleb128 0x8
+ 408 0027 00       		.byte	0
+ 409 0028 00       		.byte	0
+ 410 0029 04       		.uleb128 0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 11
 
 
- 410 002a 16       		.uleb128 0x16
- 411 002b 00       		.byte	0
- 412 002c 03       		.uleb128 0x3
- 413 002d 0E       		.uleb128 0xe
- 414 002e 3A       		.uleb128 0x3a
- 415 002f 0B       		.uleb128 0xb
- 416 0030 3B       		.uleb128 0x3b
- 417 0031 05       		.uleb128 0x5
- 418 0032 49       		.uleb128 0x49
- 419 0033 13       		.uleb128 0x13
- 420 0034 00       		.byte	0
- 421 0035 00       		.byte	0
- 422 0036 05       		.uleb128 0x5
- 423 0037 35       		.uleb128 0x35
- 424 0038 00       		.byte	0
- 425 0039 49       		.uleb128 0x49
- 426 003a 13       		.uleb128 0x13
- 427 003b 00       		.byte	0
- 428 003c 00       		.byte	0
- 429 003d 06       		.uleb128 0x6
- 430 003e 13       		.uleb128 0x13
- 431 003f 01       		.byte	0x1
- 432 0040 0B       		.uleb128 0xb
- 433 0041 0B       		.uleb128 0xb
- 434 0042 3A       		.uleb128 0x3a
- 435 0043 0B       		.uleb128 0xb
- 436 0044 3B       		.uleb128 0x3b
- 437 0045 0B       		.uleb128 0xb
- 438 0046 01       		.uleb128 0x1
- 439 0047 13       		.uleb128 0x13
- 440 0048 00       		.byte	0
- 441 0049 00       		.byte	0
- 442 004a 07       		.uleb128 0x7
- 443 004b 0D       		.uleb128 0xd
- 444 004c 00       		.byte	0
- 445 004d 03       		.uleb128 0x3
- 446 004e 0E       		.uleb128 0xe
- 447 004f 3A       		.uleb128 0x3a
- 448 0050 0B       		.uleb128 0xb
- 449 0051 3B       		.uleb128 0x3b
- 450 0052 0B       		.uleb128 0xb
- 451 0053 49       		.uleb128 0x49
- 452 0054 13       		.uleb128 0x13
- 453 0055 38       		.uleb128 0x38
- 454 0056 0B       		.uleb128 0xb
- 455 0057 00       		.byte	0
- 456 0058 00       		.byte	0
- 457 0059 08       		.uleb128 0x8
- 458 005a 16       		.uleb128 0x16
- 459 005b 00       		.byte	0
- 460 005c 03       		.uleb128 0x3
- 461 005d 0E       		.uleb128 0xe
- 462 005e 3A       		.uleb128 0x3a
- 463 005f 0B       		.uleb128 0xb
- 464 0060 3B       		.uleb128 0x3b
- 465 0061 0B       		.uleb128 0xb
- 466 0062 49       		.uleb128 0x49
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 12
+ 411 002a 16       		.uleb128 0x16
+ 412 002b 00       		.byte	0
+ 413 002c 03       		.uleb128 0x3
+ 414 002d 0E       		.uleb128 0xe
+ 415 002e 3A       		.uleb128 0x3a
+ 416 002f 0B       		.uleb128 0xb
+ 417 0030 3B       		.uleb128 0x3b
+ 418 0031 05       		.uleb128 0x5
+ 419 0032 49       		.uleb128 0x49
+ 420 0033 13       		.uleb128 0x13
+ 421 0034 00       		.byte	0
+ 422 0035 00       		.byte	0
+ 423 0036 05       		.uleb128 0x5
+ 424 0037 35       		.uleb128 0x35
+ 425 0038 00       		.byte	0
+ 426 0039 49       		.uleb128 0x49
+ 427 003a 13       		.uleb128 0x13
+ 428 003b 00       		.byte	0
+ 429 003c 00       		.byte	0
+ 430 003d 06       		.uleb128 0x6
+ 431 003e 13       		.uleb128 0x13
+ 432 003f 01       		.byte	0x1
+ 433 0040 0B       		.uleb128 0xb
+ 434 0041 0B       		.uleb128 0xb
+ 435 0042 3A       		.uleb128 0x3a
+ 436 0043 0B       		.uleb128 0xb
+ 437 0044 3B       		.uleb128 0x3b
+ 438 0045 0B       		.uleb128 0xb
+ 439 0046 01       		.uleb128 0x1
+ 440 0047 13       		.uleb128 0x13
+ 441 0048 00       		.byte	0
+ 442 0049 00       		.byte	0
+ 443 004a 07       		.uleb128 0x7
+ 444 004b 0D       		.uleb128 0xd
+ 445 004c 00       		.byte	0
+ 446 004d 03       		.uleb128 0x3
+ 447 004e 0E       		.uleb128 0xe
+ 448 004f 3A       		.uleb128 0x3a
+ 449 0050 0B       		.uleb128 0xb
+ 450 0051 3B       		.uleb128 0x3b
+ 451 0052 0B       		.uleb128 0xb
+ 452 0053 49       		.uleb128 0x49
+ 453 0054 13       		.uleb128 0x13
+ 454 0055 38       		.uleb128 0x38
+ 455 0056 0B       		.uleb128 0xb
+ 456 0057 00       		.byte	0
+ 457 0058 00       		.byte	0
+ 458 0059 08       		.uleb128 0x8
+ 459 005a 16       		.uleb128 0x16
+ 460 005b 00       		.byte	0
+ 461 005c 03       		.uleb128 0x3
+ 462 005d 0E       		.uleb128 0xe
+ 463 005e 3A       		.uleb128 0x3a
+ 464 005f 0B       		.uleb128 0xb
+ 465 0060 3B       		.uleb128 0x3b
+ 466 0061 0B       		.uleb128 0xb
+ 467 0062 49       		.uleb128 0x49
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 12
 
 
- 467 0063 13       		.uleb128 0x13
- 468 0064 00       		.byte	0
- 469 0065 00       		.byte	0
- 470 0066 09       		.uleb128 0x9
- 471 0067 2E       		.uleb128 0x2e
- 472 0068 00       		.byte	0
- 473 0069 3F       		.uleb128 0x3f
- 474 006a 19       		.uleb128 0x19
- 475 006b 03       		.uleb128 0x3
- 476 006c 0E       		.uleb128 0xe
- 477 006d 3A       		.uleb128 0x3a
- 478 006e 0B       		.uleb128 0xb
- 479 006f 3B       		.uleb128 0x3b
- 480 0070 0B       		.uleb128 0xb
- 481 0071 27       		.uleb128 0x27
- 482 0072 19       		.uleb128 0x19
- 483 0073 11       		.uleb128 0x11
- 484 0074 01       		.uleb128 0x1
- 485 0075 12       		.uleb128 0x12
- 486 0076 06       		.uleb128 0x6
- 487 0077 40       		.uleb128 0x40
- 488 0078 18       		.uleb128 0x18
- 489 0079 9642     		.uleb128 0x2116
- 490 007b 19       		.uleb128 0x19
- 491 007c 00       		.byte	0
- 492 007d 00       		.byte	0
- 493 007e 0A       		.uleb128 0xa
- 494 007f 34       		.uleb128 0x34
- 495 0080 00       		.byte	0
- 496 0081 03       		.uleb128 0x3
- 497 0082 0E       		.uleb128 0xe
- 498 0083 3A       		.uleb128 0x3a
- 499 0084 0B       		.uleb128 0xb
- 500 0085 3B       		.uleb128 0x3b
- 501 0086 0B       		.uleb128 0xb
- 502 0087 49       		.uleb128 0x49
- 503 0088 13       		.uleb128 0x13
- 504 0089 02       		.uleb128 0x2
- 505 008a 18       		.uleb128 0x18
- 506 008b 00       		.byte	0
- 507 008c 00       		.byte	0
- 508 008d 00       		.byte	0
- 509              		.section	.debug_aranges,"",%progbits
- 510 0000 34000000 		.4byte	0x34
- 511 0004 0200     		.2byte	0x2
- 512 0006 00000000 		.4byte	.Ldebug_info0
- 513 000a 04       		.byte	0x4
- 514 000b 00       		.byte	0
- 515 000c 0000     		.2byte	0
- 516 000e 0000     		.2byte	0
- 517 0010 00000000 		.4byte	.LFB0
- 518 0014 30000000 		.4byte	.LFE0-.LFB0
- 519 0018 00000000 		.4byte	.LFB1
- 520 001c 2C000000 		.4byte	.LFE1-.LFB1
- 521 0020 00000000 		.4byte	.LFB2
- 522 0024 34000000 		.4byte	.LFE2-.LFB2
- 523 0028 00000000 		.4byte	.LFB3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 13
+ 468 0063 13       		.uleb128 0x13
+ 469 0064 00       		.byte	0
+ 470 0065 00       		.byte	0
+ 471 0066 09       		.uleb128 0x9
+ 472 0067 2E       		.uleb128 0x2e
+ 473 0068 00       		.byte	0
+ 474 0069 3F       		.uleb128 0x3f
+ 475 006a 19       		.uleb128 0x19
+ 476 006b 03       		.uleb128 0x3
+ 477 006c 0E       		.uleb128 0xe
+ 478 006d 3A       		.uleb128 0x3a
+ 479 006e 0B       		.uleb128 0xb
+ 480 006f 3B       		.uleb128 0x3b
+ 481 0070 0B       		.uleb128 0xb
+ 482 0071 27       		.uleb128 0x27
+ 483 0072 19       		.uleb128 0x19
+ 484 0073 11       		.uleb128 0x11
+ 485 0074 01       		.uleb128 0x1
+ 486 0075 12       		.uleb128 0x12
+ 487 0076 06       		.uleb128 0x6
+ 488 0077 40       		.uleb128 0x40
+ 489 0078 18       		.uleb128 0x18
+ 490 0079 9642     		.uleb128 0x2116
+ 491 007b 19       		.uleb128 0x19
+ 492 007c 00       		.byte	0
+ 493 007d 00       		.byte	0
+ 494 007e 0A       		.uleb128 0xa
+ 495 007f 34       		.uleb128 0x34
+ 496 0080 00       		.byte	0
+ 497 0081 03       		.uleb128 0x3
+ 498 0082 0E       		.uleb128 0xe
+ 499 0083 3A       		.uleb128 0x3a
+ 500 0084 0B       		.uleb128 0xb
+ 501 0085 3B       		.uleb128 0x3b
+ 502 0086 0B       		.uleb128 0xb
+ 503 0087 49       		.uleb128 0x49
+ 504 0088 13       		.uleb128 0x13
+ 505 0089 02       		.uleb128 0x2
+ 506 008a 18       		.uleb128 0x18
+ 507 008b 00       		.byte	0
+ 508 008c 00       		.byte	0
+ 509 008d 00       		.byte	0
+ 510              		.section	.debug_aranges,"",%progbits
+ 511 0000 34000000 		.4byte	0x34
+ 512 0004 0200     		.2byte	0x2
+ 513 0006 00000000 		.4byte	.Ldebug_info0
+ 514 000a 04       		.byte	0x4
+ 515 000b 00       		.byte	0
+ 516 000c 0000     		.2byte	0
+ 517 000e 0000     		.2byte	0
+ 518 0010 00000000 		.4byte	.LFB0
+ 519 0014 30000000 		.4byte	.LFE0-.LFB0
+ 520 0018 00000000 		.4byte	.LFB1
+ 521 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 522 0020 00000000 		.4byte	.LFB2
+ 523 0024 34000000 		.4byte	.LFE2-.LFB2
+ 524 0028 00000000 		.4byte	.LFB3
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 13
 
 
- 524 002c 1C000000 		.4byte	.LFE3-.LFB3
- 525 0030 00000000 		.4byte	0
- 526 0034 00000000 		.4byte	0
- 527              		.section	.debug_ranges,"",%progbits
- 528              	.Ldebug_ranges0:
- 529 0000 00000000 		.4byte	.LFB0
- 530 0004 30000000 		.4byte	.LFE0
- 531 0008 00000000 		.4byte	.LFB1
- 532 000c 2C000000 		.4byte	.LFE1
- 533 0010 00000000 		.4byte	.LFB2
- 534 0014 34000000 		.4byte	.LFE2
- 535 0018 00000000 		.4byte	.LFB3
- 536 001c 1C000000 		.4byte	.LFE3
- 537 0020 00000000 		.4byte	0
- 538 0024 00000000 		.4byte	0
- 539              		.section	.debug_line,"",%progbits
- 540              	.Ldebug_line0:
- 541 0000 AD000000 		.section	.debug_str,"MS",%progbits,1
- 541      02005600 
- 541      00000201 
- 541      FB0E0D00 
- 541      01010101 
- 542              	.LASF6:
- 543 0000 6C6F6E67 		.ascii	"long long int\000"
- 543      206C6F6E 
- 543      6720696E 
- 543      7400
- 544              	.LASF10:
- 545 000e 75696E74 		.ascii	"uint32\000"
- 545      333200
- 546              	.LASF8:
- 547 0015 756E7369 		.ascii	"unsigned int\000"
- 547      676E6564 
- 547      20696E74 
- 547      00
- 548              	.LASF27:
- 549 0022 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
- 549      6F776E6C 
- 549      6F616473 
- 549      5C465255 
- 549      43445C4E 
- 550 0051 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
- 550      2D436170 
- 550      79626172 
- 550      612E6379 
- 550      64736E00 
- 551              	.LASF22:
- 552 0065 73645F74 		.ascii	"sd_timer_RestoreConfig\000"
- 552      696D6572 
- 552      5F526573 
- 552      746F7265 
- 552      436F6E66 
- 553              	.LASF26:
- 554 007c 47656E65 		.ascii	"Generated_Source\\PSoC5\\sd_timer_PM.c\000"
- 554      72617465 
- 554      645F536F 
- 554      75726365 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 14
+ 525 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 526 0030 00000000 		.4byte	0
+ 527 0034 00000000 		.4byte	0
+ 528              		.section	.debug_ranges,"",%progbits
+ 529              	.Ldebug_ranges0:
+ 530 0000 00000000 		.4byte	.LFB0
+ 531 0004 30000000 		.4byte	.LFE0
+ 532 0008 00000000 		.4byte	.LFB1
+ 533 000c 2C000000 		.4byte	.LFE1
+ 534 0010 00000000 		.4byte	.LFB2
+ 535 0014 34000000 		.4byte	.LFE2
+ 536 0018 00000000 		.4byte	.LFB3
+ 537 001c 1C000000 		.4byte	.LFE3
+ 538 0020 00000000 		.4byte	0
+ 539 0024 00000000 		.4byte	0
+ 540              		.section	.debug_line,"",%progbits
+ 541              	.Ldebug_line0:
+ 542 0000 AD000000 		.section	.debug_str,"MS",%progbits,1
+ 542      02005600 
+ 542      00000201 
+ 542      FB0E0D00 
+ 542      01010101 
+ 543              	.LASF6:
+ 544 0000 6C6F6E67 		.ascii	"long long int\000"
+ 544      206C6F6E 
+ 544      6720696E 
+ 544      7400
+ 545              	.LASF8:
+ 546 000e 756E7369 		.ascii	"unsigned int\000"
+ 546      676E6564 
+ 546      20696E74 
+ 546      00
+ 547              	.LASF27:
+ 548 001b 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
+ 548      6F776E6C 
+ 548      6F616473 
+ 548      5C465255 
+ 548      43445C4E 
+ 549 004a 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
+ 549      2D436170 
+ 549      79626172 
+ 549      612E6379 
+ 549      64736E00 
+ 550              	.LASF22:
+ 551 005e 73645F74 		.ascii	"sd_timer_RestoreConfig\000"
+ 551      696D6572 
+ 551      5F526573 
+ 551      746F7265 
+ 551      436F6E66 
+ 552              	.LASF23:
+ 553 0075 73645F74 		.ascii	"sd_timer_Sleep\000"
+ 553      696D6572 
+ 553      5F536C65 
+ 553      657000
+ 554              	.LASF26:
+ 555 0084 47656E65 		.ascii	"Generated_Source\\PSoC5\\sd_timer_PM.c\000"
+ 555      72617465 
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 14
 
 
- 554      5C50536F 
- 555              	.LASF23:
- 556 00a1 73645F74 		.ascii	"sd_timer_Sleep\000"
- 556      696D6572 
- 556      5F536C65 
- 556      657000
- 557              	.LASF9:
- 558 00b0 75696E74 		.ascii	"uint8\000"
- 558      3800
- 559              	.LASF5:
- 560 00b6 6C6F6E67 		.ascii	"long unsigned int\000"
- 560      20756E73 
- 560      69676E65 
- 560      6420696E 
- 560      7400
- 561              	.LASF7:
- 562 00c8 6C6F6E67 		.ascii	"long long unsigned int\000"
- 562      206C6F6E 
- 562      6720756E 
- 562      7369676E 
- 562      65642069 
- 563              	.LASF19:
- 564 00df 54696D65 		.ascii	"TimerControlRegister\000"
- 564      72436F6E 
- 564      74726F6C 
- 564      52656769 
- 564      73746572 
- 565              	.LASF21:
- 566 00f4 73645F74 		.ascii	"sd_timer_SaveConfig\000"
- 566      696D6572 
- 566      5F536176 
- 566      65436F6E 
- 566      66696700 
- 567              	.LASF28:
- 568 0108 73645F74 		.ascii	"sd_timer_backup\000"
- 568      696D6572 
- 568      5F626163 
- 568      6B757000 
- 569              	.LASF16:
- 570 0118 54696D65 		.ascii	"TimerEnableState\000"
- 570      72456E61 
- 570      626C6553 
- 570      74617465 
- 570      00
- 571              	.LASF1:
- 572 0129 756E7369 		.ascii	"unsigned char\000"
- 572      676E6564 
- 572      20636861 
- 572      7200
- 573              	.LASF13:
- 574 0137 63686172 		.ascii	"char\000"
- 574      00
- 575              	.LASF4:
- 576 013c 6C6F6E67 		.ascii	"long int\000"
- 576      20696E74 
- 576      00
- 577              	.LASF25:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 15
+ 555      645F536F 
+ 555      75726365 
+ 555      5C50536F 
+ 556              	.LASF14:
+ 557 00a9 72656738 		.ascii	"reg8\000"
+ 557      00
+ 558              	.LASF9:
+ 559 00ae 75696E74 		.ascii	"uint8\000"
+ 559      3800
+ 560              	.LASF5:
+ 561 00b4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 561      20756E73 
+ 561      69676E65 
+ 561      6420696E 
+ 561      7400
+ 562              	.LASF7:
+ 563 00c6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 563      206C6F6E 
+ 563      6720756E 
+ 563      7369676E 
+ 563      65642069 
+ 564              	.LASF19:
+ 565 00dd 54696D65 		.ascii	"TimerControlRegister\000"
+ 565      72436F6E 
+ 565      74726F6C 
+ 565      52656769 
+ 565      73746572 
+ 566              	.LASF21:
+ 567 00f2 73645F74 		.ascii	"sd_timer_SaveConfig\000"
+ 567      696D6572 
+ 567      5F536176 
+ 567      65436F6E 
+ 567      66696700 
+ 568              	.LASF28:
+ 569 0106 73645F74 		.ascii	"sd_timer_backup\000"
+ 569      696D6572 
+ 569      5F626163 
+ 569      6B757000 
+ 570              	.LASF16:
+ 571 0116 54696D65 		.ascii	"TimerEnableState\000"
+ 571      72456E61 
+ 571      626C6553 
+ 571      74617465 
+ 571      00
+ 572              	.LASF1:
+ 573 0127 756E7369 		.ascii	"unsigned char\000"
+ 573      676E6564 
+ 573      20636861 
+ 573      7200
+ 574              	.LASF13:
+ 575 0135 63686172 		.ascii	"char\000"
+ 575      00
+ 576              	.LASF4:
+ 577 013a 6C6F6E67 		.ascii	"long int\000"
+ 577      20696E74 
+ 577      00
+ 578              	.LASF25:
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 15
 
 
- 578 0145 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 578      4320342E 
- 578      392E3320 
- 578      32303135 
- 578      30333033 
- 579 0178 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 579      20726576 
- 579      6973696F 
- 579      6E203232 
- 579      31323230 
- 580 01ab 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 580      66756E63 
- 580      74696F6E 
- 580      2D736563 
- 580      74696F6E 
- 581              	.LASF2:
- 582 01d3 73686F72 		.ascii	"short int\000"
- 582      7420696E 
- 582      7400
- 583              	.LASF12:
- 584 01dd 646F7562 		.ascii	"double\000"
- 584      6C6500
- 585              	.LASF3:
- 586 01e4 73686F72 		.ascii	"short unsigned int\000"
- 586      7420756E 
- 586      7369676E 
- 586      65642069 
- 586      6E7400
- 587              	.LASF0:
- 588 01f7 7369676E 		.ascii	"signed char\000"
- 588      65642063 
- 588      68617200 
- 589              	.LASF24:
- 590 0203 73645F74 		.ascii	"sd_timer_Wakeup\000"
- 590      696D6572 
- 590      5F57616B 
- 590      65757000 
- 591              	.LASF11:
- 592 0213 666C6F61 		.ascii	"float\000"
- 592      7400
- 593              	.LASF20:
- 594 0219 73645F74 		.ascii	"sd_timer_backupStruct\000"
- 594      696D6572 
- 594      5F626163 
- 594      6B757053 
- 594      74727563 
- 595              	.LASF17:
- 596 022f 54696D65 		.ascii	"TimerUdb\000"
- 596      72556462 
- 596      00
- 597              	.LASF14:
- 598 0238 72656738 		.ascii	"reg8\000"
- 598      00
- 599              	.LASF18:
- 600 023d 496E7465 		.ascii	"InterruptMaskValue\000"
- 600      72727570 
- 600      744D6173 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccHFSht9.s 			page 16
+ 579 0143 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 579      4320342E 
+ 579      392E3320 
+ 579      32303135 
+ 579      30333033 
+ 580 0176 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 580      20726576 
+ 580      6973696F 
+ 580      6E203232 
+ 580      31323230 
+ 581 01a9 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 581      66756E63 
+ 581      74696F6E 
+ 581      2D736563 
+ 581      74696F6E 
+ 582              	.LASF2:
+ 583 01d1 73686F72 		.ascii	"short int\000"
+ 583      7420696E 
+ 583      7400
+ 584              	.LASF12:
+ 585 01db 646F7562 		.ascii	"double\000"
+ 585      6C6500
+ 586              	.LASF3:
+ 587 01e2 73686F72 		.ascii	"short unsigned int\000"
+ 587      7420756E 
+ 587      7369676E 
+ 587      65642069 
+ 587      6E7400
+ 588              	.LASF0:
+ 589 01f5 7369676E 		.ascii	"signed char\000"
+ 589      65642063 
+ 589      68617200 
+ 590              	.LASF24:
+ 591 0201 73645F74 		.ascii	"sd_timer_Wakeup\000"
+ 591      696D6572 
+ 591      5F57616B 
+ 591      65757000 
+ 592              	.LASF11:
+ 593 0211 666C6F61 		.ascii	"float\000"
+ 593      7400
+ 594              	.LASF20:
+ 595 0217 73645F74 		.ascii	"sd_timer_backupStruct\000"
+ 595      696D6572 
+ 595      5F626163 
+ 595      6B757053 
+ 595      74727563 
+ 596              	.LASF17:
+ 597 022d 54696D65 		.ascii	"TimerUdb\000"
+ 597      72556462 
+ 597      00
+ 598              	.LASF10:
+ 599 0236 75696E74 		.ascii	"uint16\000"
+ 599      313600
+ 600              	.LASF18:
+ 601 023d 496E7465 		.ascii	"InterruptMaskValue\000"
+ 601      72727570 
+ 601      744D6173 
+ARM GAS  D:\Windows\AppData\Local\Temp\cc4qD3eZ.s 			page 16
 
 
- 600      6B56616C 
- 600      756500
- 601              	.LASF15:
- 602 0250 73697A65 		.ascii	"sizetype\000"
- 602      74797065 
- 602      00
- 603              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 601      6B56616C 
+ 601      756500
+ 602              	.LASF15:
+ 603 0250 73697A65 		.ascii	"sizetype\000"
+ 603      74797065 
+ 603      00
+ 604              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

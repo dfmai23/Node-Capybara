@@ -11,16 +11,16 @@ DataPacket sd_queue[SD_QUEUE_LENGTH];
 uint16_t sd_head = 0, sd_tail = 0;
 
 	
-CY_ISR(power_interrupt) {
+CY_ISR(power_isr_custom) {
 	sd_stop();
 	power_isr_ClearPending();
-    CyDelay(3000);
+    CyDelay(1000);
     //CySoftwareReset();
     for(;;);	// halt program until IC shuts down
 } // CY_ISR(power_interrupt)
 
 //triggers every second
-CY_ISR(sd_interrupt) {
+CY_ISR(sd_isr_custom) {
 	sd_write();
 }
 
@@ -42,18 +42,18 @@ void sd_init() {
 		capacitance. power isr is disabled for prototyping only.	*/
 	power_comp_Start();
 	power_isr_ClearPending();
-	power_isr_StartEx(power_interrupt);
+	power_isr_StartEx(power_isr_custom);
 	sd_timer_Start();
-	sd_isr_StartEx(sd_interrupt);
+	sd_isr_StartEx(sd_isr_custom);
     
 	FS_Init();
     FS_FAT_SupportLFN();            //enable long file name: filenames>8bytes
 	sd_ok = 1;
-	char file_str[64], test_folder[32];
+	char file_str[64];
 
 	if(FS_GetNumVolumes() == 1) {
 		FS_SetFileWriteMode(FS_WRITEMODE_FAST);
-		if((pfile = FS_FOpen(format_file, "r")))
+		if((pfile = FS_FOpen(format_file, "r")) && FS_GetVolumeSize("") <= 0xFFFFFFFF)	//for FAT only
 			FS_FormatSD("");
 		
         //create logs folder
@@ -106,6 +106,7 @@ void sd_write() {
 	short length = 0;
 	
     uint8_t atomic_state = CyEnterCriticalSection(); // BEGIN ATOMIC
+	/*
 	for(sd_head=0; sd_head<sd_tail; sd_head++) {
 		length = sprintf(buffer, "%X,%u,%X,%X,%X,%X,%X,%X,%X,%X\n",
 			(unsigned)sd_queue[sd_head].id,
@@ -121,6 +122,9 @@ void sd_write() {
 
 		FS_Write(pfile, buffer, length); // write to SD
 	}
+	*/
+	length = sprintf(buffer, "test\n");
+	FS_Write(pfile, buffer, length); // write to SD
 	FS_Sync(""); // sync to SD
 	sd_head=0; sd_tail=0;
     CyExitCriticalSection(atomic_state);               // END ATOMIC
@@ -140,7 +144,10 @@ void sd_read() {
 
 void sd_buffer(DataPacket * msg) {
 	sd_queue[sd_tail] = *msg;
-	sd_tail = ((sd_tail == SD_QUEUE_LENGTH-1) ? sd_tail:sd_tail++);	//if buffer full stay at tail
+	if (sd_tail == SD_QUEUE_LENGTH-1)	//if buffer full stay at tail
+		sd_tail = sd_tail;
+	else
+		sd_tail++;	
 }
 /* sd_stop()
 	Takes and returns nothing.

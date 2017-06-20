@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
   27:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** #define emFile_1_MMC_DEFAULT_SUPPLY_VOLTAGE    (3300u)
   28:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
   29:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** /* Max. startup frequency (KHz) */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 2
 
 
   30:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** #define emFile_1_STARTUP_FREQ                   (400u)
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
   36              		.cfi_offset 14, -4
   37 0002 82B0     		sub	sp, sp, #8
   38              		.cfi_def_cfa_offset 16
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 3
 
 
   39 0004 00AF     		add	r7, sp, #0
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
   68              	.L4:
   69 0034 11E0     		b	.L1
   70              	.L7:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 4
 
 
  102:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  156:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  157:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             case 3u:
  158:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 5
 
 
  159:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****                 if (emFile_1_isInited3 == 0u)
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  196:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  197:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             /* Start SPI 0 */
  198:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_SPI0_Start();
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 6
 
 
   88              		.loc 1 198 0
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  115              		.loc 1 225 0
  116              		.cfi_startproc
  117              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 7
 
 
  118              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  156              	.L17:
  242:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  243:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     #if (emFile_1_NUMBER_SD_CARDS >= 2u)
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 8
 
 
  244:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  157              		.loc 1 297 0
  158 003a BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
  159 003c 1846     		mov	r0, r3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 9
 
 
  160 003e FFF7FEFF 		bl	emFile_1_SPI0_WriteTxData
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  313:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** ********************************************************************************
  314:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *
  315:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 10
 
 
  316:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *  FS low level function. Sets the card slot active using the
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  346:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  347:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****                 break;
  348:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 11
 
 
  349:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         #endif /* (emFile_1_NUMBER_SD_CARDS >= 2u) */
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  246              	.LFB66:
  380:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  381:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 12
 
 
  382:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** /*******************************************************************************
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  412:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         case 1u:
  413:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  414:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_SPI1_CS_Write(1u);
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 13
 
 
  415:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  293              	FS_MMC_HW_X_IsWriteProtected:
  294              	.LFB67:
  447:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 14
 
 
  448:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  313              		.loc 1 483 0
  314 0010 0023     		movs	r3, #0
  315 0012 FB60     		str	r3, [r7, #12]
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 15
 
 
  484:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  535:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  536:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             #else
  537:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 16
 
 
  538:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****                 wpState = 0;
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  347              	FS_MMC_HW_X_SetMaxSpeed:
  348              	.LFB68:
  564:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 17
 
 
  565:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -1015,23 +1015,24 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  370              		.loc 1 594 0
  371 0018 4FF4C873 		mov	r3, #400
  372 001c BB80     		strh	r3, [r7, #4]	@ movhi
- 373 001e 06E0     		b	.L36
+ 373 001e 07E0     		b	.L36
  374              	.L35:
  595:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 18
 
 
  596:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     else if(MaxFreq > emFile_1_MAX_SPI_FREQ)
  375              		.loc 1 596 0
  376 0020 BB88     		ldrh	r3, [r7, #4]
- 377 0022 B3F57A6F 		cmp	r3, #4000
- 378 0026 02D9     		bls	.L36
+ 377 0022 42F21072 		movw	r2, #10000
+ 378 0026 9342     		cmp	r3, r2
+ 379 0028 02D9     		bls	.L36
  597:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
  598:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         MaxFreq = emFile_1_MAX_SPI_FREQ;
- 379              		.loc 1 598 0
- 380 0028 4FF47A63 		mov	r3, #4000
- 381 002c BB80     		strh	r3, [r7, #4]	@ movhi
- 382              	.L36:
+ 380              		.loc 1 598 0
+ 381 002a 42F21073 		movw	r3, #10000
+ 382 002e BB80     		strh	r3, [r7, #4]	@ movhi
+ 383              	.L36:
  599:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
  600:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     else
  601:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
@@ -1039,48 +1040,48 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  603:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
  604:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  605:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     freq = MaxFreq << 1u;
- 383              		.loc 1 605 0
- 384 002e BB88     		ldrh	r3, [r7, #4]	@ movhi
- 385 0030 5B00     		lsls	r3, r3, #1
- 386 0032 FB81     		strh	r3, [r7, #14]	@ movhi
+ 384              		.loc 1 605 0
+ 385 0030 BB88     		ldrh	r3, [r7, #4]	@ movhi
+ 386 0032 5B00     		lsls	r3, r3, #1
+ 387 0034 FB81     		strh	r3, [r7, #14]	@ movhi
  606:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  607:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     divResult = ((U32) BCLK__BUS_CLK__KHZ)/((U32) freq);
- 387              		.loc 1 607 0
- 388 0034 FB89     		ldrh	r3, [r7, #14]
- 389 0036 45F6C052 		movw	r2, #24000
- 390 003a B2FBF3F3 		udiv	r3, r2, r3
- 391 003e 9BB2     		uxth	r3, r3
- 392 0040 BB60     		str	r3, [r7, #8]
+ 388              		.loc 1 607 0
+ 389 0036 FB89     		ldrh	r3, [r7, #14]
+ 390 0038 45F6C052 		movw	r2, #24000
+ 391 003c B2FBF3F3 		udiv	r3, r2, r3
+ 392 0040 9BB2     		uxth	r3, r3
+ 393 0042 BB60     		str	r3, [r7, #8]
  608:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  609:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     switch(Unit)
- 393              		.loc 1 609 0
- 394 0042 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 395 0044 002B     		cmp	r3, #0
- 396 0046 0CD1     		bne	.L41
+ 394              		.loc 1 609 0
+ 395 0044 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 396 0046 002B     		cmp	r3, #0
+ 397 0048 0CD1     		bne	.L41
  610:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
  611:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         case 0u:
  612:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_Stop();
- 397              		.loc 1 612 0
- 398 0048 FFF7FEFF 		bl	emFile_1_Clock_1_Stop
+ 398              		.loc 1 612 0
+ 399 004a FFF7FEFF 		bl	emFile_1_Clock_1_Stop
  613:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_SetDividerValue((U16)divResult);    /* update the frequency */
- 399              		.loc 1 613 0
- 400 004c BB68     		ldr	r3, [r7, #8]
- 401 004e 9BB2     		uxth	r3, r3
- 402 0050 013B     		subs	r3, r3, #1
- 403 0052 9BB2     		uxth	r3, r3
- 404 0054 1846     		mov	r0, r3
- 405 0056 0121     		movs	r1, #1
- 406 0058 FFF7FEFF 		bl	emFile_1_Clock_1_SetDividerRegister
+ 400              		.loc 1 613 0
+ 401 004e BB68     		ldr	r3, [r7, #8]
+ 402 0050 9BB2     		uxth	r3, r3
+ 403 0052 013B     		subs	r3, r3, #1
+ 404 0054 9BB2     		uxth	r3, r3
+ 405 0056 1846     		mov	r0, r3
+ 406 0058 0121     		movs	r1, #1
+ 407 005a FFF7FEFF 		bl	emFile_1_Clock_1_SetDividerRegister
  614:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_Start();
- 407              		.loc 1 614 0
- 408 005c FFF7FEFF 		bl	emFile_1_Clock_1_Start
+ 408              		.loc 1 614 0
+ 409 005e FFF7FEFF 		bl	emFile_1_Clock_1_Start
  615:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             break;
- 409              		.loc 1 615 0
- 410 0060 0CE0     		b	.L39
- 411              	.L41:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 19
+ 410              		.loc 1 615 0
+ 411 0062 0CE0     		b	.L39
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 19
 
 
+ 412              	.L41:
  616:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  617:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         #if (emFile_1_NUMBER_SD_CARDS >= 2u)
  618:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -1117,53 +1118,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  649:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  650:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         default:
  651:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_Stop();
- 412              		.loc 1 651 0
- 413 0062 FFF7FEFF 		bl	emFile_1_Clock_1_Stop
+ 413              		.loc 1 651 0
+ 414 0064 FFF7FEFF 		bl	emFile_1_Clock_1_Stop
  652:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_SetDividerValue((U16)divResult);    /* update the frequency */
- 414              		.loc 1 652 0
- 415 0066 BB68     		ldr	r3, [r7, #8]
- 416 0068 9BB2     		uxth	r3, r3
- 417 006a 013B     		subs	r3, r3, #1
- 418 006c 9BB2     		uxth	r3, r3
- 419 006e 1846     		mov	r0, r3
- 420 0070 0121     		movs	r1, #1
- 421 0072 FFF7FEFF 		bl	emFile_1_Clock_1_SetDividerRegister
+ 415              		.loc 1 652 0
+ 416 0068 BB68     		ldr	r3, [r7, #8]
+ 417 006a 9BB2     		uxth	r3, r3
+ 418 006c 013B     		subs	r3, r3, #1
+ 419 006e 9BB2     		uxth	r3, r3
+ 420 0070 1846     		mov	r0, r3
+ 421 0072 0121     		movs	r1, #1
+ 422 0074 FFF7FEFF 		bl	emFile_1_Clock_1_SetDividerRegister
  653:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_Clock_1_Start();
- 422              		.loc 1 653 0
- 423 0076 FFF7FEFF 		bl	emFile_1_Clock_1_Start
+ 423              		.loc 1 653 0
+ 424 0078 FFF7FEFF 		bl	emFile_1_Clock_1_Start
  654:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             break;
- 424              		.loc 1 654 0
- 425 007a 00BF     		nop
- 426              	.L39:
+ 425              		.loc 1 654 0
+ 426 007c 00BF     		nop
+ 427              	.L39:
  655:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
  656:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 20
+
+
  657:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     return (MaxFreq);
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 20
-
-
- 427              		.loc 1 657 0
- 428 007c BB88     		ldrh	r3, [r7, #4]
+ 428              		.loc 1 657 0
+ 429 007e BB88     		ldrh	r3, [r7, #4]
  658:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  659:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** }
- 429              		.loc 1 659 0
- 430 007e 1846     		mov	r0, r3
- 431 0080 1037     		adds	r7, r7, #16
- 432              		.cfi_def_cfa_offset 8
- 433 0082 BD46     		mov	sp, r7
- 434              		.cfi_def_cfa_register 13
- 435              		@ sp needed
- 436 0084 80BD     		pop	{r7, pc}
- 437              		.cfi_endproc
- 438              	.LFE68:
- 439              		.size	FS_MMC_HW_X_SetMaxSpeed, .-FS_MMC_HW_X_SetMaxSpeed
- 440 0086 00BF     		.section	.text.FS_MMC_HW_X_SetVoltage,"ax",%progbits
- 441              		.align	2
- 442              		.global	FS_MMC_HW_X_SetVoltage
- 443              		.thumb
- 444              		.thumb_func
- 445              		.type	FS_MMC_HW_X_SetVoltage, %function
- 446              	FS_MMC_HW_X_SetVoltage:
- 447              	.LFB69:
+ 430              		.loc 1 659 0
+ 431 0080 1846     		mov	r0, r3
+ 432 0082 1037     		adds	r7, r7, #16
+ 433              		.cfi_def_cfa_offset 8
+ 434 0084 BD46     		mov	sp, r7
+ 435              		.cfi_def_cfa_register 13
+ 436              		@ sp needed
+ 437 0086 80BD     		pop	{r7, pc}
+ 438              		.cfi_endproc
+ 439              	.LFE68:
+ 440              		.size	FS_MMC_HW_X_SetMaxSpeed, .-FS_MMC_HW_X_SetMaxSpeed
+ 441              		.section	.text.FS_MMC_HW_X_SetVoltage,"ax",%progbits
+ 442              		.align	2
+ 443              		.global	FS_MMC_HW_X_SetVoltage
+ 444              		.thumb
+ 445              		.thumb_func
+ 446              		.type	FS_MMC_HW_X_SetVoltage, %function
+ 447              	FS_MMC_HW_X_SetVoltage:
+ 448              	.LFB69:
  660:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  661:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  662:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** /*******************************************************************************
@@ -1190,35 +1191,35 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  683:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *******************************************************************************/
  684:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** int FS_MMC_HW_X_SetVoltage(U8 Unit, U16 Vmin, U16 Vmax)
  685:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** {
- 448              		.loc 1 685 0
- 449              		.cfi_startproc
- 450              		@ args = 0, pretend = 0, frame = 16
- 451              		@ frame_needed = 1, uses_anonymous_args = 0
- 452              		@ link register save eliminated.
- 453 0000 80B4     		push	{r7}
- 454              		.cfi_def_cfa_offset 4
- 455              		.cfi_offset 7, -4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 21
+ 449              		.loc 1 685 0
+ 450              		.cfi_startproc
+ 451              		@ args = 0, pretend = 0, frame = 16
+ 452              		@ frame_needed = 1, uses_anonymous_args = 0
+ 453              		@ link register save eliminated.
+ 454 0000 80B4     		push	{r7}
+ 455              		.cfi_def_cfa_offset 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 21
 
 
- 456 0002 85B0     		sub	sp, sp, #20
- 457              		.cfi_def_cfa_offset 24
- 458 0004 00AF     		add	r7, sp, #0
- 459              		.cfi_def_cfa_register 7
- 460 0006 0346     		mov	r3, r0
- 461 0008 FB71     		strb	r3, [r7, #7]
- 462 000a 0B46     		mov	r3, r1	@ movhi
- 463 000c BB80     		strh	r3, [r7, #4]	@ movhi
- 464 000e 1346     		mov	r3, r2	@ movhi
- 465 0010 7B80     		strh	r3, [r7, #2]	@ movhi
+ 456              		.cfi_offset 7, -4
+ 457 0002 85B0     		sub	sp, sp, #20
+ 458              		.cfi_def_cfa_offset 24
+ 459 0004 00AF     		add	r7, sp, #0
+ 460              		.cfi_def_cfa_register 7
+ 461 0006 0346     		mov	r3, r0
+ 462 0008 FB71     		strb	r3, [r7, #7]
+ 463 000a 0B46     		mov	r3, r1	@ movhi
+ 464 000c BB80     		strh	r3, [r7, #4]	@ movhi
+ 465 000e 1346     		mov	r3, r2	@ movhi
+ 466 0010 7B80     		strh	r3, [r7, #2]	@ movhi
  686:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     int result;
  687:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  688:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     switch(Unit)
- 466              		.loc 1 688 0
- 467 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 468 0014 0033     		adds	r3, r3, #0
- 469 0016 032B     		cmp	r3, #3
- 470 0018 0FD8     		bhi	.L43
+ 467              		.loc 1 688 0
+ 468 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 469 0014 0033     		adds	r3, r3, #0
+ 470 0016 032B     		cmp	r3, #3
+ 471 0018 0FD8     		bhi	.L43
  689:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
  690:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     case 0u:
  691:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -1229,22 +1230,22 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  696:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     case 3u:
  697:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  698:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         if((Vmin <= emFile_1_MMC_DEFAULT_SUPPLY_VOLTAGE) &&
- 471              		.loc 1 698 0
- 472 001a BB88     		ldrh	r3, [r7, #4]
- 473 001c 40F6E442 		movw	r2, #3300
- 474 0020 9342     		cmp	r3, r2
- 475 0022 07D8     		bhi	.L45
- 476              		.loc 1 698 0 is_stmt 0 discriminator 1
- 477 0024 7B88     		ldrh	r3, [r7, #2]
- 478 0026 40F6E342 		movw	r2, #3299
- 479 002a 9342     		cmp	r3, r2
- 480 002c 02D9     		bls	.L45
+ 472              		.loc 1 698 0
+ 473 001a BB88     		ldrh	r3, [r7, #4]
+ 474 001c 40F6E442 		movw	r2, #3300
+ 475 0020 9342     		cmp	r3, r2
+ 476 0022 07D8     		bhi	.L45
+ 477              		.loc 1 698 0 is_stmt 0 discriminator 1
+ 478 0024 7B88     		ldrh	r3, [r7, #2]
+ 479 0026 40F6E342 		movw	r2, #3299
+ 480 002a 9342     		cmp	r3, r2
+ 481 002c 02D9     		bls	.L45
  699:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             (emFile_1_MMC_DEFAULT_SUPPLY_VOLTAGE <= Vmax))
  700:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
  701:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             result = emFile_1_RET_SUCCCESS;
- 481              		.loc 1 701 0 is_stmt 1
- 482 002e 0123     		movs	r3, #1
- 483 0030 FB60     		str	r3, [r7, #12]
+ 482              		.loc 1 701 0 is_stmt 1
+ 483 002e 0123     		movs	r3, #1
+ 484 0030 FB60     		str	r3, [r7, #12]
  702:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
  703:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         else
  704:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
@@ -1252,39 +1253,39 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  706:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
  707:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  708:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         break;
- 484              		.loc 1 708 0
- 485 0032 12E0     		b	.L47
- 486              	.L45:
+ 485              		.loc 1 708 0
+ 486 0032 12E0     		b	.L47
+ 487              	.L45:
  705:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
- 487              		.loc 1 705 0
- 488 0034 0023     		movs	r3, #0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 22
+ 488              		.loc 1 705 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 22
 
 
- 489 0036 FB60     		str	r3, [r7, #12]
- 490              		.loc 1 708 0
- 491 0038 0FE0     		b	.L47
- 492              	.L43:
+ 489 0034 0023     		movs	r3, #0
+ 490 0036 FB60     		str	r3, [r7, #12]
+ 491              		.loc 1 708 0
+ 492 0038 0FE0     		b	.L47
+ 493              	.L43:
  709:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  710:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     default:
  711:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  712:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         if((Vmin <= emFile_1_MMC_DEFAULT_SUPPLY_VOLTAGE) &&
- 493              		.loc 1 712 0
- 494 003a BB88     		ldrh	r3, [r7, #4]
- 495 003c 40F6E442 		movw	r2, #3300
- 496 0040 9342     		cmp	r3, r2
- 497 0042 07D8     		bhi	.L48
- 498              		.loc 1 712 0 is_stmt 0 discriminator 1
- 499 0044 7B88     		ldrh	r3, [r7, #2]
- 500 0046 40F6E342 		movw	r2, #3299
- 501 004a 9342     		cmp	r3, r2
- 502 004c 02D9     		bls	.L48
+ 494              		.loc 1 712 0
+ 495 003a BB88     		ldrh	r3, [r7, #4]
+ 496 003c 40F6E442 		movw	r2, #3300
+ 497 0040 9342     		cmp	r3, r2
+ 498 0042 07D8     		bhi	.L48
+ 499              		.loc 1 712 0 is_stmt 0 discriminator 1
+ 500 0044 7B88     		ldrh	r3, [r7, #2]
+ 501 0046 40F6E342 		movw	r2, #3299
+ 502 004a 9342     		cmp	r3, r2
+ 503 004c 02D9     		bls	.L48
  713:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             (emFile_1_MMC_DEFAULT_SUPPLY_VOLTAGE <= Vmax))
  714:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
  715:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             result = emFile_1_RET_SUCCCESS;
- 503              		.loc 1 715 0 is_stmt 1
- 504 004e 0123     		movs	r3, #1
- 505 0050 FB60     		str	r3, [r7, #12]
+ 504              		.loc 1 715 0 is_stmt 1
+ 505 004e 0123     		movs	r3, #1
+ 506 0050 FB60     		str	r3, [r7, #12]
  716:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
  717:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         else
  718:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
@@ -1292,48 +1293,48 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  720:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
  721:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         
  722:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         break;
- 506              		.loc 1 722 0
- 507 0052 01E0     		b	.L51
- 508              	.L48:
+ 507              		.loc 1 722 0
+ 508 0052 01E0     		b	.L51
+ 509              	.L48:
  719:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         }
- 509              		.loc 1 719 0
- 510 0054 0023     		movs	r3, #0
- 511 0056 FB60     		str	r3, [r7, #12]
- 512              	.L51:
- 513              		.loc 1 722 0
- 514 0058 00BF     		nop
- 515              	.L47:
+ 510              		.loc 1 719 0
+ 511 0054 0023     		movs	r3, #0
+ 512 0056 FB60     		str	r3, [r7, #12]
+ 513              	.L51:
+ 514              		.loc 1 722 0
+ 515 0058 00BF     		nop
+ 516              	.L47:
  723:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
  724:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  725:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     return(result);
- 516              		.loc 1 725 0
- 517 005a FB68     		ldr	r3, [r7, #12]
+ 517              		.loc 1 725 0
+ 518 005a FB68     		ldr	r3, [r7, #12]
  726:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** }
- 518              		.loc 1 726 0
- 519 005c 1846     		mov	r0, r3
- 520 005e 1437     		adds	r7, r7, #20
- 521              		.cfi_def_cfa_offset 4
- 522 0060 BD46     		mov	sp, r7
- 523              		.cfi_def_cfa_register 13
- 524              		@ sp needed
- 525 0062 5DF8047B 		ldr	r7, [sp], #4
- 526              		.cfi_restore 7
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 23
+ 519              		.loc 1 726 0
+ 520 005c 1846     		mov	r0, r3
+ 521 005e 1437     		adds	r7, r7, #20
+ 522              		.cfi_def_cfa_offset 4
+ 523 0060 BD46     		mov	sp, r7
+ 524              		.cfi_def_cfa_register 13
+ 525              		@ sp needed
+ 526 0062 5DF8047B 		ldr	r7, [sp], #4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 23
 
 
- 527              		.cfi_def_cfa_offset 0
- 528 0066 7047     		bx	lr
- 529              		.cfi_endproc
- 530              	.LFE69:
- 531              		.size	FS_MMC_HW_X_SetVoltage, .-FS_MMC_HW_X_SetVoltage
- 532              		.section	.text.FS_MMC_HW_X_IsPresent,"ax",%progbits
- 533              		.align	2
- 534              		.global	FS_MMC_HW_X_IsPresent
- 535              		.thumb
- 536              		.thumb_func
- 537              		.type	FS_MMC_HW_X_IsPresent, %function
- 538              	FS_MMC_HW_X_IsPresent:
- 539              	.LFB70:
+ 527              		.cfi_restore 7
+ 528              		.cfi_def_cfa_offset 0
+ 529 0066 7047     		bx	lr
+ 530              		.cfi_endproc
+ 531              	.LFE69:
+ 532              		.size	FS_MMC_HW_X_SetVoltage, .-FS_MMC_HW_X_SetVoltage
+ 533              		.section	.text.FS_MMC_HW_X_IsPresent,"ax",%progbits
+ 534              		.align	2
+ 535              		.global	FS_MMC_HW_X_IsPresent
+ 536              		.thumb
+ 537              		.thumb_func
+ 538              		.type	FS_MMC_HW_X_IsPresent, %function
+ 539              	FS_MMC_HW_X_IsPresent:
+ 540              	.LFB70:
  727:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  728:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  729:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** /*******************************************************************************
@@ -1359,37 +1360,37 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  749:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *******************************************************************************/
  750:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** int FS_MMC_HW_X_IsPresent(U8 Unit)
  751:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** {
- 540              		.loc 1 751 0
- 541              		.cfi_startproc
- 542              		@ args = 0, pretend = 0, frame = 16
- 543              		@ frame_needed = 1, uses_anonymous_args = 0
- 544 0000 80B5     		push	{r7, lr}
- 545              		.cfi_def_cfa_offset 8
- 546              		.cfi_offset 7, -8
- 547              		.cfi_offset 14, -4
- 548 0002 84B0     		sub	sp, sp, #16
- 549              		.cfi_def_cfa_offset 24
- 550 0004 00AF     		add	r7, sp, #0
- 551              		.cfi_def_cfa_register 7
- 552 0006 0346     		mov	r3, r0
- 553 0008 FB71     		strb	r3, [r7, #7]
+ 541              		.loc 1 751 0
+ 542              		.cfi_startproc
+ 543              		@ args = 0, pretend = 0, frame = 16
+ 544              		@ frame_needed = 1, uses_anonymous_args = 0
+ 545 0000 80B5     		push	{r7, lr}
+ 546              		.cfi_def_cfa_offset 8
+ 547              		.cfi_offset 7, -8
+ 548              		.cfi_offset 14, -4
+ 549 0002 84B0     		sub	sp, sp, #16
+ 550              		.cfi_def_cfa_offset 24
+ 551 0004 00AF     		add	r7, sp, #0
+ 552              		.cfi_def_cfa_register 7
+ 553 0006 0346     		mov	r3, r0
+ 554 0008 FB71     		strb	r3, [r7, #7]
  752:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****      int result;
  753:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  754:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     emFile_1_Init(Unit);
- 554              		.loc 1 754 0
- 555 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 24
+ 555              		.loc 1 754 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 24
 
 
- 556 000c 1846     		mov	r0, r3
- 557 000e FFF7FEFF 		bl	emFile_1_Init
+ 556 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 557 000c 1846     		mov	r0, r3
+ 558 000e FFF7FEFF 		bl	emFile_1_Init
  755:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  756:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     switch(Unit)
- 558              		.loc 1 756 0
- 559 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 560 0014 0033     		adds	r3, r3, #0
- 561 0016 032B     		cmp	r3, #3
- 562 0018 02D8     		bhi	.L53
+ 559              		.loc 1 756 0
+ 560 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 561 0014 0033     		adds	r3, r3, #0
+ 562 0016 032B     		cmp	r3, #3
+ 563 0018 02D8     		bhi	.L53
  757:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
  758:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     case 0u:
  759:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
@@ -1400,52 +1401,52 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  764:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     case 3u:
  765:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  766:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         result = FS_MEDIA_STATE_UNKNOWN;
- 563              		.loc 1 766 0
- 564 001a 0223     		movs	r3, #2
- 565 001c FB60     		str	r3, [r7, #12]
+ 564              		.loc 1 766 0
+ 565 001a 0223     		movs	r3, #2
+ 566 001c FB60     		str	r3, [r7, #12]
  767:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         break;
- 566              		.loc 1 767 0
- 567 001e 02E0     		b	.L55
- 568              	.L53:
+ 567              		.loc 1 767 0
+ 568 001e 02E0     		b	.L55
+ 569              	.L53:
  768:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  769:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     default:
  770:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  771:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         result = FS_MEDIA_STATE_UNKNOWN;
- 569              		.loc 1 771 0
- 570 0020 0223     		movs	r3, #2
- 571 0022 FB60     		str	r3, [r7, #12]
+ 570              		.loc 1 771 0
+ 571 0020 0223     		movs	r3, #2
+ 572 0022 FB60     		str	r3, [r7, #12]
  772:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         break;
- 572              		.loc 1 772 0
- 573 0024 00BF     		nop
- 574              	.L55:
+ 573              		.loc 1 772 0
+ 574 0024 00BF     		nop
+ 575              	.L55:
  773:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
  774:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  775:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     return(result);
- 575              		.loc 1 775 0
- 576 0026 FB68     		ldr	r3, [r7, #12]
+ 576              		.loc 1 775 0
+ 577 0026 FB68     		ldr	r3, [r7, #12]
  776:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** }
- 577              		.loc 1 776 0
- 578 0028 1846     		mov	r0, r3
- 579 002a 1037     		adds	r7, r7, #16
- 580              		.cfi_def_cfa_offset 8
- 581 002c BD46     		mov	sp, r7
- 582              		.cfi_def_cfa_register 13
- 583              		@ sp needed
- 584 002e 80BD     		pop	{r7, pc}
- 585              		.cfi_endproc
- 586              	.LFE70:
- 587              		.size	FS_MMC_HW_X_IsPresent, .-FS_MMC_HW_X_IsPresent
- 588              		.section	.text.FS_MMC_HW_X_Read,"ax",%progbits
- 589              		.align	2
- 590              		.global	FS_MMC_HW_X_Read
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 25
+ 578              		.loc 1 776 0
+ 579 0028 1846     		mov	r0, r3
+ 580 002a 1037     		adds	r7, r7, #16
+ 581              		.cfi_def_cfa_offset 8
+ 582 002c BD46     		mov	sp, r7
+ 583              		.cfi_def_cfa_register 13
+ 584              		@ sp needed
+ 585 002e 80BD     		pop	{r7, pc}
+ 586              		.cfi_endproc
+ 587              	.LFE70:
+ 588              		.size	FS_MMC_HW_X_IsPresent, .-FS_MMC_HW_X_IsPresent
+ 589              		.section	.text.FS_MMC_HW_X_Read,"ax",%progbits
+ 590              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 25
 
 
- 591              		.thumb
- 592              		.thumb_func
- 593              		.type	FS_MMC_HW_X_Read, %function
- 594              	FS_MMC_HW_X_Read:
- 595              	.LFB71:
+ 591              		.global	FS_MMC_HW_X_Read
+ 592              		.thumb
+ 593              		.thumb_func
+ 594              		.type	FS_MMC_HW_X_Read, %function
+ 595              	FS_MMC_HW_X_Read:
+ 596              	.LFB71:
  777:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  778:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** 
  779:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** /*******************************************************************************
@@ -1471,67 +1472,67 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  799:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** #if (CY_PSOC5)
  800:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     void  FS_MMC_HW_X_Read (U8 Unit, U8 * pData, int NumBytes)
  801:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
- 596              		.loc 1 801 0
- 597              		.cfi_startproc
- 598              		@ args = 0, pretend = 0, frame = 16
- 599              		@ frame_needed = 1, uses_anonymous_args = 0
- 600 0000 90B5     		push	{r4, r7, lr}
- 601              		.cfi_def_cfa_offset 12
- 602              		.cfi_offset 4, -12
- 603              		.cfi_offset 7, -8
- 604              		.cfi_offset 14, -4
- 605 0002 85B0     		sub	sp, sp, #20
- 606              		.cfi_def_cfa_offset 32
- 607 0004 00AF     		add	r7, sp, #0
- 608              		.cfi_def_cfa_register 7
- 609 0006 0346     		mov	r3, r0
- 610 0008 B960     		str	r1, [r7, #8]
- 611 000a 7A60     		str	r2, [r7, #4]
- 612 000c FB73     		strb	r3, [r7, #15]
- 613              	.L58:
+ 597              		.loc 1 801 0
+ 598              		.cfi_startproc
+ 599              		@ args = 0, pretend = 0, frame = 16
+ 600              		@ frame_needed = 1, uses_anonymous_args = 0
+ 601 0000 90B5     		push	{r4, r7, lr}
+ 602              		.cfi_def_cfa_offset 12
+ 603              		.cfi_offset 4, -12
+ 604              		.cfi_offset 7, -8
+ 605              		.cfi_offset 14, -4
+ 606 0002 85B0     		sub	sp, sp, #20
+ 607              		.cfi_def_cfa_offset 32
+ 608 0004 00AF     		add	r7, sp, #0
+ 609              		.cfi_def_cfa_register 7
+ 610 0006 0346     		mov	r3, r0
+ 611 0008 B960     		str	r1, [r7, #8]
+ 612 000a 7A60     		str	r2, [r7, #4]
+ 613 000c FB73     		strb	r3, [r7, #15]
+ 614              	.L58:
  802:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         do
  803:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
  804:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             *pData++ = emFile_1_ReadWriteSPI(Unit, 0xff);
- 614              		.loc 1 804 0 discriminator 1
- 615 000e BC68     		ldr	r4, [r7, #8]
- 616 0010 631C     		adds	r3, r4, #1
- 617 0012 BB60     		str	r3, [r7, #8]
- 618 0014 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 619 0016 1846     		mov	r0, r3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 26
+ 615              		.loc 1 804 0 discriminator 1
+ 616 000e BC68     		ldr	r4, [r7, #8]
+ 617 0010 631C     		adds	r3, r4, #1
+ 618 0012 BB60     		str	r3, [r7, #8]
+ 619 0014 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 26
 
 
- 620 0018 FF21     		movs	r1, #255
- 621 001a FFF7FEFF 		bl	emFile_1_ReadWriteSPI
- 622 001e 0346     		mov	r3, r0
- 623 0020 2370     		strb	r3, [r4]
+ 620 0016 1846     		mov	r0, r3
+ 621 0018 FF21     		movs	r1, #255
+ 622 001a FFF7FEFF 		bl	emFile_1_ReadWriteSPI
+ 623 001e 0346     		mov	r3, r0
+ 624 0020 2370     		strb	r3, [r4]
  805:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         } while (--NumBytes);
- 624              		.loc 1 805 0 discriminator 1
- 625 0022 7B68     		ldr	r3, [r7, #4]
- 626 0024 013B     		subs	r3, r3, #1
- 627 0026 7B60     		str	r3, [r7, #4]
- 628 0028 7B68     		ldr	r3, [r7, #4]
- 629 002a 002B     		cmp	r3, #0
- 630 002c EFD1     		bne	.L58
+ 625              		.loc 1 805 0 discriminator 1
+ 626 0022 7B68     		ldr	r3, [r7, #4]
+ 627 0024 013B     		subs	r3, r3, #1
+ 628 0026 7B60     		str	r3, [r7, #4]
+ 629 0028 7B68     		ldr	r3, [r7, #4]
+ 630 002a 002B     		cmp	r3, #0
+ 631 002c EFD1     		bne	.L58
  806:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
- 631              		.loc 1 806 0
- 632 002e 1437     		adds	r7, r7, #20
- 633              		.cfi_def_cfa_offset 12
- 634 0030 BD46     		mov	sp, r7
- 635              		.cfi_def_cfa_register 13
- 636              		@ sp needed
- 637 0032 90BD     		pop	{r4, r7, pc}
- 638              		.cfi_endproc
- 639              	.LFE71:
- 640              		.size	FS_MMC_HW_X_Read, .-FS_MMC_HW_X_Read
- 641              		.section	.text.FS_MMC_HW_X_Write,"ax",%progbits
- 642              		.align	2
- 643              		.global	FS_MMC_HW_X_Write
- 644              		.thumb
- 645              		.thumb_func
- 646              		.type	FS_MMC_HW_X_Write, %function
- 647              	FS_MMC_HW_X_Write:
- 648              	.LFB72:
+ 632              		.loc 1 806 0
+ 633 002e 1437     		adds	r7, r7, #20
+ 634              		.cfi_def_cfa_offset 12
+ 635 0030 BD46     		mov	sp, r7
+ 636              		.cfi_def_cfa_register 13
+ 637              		@ sp needed
+ 638 0032 90BD     		pop	{r4, r7, pc}
+ 639              		.cfi_endproc
+ 640              	.LFE71:
+ 641              		.size	FS_MMC_HW_X_Read, .-FS_MMC_HW_X_Read
+ 642              		.section	.text.FS_MMC_HW_X_Write,"ax",%progbits
+ 643              		.align	2
+ 644              		.global	FS_MMC_HW_X_Write
+ 645              		.thumb
+ 646              		.thumb_func
+ 647              		.type	FS_MMC_HW_X_Write, %function
+ 648              	FS_MMC_HW_X_Write:
+ 649              	.LFB72:
  807:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** #else
  808:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     void  FS_MMC_HW_X_Read (U8 Unit, U8 xdata * pData, int NumBytes)
  809:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
@@ -1557,10 +1558,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  829:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *    NumBytes         - Number of bytes.
  830:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *
  831:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** * Return:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 27
+
+
  832:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *  None
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 27
-
-
  833:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *
  834:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** * Reentrant:
  835:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** *  No
@@ -1569,1085 +1570,1085 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 1
  838:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c **** #if (CY_PSOC5)
  839:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     void  FS_MMC_HW_X_Write(U8 Unit, const U8 * pData, int NumBytes) 
  840:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     {
- 649              		.loc 1 840 0
- 650              		.cfi_startproc
- 651              		@ args = 0, pretend = 0, frame = 16
- 652              		@ frame_needed = 1, uses_anonymous_args = 0
- 653 0000 80B5     		push	{r7, lr}
- 654              		.cfi_def_cfa_offset 8
- 655              		.cfi_offset 7, -8
- 656              		.cfi_offset 14, -4
- 657 0002 84B0     		sub	sp, sp, #16
- 658              		.cfi_def_cfa_offset 24
- 659 0004 00AF     		add	r7, sp, #0
- 660              		.cfi_def_cfa_register 7
- 661 0006 0346     		mov	r3, r0
- 662 0008 B960     		str	r1, [r7, #8]
- 663 000a 7A60     		str	r2, [r7, #4]
- 664 000c FB73     		strb	r3, [r7, #15]
- 665              	.L60:
+ 650              		.loc 1 840 0
+ 651              		.cfi_startproc
+ 652              		@ args = 0, pretend = 0, frame = 16
+ 653              		@ frame_needed = 1, uses_anonymous_args = 0
+ 654 0000 80B5     		push	{r7, lr}
+ 655              		.cfi_def_cfa_offset 8
+ 656              		.cfi_offset 7, -8
+ 657              		.cfi_offset 14, -4
+ 658 0002 84B0     		sub	sp, sp, #16
+ 659              		.cfi_def_cfa_offset 24
+ 660 0004 00AF     		add	r7, sp, #0
+ 661              		.cfi_def_cfa_register 7
+ 662 0006 0346     		mov	r3, r0
+ 663 0008 B960     		str	r1, [r7, #8]
+ 664 000a 7A60     		str	r2, [r7, #4]
+ 665 000c FB73     		strb	r3, [r7, #15]
+ 666              	.L60:
  841:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         do
  842:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         {
  843:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****             emFile_1_ReadWriteSPI(Unit, *pData++);
- 666              		.loc 1 843 0 discriminator 1
- 667 000e BB68     		ldr	r3, [r7, #8]
- 668 0010 5A1C     		adds	r2, r3, #1
- 669 0012 BA60     		str	r2, [r7, #8]
- 670 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 671 0016 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
- 672 0018 1046     		mov	r0, r2
- 673 001a 1946     		mov	r1, r3
- 674 001c FFF7FEFF 		bl	emFile_1_ReadWriteSPI
+ 667              		.loc 1 843 0 discriminator 1
+ 668 000e BB68     		ldr	r3, [r7, #8]
+ 669 0010 5A1C     		adds	r2, r3, #1
+ 670 0012 BA60     		str	r2, [r7, #8]
+ 671 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 672 0016 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
+ 673 0018 1046     		mov	r0, r2
+ 674 001a 1946     		mov	r1, r3
+ 675 001c FFF7FEFF 		bl	emFile_1_ReadWriteSPI
  844:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****         } while (--NumBytes);
- 675              		.loc 1 844 0 discriminator 1
- 676 0020 7B68     		ldr	r3, [r7, #4]
- 677 0022 013B     		subs	r3, r3, #1
- 678 0024 7B60     		str	r3, [r7, #4]
- 679 0026 7B68     		ldr	r3, [r7, #4]
- 680 0028 002B     		cmp	r3, #0
- 681 002a F0D1     		bne	.L60
+ 676              		.loc 1 844 0 discriminator 1
+ 677 0020 7B68     		ldr	r3, [r7, #4]
+ 678 0022 013B     		subs	r3, r3, #1
+ 679 0024 7B60     		str	r3, [r7, #4]
+ 680 0026 7B68     		ldr	r3, [r7, #4]
+ 681 0028 002B     		cmp	r3, #0
+ 682 002a F0D1     		bne	.L60
  845:Generated_Source\PSoC5/emFile_1_MMC_HW_SPI.c ****     }
- 682              		.loc 1 845 0
- 683 002c 1037     		adds	r7, r7, #16
- 684              		.cfi_def_cfa_offset 8
- 685 002e BD46     		mov	sp, r7
- 686              		.cfi_def_cfa_register 13
- 687              		@ sp needed
- 688 0030 80BD     		pop	{r7, pc}
- 689              		.cfi_endproc
- 690              	.LFE72:
- 691              		.size	FS_MMC_HW_X_Write, .-FS_MMC_HW_X_Write
- 692 0032 00BF     		.text
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 28
+ 683              		.loc 1 845 0
+ 684 002c 1037     		adds	r7, r7, #16
+ 685              		.cfi_def_cfa_offset 8
+ 686 002e BD46     		mov	sp, r7
+ 687              		.cfi_def_cfa_register 13
+ 688              		@ sp needed
+ 689 0030 80BD     		pop	{r7, pc}
+ 690              		.cfi_endproc
+ 691              	.LFE72:
+ 692              		.size	FS_MMC_HW_X_Write, .-FS_MMC_HW_X_Write
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 28
 
 
- 693              	.Letext0:
- 694              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
- 695              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
- 696              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 697              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 698              		.section	.debug_info,"",%progbits
- 699              	.Ldebug_info0:
- 700 0000 35030000 		.4byte	0x335
- 701 0004 0400     		.2byte	0x4
- 702 0006 00000000 		.4byte	.Ldebug_abbrev0
- 703 000a 04       		.byte	0x4
- 704 000b 01       		.uleb128 0x1
- 705 000c 87000000 		.4byte	.LASF37
- 706 0010 01       		.byte	0x1
- 707 0011 CD020000 		.4byte	.LASF38
- 708 0015 15000000 		.4byte	.LASF39
- 709 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 710 001d 00000000 		.4byte	0
- 711 0021 00000000 		.4byte	.Ldebug_line0
- 712 0025 02       		.uleb128 0x2
- 713 0026 02       		.byte	0x2
- 714 0027 07       		.byte	0x7
- 715 0028 5B010000 		.4byte	.LASF0
- 716 002c 02       		.uleb128 0x2
- 717 002d 04       		.byte	0x4
- 718 002e 07       		.byte	0x7
- 719 002f 8C010000 		.4byte	.LASF1
- 720 0033 02       		.uleb128 0x2
- 721 0034 04       		.byte	0x4
- 722 0035 07       		.byte	0x7
- 723 0036 E7010000 		.4byte	.LASF2
- 724 003a 03       		.uleb128 0x3
- 725 003b 04       		.byte	0x4
- 726 003c 05       		.byte	0x5
- 727 003d 696E7400 		.ascii	"int\000"
- 728 0041 02       		.uleb128 0x2
- 729 0042 01       		.byte	0x1
- 730 0043 08       		.byte	0x8
- 731 0044 2D010000 		.4byte	.LASF3
- 732 0048 02       		.uleb128 0x2
- 733 0049 04       		.byte	0x4
- 734 004a 07       		.byte	0x7
- 735 004b 44020000 		.4byte	.LASF4
- 736 004f 02       		.uleb128 0x2
- 737 0050 01       		.byte	0x1
- 738 0051 08       		.byte	0x8
- 739 0052 64020000 		.4byte	.LASF5
- 740 0056 02       		.uleb128 0x2
- 741 0057 02       		.byte	0x2
- 742 0058 05       		.byte	0x5
- 743 0059 B5010000 		.4byte	.LASF6
- 744 005d 02       		.uleb128 0x2
- 745 005e 04       		.byte	0x4
- 746 005f 05       		.byte	0x5
- 747 0060 79020000 		.4byte	.LASF7
- 748 0064 04       		.uleb128 0x4
- 749 0065 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 29
+ 693 0032 00BF     		.text
+ 694              	.Letext0:
+ 695              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 696              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 697              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 698              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 699              		.section	.debug_info,"",%progbits
+ 700              	.Ldebug_info0:
+ 701 0000 35030000 		.4byte	0x335
+ 702 0004 0400     		.2byte	0x4
+ 703 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 704 000a 04       		.byte	0x4
+ 705 000b 01       		.uleb128 0x1
+ 706 000c 87000000 		.4byte	.LASF37
+ 707 0010 01       		.byte	0x1
+ 708 0011 CD020000 		.4byte	.LASF38
+ 709 0015 15000000 		.4byte	.LASF39
+ 710 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 711 001d 00000000 		.4byte	0
+ 712 0021 00000000 		.4byte	.Ldebug_line0
+ 713 0025 02       		.uleb128 0x2
+ 714 0026 02       		.byte	0x2
+ 715 0027 07       		.byte	0x7
+ 716 0028 5B010000 		.4byte	.LASF0
+ 717 002c 02       		.uleb128 0x2
+ 718 002d 04       		.byte	0x4
+ 719 002e 07       		.byte	0x7
+ 720 002f 8C010000 		.4byte	.LASF1
+ 721 0033 02       		.uleb128 0x2
+ 722 0034 04       		.byte	0x4
+ 723 0035 07       		.byte	0x7
+ 724 0036 E7010000 		.4byte	.LASF2
+ 725 003a 03       		.uleb128 0x3
+ 726 003b 04       		.byte	0x4
+ 727 003c 05       		.byte	0x5
+ 728 003d 696E7400 		.ascii	"int\000"
+ 729 0041 02       		.uleb128 0x2
+ 730 0042 01       		.byte	0x1
+ 731 0043 08       		.byte	0x8
+ 732 0044 2D010000 		.4byte	.LASF3
+ 733 0048 02       		.uleb128 0x2
+ 734 0049 04       		.byte	0x4
+ 735 004a 07       		.byte	0x7
+ 736 004b 44020000 		.4byte	.LASF4
+ 737 004f 02       		.uleb128 0x2
+ 738 0050 01       		.byte	0x1
+ 739 0051 08       		.byte	0x8
+ 740 0052 64020000 		.4byte	.LASF5
+ 741 0056 02       		.uleb128 0x2
+ 742 0057 02       		.byte	0x2
+ 743 0058 05       		.byte	0x5
+ 744 0059 B5010000 		.4byte	.LASF6
+ 745 005d 02       		.uleb128 0x2
+ 746 005e 04       		.byte	0x4
+ 747 005f 05       		.byte	0x5
+ 748 0060 79020000 		.4byte	.LASF7
+ 749 0064 04       		.uleb128 0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 29
 
 
- 750 0066 41000000 		.4byte	0x41
- 751 006a 02       		.uleb128 0x2
- 752 006b 01       		.byte	0x1
- 753 006c 06       		.byte	0x6
- 754 006d 90020000 		.4byte	.LASF8
- 755 0071 05       		.uleb128 0x5
- 756 0072 7D000000 		.4byte	.LASF11
- 757 0076 02       		.byte	0x2
- 758 0077 3F       		.byte	0x3f
- 759 0078 5D000000 		.4byte	0x5d
- 760 007c 02       		.uleb128 0x2
- 761 007d 08       		.byte	0x8
- 762 007e 05       		.byte	0x5
- 763 007f 4D020000 		.4byte	.LASF9
- 764 0083 02       		.uleb128 0x2
- 765 0084 08       		.byte	0x8
- 766 0085 07       		.byte	0x7
- 767 0086 07020000 		.4byte	.LASF10
- 768 008a 05       		.uleb128 0x5
- 769 008b 3C020000 		.4byte	.LASF12
- 770 008f 03       		.byte	0x3
- 771 0090 2C       		.byte	0x2c
- 772 0091 71000000 		.4byte	0x71
- 773 0095 06       		.uleb128 0x6
- 774 0096 73020000 		.4byte	.LASF13
- 775 009a 04       		.byte	0x4
- 776 009b 9201     		.2byte	0x192
- 777 009d 41000000 		.4byte	0x41
- 778 00a1 02       		.uleb128 0x2
- 779 00a2 04       		.byte	0x4
- 780 00a3 04       		.byte	0x4
- 781 00a4 27010000 		.4byte	.LASF14
- 782 00a8 02       		.uleb128 0x2
- 783 00a9 08       		.byte	0x8
- 784 00aa 04       		.byte	0x4
- 785 00ab 15010000 		.4byte	.LASF15
- 786 00af 07       		.uleb128 0x7
- 787 00b0 82020000 		.4byte	.LASF40
- 788 00b4 01       		.byte	0x1
- 789 00b5 4B       		.byte	0x4b
- 790 00b6 00000000 		.4byte	.LFB63
- 791 00ba 64000000 		.4byte	.LFE63-.LFB63
- 792 00be 01       		.uleb128 0x1
- 793 00bf 9C       		.byte	0x9c
- 794 00c0 D3000000 		.4byte	0xd3
- 795 00c4 08       		.uleb128 0x8
- 796 00c5 9C020000 		.4byte	.LASF16
- 797 00c9 01       		.byte	0x1
- 798 00ca 4B       		.byte	0x4b
- 799 00cb 41000000 		.4byte	0x41
- 800 00cf 02       		.uleb128 0x2
- 801 00d0 91       		.byte	0x91
- 802 00d1 77       		.sleb128 -9
- 803 00d2 00       		.byte	0
- 804 00d3 09       		.uleb128 0x9
- 805 00d4 B7020000 		.4byte	.LASF41
- 806 00d8 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 30
+ 750 0065 04       		.byte	0x4
+ 751 0066 41000000 		.4byte	0x41
+ 752 006a 02       		.uleb128 0x2
+ 753 006b 01       		.byte	0x1
+ 754 006c 06       		.byte	0x6
+ 755 006d 90020000 		.4byte	.LASF8
+ 756 0071 05       		.uleb128 0x5
+ 757 0072 7D000000 		.4byte	.LASF11
+ 758 0076 02       		.byte	0x2
+ 759 0077 3F       		.byte	0x3f
+ 760 0078 5D000000 		.4byte	0x5d
+ 761 007c 02       		.uleb128 0x2
+ 762 007d 08       		.byte	0x8
+ 763 007e 05       		.byte	0x5
+ 764 007f 4D020000 		.4byte	.LASF9
+ 765 0083 02       		.uleb128 0x2
+ 766 0084 08       		.byte	0x8
+ 767 0085 07       		.byte	0x7
+ 768 0086 07020000 		.4byte	.LASF10
+ 769 008a 05       		.uleb128 0x5
+ 770 008b 3C020000 		.4byte	.LASF12
+ 771 008f 03       		.byte	0x3
+ 772 0090 2C       		.byte	0x2c
+ 773 0091 71000000 		.4byte	0x71
+ 774 0095 06       		.uleb128 0x6
+ 775 0096 73020000 		.4byte	.LASF13
+ 776 009a 04       		.byte	0x4
+ 777 009b 9201     		.2byte	0x192
+ 778 009d 41000000 		.4byte	0x41
+ 779 00a1 02       		.uleb128 0x2
+ 780 00a2 04       		.byte	0x4
+ 781 00a3 04       		.byte	0x4
+ 782 00a4 27010000 		.4byte	.LASF14
+ 783 00a8 02       		.uleb128 0x2
+ 784 00a9 08       		.byte	0x8
+ 785 00aa 04       		.byte	0x4
+ 786 00ab 15010000 		.4byte	.LASF15
+ 787 00af 07       		.uleb128 0x7
+ 788 00b0 82020000 		.4byte	.LASF40
+ 789 00b4 01       		.byte	0x1
+ 790 00b5 4B       		.byte	0x4b
+ 791 00b6 00000000 		.4byte	.LFB63
+ 792 00ba 64000000 		.4byte	.LFE63-.LFB63
+ 793 00be 01       		.uleb128 0x1
+ 794 00bf 9C       		.byte	0x9c
+ 795 00c0 D3000000 		.4byte	0xd3
+ 796 00c4 08       		.uleb128 0x8
+ 797 00c5 9C020000 		.4byte	.LASF16
+ 798 00c9 01       		.byte	0x1
+ 799 00ca 4B       		.byte	0x4b
+ 800 00cb 41000000 		.4byte	0x41
+ 801 00cf 02       		.uleb128 0x2
+ 802 00d0 91       		.byte	0x91
+ 803 00d1 77       		.sleb128 -9
+ 804 00d2 00       		.byte	0
+ 805 00d3 09       		.uleb128 0x9
+ 806 00d4 B7020000 		.4byte	.LASF41
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 30
 
 
- 807 00d9 E0       		.byte	0xe0
- 808 00da 41000000 		.4byte	0x41
- 809 00de 00000000 		.4byte	.LFB64
- 810 00e2 68000000 		.4byte	.LFE64-.LFB64
- 811 00e6 01       		.uleb128 0x1
- 812 00e7 9C       		.byte	0x9c
- 813 00e8 17010000 		.4byte	0x117
- 814 00ec 08       		.uleb128 0x8
- 815 00ed 9C020000 		.4byte	.LASF16
- 816 00f1 01       		.byte	0x1
- 817 00f2 E0       		.byte	0xe0
- 818 00f3 41000000 		.4byte	0x41
- 819 00f7 02       		.uleb128 0x2
- 820 00f8 91       		.byte	0x91
- 821 00f9 6F       		.sleb128 -17
- 822 00fa 08       		.uleb128 0x8
- 823 00fb 1C010000 		.4byte	.LASF17
- 824 00ff 01       		.byte	0x1
- 825 0100 E0       		.byte	0xe0
- 826 0101 41000000 		.4byte	0x41
- 827 0105 02       		.uleb128 0x2
- 828 0106 91       		.byte	0x91
- 829 0107 6E       		.sleb128 -18
- 830 0108 0A       		.uleb128 0xa
- 831 0109 53010000 		.4byte	.LASF20
- 832 010d 01       		.byte	0x1
- 833 010e E2       		.byte	0xe2
- 834 010f 41000000 		.4byte	0x41
- 835 0113 02       		.uleb128 0x2
- 836 0114 91       		.byte	0x91
- 837 0115 77       		.sleb128 -9
- 838 0116 00       		.byte	0
- 839 0117 0B       		.uleb128 0xb
- 840 0118 00000000 		.4byte	.LASF18
- 841 011c 01       		.byte	0x1
- 842 011d 4901     		.2byte	0x149
- 843 011f 00000000 		.4byte	.LFB65
- 844 0123 26000000 		.4byte	.LFE65-.LFB65
- 845 0127 01       		.uleb128 0x1
- 846 0128 9C       		.byte	0x9c
- 847 0129 3D010000 		.4byte	0x13d
- 848 012d 0C       		.uleb128 0xc
- 849 012e 9C020000 		.4byte	.LASF16
- 850 0132 01       		.byte	0x1
- 851 0133 4901     		.2byte	0x149
- 852 0135 41000000 		.4byte	0x41
- 853 0139 02       		.uleb128 0x2
- 854 013a 91       		.byte	0x91
- 855 013b 77       		.sleb128 -9
- 856 013c 00       		.byte	0
- 857 013d 0B       		.uleb128 0xb
- 858 013e A1020000 		.4byte	.LASF19
- 859 0142 01       		.byte	0x1
- 860 0143 9001     		.2byte	0x190
- 861 0145 00000000 		.4byte	.LFB66
- 862 0149 26000000 		.4byte	.LFE66-.LFB66
- 863 014d 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 31
+ 807 00d8 01       		.byte	0x1
+ 808 00d9 E0       		.byte	0xe0
+ 809 00da 41000000 		.4byte	0x41
+ 810 00de 00000000 		.4byte	.LFB64
+ 811 00e2 68000000 		.4byte	.LFE64-.LFB64
+ 812 00e6 01       		.uleb128 0x1
+ 813 00e7 9C       		.byte	0x9c
+ 814 00e8 17010000 		.4byte	0x117
+ 815 00ec 08       		.uleb128 0x8
+ 816 00ed 9C020000 		.4byte	.LASF16
+ 817 00f1 01       		.byte	0x1
+ 818 00f2 E0       		.byte	0xe0
+ 819 00f3 41000000 		.4byte	0x41
+ 820 00f7 02       		.uleb128 0x2
+ 821 00f8 91       		.byte	0x91
+ 822 00f9 6F       		.sleb128 -17
+ 823 00fa 08       		.uleb128 0x8
+ 824 00fb 1C010000 		.4byte	.LASF17
+ 825 00ff 01       		.byte	0x1
+ 826 0100 E0       		.byte	0xe0
+ 827 0101 41000000 		.4byte	0x41
+ 828 0105 02       		.uleb128 0x2
+ 829 0106 91       		.byte	0x91
+ 830 0107 6E       		.sleb128 -18
+ 831 0108 0A       		.uleb128 0xa
+ 832 0109 53010000 		.4byte	.LASF20
+ 833 010d 01       		.byte	0x1
+ 834 010e E2       		.byte	0xe2
+ 835 010f 41000000 		.4byte	0x41
+ 836 0113 02       		.uleb128 0x2
+ 837 0114 91       		.byte	0x91
+ 838 0115 77       		.sleb128 -9
+ 839 0116 00       		.byte	0
+ 840 0117 0B       		.uleb128 0xb
+ 841 0118 00000000 		.4byte	.LASF18
+ 842 011c 01       		.byte	0x1
+ 843 011d 4901     		.2byte	0x149
+ 844 011f 00000000 		.4byte	.LFB65
+ 845 0123 26000000 		.4byte	.LFE65-.LFB65
+ 846 0127 01       		.uleb128 0x1
+ 847 0128 9C       		.byte	0x9c
+ 848 0129 3D010000 		.4byte	0x13d
+ 849 012d 0C       		.uleb128 0xc
+ 850 012e 9C020000 		.4byte	.LASF16
+ 851 0132 01       		.byte	0x1
+ 852 0133 4901     		.2byte	0x149
+ 853 0135 41000000 		.4byte	0x41
+ 854 0139 02       		.uleb128 0x2
+ 855 013a 91       		.byte	0x91
+ 856 013b 77       		.sleb128 -9
+ 857 013c 00       		.byte	0
+ 858 013d 0B       		.uleb128 0xb
+ 859 013e A1020000 		.4byte	.LASF19
+ 860 0142 01       		.byte	0x1
+ 861 0143 9001     		.2byte	0x190
+ 862 0145 00000000 		.4byte	.LFB66
+ 863 0149 26000000 		.4byte	.LFE66-.LFB66
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 31
 
 
- 864 014e 9C       		.byte	0x9c
- 865 014f 63010000 		.4byte	0x163
- 866 0153 0C       		.uleb128 0xc
- 867 0154 9C020000 		.4byte	.LASF16
- 868 0158 01       		.byte	0x1
- 869 0159 9001     		.2byte	0x190
- 870 015b 41000000 		.4byte	0x41
- 871 015f 02       		.uleb128 0x2
- 872 0160 91       		.byte	0x91
- 873 0161 77       		.sleb128 -9
- 874 0162 00       		.byte	0
- 875 0163 0D       		.uleb128 0xd
- 876 0164 58000000 		.4byte	.LASF22
- 877 0168 01       		.byte	0x1
- 878 0169 D401     		.2byte	0x1d4
- 879 016b 3A000000 		.4byte	0x3a
- 880 016f 00000000 		.4byte	.LFB67
- 881 0173 2A000000 		.4byte	.LFE67-.LFB67
- 882 0177 01       		.uleb128 0x1
- 883 0178 9C       		.byte	0x9c
- 884 0179 9C010000 		.4byte	0x19c
- 885 017d 0C       		.uleb128 0xc
- 886 017e 9C020000 		.4byte	.LASF16
- 887 0182 01       		.byte	0x1
- 888 0183 D401     		.2byte	0x1d4
- 889 0185 41000000 		.4byte	0x41
- 890 0189 02       		.uleb128 0x2
- 891 018a 91       		.byte	0x91
- 892 018b 6F       		.sleb128 -17
- 893 018c 0E       		.uleb128 0xe
- 894 018d 75000000 		.4byte	.LASF21
- 895 0191 01       		.byte	0x1
- 896 0192 D601     		.2byte	0x1d6
- 897 0194 3A000000 		.4byte	0x3a
- 898 0198 02       		.uleb128 0x2
- 899 0199 91       		.byte	0x91
- 900 019a 74       		.sleb128 -12
- 901 019b 00       		.byte	0
- 902 019c 0F       		.uleb128 0xf
- 903 019d 3B010000 		.4byte	.LASF23
- 904 01a1 01       		.byte	0x1
- 905 01a2 4B02     		.2byte	0x24b
- 906 01a4 25000000 		.4byte	0x25
- 907 01a8 00000000 		.4byte	.LFB68
- 908 01ac 86000000 		.4byte	.LFE68-.LFB68
- 909 01b0 01       		.uleb128 0x1
- 910 01b1 9C       		.byte	0x9c
- 911 01b2 F3010000 		.4byte	0x1f3
- 912 01b6 0C       		.uleb128 0xc
- 913 01b7 9C020000 		.4byte	.LASF16
- 914 01bb 01       		.byte	0x1
- 915 01bc 4B02     		.2byte	0x24b
- 916 01be 41000000 		.4byte	0x41
- 917 01c2 02       		.uleb128 0x2
- 918 01c3 91       		.byte	0x91
- 919 01c4 6F       		.sleb128 -17
- 920 01c5 0C       		.uleb128 0xc
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 32
+ 864 014d 01       		.uleb128 0x1
+ 865 014e 9C       		.byte	0x9c
+ 866 014f 63010000 		.4byte	0x163
+ 867 0153 0C       		.uleb128 0xc
+ 868 0154 9C020000 		.4byte	.LASF16
+ 869 0158 01       		.byte	0x1
+ 870 0159 9001     		.2byte	0x190
+ 871 015b 41000000 		.4byte	0x41
+ 872 015f 02       		.uleb128 0x2
+ 873 0160 91       		.byte	0x91
+ 874 0161 77       		.sleb128 -9
+ 875 0162 00       		.byte	0
+ 876 0163 0D       		.uleb128 0xd
+ 877 0164 58000000 		.4byte	.LASF22
+ 878 0168 01       		.byte	0x1
+ 879 0169 D401     		.2byte	0x1d4
+ 880 016b 3A000000 		.4byte	0x3a
+ 881 016f 00000000 		.4byte	.LFB67
+ 882 0173 2A000000 		.4byte	.LFE67-.LFB67
+ 883 0177 01       		.uleb128 0x1
+ 884 0178 9C       		.byte	0x9c
+ 885 0179 9C010000 		.4byte	0x19c
+ 886 017d 0C       		.uleb128 0xc
+ 887 017e 9C020000 		.4byte	.LASF16
+ 888 0182 01       		.byte	0x1
+ 889 0183 D401     		.2byte	0x1d4
+ 890 0185 41000000 		.4byte	0x41
+ 891 0189 02       		.uleb128 0x2
+ 892 018a 91       		.byte	0x91
+ 893 018b 6F       		.sleb128 -17
+ 894 018c 0E       		.uleb128 0xe
+ 895 018d 75000000 		.4byte	.LASF21
+ 896 0191 01       		.byte	0x1
+ 897 0192 D601     		.2byte	0x1d6
+ 898 0194 3A000000 		.4byte	0x3a
+ 899 0198 02       		.uleb128 0x2
+ 900 0199 91       		.byte	0x91
+ 901 019a 74       		.sleb128 -12
+ 902 019b 00       		.byte	0
+ 903 019c 0F       		.uleb128 0xf
+ 904 019d 3B010000 		.4byte	.LASF23
+ 905 01a1 01       		.byte	0x1
+ 906 01a2 4B02     		.2byte	0x24b
+ 907 01a4 25000000 		.4byte	0x25
+ 908 01a8 00000000 		.4byte	.LFB68
+ 909 01ac 88000000 		.4byte	.LFE68-.LFB68
+ 910 01b0 01       		.uleb128 0x1
+ 911 01b1 9C       		.byte	0x9c
+ 912 01b2 F3010000 		.4byte	0x1f3
+ 913 01b6 0C       		.uleb128 0xc
+ 914 01b7 9C020000 		.4byte	.LASF16
+ 915 01bb 01       		.byte	0x1
+ 916 01bc 4B02     		.2byte	0x24b
+ 917 01be 41000000 		.4byte	0x41
+ 918 01c2 02       		.uleb128 0x2
+ 919 01c3 91       		.byte	0x91
+ 920 01c4 6F       		.sleb128 -17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 32
 
 
- 921 01c6 C9010000 		.4byte	.LASF24
- 922 01ca 01       		.byte	0x1
- 923 01cb 4B02     		.2byte	0x24b
- 924 01cd 25000000 		.4byte	0x25
- 925 01d1 02       		.uleb128 0x2
- 926 01d2 91       		.byte	0x91
- 927 01d3 6C       		.sleb128 -20
- 928 01d4 0E       		.uleb128 0xe
- 929 01d5 6E020000 		.4byte	.LASF25
- 930 01d9 01       		.byte	0x1
- 931 01da 4D02     		.2byte	0x24d
- 932 01dc 25000000 		.4byte	0x25
- 933 01e0 02       		.uleb128 0x2
- 934 01e1 91       		.byte	0x91
- 935 01e2 76       		.sleb128 -10
- 936 01e3 0E       		.uleb128 0xe
- 937 01e4 BF010000 		.4byte	.LASF26
- 938 01e8 01       		.byte	0x1
- 939 01e9 4E02     		.2byte	0x24e
- 940 01eb 2C000000 		.4byte	0x2c
- 941 01ef 02       		.uleb128 0x2
- 942 01f0 91       		.byte	0x91
- 943 01f1 70       		.sleb128 -16
- 944 01f2 00       		.byte	0
- 945 01f3 0D       		.uleb128 0xd
- 946 01f4 9E010000 		.4byte	.LASF27
- 947 01f8 01       		.byte	0x1
- 948 01f9 AC02     		.2byte	0x2ac
- 949 01fb 3A000000 		.4byte	0x3a
- 950 01ff 00000000 		.4byte	.LFB69
- 951 0203 68000000 		.4byte	.LFE69-.LFB69
- 952 0207 01       		.uleb128 0x1
- 953 0208 9C       		.byte	0x9c
- 954 0209 4A020000 		.4byte	0x24a
- 955 020d 0C       		.uleb128 0xc
- 956 020e 9C020000 		.4byte	.LASF16
- 957 0212 01       		.byte	0x1
- 958 0213 AC02     		.2byte	0x2ac
- 959 0215 41000000 		.4byte	0x41
- 960 0219 02       		.uleb128 0x2
- 961 021a 91       		.byte	0x91
- 962 021b 6F       		.sleb128 -17
- 963 021c 0C       		.uleb128 0xc
- 964 021d 69020000 		.4byte	.LASF28
- 965 0221 01       		.byte	0x1
- 966 0222 AC02     		.2byte	0x2ac
- 967 0224 25000000 		.4byte	0x25
- 968 0228 02       		.uleb128 0x2
- 969 0229 91       		.byte	0x91
- 970 022a 6C       		.sleb128 -20
- 971 022b 0C       		.uleb128 0xc
- 972 022c 1E020000 		.4byte	.LASF29
- 973 0230 01       		.byte	0x1
- 974 0231 AC02     		.2byte	0x2ac
- 975 0233 25000000 		.4byte	0x25
- 976 0237 02       		.uleb128 0x2
- 977 0238 91       		.byte	0x91
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 33
+ 921 01c5 0C       		.uleb128 0xc
+ 922 01c6 C9010000 		.4byte	.LASF24
+ 923 01ca 01       		.byte	0x1
+ 924 01cb 4B02     		.2byte	0x24b
+ 925 01cd 25000000 		.4byte	0x25
+ 926 01d1 02       		.uleb128 0x2
+ 927 01d2 91       		.byte	0x91
+ 928 01d3 6C       		.sleb128 -20
+ 929 01d4 0E       		.uleb128 0xe
+ 930 01d5 6E020000 		.4byte	.LASF25
+ 931 01d9 01       		.byte	0x1
+ 932 01da 4D02     		.2byte	0x24d
+ 933 01dc 25000000 		.4byte	0x25
+ 934 01e0 02       		.uleb128 0x2
+ 935 01e1 91       		.byte	0x91
+ 936 01e2 76       		.sleb128 -10
+ 937 01e3 0E       		.uleb128 0xe
+ 938 01e4 BF010000 		.4byte	.LASF26
+ 939 01e8 01       		.byte	0x1
+ 940 01e9 4E02     		.2byte	0x24e
+ 941 01eb 2C000000 		.4byte	0x2c
+ 942 01ef 02       		.uleb128 0x2
+ 943 01f0 91       		.byte	0x91
+ 944 01f1 70       		.sleb128 -16
+ 945 01f2 00       		.byte	0
+ 946 01f3 0D       		.uleb128 0xd
+ 947 01f4 9E010000 		.4byte	.LASF27
+ 948 01f8 01       		.byte	0x1
+ 949 01f9 AC02     		.2byte	0x2ac
+ 950 01fb 3A000000 		.4byte	0x3a
+ 951 01ff 00000000 		.4byte	.LFB69
+ 952 0203 68000000 		.4byte	.LFE69-.LFB69
+ 953 0207 01       		.uleb128 0x1
+ 954 0208 9C       		.byte	0x9c
+ 955 0209 4A020000 		.4byte	0x24a
+ 956 020d 0C       		.uleb128 0xc
+ 957 020e 9C020000 		.4byte	.LASF16
+ 958 0212 01       		.byte	0x1
+ 959 0213 AC02     		.2byte	0x2ac
+ 960 0215 41000000 		.4byte	0x41
+ 961 0219 02       		.uleb128 0x2
+ 962 021a 91       		.byte	0x91
+ 963 021b 6F       		.sleb128 -17
+ 964 021c 0C       		.uleb128 0xc
+ 965 021d 69020000 		.4byte	.LASF28
+ 966 0221 01       		.byte	0x1
+ 967 0222 AC02     		.2byte	0x2ac
+ 968 0224 25000000 		.4byte	0x25
+ 969 0228 02       		.uleb128 0x2
+ 970 0229 91       		.byte	0x91
+ 971 022a 6C       		.sleb128 -20
+ 972 022b 0C       		.uleb128 0xc
+ 973 022c 1E020000 		.4byte	.LASF29
+ 974 0230 01       		.byte	0x1
+ 975 0231 AC02     		.2byte	0x2ac
+ 976 0233 25000000 		.4byte	0x25
+ 977 0237 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 33
 
 
- 978 0239 6A       		.sleb128 -22
- 979 023a 0E       		.uleb128 0xe
- 980 023b 23020000 		.4byte	.LASF30
- 981 023f 01       		.byte	0x1
- 982 0240 AE02     		.2byte	0x2ae
- 983 0242 3A000000 		.4byte	0x3a
- 984 0246 02       		.uleb128 0x2
- 985 0247 91       		.byte	0x91
- 986 0248 74       		.sleb128 -12
- 987 0249 00       		.byte	0
- 988 024a 0F       		.uleb128 0xf
- 989 024b D1010000 		.4byte	.LASF31
- 990 024f 01       		.byte	0x1
- 991 0250 EE02     		.2byte	0x2ee
- 992 0252 3A000000 		.4byte	0x3a
- 993 0256 00000000 		.4byte	.LFB70
- 994 025a 30000000 		.4byte	.LFE70-.LFB70
- 995 025e 01       		.uleb128 0x1
- 996 025f 9C       		.byte	0x9c
- 997 0260 83020000 		.4byte	0x283
- 998 0264 0C       		.uleb128 0xc
- 999 0265 9C020000 		.4byte	.LASF16
- 1000 0269 01       		.byte	0x1
- 1001 026a EE02     		.2byte	0x2ee
- 1002 026c 41000000 		.4byte	0x41
- 1003 0270 02       		.uleb128 0x2
- 1004 0271 91       		.byte	0x91
- 1005 0272 6F       		.sleb128 -17
- 1006 0273 0E       		.uleb128 0xe
- 1007 0274 23020000 		.4byte	.LASF30
- 1008 0278 01       		.byte	0x1
- 1009 0279 F002     		.2byte	0x2f0
- 1010 027b 3A000000 		.4byte	0x3a
- 1011 027f 02       		.uleb128 0x2
- 1012 0280 91       		.byte	0x91
- 1013 0281 74       		.sleb128 -12
- 1014 0282 00       		.byte	0
- 1015 0283 0B       		.uleb128 0xb
- 1016 0284 6E010000 		.4byte	.LASF32
- 1017 0288 01       		.byte	0x1
- 1018 0289 2003     		.2byte	0x320
- 1019 028b 00000000 		.4byte	.LFB71
- 1020 028f 34000000 		.4byte	.LFE71-.LFB71
- 1021 0293 01       		.uleb128 0x1
- 1022 0294 9C       		.byte	0x9c
- 1023 0295 C7020000 		.4byte	0x2c7
- 1024 0299 0C       		.uleb128 0xc
- 1025 029a 9C020000 		.4byte	.LASF16
- 1026 029e 01       		.byte	0x1
- 1027 029f 2003     		.2byte	0x320
- 1028 02a1 41000000 		.4byte	0x41
- 1029 02a5 02       		.uleb128 0x2
- 1030 02a6 91       		.byte	0x91
- 1031 02a7 6F       		.sleb128 -17
- 1032 02a8 0C       		.uleb128 0xc
- 1033 02a9 21010000 		.4byte	.LASF33
- 1034 02ad 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 34
+ 978 0238 91       		.byte	0x91
+ 979 0239 6A       		.sleb128 -22
+ 980 023a 0E       		.uleb128 0xe
+ 981 023b 23020000 		.4byte	.LASF30
+ 982 023f 01       		.byte	0x1
+ 983 0240 AE02     		.2byte	0x2ae
+ 984 0242 3A000000 		.4byte	0x3a
+ 985 0246 02       		.uleb128 0x2
+ 986 0247 91       		.byte	0x91
+ 987 0248 74       		.sleb128 -12
+ 988 0249 00       		.byte	0
+ 989 024a 0F       		.uleb128 0xf
+ 990 024b D1010000 		.4byte	.LASF31
+ 991 024f 01       		.byte	0x1
+ 992 0250 EE02     		.2byte	0x2ee
+ 993 0252 3A000000 		.4byte	0x3a
+ 994 0256 00000000 		.4byte	.LFB70
+ 995 025a 30000000 		.4byte	.LFE70-.LFB70
+ 996 025e 01       		.uleb128 0x1
+ 997 025f 9C       		.byte	0x9c
+ 998 0260 83020000 		.4byte	0x283
+ 999 0264 0C       		.uleb128 0xc
+ 1000 0265 9C020000 		.4byte	.LASF16
+ 1001 0269 01       		.byte	0x1
+ 1002 026a EE02     		.2byte	0x2ee
+ 1003 026c 41000000 		.4byte	0x41
+ 1004 0270 02       		.uleb128 0x2
+ 1005 0271 91       		.byte	0x91
+ 1006 0272 6F       		.sleb128 -17
+ 1007 0273 0E       		.uleb128 0xe
+ 1008 0274 23020000 		.4byte	.LASF30
+ 1009 0278 01       		.byte	0x1
+ 1010 0279 F002     		.2byte	0x2f0
+ 1011 027b 3A000000 		.4byte	0x3a
+ 1012 027f 02       		.uleb128 0x2
+ 1013 0280 91       		.byte	0x91
+ 1014 0281 74       		.sleb128 -12
+ 1015 0282 00       		.byte	0
+ 1016 0283 0B       		.uleb128 0xb
+ 1017 0284 6E010000 		.4byte	.LASF32
+ 1018 0288 01       		.byte	0x1
+ 1019 0289 2003     		.2byte	0x320
+ 1020 028b 00000000 		.4byte	.LFB71
+ 1021 028f 34000000 		.4byte	.LFE71-.LFB71
+ 1022 0293 01       		.uleb128 0x1
+ 1023 0294 9C       		.byte	0x9c
+ 1024 0295 C7020000 		.4byte	0x2c7
+ 1025 0299 0C       		.uleb128 0xc
+ 1026 029a 9C020000 		.4byte	.LASF16
+ 1027 029e 01       		.byte	0x1
+ 1028 029f 2003     		.2byte	0x320
+ 1029 02a1 41000000 		.4byte	0x41
+ 1030 02a5 02       		.uleb128 0x2
+ 1031 02a6 91       		.byte	0x91
+ 1032 02a7 6F       		.sleb128 -17
+ 1033 02a8 0C       		.uleb128 0xc
+ 1034 02a9 21010000 		.4byte	.LASF33
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 34
 
 
- 1035 02ae 2003     		.2byte	0x320
- 1036 02b0 64000000 		.4byte	0x64
- 1037 02b4 02       		.uleb128 0x2
- 1038 02b5 91       		.byte	0x91
- 1039 02b6 68       		.sleb128 -24
- 1040 02b7 0C       		.uleb128 0xc
- 1041 02b8 5B020000 		.4byte	.LASF34
- 1042 02bc 01       		.byte	0x1
- 1043 02bd 2003     		.2byte	0x320
- 1044 02bf 3A000000 		.4byte	0x3a
- 1045 02c3 02       		.uleb128 0x2
- 1046 02c4 91       		.byte	0x91
- 1047 02c5 64       		.sleb128 -28
- 1048 02c6 00       		.byte	0
- 1049 02c7 0B       		.uleb128 0xb
- 1050 02c8 2A020000 		.4byte	.LASF35
- 1051 02cc 01       		.byte	0x1
- 1052 02cd 4703     		.2byte	0x347
- 1053 02cf 00000000 		.4byte	.LFB72
- 1054 02d3 32000000 		.4byte	.LFE72-.LFB72
- 1055 02d7 01       		.uleb128 0x1
- 1056 02d8 9C       		.byte	0x9c
- 1057 02d9 0B030000 		.4byte	0x30b
- 1058 02dd 0C       		.uleb128 0xc
- 1059 02de 9C020000 		.4byte	.LASF16
- 1060 02e2 01       		.byte	0x1
- 1061 02e3 4703     		.2byte	0x347
- 1062 02e5 41000000 		.4byte	0x41
- 1063 02e9 02       		.uleb128 0x2
- 1064 02ea 91       		.byte	0x91
- 1065 02eb 77       		.sleb128 -9
- 1066 02ec 0C       		.uleb128 0xc
- 1067 02ed 21010000 		.4byte	.LASF33
- 1068 02f1 01       		.byte	0x1
- 1069 02f2 4703     		.2byte	0x347
- 1070 02f4 0B030000 		.4byte	0x30b
- 1071 02f8 02       		.uleb128 0x2
- 1072 02f9 91       		.byte	0x91
- 1073 02fa 70       		.sleb128 -16
- 1074 02fb 0C       		.uleb128 0xc
- 1075 02fc 5B020000 		.4byte	.LASF34
- 1076 0300 01       		.byte	0x1
- 1077 0301 4703     		.2byte	0x347
- 1078 0303 3A000000 		.4byte	0x3a
- 1079 0307 02       		.uleb128 0x2
- 1080 0308 91       		.byte	0x91
- 1081 0309 6C       		.sleb128 -20
- 1082 030a 00       		.byte	0
- 1083 030b 04       		.uleb128 0x4
- 1084 030c 04       		.byte	0x4
- 1085 030d 11030000 		.4byte	0x311
- 1086 0311 10       		.uleb128 0x10
- 1087 0312 41000000 		.4byte	0x41
- 1088 0316 0A       		.uleb128 0xa
- 1089 0317 F4010000 		.4byte	.LASF36
- 1090 031b 01       		.byte	0x1
- 1091 031c 25       		.byte	0x25
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 35
+ 1035 02ad 01       		.byte	0x1
+ 1036 02ae 2003     		.2byte	0x320
+ 1037 02b0 64000000 		.4byte	0x64
+ 1038 02b4 02       		.uleb128 0x2
+ 1039 02b5 91       		.byte	0x91
+ 1040 02b6 68       		.sleb128 -24
+ 1041 02b7 0C       		.uleb128 0xc
+ 1042 02b8 5B020000 		.4byte	.LASF34
+ 1043 02bc 01       		.byte	0x1
+ 1044 02bd 2003     		.2byte	0x320
+ 1045 02bf 3A000000 		.4byte	0x3a
+ 1046 02c3 02       		.uleb128 0x2
+ 1047 02c4 91       		.byte	0x91
+ 1048 02c5 64       		.sleb128 -28
+ 1049 02c6 00       		.byte	0
+ 1050 02c7 0B       		.uleb128 0xb
+ 1051 02c8 2A020000 		.4byte	.LASF35
+ 1052 02cc 01       		.byte	0x1
+ 1053 02cd 4703     		.2byte	0x347
+ 1054 02cf 00000000 		.4byte	.LFB72
+ 1055 02d3 32000000 		.4byte	.LFE72-.LFB72
+ 1056 02d7 01       		.uleb128 0x1
+ 1057 02d8 9C       		.byte	0x9c
+ 1058 02d9 0B030000 		.4byte	0x30b
+ 1059 02dd 0C       		.uleb128 0xc
+ 1060 02de 9C020000 		.4byte	.LASF16
+ 1061 02e2 01       		.byte	0x1
+ 1062 02e3 4703     		.2byte	0x347
+ 1063 02e5 41000000 		.4byte	0x41
+ 1064 02e9 02       		.uleb128 0x2
+ 1065 02ea 91       		.byte	0x91
+ 1066 02eb 77       		.sleb128 -9
+ 1067 02ec 0C       		.uleb128 0xc
+ 1068 02ed 21010000 		.4byte	.LASF33
+ 1069 02f1 01       		.byte	0x1
+ 1070 02f2 4703     		.2byte	0x347
+ 1071 02f4 0B030000 		.4byte	0x30b
+ 1072 02f8 02       		.uleb128 0x2
+ 1073 02f9 91       		.byte	0x91
+ 1074 02fa 70       		.sleb128 -16
+ 1075 02fb 0C       		.uleb128 0xc
+ 1076 02fc 5B020000 		.4byte	.LASF34
+ 1077 0300 01       		.byte	0x1
+ 1078 0301 4703     		.2byte	0x347
+ 1079 0303 3A000000 		.4byte	0x3a
+ 1080 0307 02       		.uleb128 0x2
+ 1081 0308 91       		.byte	0x91
+ 1082 0309 6C       		.sleb128 -20
+ 1083 030a 00       		.byte	0
+ 1084 030b 04       		.uleb128 0x4
+ 1085 030c 04       		.byte	0x4
+ 1086 030d 11030000 		.4byte	0x311
+ 1087 0311 10       		.uleb128 0x10
+ 1088 0312 41000000 		.4byte	0x41
+ 1089 0316 0A       		.uleb128 0xa
+ 1090 0317 F4010000 		.4byte	.LASF36
+ 1091 031b 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 35
 
 
- 1092 031d 4F000000 		.4byte	0x4f
- 1093 0321 05       		.uleb128 0x5
- 1094 0322 03       		.byte	0x3
- 1095 0323 00000000 		.4byte	emFile_1_isInited0
- 1096 0327 11       		.uleb128 0x11
- 1097 0328 7F010000 		.4byte	.LASF42
- 1098 032c 05       		.byte	0x5
- 1099 032d 9606     		.2byte	0x696
- 1100 032f 33030000 		.4byte	0x333
- 1101 0333 12       		.uleb128 0x12
- 1102 0334 8A000000 		.4byte	0x8a
- 1103 0338 00       		.byte	0
- 1104              		.section	.debug_abbrev,"",%progbits
- 1105              	.Ldebug_abbrev0:
- 1106 0000 01       		.uleb128 0x1
- 1107 0001 11       		.uleb128 0x11
- 1108 0002 01       		.byte	0x1
- 1109 0003 25       		.uleb128 0x25
- 1110 0004 0E       		.uleb128 0xe
- 1111 0005 13       		.uleb128 0x13
- 1112 0006 0B       		.uleb128 0xb
- 1113 0007 03       		.uleb128 0x3
- 1114 0008 0E       		.uleb128 0xe
- 1115 0009 1B       		.uleb128 0x1b
- 1116 000a 0E       		.uleb128 0xe
- 1117 000b 55       		.uleb128 0x55
- 1118 000c 17       		.uleb128 0x17
- 1119 000d 11       		.uleb128 0x11
- 1120 000e 01       		.uleb128 0x1
- 1121 000f 10       		.uleb128 0x10
- 1122 0010 17       		.uleb128 0x17
- 1123 0011 00       		.byte	0
- 1124 0012 00       		.byte	0
- 1125 0013 02       		.uleb128 0x2
- 1126 0014 24       		.uleb128 0x24
- 1127 0015 00       		.byte	0
- 1128 0016 0B       		.uleb128 0xb
- 1129 0017 0B       		.uleb128 0xb
- 1130 0018 3E       		.uleb128 0x3e
- 1131 0019 0B       		.uleb128 0xb
- 1132 001a 03       		.uleb128 0x3
- 1133 001b 0E       		.uleb128 0xe
- 1134 001c 00       		.byte	0
- 1135 001d 00       		.byte	0
- 1136 001e 03       		.uleb128 0x3
- 1137 001f 24       		.uleb128 0x24
- 1138 0020 00       		.byte	0
- 1139 0021 0B       		.uleb128 0xb
- 1140 0022 0B       		.uleb128 0xb
- 1141 0023 3E       		.uleb128 0x3e
- 1142 0024 0B       		.uleb128 0xb
- 1143 0025 03       		.uleb128 0x3
- 1144 0026 08       		.uleb128 0x8
- 1145 0027 00       		.byte	0
- 1146 0028 00       		.byte	0
- 1147 0029 04       		.uleb128 0x4
- 1148 002a 0F       		.uleb128 0xf
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 36
+ 1092 031c 25       		.byte	0x25
+ 1093 031d 4F000000 		.4byte	0x4f
+ 1094 0321 05       		.uleb128 0x5
+ 1095 0322 03       		.byte	0x3
+ 1096 0323 00000000 		.4byte	emFile_1_isInited0
+ 1097 0327 11       		.uleb128 0x11
+ 1098 0328 7F010000 		.4byte	.LASF42
+ 1099 032c 05       		.byte	0x5
+ 1100 032d 9606     		.2byte	0x696
+ 1101 032f 33030000 		.4byte	0x333
+ 1102 0333 12       		.uleb128 0x12
+ 1103 0334 8A000000 		.4byte	0x8a
+ 1104 0338 00       		.byte	0
+ 1105              		.section	.debug_abbrev,"",%progbits
+ 1106              	.Ldebug_abbrev0:
+ 1107 0000 01       		.uleb128 0x1
+ 1108 0001 11       		.uleb128 0x11
+ 1109 0002 01       		.byte	0x1
+ 1110 0003 25       		.uleb128 0x25
+ 1111 0004 0E       		.uleb128 0xe
+ 1112 0005 13       		.uleb128 0x13
+ 1113 0006 0B       		.uleb128 0xb
+ 1114 0007 03       		.uleb128 0x3
+ 1115 0008 0E       		.uleb128 0xe
+ 1116 0009 1B       		.uleb128 0x1b
+ 1117 000a 0E       		.uleb128 0xe
+ 1118 000b 55       		.uleb128 0x55
+ 1119 000c 17       		.uleb128 0x17
+ 1120 000d 11       		.uleb128 0x11
+ 1121 000e 01       		.uleb128 0x1
+ 1122 000f 10       		.uleb128 0x10
+ 1123 0010 17       		.uleb128 0x17
+ 1124 0011 00       		.byte	0
+ 1125 0012 00       		.byte	0
+ 1126 0013 02       		.uleb128 0x2
+ 1127 0014 24       		.uleb128 0x24
+ 1128 0015 00       		.byte	0
+ 1129 0016 0B       		.uleb128 0xb
+ 1130 0017 0B       		.uleb128 0xb
+ 1131 0018 3E       		.uleb128 0x3e
+ 1132 0019 0B       		.uleb128 0xb
+ 1133 001a 03       		.uleb128 0x3
+ 1134 001b 0E       		.uleb128 0xe
+ 1135 001c 00       		.byte	0
+ 1136 001d 00       		.byte	0
+ 1137 001e 03       		.uleb128 0x3
+ 1138 001f 24       		.uleb128 0x24
+ 1139 0020 00       		.byte	0
+ 1140 0021 0B       		.uleb128 0xb
+ 1141 0022 0B       		.uleb128 0xb
+ 1142 0023 3E       		.uleb128 0x3e
+ 1143 0024 0B       		.uleb128 0xb
+ 1144 0025 03       		.uleb128 0x3
+ 1145 0026 08       		.uleb128 0x8
+ 1146 0027 00       		.byte	0
+ 1147 0028 00       		.byte	0
+ 1148 0029 04       		.uleb128 0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 36
 
 
- 1149 002b 00       		.byte	0
- 1150 002c 0B       		.uleb128 0xb
- 1151 002d 0B       		.uleb128 0xb
- 1152 002e 49       		.uleb128 0x49
- 1153 002f 13       		.uleb128 0x13
- 1154 0030 00       		.byte	0
- 1155 0031 00       		.byte	0
- 1156 0032 05       		.uleb128 0x5
- 1157 0033 16       		.uleb128 0x16
- 1158 0034 00       		.byte	0
- 1159 0035 03       		.uleb128 0x3
- 1160 0036 0E       		.uleb128 0xe
- 1161 0037 3A       		.uleb128 0x3a
- 1162 0038 0B       		.uleb128 0xb
- 1163 0039 3B       		.uleb128 0x3b
- 1164 003a 0B       		.uleb128 0xb
- 1165 003b 49       		.uleb128 0x49
- 1166 003c 13       		.uleb128 0x13
- 1167 003d 00       		.byte	0
- 1168 003e 00       		.byte	0
- 1169 003f 06       		.uleb128 0x6
- 1170 0040 16       		.uleb128 0x16
- 1171 0041 00       		.byte	0
- 1172 0042 03       		.uleb128 0x3
- 1173 0043 0E       		.uleb128 0xe
- 1174 0044 3A       		.uleb128 0x3a
- 1175 0045 0B       		.uleb128 0xb
- 1176 0046 3B       		.uleb128 0x3b
- 1177 0047 05       		.uleb128 0x5
- 1178 0048 49       		.uleb128 0x49
- 1179 0049 13       		.uleb128 0x13
- 1180 004a 00       		.byte	0
- 1181 004b 00       		.byte	0
- 1182 004c 07       		.uleb128 0x7
- 1183 004d 2E       		.uleb128 0x2e
- 1184 004e 01       		.byte	0x1
- 1185 004f 03       		.uleb128 0x3
- 1186 0050 0E       		.uleb128 0xe
- 1187 0051 3A       		.uleb128 0x3a
- 1188 0052 0B       		.uleb128 0xb
- 1189 0053 3B       		.uleb128 0x3b
- 1190 0054 0B       		.uleb128 0xb
- 1191 0055 27       		.uleb128 0x27
- 1192 0056 19       		.uleb128 0x19
- 1193 0057 11       		.uleb128 0x11
- 1194 0058 01       		.uleb128 0x1
- 1195 0059 12       		.uleb128 0x12
- 1196 005a 06       		.uleb128 0x6
- 1197 005b 40       		.uleb128 0x40
- 1198 005c 18       		.uleb128 0x18
- 1199 005d 9642     		.uleb128 0x2116
- 1200 005f 19       		.uleb128 0x19
- 1201 0060 01       		.uleb128 0x1
- 1202 0061 13       		.uleb128 0x13
- 1203 0062 00       		.byte	0
- 1204 0063 00       		.byte	0
- 1205 0064 08       		.uleb128 0x8
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 37
+ 1149 002a 0F       		.uleb128 0xf
+ 1150 002b 00       		.byte	0
+ 1151 002c 0B       		.uleb128 0xb
+ 1152 002d 0B       		.uleb128 0xb
+ 1153 002e 49       		.uleb128 0x49
+ 1154 002f 13       		.uleb128 0x13
+ 1155 0030 00       		.byte	0
+ 1156 0031 00       		.byte	0
+ 1157 0032 05       		.uleb128 0x5
+ 1158 0033 16       		.uleb128 0x16
+ 1159 0034 00       		.byte	0
+ 1160 0035 03       		.uleb128 0x3
+ 1161 0036 0E       		.uleb128 0xe
+ 1162 0037 3A       		.uleb128 0x3a
+ 1163 0038 0B       		.uleb128 0xb
+ 1164 0039 3B       		.uleb128 0x3b
+ 1165 003a 0B       		.uleb128 0xb
+ 1166 003b 49       		.uleb128 0x49
+ 1167 003c 13       		.uleb128 0x13
+ 1168 003d 00       		.byte	0
+ 1169 003e 00       		.byte	0
+ 1170 003f 06       		.uleb128 0x6
+ 1171 0040 16       		.uleb128 0x16
+ 1172 0041 00       		.byte	0
+ 1173 0042 03       		.uleb128 0x3
+ 1174 0043 0E       		.uleb128 0xe
+ 1175 0044 3A       		.uleb128 0x3a
+ 1176 0045 0B       		.uleb128 0xb
+ 1177 0046 3B       		.uleb128 0x3b
+ 1178 0047 05       		.uleb128 0x5
+ 1179 0048 49       		.uleb128 0x49
+ 1180 0049 13       		.uleb128 0x13
+ 1181 004a 00       		.byte	0
+ 1182 004b 00       		.byte	0
+ 1183 004c 07       		.uleb128 0x7
+ 1184 004d 2E       		.uleb128 0x2e
+ 1185 004e 01       		.byte	0x1
+ 1186 004f 03       		.uleb128 0x3
+ 1187 0050 0E       		.uleb128 0xe
+ 1188 0051 3A       		.uleb128 0x3a
+ 1189 0052 0B       		.uleb128 0xb
+ 1190 0053 3B       		.uleb128 0x3b
+ 1191 0054 0B       		.uleb128 0xb
+ 1192 0055 27       		.uleb128 0x27
+ 1193 0056 19       		.uleb128 0x19
+ 1194 0057 11       		.uleb128 0x11
+ 1195 0058 01       		.uleb128 0x1
+ 1196 0059 12       		.uleb128 0x12
+ 1197 005a 06       		.uleb128 0x6
+ 1198 005b 40       		.uleb128 0x40
+ 1199 005c 18       		.uleb128 0x18
+ 1200 005d 9642     		.uleb128 0x2116
+ 1201 005f 19       		.uleb128 0x19
+ 1202 0060 01       		.uleb128 0x1
+ 1203 0061 13       		.uleb128 0x13
+ 1204 0062 00       		.byte	0
+ 1205 0063 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 37
 
 
- 1206 0065 05       		.uleb128 0x5
- 1207 0066 00       		.byte	0
- 1208 0067 03       		.uleb128 0x3
- 1209 0068 0E       		.uleb128 0xe
- 1210 0069 3A       		.uleb128 0x3a
- 1211 006a 0B       		.uleb128 0xb
- 1212 006b 3B       		.uleb128 0x3b
- 1213 006c 0B       		.uleb128 0xb
- 1214 006d 49       		.uleb128 0x49
- 1215 006e 13       		.uleb128 0x13
- 1216 006f 02       		.uleb128 0x2
- 1217 0070 18       		.uleb128 0x18
- 1218 0071 00       		.byte	0
- 1219 0072 00       		.byte	0
- 1220 0073 09       		.uleb128 0x9
- 1221 0074 2E       		.uleb128 0x2e
- 1222 0075 01       		.byte	0x1
- 1223 0076 03       		.uleb128 0x3
- 1224 0077 0E       		.uleb128 0xe
- 1225 0078 3A       		.uleb128 0x3a
- 1226 0079 0B       		.uleb128 0xb
- 1227 007a 3B       		.uleb128 0x3b
- 1228 007b 0B       		.uleb128 0xb
- 1229 007c 27       		.uleb128 0x27
- 1230 007d 19       		.uleb128 0x19
- 1231 007e 49       		.uleb128 0x49
- 1232 007f 13       		.uleb128 0x13
- 1233 0080 11       		.uleb128 0x11
- 1234 0081 01       		.uleb128 0x1
- 1235 0082 12       		.uleb128 0x12
- 1236 0083 06       		.uleb128 0x6
- 1237 0084 40       		.uleb128 0x40
- 1238 0085 18       		.uleb128 0x18
- 1239 0086 9642     		.uleb128 0x2116
- 1240 0088 19       		.uleb128 0x19
- 1241 0089 01       		.uleb128 0x1
- 1242 008a 13       		.uleb128 0x13
- 1243 008b 00       		.byte	0
- 1244 008c 00       		.byte	0
- 1245 008d 0A       		.uleb128 0xa
- 1246 008e 34       		.uleb128 0x34
- 1247 008f 00       		.byte	0
- 1248 0090 03       		.uleb128 0x3
- 1249 0091 0E       		.uleb128 0xe
- 1250 0092 3A       		.uleb128 0x3a
- 1251 0093 0B       		.uleb128 0xb
- 1252 0094 3B       		.uleb128 0x3b
- 1253 0095 0B       		.uleb128 0xb
- 1254 0096 49       		.uleb128 0x49
- 1255 0097 13       		.uleb128 0x13
- 1256 0098 02       		.uleb128 0x2
- 1257 0099 18       		.uleb128 0x18
- 1258 009a 00       		.byte	0
- 1259 009b 00       		.byte	0
- 1260 009c 0B       		.uleb128 0xb
- 1261 009d 2E       		.uleb128 0x2e
- 1262 009e 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 38
+ 1206 0064 08       		.uleb128 0x8
+ 1207 0065 05       		.uleb128 0x5
+ 1208 0066 00       		.byte	0
+ 1209 0067 03       		.uleb128 0x3
+ 1210 0068 0E       		.uleb128 0xe
+ 1211 0069 3A       		.uleb128 0x3a
+ 1212 006a 0B       		.uleb128 0xb
+ 1213 006b 3B       		.uleb128 0x3b
+ 1214 006c 0B       		.uleb128 0xb
+ 1215 006d 49       		.uleb128 0x49
+ 1216 006e 13       		.uleb128 0x13
+ 1217 006f 02       		.uleb128 0x2
+ 1218 0070 18       		.uleb128 0x18
+ 1219 0071 00       		.byte	0
+ 1220 0072 00       		.byte	0
+ 1221 0073 09       		.uleb128 0x9
+ 1222 0074 2E       		.uleb128 0x2e
+ 1223 0075 01       		.byte	0x1
+ 1224 0076 03       		.uleb128 0x3
+ 1225 0077 0E       		.uleb128 0xe
+ 1226 0078 3A       		.uleb128 0x3a
+ 1227 0079 0B       		.uleb128 0xb
+ 1228 007a 3B       		.uleb128 0x3b
+ 1229 007b 0B       		.uleb128 0xb
+ 1230 007c 27       		.uleb128 0x27
+ 1231 007d 19       		.uleb128 0x19
+ 1232 007e 49       		.uleb128 0x49
+ 1233 007f 13       		.uleb128 0x13
+ 1234 0080 11       		.uleb128 0x11
+ 1235 0081 01       		.uleb128 0x1
+ 1236 0082 12       		.uleb128 0x12
+ 1237 0083 06       		.uleb128 0x6
+ 1238 0084 40       		.uleb128 0x40
+ 1239 0085 18       		.uleb128 0x18
+ 1240 0086 9642     		.uleb128 0x2116
+ 1241 0088 19       		.uleb128 0x19
+ 1242 0089 01       		.uleb128 0x1
+ 1243 008a 13       		.uleb128 0x13
+ 1244 008b 00       		.byte	0
+ 1245 008c 00       		.byte	0
+ 1246 008d 0A       		.uleb128 0xa
+ 1247 008e 34       		.uleb128 0x34
+ 1248 008f 00       		.byte	0
+ 1249 0090 03       		.uleb128 0x3
+ 1250 0091 0E       		.uleb128 0xe
+ 1251 0092 3A       		.uleb128 0x3a
+ 1252 0093 0B       		.uleb128 0xb
+ 1253 0094 3B       		.uleb128 0x3b
+ 1254 0095 0B       		.uleb128 0xb
+ 1255 0096 49       		.uleb128 0x49
+ 1256 0097 13       		.uleb128 0x13
+ 1257 0098 02       		.uleb128 0x2
+ 1258 0099 18       		.uleb128 0x18
+ 1259 009a 00       		.byte	0
+ 1260 009b 00       		.byte	0
+ 1261 009c 0B       		.uleb128 0xb
+ 1262 009d 2E       		.uleb128 0x2e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 38
 
 
- 1263 009f 3F       		.uleb128 0x3f
- 1264 00a0 19       		.uleb128 0x19
- 1265 00a1 03       		.uleb128 0x3
- 1266 00a2 0E       		.uleb128 0xe
- 1267 00a3 3A       		.uleb128 0x3a
- 1268 00a4 0B       		.uleb128 0xb
- 1269 00a5 3B       		.uleb128 0x3b
- 1270 00a6 05       		.uleb128 0x5
- 1271 00a7 27       		.uleb128 0x27
- 1272 00a8 19       		.uleb128 0x19
- 1273 00a9 11       		.uleb128 0x11
- 1274 00aa 01       		.uleb128 0x1
- 1275 00ab 12       		.uleb128 0x12
- 1276 00ac 06       		.uleb128 0x6
- 1277 00ad 40       		.uleb128 0x40
- 1278 00ae 18       		.uleb128 0x18
- 1279 00af 9642     		.uleb128 0x2116
- 1280 00b1 19       		.uleb128 0x19
- 1281 00b2 01       		.uleb128 0x1
- 1282 00b3 13       		.uleb128 0x13
- 1283 00b4 00       		.byte	0
- 1284 00b5 00       		.byte	0
- 1285 00b6 0C       		.uleb128 0xc
- 1286 00b7 05       		.uleb128 0x5
- 1287 00b8 00       		.byte	0
- 1288 00b9 03       		.uleb128 0x3
- 1289 00ba 0E       		.uleb128 0xe
- 1290 00bb 3A       		.uleb128 0x3a
- 1291 00bc 0B       		.uleb128 0xb
- 1292 00bd 3B       		.uleb128 0x3b
- 1293 00be 05       		.uleb128 0x5
- 1294 00bf 49       		.uleb128 0x49
- 1295 00c0 13       		.uleb128 0x13
- 1296 00c1 02       		.uleb128 0x2
- 1297 00c2 18       		.uleb128 0x18
- 1298 00c3 00       		.byte	0
- 1299 00c4 00       		.byte	0
- 1300 00c5 0D       		.uleb128 0xd
- 1301 00c6 2E       		.uleb128 0x2e
- 1302 00c7 01       		.byte	0x1
- 1303 00c8 3F       		.uleb128 0x3f
- 1304 00c9 19       		.uleb128 0x19
- 1305 00ca 03       		.uleb128 0x3
- 1306 00cb 0E       		.uleb128 0xe
- 1307 00cc 3A       		.uleb128 0x3a
- 1308 00cd 0B       		.uleb128 0xb
- 1309 00ce 3B       		.uleb128 0x3b
- 1310 00cf 05       		.uleb128 0x5
- 1311 00d0 27       		.uleb128 0x27
- 1312 00d1 19       		.uleb128 0x19
- 1313 00d2 49       		.uleb128 0x49
- 1314 00d3 13       		.uleb128 0x13
- 1315 00d4 11       		.uleb128 0x11
- 1316 00d5 01       		.uleb128 0x1
- 1317 00d6 12       		.uleb128 0x12
- 1318 00d7 06       		.uleb128 0x6
- 1319 00d8 40       		.uleb128 0x40
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 39
+ 1263 009e 01       		.byte	0x1
+ 1264 009f 3F       		.uleb128 0x3f
+ 1265 00a0 19       		.uleb128 0x19
+ 1266 00a1 03       		.uleb128 0x3
+ 1267 00a2 0E       		.uleb128 0xe
+ 1268 00a3 3A       		.uleb128 0x3a
+ 1269 00a4 0B       		.uleb128 0xb
+ 1270 00a5 3B       		.uleb128 0x3b
+ 1271 00a6 05       		.uleb128 0x5
+ 1272 00a7 27       		.uleb128 0x27
+ 1273 00a8 19       		.uleb128 0x19
+ 1274 00a9 11       		.uleb128 0x11
+ 1275 00aa 01       		.uleb128 0x1
+ 1276 00ab 12       		.uleb128 0x12
+ 1277 00ac 06       		.uleb128 0x6
+ 1278 00ad 40       		.uleb128 0x40
+ 1279 00ae 18       		.uleb128 0x18
+ 1280 00af 9642     		.uleb128 0x2116
+ 1281 00b1 19       		.uleb128 0x19
+ 1282 00b2 01       		.uleb128 0x1
+ 1283 00b3 13       		.uleb128 0x13
+ 1284 00b4 00       		.byte	0
+ 1285 00b5 00       		.byte	0
+ 1286 00b6 0C       		.uleb128 0xc
+ 1287 00b7 05       		.uleb128 0x5
+ 1288 00b8 00       		.byte	0
+ 1289 00b9 03       		.uleb128 0x3
+ 1290 00ba 0E       		.uleb128 0xe
+ 1291 00bb 3A       		.uleb128 0x3a
+ 1292 00bc 0B       		.uleb128 0xb
+ 1293 00bd 3B       		.uleb128 0x3b
+ 1294 00be 05       		.uleb128 0x5
+ 1295 00bf 49       		.uleb128 0x49
+ 1296 00c0 13       		.uleb128 0x13
+ 1297 00c1 02       		.uleb128 0x2
+ 1298 00c2 18       		.uleb128 0x18
+ 1299 00c3 00       		.byte	0
+ 1300 00c4 00       		.byte	0
+ 1301 00c5 0D       		.uleb128 0xd
+ 1302 00c6 2E       		.uleb128 0x2e
+ 1303 00c7 01       		.byte	0x1
+ 1304 00c8 3F       		.uleb128 0x3f
+ 1305 00c9 19       		.uleb128 0x19
+ 1306 00ca 03       		.uleb128 0x3
+ 1307 00cb 0E       		.uleb128 0xe
+ 1308 00cc 3A       		.uleb128 0x3a
+ 1309 00cd 0B       		.uleb128 0xb
+ 1310 00ce 3B       		.uleb128 0x3b
+ 1311 00cf 05       		.uleb128 0x5
+ 1312 00d0 27       		.uleb128 0x27
+ 1313 00d1 19       		.uleb128 0x19
+ 1314 00d2 49       		.uleb128 0x49
+ 1315 00d3 13       		.uleb128 0x13
+ 1316 00d4 11       		.uleb128 0x11
+ 1317 00d5 01       		.uleb128 0x1
+ 1318 00d6 12       		.uleb128 0x12
+ 1319 00d7 06       		.uleb128 0x6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 39
 
 
- 1320 00d9 18       		.uleb128 0x18
- 1321 00da 9742     		.uleb128 0x2117
- 1322 00dc 19       		.uleb128 0x19
- 1323 00dd 01       		.uleb128 0x1
- 1324 00de 13       		.uleb128 0x13
- 1325 00df 00       		.byte	0
- 1326 00e0 00       		.byte	0
- 1327 00e1 0E       		.uleb128 0xe
- 1328 00e2 34       		.uleb128 0x34
- 1329 00e3 00       		.byte	0
- 1330 00e4 03       		.uleb128 0x3
- 1331 00e5 0E       		.uleb128 0xe
- 1332 00e6 3A       		.uleb128 0x3a
- 1333 00e7 0B       		.uleb128 0xb
- 1334 00e8 3B       		.uleb128 0x3b
- 1335 00e9 05       		.uleb128 0x5
- 1336 00ea 49       		.uleb128 0x49
- 1337 00eb 13       		.uleb128 0x13
- 1338 00ec 02       		.uleb128 0x2
- 1339 00ed 18       		.uleb128 0x18
- 1340 00ee 00       		.byte	0
- 1341 00ef 00       		.byte	0
- 1342 00f0 0F       		.uleb128 0xf
- 1343 00f1 2E       		.uleb128 0x2e
- 1344 00f2 01       		.byte	0x1
- 1345 00f3 3F       		.uleb128 0x3f
- 1346 00f4 19       		.uleb128 0x19
- 1347 00f5 03       		.uleb128 0x3
- 1348 00f6 0E       		.uleb128 0xe
- 1349 00f7 3A       		.uleb128 0x3a
- 1350 00f8 0B       		.uleb128 0xb
- 1351 00f9 3B       		.uleb128 0x3b
- 1352 00fa 05       		.uleb128 0x5
- 1353 00fb 27       		.uleb128 0x27
- 1354 00fc 19       		.uleb128 0x19
- 1355 00fd 49       		.uleb128 0x49
- 1356 00fe 13       		.uleb128 0x13
- 1357 00ff 11       		.uleb128 0x11
- 1358 0100 01       		.uleb128 0x1
- 1359 0101 12       		.uleb128 0x12
- 1360 0102 06       		.uleb128 0x6
- 1361 0103 40       		.uleb128 0x40
- 1362 0104 18       		.uleb128 0x18
- 1363 0105 9642     		.uleb128 0x2116
- 1364 0107 19       		.uleb128 0x19
- 1365 0108 01       		.uleb128 0x1
- 1366 0109 13       		.uleb128 0x13
- 1367 010a 00       		.byte	0
- 1368 010b 00       		.byte	0
- 1369 010c 10       		.uleb128 0x10
- 1370 010d 26       		.uleb128 0x26
- 1371 010e 00       		.byte	0
- 1372 010f 49       		.uleb128 0x49
- 1373 0110 13       		.uleb128 0x13
- 1374 0111 00       		.byte	0
- 1375 0112 00       		.byte	0
- 1376 0113 11       		.uleb128 0x11
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 40
+ 1320 00d8 40       		.uleb128 0x40
+ 1321 00d9 18       		.uleb128 0x18
+ 1322 00da 9742     		.uleb128 0x2117
+ 1323 00dc 19       		.uleb128 0x19
+ 1324 00dd 01       		.uleb128 0x1
+ 1325 00de 13       		.uleb128 0x13
+ 1326 00df 00       		.byte	0
+ 1327 00e0 00       		.byte	0
+ 1328 00e1 0E       		.uleb128 0xe
+ 1329 00e2 34       		.uleb128 0x34
+ 1330 00e3 00       		.byte	0
+ 1331 00e4 03       		.uleb128 0x3
+ 1332 00e5 0E       		.uleb128 0xe
+ 1333 00e6 3A       		.uleb128 0x3a
+ 1334 00e7 0B       		.uleb128 0xb
+ 1335 00e8 3B       		.uleb128 0x3b
+ 1336 00e9 05       		.uleb128 0x5
+ 1337 00ea 49       		.uleb128 0x49
+ 1338 00eb 13       		.uleb128 0x13
+ 1339 00ec 02       		.uleb128 0x2
+ 1340 00ed 18       		.uleb128 0x18
+ 1341 00ee 00       		.byte	0
+ 1342 00ef 00       		.byte	0
+ 1343 00f0 0F       		.uleb128 0xf
+ 1344 00f1 2E       		.uleb128 0x2e
+ 1345 00f2 01       		.byte	0x1
+ 1346 00f3 3F       		.uleb128 0x3f
+ 1347 00f4 19       		.uleb128 0x19
+ 1348 00f5 03       		.uleb128 0x3
+ 1349 00f6 0E       		.uleb128 0xe
+ 1350 00f7 3A       		.uleb128 0x3a
+ 1351 00f8 0B       		.uleb128 0xb
+ 1352 00f9 3B       		.uleb128 0x3b
+ 1353 00fa 05       		.uleb128 0x5
+ 1354 00fb 27       		.uleb128 0x27
+ 1355 00fc 19       		.uleb128 0x19
+ 1356 00fd 49       		.uleb128 0x49
+ 1357 00fe 13       		.uleb128 0x13
+ 1358 00ff 11       		.uleb128 0x11
+ 1359 0100 01       		.uleb128 0x1
+ 1360 0101 12       		.uleb128 0x12
+ 1361 0102 06       		.uleb128 0x6
+ 1362 0103 40       		.uleb128 0x40
+ 1363 0104 18       		.uleb128 0x18
+ 1364 0105 9642     		.uleb128 0x2116
+ 1365 0107 19       		.uleb128 0x19
+ 1366 0108 01       		.uleb128 0x1
+ 1367 0109 13       		.uleb128 0x13
+ 1368 010a 00       		.byte	0
+ 1369 010b 00       		.byte	0
+ 1370 010c 10       		.uleb128 0x10
+ 1371 010d 26       		.uleb128 0x26
+ 1372 010e 00       		.byte	0
+ 1373 010f 49       		.uleb128 0x49
+ 1374 0110 13       		.uleb128 0x13
+ 1375 0111 00       		.byte	0
+ 1376 0112 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 40
 
 
- 1377 0114 34       		.uleb128 0x34
- 1378 0115 00       		.byte	0
- 1379 0116 03       		.uleb128 0x3
- 1380 0117 0E       		.uleb128 0xe
- 1381 0118 3A       		.uleb128 0x3a
- 1382 0119 0B       		.uleb128 0xb
- 1383 011a 3B       		.uleb128 0x3b
- 1384 011b 05       		.uleb128 0x5
- 1385 011c 49       		.uleb128 0x49
- 1386 011d 13       		.uleb128 0x13
- 1387 011e 3F       		.uleb128 0x3f
- 1388 011f 19       		.uleb128 0x19
- 1389 0120 3C       		.uleb128 0x3c
- 1390 0121 19       		.uleb128 0x19
- 1391 0122 00       		.byte	0
- 1392 0123 00       		.byte	0
- 1393 0124 12       		.uleb128 0x12
- 1394 0125 35       		.uleb128 0x35
- 1395 0126 00       		.byte	0
- 1396 0127 49       		.uleb128 0x49
- 1397 0128 13       		.uleb128 0x13
- 1398 0129 00       		.byte	0
- 1399 012a 00       		.byte	0
- 1400 012b 00       		.byte	0
- 1401              		.section	.debug_aranges,"",%progbits
- 1402 0000 64000000 		.4byte	0x64
- 1403 0004 0200     		.2byte	0x2
- 1404 0006 00000000 		.4byte	.Ldebug_info0
- 1405 000a 04       		.byte	0x4
- 1406 000b 00       		.byte	0
- 1407 000c 0000     		.2byte	0
- 1408 000e 0000     		.2byte	0
- 1409 0010 00000000 		.4byte	.LFB63
- 1410 0014 64000000 		.4byte	.LFE63-.LFB63
- 1411 0018 00000000 		.4byte	.LFB64
- 1412 001c 68000000 		.4byte	.LFE64-.LFB64
- 1413 0020 00000000 		.4byte	.LFB65
- 1414 0024 26000000 		.4byte	.LFE65-.LFB65
- 1415 0028 00000000 		.4byte	.LFB66
- 1416 002c 26000000 		.4byte	.LFE66-.LFB66
- 1417 0030 00000000 		.4byte	.LFB67
- 1418 0034 2A000000 		.4byte	.LFE67-.LFB67
- 1419 0038 00000000 		.4byte	.LFB68
- 1420 003c 86000000 		.4byte	.LFE68-.LFB68
- 1421 0040 00000000 		.4byte	.LFB69
- 1422 0044 68000000 		.4byte	.LFE69-.LFB69
- 1423 0048 00000000 		.4byte	.LFB70
- 1424 004c 30000000 		.4byte	.LFE70-.LFB70
- 1425 0050 00000000 		.4byte	.LFB71
- 1426 0054 34000000 		.4byte	.LFE71-.LFB71
- 1427 0058 00000000 		.4byte	.LFB72
- 1428 005c 32000000 		.4byte	.LFE72-.LFB72
- 1429 0060 00000000 		.4byte	0
- 1430 0064 00000000 		.4byte	0
- 1431              		.section	.debug_ranges,"",%progbits
- 1432              	.Ldebug_ranges0:
- 1433 0000 00000000 		.4byte	.LFB63
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 41
+ 1377 0113 11       		.uleb128 0x11
+ 1378 0114 34       		.uleb128 0x34
+ 1379 0115 00       		.byte	0
+ 1380 0116 03       		.uleb128 0x3
+ 1381 0117 0E       		.uleb128 0xe
+ 1382 0118 3A       		.uleb128 0x3a
+ 1383 0119 0B       		.uleb128 0xb
+ 1384 011a 3B       		.uleb128 0x3b
+ 1385 011b 05       		.uleb128 0x5
+ 1386 011c 49       		.uleb128 0x49
+ 1387 011d 13       		.uleb128 0x13
+ 1388 011e 3F       		.uleb128 0x3f
+ 1389 011f 19       		.uleb128 0x19
+ 1390 0120 3C       		.uleb128 0x3c
+ 1391 0121 19       		.uleb128 0x19
+ 1392 0122 00       		.byte	0
+ 1393 0123 00       		.byte	0
+ 1394 0124 12       		.uleb128 0x12
+ 1395 0125 35       		.uleb128 0x35
+ 1396 0126 00       		.byte	0
+ 1397 0127 49       		.uleb128 0x49
+ 1398 0128 13       		.uleb128 0x13
+ 1399 0129 00       		.byte	0
+ 1400 012a 00       		.byte	0
+ 1401 012b 00       		.byte	0
+ 1402              		.section	.debug_aranges,"",%progbits
+ 1403 0000 64000000 		.4byte	0x64
+ 1404 0004 0200     		.2byte	0x2
+ 1405 0006 00000000 		.4byte	.Ldebug_info0
+ 1406 000a 04       		.byte	0x4
+ 1407 000b 00       		.byte	0
+ 1408 000c 0000     		.2byte	0
+ 1409 000e 0000     		.2byte	0
+ 1410 0010 00000000 		.4byte	.LFB63
+ 1411 0014 64000000 		.4byte	.LFE63-.LFB63
+ 1412 0018 00000000 		.4byte	.LFB64
+ 1413 001c 68000000 		.4byte	.LFE64-.LFB64
+ 1414 0020 00000000 		.4byte	.LFB65
+ 1415 0024 26000000 		.4byte	.LFE65-.LFB65
+ 1416 0028 00000000 		.4byte	.LFB66
+ 1417 002c 26000000 		.4byte	.LFE66-.LFB66
+ 1418 0030 00000000 		.4byte	.LFB67
+ 1419 0034 2A000000 		.4byte	.LFE67-.LFB67
+ 1420 0038 00000000 		.4byte	.LFB68
+ 1421 003c 88000000 		.4byte	.LFE68-.LFB68
+ 1422 0040 00000000 		.4byte	.LFB69
+ 1423 0044 68000000 		.4byte	.LFE69-.LFB69
+ 1424 0048 00000000 		.4byte	.LFB70
+ 1425 004c 30000000 		.4byte	.LFE70-.LFB70
+ 1426 0050 00000000 		.4byte	.LFB71
+ 1427 0054 34000000 		.4byte	.LFE71-.LFB71
+ 1428 0058 00000000 		.4byte	.LFB72
+ 1429 005c 32000000 		.4byte	.LFE72-.LFB72
+ 1430 0060 00000000 		.4byte	0
+ 1431 0064 00000000 		.4byte	0
+ 1432              		.section	.debug_ranges,"",%progbits
+ 1433              	.Ldebug_ranges0:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 41
 
 
- 1434 0004 64000000 		.4byte	.LFE63
- 1435 0008 00000000 		.4byte	.LFB64
- 1436 000c 68000000 		.4byte	.LFE64
- 1437 0010 00000000 		.4byte	.LFB65
- 1438 0014 26000000 		.4byte	.LFE65
- 1439 0018 00000000 		.4byte	.LFB66
- 1440 001c 26000000 		.4byte	.LFE66
- 1441 0020 00000000 		.4byte	.LFB67
- 1442 0024 2A000000 		.4byte	.LFE67
- 1443 0028 00000000 		.4byte	.LFB68
- 1444 002c 86000000 		.4byte	.LFE68
- 1445 0030 00000000 		.4byte	.LFB69
- 1446 0034 68000000 		.4byte	.LFE69
- 1447 0038 00000000 		.4byte	.LFB70
- 1448 003c 30000000 		.4byte	.LFE70
- 1449 0040 00000000 		.4byte	.LFB71
- 1450 0044 34000000 		.4byte	.LFE71
- 1451 0048 00000000 		.4byte	.LFB72
- 1452 004c 32000000 		.4byte	.LFE72
- 1453 0050 00000000 		.4byte	0
- 1454 0054 00000000 		.4byte	0
- 1455              		.section	.debug_line,"",%progbits
- 1456              	.Ldebug_line0:
- 1457 0000 86020000 		.section	.debug_str,"MS",%progbits,1
- 1457      02004601 
- 1457      00000201 
- 1457      FB0E0D00 
- 1457      01010101 
- 1458              	.LASF18:
- 1459 0000 46535F4D 		.ascii	"FS_MMC_HW_X_EnableCS\000"
- 1459      4D435F48 
- 1459      575F585F 
- 1459      456E6162 
- 1459      6C654353 
- 1460              	.LASF39:
- 1461 0015 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
- 1461      6F776E6C 
- 1461      6F616473 
- 1461      5C465255 
- 1461      43445C4E 
- 1462 0044 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
- 1462      2D436170 
- 1462      79626172 
- 1462      612E6379 
- 1462      64736E00 
- 1463              	.LASF22:
- 1464 0058 46535F4D 		.ascii	"FS_MMC_HW_X_IsWriteProtected\000"
- 1464      4D435F48 
- 1464      575F585F 
- 1464      49735772 
- 1464      69746550 
- 1465              	.LASF21:
- 1466 0075 77705374 		.ascii	"wpState\000"
- 1466      61746500 
- 1467              	.LASF11:
- 1468 007d 5F5F696E 		.ascii	"__int32_t\000"
- 1468      7433325F 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 42
+ 1434 0000 00000000 		.4byte	.LFB63
+ 1435 0004 64000000 		.4byte	.LFE63
+ 1436 0008 00000000 		.4byte	.LFB64
+ 1437 000c 68000000 		.4byte	.LFE64
+ 1438 0010 00000000 		.4byte	.LFB65
+ 1439 0014 26000000 		.4byte	.LFE65
+ 1440 0018 00000000 		.4byte	.LFB66
+ 1441 001c 26000000 		.4byte	.LFE66
+ 1442 0020 00000000 		.4byte	.LFB67
+ 1443 0024 2A000000 		.4byte	.LFE67
+ 1444 0028 00000000 		.4byte	.LFB68
+ 1445 002c 88000000 		.4byte	.LFE68
+ 1446 0030 00000000 		.4byte	.LFB69
+ 1447 0034 68000000 		.4byte	.LFE69
+ 1448 0038 00000000 		.4byte	.LFB70
+ 1449 003c 30000000 		.4byte	.LFE70
+ 1450 0040 00000000 		.4byte	.LFB71
+ 1451 0044 34000000 		.4byte	.LFE71
+ 1452 0048 00000000 		.4byte	.LFB72
+ 1453 004c 32000000 		.4byte	.LFE72
+ 1454 0050 00000000 		.4byte	0
+ 1455 0054 00000000 		.4byte	0
+ 1456              		.section	.debug_line,"",%progbits
+ 1457              	.Ldebug_line0:
+ 1458 0000 86020000 		.section	.debug_str,"MS",%progbits,1
+ 1458      02004601 
+ 1458      00000201 
+ 1458      FB0E0D00 
+ 1458      01010101 
+ 1459              	.LASF18:
+ 1460 0000 46535F4D 		.ascii	"FS_MMC_HW_X_EnableCS\000"
+ 1460      4D435F48 
+ 1460      575F585F 
+ 1460      456E6162 
+ 1460      6C654353 
+ 1461              	.LASF39:
+ 1462 0015 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
+ 1462      6F776E6C 
+ 1462      6F616473 
+ 1462      5C465255 
+ 1462      43445C4E 
+ 1463 0044 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
+ 1463      2D436170 
+ 1463      79626172 
+ 1463      612E6379 
+ 1463      64736E00 
+ 1464              	.LASF22:
+ 1465 0058 46535F4D 		.ascii	"FS_MMC_HW_X_IsWriteProtected\000"
+ 1465      4D435F48 
+ 1465      575F585F 
+ 1465      49735772 
+ 1465      69746550 
+ 1466              	.LASF21:
+ 1467 0075 77705374 		.ascii	"wpState\000"
+ 1467      61746500 
+ 1468              	.LASF11:
+ 1469 007d 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 42
 
 
- 1468      7400
- 1469              	.LASF37:
- 1470 0087 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1470      4320342E 
- 1470      392E3320 
- 1470      32303135 
- 1470      30333033 
- 1471 00ba 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1471      20726576 
- 1471      6973696F 
- 1471      6E203232 
- 1471      31323230 
- 1472 00ed 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1472      66756E63 
- 1472      74696F6E 
- 1472      2D736563 
- 1472      74696F6E 
- 1473              	.LASF15:
- 1474 0115 646F7562 		.ascii	"double\000"
- 1474      6C6500
- 1475              	.LASF17:
- 1476 011c 44617461 		.ascii	"Data\000"
- 1476      00
- 1477              	.LASF33:
- 1478 0121 70446174 		.ascii	"pData\000"
- 1478      6100
- 1479              	.LASF14:
- 1480 0127 666C6F61 		.ascii	"float\000"
- 1480      7400
- 1481              	.LASF3:
- 1482 012d 756E7369 		.ascii	"unsigned char\000"
- 1482      676E6564 
- 1482      20636861 
- 1482      7200
- 1483              	.LASF23:
- 1484 013b 46535F4D 		.ascii	"FS_MMC_HW_X_SetMaxSpeed\000"
- 1484      4D435F48 
- 1484      575F585F 
- 1484      5365744D 
- 1484      61785370 
- 1485              	.LASF20:
- 1486 0153 73706944 		.ascii	"spiData\000"
- 1486      61746100 
- 1487              	.LASF0:
- 1488 015b 73686F72 		.ascii	"short unsigned int\000"
- 1488      7420756E 
- 1488      7369676E 
- 1488      65642069 
- 1488      6E7400
- 1489              	.LASF32:
- 1490 016e 46535F4D 		.ascii	"FS_MMC_HW_X_Read\000"
- 1490      4D435F48 
- 1490      575F585F 
- 1490      52656164 
- 1490      00
- 1491              	.LASF42:
- 1492 017f 49544D5F 		.ascii	"ITM_RxBuffer\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 43
+ 1469      7433325F 
+ 1469      7400
+ 1470              	.LASF37:
+ 1471 0087 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1471      4320342E 
+ 1471      392E3320 
+ 1471      32303135 
+ 1471      30333033 
+ 1472 00ba 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1472      20726576 
+ 1472      6973696F 
+ 1472      6E203232 
+ 1472      31323230 
+ 1473 00ed 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1473      66756E63 
+ 1473      74696F6E 
+ 1473      2D736563 
+ 1473      74696F6E 
+ 1474              	.LASF15:
+ 1475 0115 646F7562 		.ascii	"double\000"
+ 1475      6C6500
+ 1476              	.LASF17:
+ 1477 011c 44617461 		.ascii	"Data\000"
+ 1477      00
+ 1478              	.LASF33:
+ 1479 0121 70446174 		.ascii	"pData\000"
+ 1479      6100
+ 1480              	.LASF14:
+ 1481 0127 666C6F61 		.ascii	"float\000"
+ 1481      7400
+ 1482              	.LASF3:
+ 1483 012d 756E7369 		.ascii	"unsigned char\000"
+ 1483      676E6564 
+ 1483      20636861 
+ 1483      7200
+ 1484              	.LASF23:
+ 1485 013b 46535F4D 		.ascii	"FS_MMC_HW_X_SetMaxSpeed\000"
+ 1485      4D435F48 
+ 1485      575F585F 
+ 1485      5365744D 
+ 1485      61785370 
+ 1486              	.LASF20:
+ 1487 0153 73706944 		.ascii	"spiData\000"
+ 1487      61746100 
+ 1488              	.LASF0:
+ 1489 015b 73686F72 		.ascii	"short unsigned int\000"
+ 1489      7420756E 
+ 1489      7369676E 
+ 1489      65642069 
+ 1489      6E7400
+ 1490              	.LASF32:
+ 1491 016e 46535F4D 		.ascii	"FS_MMC_HW_X_Read\000"
+ 1491      4D435F48 
+ 1491      575F585F 
+ 1491      52656164 
+ 1491      00
+ 1492              	.LASF42:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 43
 
 
- 1492      52784275 
- 1492      66666572 
- 1492      00
- 1493              	.LASF1:
- 1494 018c 6C6F6E67 		.ascii	"long unsigned int\000"
- 1494      20756E73 
- 1494      69676E65 
- 1494      6420696E 
- 1494      7400
- 1495              	.LASF27:
- 1496 019e 46535F4D 		.ascii	"FS_MMC_HW_X_SetVoltage\000"
- 1496      4D435F48 
- 1496      575F585F 
- 1496      53657456 
- 1496      6F6C7461 
- 1497              	.LASF6:
- 1498 01b5 73686F72 		.ascii	"short int\000"
- 1498      7420696E 
- 1498      7400
- 1499              	.LASF26:
- 1500 01bf 64697652 		.ascii	"divResult\000"
- 1500      6573756C 
- 1500      7400
- 1501              	.LASF24:
- 1502 01c9 4D617846 		.ascii	"MaxFreq\000"
- 1502      72657100 
- 1503              	.LASF31:
- 1504 01d1 46535F4D 		.ascii	"FS_MMC_HW_X_IsPresent\000"
- 1504      4D435F48 
- 1504      575F585F 
- 1504      49735072 
- 1504      6573656E 
- 1505              	.LASF2:
- 1506 01e7 756E7369 		.ascii	"unsigned int\000"
- 1506      676E6564 
- 1506      20696E74 
- 1506      00
- 1507              	.LASF36:
- 1508 01f4 656D4669 		.ascii	"emFile_1_isInited0\000"
- 1508      6C655F31 
- 1508      5F697349 
- 1508      6E697465 
- 1508      643000
- 1509              	.LASF10:
- 1510 0207 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1510      206C6F6E 
- 1510      6720756E 
- 1510      7369676E 
- 1510      65642069 
- 1511              	.LASF29:
- 1512 021e 566D6178 		.ascii	"Vmax\000"
- 1512      00
- 1513              	.LASF30:
- 1514 0223 72657375 		.ascii	"result\000"
- 1514      6C7400
- 1515              	.LASF35:
- 1516 022a 46535F4D 		.ascii	"FS_MMC_HW_X_Write\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 44
+ 1493 017f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1493      52784275 
+ 1493      66666572 
+ 1493      00
+ 1494              	.LASF1:
+ 1495 018c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1495      20756E73 
+ 1495      69676E65 
+ 1495      6420696E 
+ 1495      7400
+ 1496              	.LASF27:
+ 1497 019e 46535F4D 		.ascii	"FS_MMC_HW_X_SetVoltage\000"
+ 1497      4D435F48 
+ 1497      575F585F 
+ 1497      53657456 
+ 1497      6F6C7461 
+ 1498              	.LASF6:
+ 1499 01b5 73686F72 		.ascii	"short int\000"
+ 1499      7420696E 
+ 1499      7400
+ 1500              	.LASF26:
+ 1501 01bf 64697652 		.ascii	"divResult\000"
+ 1501      6573756C 
+ 1501      7400
+ 1502              	.LASF24:
+ 1503 01c9 4D617846 		.ascii	"MaxFreq\000"
+ 1503      72657100 
+ 1504              	.LASF31:
+ 1505 01d1 46535F4D 		.ascii	"FS_MMC_HW_X_IsPresent\000"
+ 1505      4D435F48 
+ 1505      575F585F 
+ 1505      49735072 
+ 1505      6573656E 
+ 1506              	.LASF2:
+ 1507 01e7 756E7369 		.ascii	"unsigned int\000"
+ 1507      676E6564 
+ 1507      20696E74 
+ 1507      00
+ 1508              	.LASF36:
+ 1509 01f4 656D4669 		.ascii	"emFile_1_isInited0\000"
+ 1509      6C655F31 
+ 1509      5F697349 
+ 1509      6E697465 
+ 1509      643000
+ 1510              	.LASF10:
+ 1511 0207 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1511      206C6F6E 
+ 1511      6720756E 
+ 1511      7369676E 
+ 1511      65642069 
+ 1512              	.LASF29:
+ 1513 021e 566D6178 		.ascii	"Vmax\000"
+ 1513      00
+ 1514              	.LASF30:
+ 1515 0223 72657375 		.ascii	"result\000"
+ 1515      6C7400
+ 1516              	.LASF35:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 44
 
 
- 1516      4D435F48 
- 1516      575F585F 
- 1516      57726974 
- 1516      6500
- 1517              	.LASF12:
- 1518 023c 696E7433 		.ascii	"int32_t\000"
- 1518      325F7400 
- 1519              	.LASF4:
- 1520 0244 73697A65 		.ascii	"sizetype\000"
- 1520      74797065 
- 1520      00
- 1521              	.LASF9:
- 1522 024d 6C6F6E67 		.ascii	"long long int\000"
- 1522      206C6F6E 
- 1522      6720696E 
- 1522      7400
- 1523              	.LASF34:
- 1524 025b 4E756D42 		.ascii	"NumBytes\000"
- 1524      79746573 
- 1524      00
- 1525              	.LASF5:
- 1526 0264 63686172 		.ascii	"char\000"
- 1526      00
- 1527              	.LASF28:
- 1528 0269 566D696E 		.ascii	"Vmin\000"
- 1528      00
- 1529              	.LASF25:
- 1530 026e 66726571 		.ascii	"freq\000"
- 1530      00
- 1531              	.LASF13:
- 1532 0273 75696E74 		.ascii	"uint8\000"
- 1532      3800
- 1533              	.LASF7:
- 1534 0279 6C6F6E67 		.ascii	"long int\000"
- 1534      20696E74 
- 1534      00
- 1535              	.LASF40:
- 1536 0282 656D4669 		.ascii	"emFile_1_Init\000"
- 1536      6C655F31 
- 1536      5F496E69 
- 1536      7400
- 1537              	.LASF8:
- 1538 0290 7369676E 		.ascii	"signed char\000"
- 1538      65642063 
- 1538      68617200 
- 1539              	.LASF16:
- 1540 029c 556E6974 		.ascii	"Unit\000"
- 1540      00
- 1541              	.LASF19:
- 1542 02a1 46535F4D 		.ascii	"FS_MMC_HW_X_DisableCS\000"
- 1542      4D435F48 
- 1542      575F585F 
- 1542      44697361 
- 1542      626C6543 
- 1543              	.LASF41:
- 1544 02b7 656D4669 		.ascii	"emFile_1_ReadWriteSPI\000"
- 1544      6C655F31 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccXrAk92.s 			page 45
+ 1517 022a 46535F4D 		.ascii	"FS_MMC_HW_X_Write\000"
+ 1517      4D435F48 
+ 1517      575F585F 
+ 1517      57726974 
+ 1517      6500
+ 1518              	.LASF12:
+ 1519 023c 696E7433 		.ascii	"int32_t\000"
+ 1519      325F7400 
+ 1520              	.LASF4:
+ 1521 0244 73697A65 		.ascii	"sizetype\000"
+ 1521      74797065 
+ 1521      00
+ 1522              	.LASF9:
+ 1523 024d 6C6F6E67 		.ascii	"long long int\000"
+ 1523      206C6F6E 
+ 1523      6720696E 
+ 1523      7400
+ 1524              	.LASF34:
+ 1525 025b 4E756D42 		.ascii	"NumBytes\000"
+ 1525      79746573 
+ 1525      00
+ 1526              	.LASF5:
+ 1527 0264 63686172 		.ascii	"char\000"
+ 1527      00
+ 1528              	.LASF28:
+ 1529 0269 566D696E 		.ascii	"Vmin\000"
+ 1529      00
+ 1530              	.LASF25:
+ 1531 026e 66726571 		.ascii	"freq\000"
+ 1531      00
+ 1532              	.LASF13:
+ 1533 0273 75696E74 		.ascii	"uint8\000"
+ 1533      3800
+ 1534              	.LASF7:
+ 1535 0279 6C6F6E67 		.ascii	"long int\000"
+ 1535      20696E74 
+ 1535      00
+ 1536              	.LASF40:
+ 1537 0282 656D4669 		.ascii	"emFile_1_Init\000"
+ 1537      6C655F31 
+ 1537      5F496E69 
+ 1537      7400
+ 1538              	.LASF8:
+ 1539 0290 7369676E 		.ascii	"signed char\000"
+ 1539      65642063 
+ 1539      68617200 
+ 1540              	.LASF16:
+ 1541 029c 556E6974 		.ascii	"Unit\000"
+ 1541      00
+ 1542              	.LASF19:
+ 1543 02a1 46535F4D 		.ascii	"FS_MMC_HW_X_DisableCS\000"
+ 1543      4D435F48 
+ 1543      575F585F 
+ 1543      44697361 
+ 1543      626C6543 
+ 1544              	.LASF41:
+ 1545 02b7 656D4669 		.ascii	"emFile_1_ReadWriteSPI\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccaG2iBi.s 			page 45
 
 
- 1544      5F526561 
- 1544      64577269 
- 1544      74655350 
- 1545              	.LASF38:
- 1546 02cd 47656E65 		.ascii	"Generated_Source\\PSoC5\\emFile_1_MMC_HW_SPI.c\000"
- 1546      72617465 
- 1546      645F536F 
- 1546      75726365 
- 1546      5C50536F 
- 1547              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1545      6C655F31 
+ 1545      5F526561 
+ 1545      64577269 
+ 1545      74655350 
+ 1546              	.LASF38:
+ 1547 02cd 47656E65 		.ascii	"Generated_Source\\PSoC5\\emFile_1_MMC_HW_SPI.c\000"
+ 1547      72617465 
+ 1547      645F536F 
+ 1547      75726365 
+ 1547      5C50536F 
+ 1548              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

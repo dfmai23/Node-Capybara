@@ -168,7 +168,7 @@ void heartbeat_timer_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define heartbeat_timer_INIT_PERIOD             999u
+#define heartbeat_timer_INIT_PERIOD             499u
 #define heartbeat_timer_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << heartbeat_timer_CTRL_CAP_MODE_SHIFT))
 #define heartbeat_timer_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << heartbeat_timer_CTRL_TRIG_MODE_SHIFT))
 #if (heartbeat_timer_UsingFixedFunction)

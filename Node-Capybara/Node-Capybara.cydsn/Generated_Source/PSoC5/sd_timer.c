@@ -402,12 +402,12 @@ void sd_timer_WriteControlRegister(uint8 control)
 *  The present value of the counter.
 *
 *******************************************************************************/
-uint32 sd_timer_ReadPeriod(void) 
+uint16 sd_timer_ReadPeriod(void) 
 {
    #if(sd_timer_UsingFixedFunction)
-       return ((uint32)CY_GET_REG16(sd_timer_PERIOD_LSB_PTR));
+       return ((uint16)CY_GET_REG16(sd_timer_PERIOD_LSB_PTR));
    #else
-       return (CY_GET_REG24(sd_timer_PERIOD_LSB_PTR));
+       return (CY_GET_REG16(sd_timer_PERIOD_LSB_PTR));
    #endif /* (sd_timer_UsingFixedFunction) */
 }
 
@@ -428,13 +428,13 @@ uint32 sd_timer_ReadPeriod(void)
 *  void
 *
 *******************************************************************************/
-void sd_timer_WritePeriod(uint32 period) 
+void sd_timer_WritePeriod(uint16 period) 
 {
     #if(sd_timer_UsingFixedFunction)
         uint16 period_temp = (uint16)period;
         CY_SET_REG16(sd_timer_PERIOD_LSB_PTR, period_temp);
     #else
-        CY_SET_REG24(sd_timer_PERIOD_LSB_PTR, period);
+        CY_SET_REG16(sd_timer_PERIOD_LSB_PTR, period);
     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed function implementation */
 }
 
@@ -453,12 +453,12 @@ void sd_timer_WritePeriod(uint32 period)
 *  Present Capture value.
 *
 *******************************************************************************/
-uint32 sd_timer_ReadCapture(void) 
+uint16 sd_timer_ReadCapture(void) 
 {
    #if(sd_timer_UsingFixedFunction)
-       return ((uint32)CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
+       return ((uint16)CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
    #else
-       return (CY_GET_REG24(sd_timer_CAPTURE_LSB_PTR));
+       return (CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
    #endif /* (sd_timer_UsingFixedFunction) */
 }
 
@@ -477,7 +477,7 @@ uint32 sd_timer_ReadCapture(void)
 *  void
 *
 *******************************************************************************/
-void sd_timer_WriteCounter(uint32 counter) 
+void sd_timer_WriteCounter(uint16 counter) 
 {
    #if(sd_timer_UsingFixedFunction)
         /* This functionality is removed until a FixedFunction HW update to
@@ -486,7 +486,7 @@ void sd_timer_WriteCounter(uint32 counter)
         CY_SET_REG16(sd_timer_COUNTER_LSB_PTR, (uint16)counter);
         
     #else
-        CY_SET_REG24(sd_timer_COUNTER_LSB_PTR, counter);
+        CY_SET_REG16(sd_timer_COUNTER_LSB_PTR, counter);
     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fixed function Timer */
 }
 
@@ -505,7 +505,7 @@ void sd_timer_WriteCounter(uint32 counter)
 *  Present compare value.
 *
 *******************************************************************************/
-uint32 sd_timer_ReadCounter(void) 
+uint16 sd_timer_ReadCounter(void) 
 {
     /* Force capture by reading Accumulator */
     /* Must first do a software capture to be able to read the counter */
@@ -518,9 +518,9 @@ uint32 sd_timer_ReadCounter(void)
 
     /* Read the data from the FIFO (or capture register for Fixed Function)*/
     #if(sd_timer_UsingFixedFunction)
-        return ((uint32)CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
+        return ((uint16)CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
     #else
-        return (CY_GET_REG24(sd_timer_CAPTURE_LSB_PTR));
+        return (CY_GET_REG16(sd_timer_CAPTURE_LSB_PTR));
     #endif /* (sd_timer_UsingFixedFunction) */
 }
 

@@ -1,0 +1,1444 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"speed_manager.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.comm	Serial_Command,1,1
+  19              		.comm	StringToPrint,90,4
+  20              		.comm	Channel_1_Count,4,4
+  21              		.comm	Channel_2_Count,4,4
+  22              		.comm	Channel_3_Count,4,4
+  23              		.comm	Channel_4_Count,4,4
+  24              		.bss
+  25              		.align	2
+  26              	intFlag:
+  27 0000 00000000 		.space	4
+  28              		.align	2
+  29              	intFlag2:
+  30 0004 00000000 		.space	4
+  31              		.align	2
+  32              	intFlag3:
+  33 0008 00000000 		.space	4
+  34              		.align	2
+  35              	intFlag4:
+  36 000c 00000000 		.space	4
+  37              		.comm	Tacho_freq,4,4
+  38              		.comm	pulselen,4,4
+  39              		.comm	Tacho_freq2,4,4
+  40              		.comm	pulselen2,4,4
+  41              		.comm	Tacho_freq3,4,4
+  42              		.comm	pulselen3,4,4
+  43              		.comm	Tacho_freq4,4,4
+  44              		.comm	pulselen4,4,4
+  45              		.comm	voltage,4,4
+  46              		.section	.text.Channel1_isr_Handler,"ax",%progbits
+  47              		.align	2
+  48              		.global	Channel1_isr_Handler
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	Channel1_isr_Handler, %function
+  52              	Channel1_isr_Handler:
+  53              	.LFB63:
+  54              		.file 1 "speed_manager.c"
+   1:speed_manager.c **** /*
+   2:speed_manager.c **** Reciprocal Counter based frequency measurement of tachometer sensor
+   3:speed_manager.c **** resolution = 1/sysclk  (hz) = 1 us currently
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 2
+
+
+   4:speed_manager.c **** highest freq = sysclk/2 = 500000Hz currently
+   5:speed_manager.c **** lowest freq = 1/period = 0.2 Hz currently
+   6:speed_manager.c **** 
+   7:speed_manager.c **** pulselen = [period - count] / timerclk
+   8:speed_manager.c **** freq = 1/[2pulselen]
+   9:speed_manager.c **** 
+  10:speed_manager.c ****     1 - front left
+  11:speed_manager.c ****     2 - front right //currently no hardware
+  12:speed_manager.c ****     3 - rear left
+  13:speed_manager.c ****     4 - rear right
+  14:speed_manager.c **** */
+  15:speed_manager.c **** 
+  16:speed_manager.c **** #include "speed_manager.h"
+  17:speed_manager.c **** #include <stdlib.h>
+  18:speed_manager.c **** #include <math.h>
+  19:speed_manager.c **** #include <stdio.h>
+  20:speed_manager.c **** 
+  21:speed_manager.c **** extern CAN_1_TX_MSG SENS_STAT;		//0x247
+  22:speed_manager.c **** extern CAN_1_DATA_BYTES_MSG data;
+  23:speed_manager.c **** 
+  24:speed_manager.c **** char Serial_Command;
+  25:speed_manager.c **** char StringToPrint[90];
+  26:speed_manager.c **** volatile uint32 Channel_1_Count, Channel_2_Count, Channel_3_Count, Channel_4_Count;
+  27:speed_manager.c **** static int intFlag = 0;
+  28:speed_manager.c **** static int intFlag2 = 0;
+  29:speed_manager.c **** static int intFlag3 = 0;
+  30:speed_manager.c **** static int intFlag4 = 0;
+  31:speed_manager.c **** float32 Tacho_freq;
+  32:speed_manager.c **** float32 pulselen;
+  33:speed_manager.c **** float32 Tacho_freq2;
+  34:speed_manager.c **** float32 pulselen2;
+  35:speed_manager.c **** float32 Tacho_freq3;
+  36:speed_manager.c **** float32 pulselen3;
+  37:speed_manager.c **** float32 Tacho_freq4;
+  38:speed_manager.c **** float32 pulselen4;
+  39:speed_manager.c **** float32 voltage;
+  40:speed_manager.c **** 
+  41:speed_manager.c **** CY_ISR(Channel1_isr_Handler){
+  55              		.loc 1 41 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 1, uses_anonymous_args = 0
+  59 0000 80B5     		push	{r7, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 7, -8
+  62              		.cfi_offset 14, -4
+  63 0002 00AF     		add	r7, sp, #0
+  64              		.cfi_def_cfa_register 7
+  42:speed_manager.c ****     Channel_1_Count = Channel_1_Timer_ReadCounter();
+  65              		.loc 1 42 0
+  66 0004 FFF7FEFF 		bl	Channel_1_Timer_ReadCounter
+  67 0008 0346     		mov	r3, r0
+  68 000a 1A46     		mov	r2, r3
+  69 000c 0A4B     		ldr	r3, .L3
+  70 000e 1A60     		str	r2, [r3]
+  43:speed_manager.c ****     intFlag = Channel_1_Timer_ReadStatusRegister();  
+  71              		.loc 1 43 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 3
+
+
+  72 0010 FFF7FEFF 		bl	Channel_1_Timer_ReadStatusRegister
+  73 0014 0346     		mov	r3, r0
+  74 0016 1A46     		mov	r2, r3
+  75 0018 084B     		ldr	r3, .L3+4
+  76 001a 1A60     		str	r2, [r3]
+  44:speed_manager.c ****     CR1_Write(1);
+  77              		.loc 1 44 0
+  78 001c 0120     		movs	r0, #1
+  79 001e FFF7FEFF 		bl	CR1_Write
+  45:speed_manager.c ****       
+  46:speed_manager.c ****     if(intFlag & Channel_1_Timer_STATUS_TC)
+  80              		.loc 1 46 0
+  81 0022 064B     		ldr	r3, .L3+4
+  82 0024 1B68     		ldr	r3, [r3]
+  83 0026 03F00103 		and	r3, r3, #1
+  84 002a 002B     		cmp	r3, #0
+  85 002c 02D0     		beq	.L1
+  47:speed_manager.c ****         Channel_1_Count = 0;
+  86              		.loc 1 47 0
+  87 002e 024B     		ldr	r3, .L3
+  88 0030 0022     		movs	r2, #0
+  89 0032 1A60     		str	r2, [r3]
+  90              	.L1:
+  48:speed_manager.c **** }
+  91              		.loc 1 48 0
+  92 0034 80BD     		pop	{r7, pc}
+  93              	.L4:
+  94 0036 00BF     		.align	2
+  95              	.L3:
+  96 0038 00000000 		.word	Channel_1_Count
+  97 003c 00000000 		.word	intFlag
+  98              		.cfi_endproc
+  99              	.LFE63:
+ 100              		.size	Channel1_isr_Handler, .-Channel1_isr_Handler
+ 101              		.section	.text.Channel3_isr_Handler,"ax",%progbits
+ 102              		.align	2
+ 103              		.global	Channel3_isr_Handler
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.type	Channel3_isr_Handler, %function
+ 107              	Channel3_isr_Handler:
+ 108              	.LFB64:
+  49:speed_manager.c **** /*
+  50:speed_manager.c **** CY_ISR(Channel2_isr_Handler){
+  51:speed_manager.c ****     Channel_2_Count = Channel_2_Timer_ReadCounter();
+  52:speed_manager.c ****     intFlag2 = Channel_2_Timer_ReadStatusRegister();  
+  53:speed_manager.c ****     CR2_Write(1);
+  54:speed_manager.c ****       
+  55:speed_manager.c ****     if(intFlag2 & Channel_2_Timer_STATUS_TC)
+  56:speed_manager.c ****         Channel_2_Count = 0;
+  57:speed_manager.c **** }
+  58:speed_manager.c **** */
+  59:speed_manager.c **** CY_ISR(Channel3_isr_Handler){
+ 109              		.loc 1 59 0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 4
+
+
+ 113 0000 80B5     		push	{r7, lr}
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 00AF     		add	r7, sp, #0
+ 118              		.cfi_def_cfa_register 7
+  60:speed_manager.c ****     Channel_3_Count = Channel_3_Timer_ReadCounter();
+ 119              		.loc 1 60 0
+ 120 0004 FFF7FEFF 		bl	Channel_3_Timer_ReadCounter
+ 121 0008 0346     		mov	r3, r0
+ 122 000a 1A46     		mov	r2, r3
+ 123 000c 0A4B     		ldr	r3, .L7
+ 124 000e 1A60     		str	r2, [r3]
+  61:speed_manager.c ****     intFlag3 = Channel_3_Timer_ReadStatusRegister();  
+ 125              		.loc 1 61 0
+ 126 0010 FFF7FEFF 		bl	Channel_3_Timer_ReadStatusRegister
+ 127 0014 0346     		mov	r3, r0
+ 128 0016 1A46     		mov	r2, r3
+ 129 0018 084B     		ldr	r3, .L7+4
+ 130 001a 1A60     		str	r2, [r3]
+  62:speed_manager.c ****     CR3_Write(1);
+ 131              		.loc 1 62 0
+ 132 001c 0120     		movs	r0, #1
+ 133 001e FFF7FEFF 		bl	CR3_Write
+  63:speed_manager.c ****       
+  64:speed_manager.c ****     if(intFlag3 & Channel_3_Timer_STATUS_TC)
+ 134              		.loc 1 64 0
+ 135 0022 064B     		ldr	r3, .L7+4
+ 136 0024 1B68     		ldr	r3, [r3]
+ 137 0026 03F00103 		and	r3, r3, #1
+ 138 002a 002B     		cmp	r3, #0
+ 139 002c 02D0     		beq	.L5
+  65:speed_manager.c ****         Channel_3_Count = 0;
+ 140              		.loc 1 65 0
+ 141 002e 024B     		ldr	r3, .L7
+ 142 0030 0022     		movs	r2, #0
+ 143 0032 1A60     		str	r2, [r3]
+ 144              	.L5:
+  66:speed_manager.c **** }
+ 145              		.loc 1 66 0
+ 146 0034 80BD     		pop	{r7, pc}
+ 147              	.L8:
+ 148 0036 00BF     		.align	2
+ 149              	.L7:
+ 150 0038 00000000 		.word	Channel_3_Count
+ 151 003c 08000000 		.word	intFlag3
+ 152              		.cfi_endproc
+ 153              	.LFE64:
+ 154              		.size	Channel3_isr_Handler, .-Channel3_isr_Handler
+ 155              		.section	.text.Channel4_isr_Handler,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	Channel4_isr_Handler
+ 158              		.thumb
+ 159              		.thumb_func
+ 160              		.type	Channel4_isr_Handler, %function
+ 161              	Channel4_isr_Handler:
+ 162              	.LFB65:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 5
+
+
+  67:speed_manager.c **** CY_ISR(Channel4_isr_Handler){
+ 163              		.loc 1 67 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 1, uses_anonymous_args = 0
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 00AF     		add	r7, sp, #0
+ 172              		.cfi_def_cfa_register 7
+  68:speed_manager.c ****     Channel_4_Count = Channel_4_Timer_ReadCounter();
+ 173              		.loc 1 68 0
+ 174 0004 FFF7FEFF 		bl	Channel_4_Timer_ReadCounter
+ 175 0008 0346     		mov	r3, r0
+ 176 000a 1A46     		mov	r2, r3
+ 177 000c 0A4B     		ldr	r3, .L11
+ 178 000e 1A60     		str	r2, [r3]
+  69:speed_manager.c ****     intFlag4 = Channel_4_Timer_ReadStatusRegister();  
+ 179              		.loc 1 69 0
+ 180 0010 FFF7FEFF 		bl	Channel_4_Timer_ReadStatusRegister
+ 181 0014 0346     		mov	r3, r0
+ 182 0016 1A46     		mov	r2, r3
+ 183 0018 084B     		ldr	r3, .L11+4
+ 184 001a 1A60     		str	r2, [r3]
+  70:speed_manager.c ****     CR4_Write(1);
+ 185              		.loc 1 70 0
+ 186 001c 0120     		movs	r0, #1
+ 187 001e FFF7FEFF 		bl	CR4_Write
+  71:speed_manager.c ****       
+  72:speed_manager.c ****     if(intFlag4 & Channel_4_Timer_STATUS_TC)
+ 188              		.loc 1 72 0
+ 189 0022 064B     		ldr	r3, .L11+4
+ 190 0024 1B68     		ldr	r3, [r3]
+ 191 0026 03F00103 		and	r3, r3, #1
+ 192 002a 002B     		cmp	r3, #0
+ 193 002c 02D0     		beq	.L9
+  73:speed_manager.c ****         Channel_4_Count = 0; 
+ 194              		.loc 1 73 0
+ 195 002e 024B     		ldr	r3, .L11
+ 196 0030 0022     		movs	r2, #0
+ 197 0032 1A60     		str	r2, [r3]
+ 198              	.L9:
+  74:speed_manager.c **** }
+ 199              		.loc 1 74 0
+ 200 0034 80BD     		pop	{r7, pc}
+ 201              	.L12:
+ 202 0036 00BF     		.align	2
+ 203              	.L11:
+ 204 0038 00000000 		.word	Channel_4_Count
+ 205 003c 0C000000 		.word	intFlag4
+ 206              		.cfi_endproc
+ 207              	.LFE65:
+ 208              		.size	Channel4_isr_Handler, .-Channel4_isr_Handler
+ 209              		.section	.text.speed_init,"ax",%progbits
+ 210              		.align	2
+ 211              		.global	speed_init
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 6
+
+
+ 212              		.thumb
+ 213              		.thumb_func
+ 214              		.type	speed_init, %function
+ 215              	speed_init:
+ 216              	.LFB66:
+  75:speed_manager.c **** void speed_init() {
+ 217              		.loc 1 75 0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 1, uses_anonymous_args = 0
+ 221 0000 80B5     		push	{r7, lr}
+ 222              		.cfi_def_cfa_offset 8
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 225 0002 00AF     		add	r7, sp, #0
+ 226              		.cfi_def_cfa_register 7
+  76:speed_manager.c ****     Channel_1_isr_StartEx(Channel1_isr_Handler); 
+ 227              		.loc 1 76 0
+ 228 0004 1048     		ldr	r0, .L14
+ 229 0006 FFF7FEFF 		bl	Channel_1_isr_StartEx
+  77:speed_manager.c ****     Channel_1_Timer_Start();
+ 230              		.loc 1 77 0
+ 231 000a FFF7FEFF 		bl	Channel_1_Timer_Start
+  78:speed_manager.c ****     DVDAC_1_Start();
+ 232              		.loc 1 78 0
+ 233 000e FFF7FEFF 		bl	DVDAC_1_Start
+  79:speed_manager.c ****     Comp_1_Start();
+ 234              		.loc 1 79 0
+ 235 0012 FFF7FEFF 		bl	Comp_1_Start
+  80:speed_manager.c ****     //My_ADC_1_Start();
+  81:speed_manager.c ****     PGA_1_Start();
+ 236              		.loc 1 81 0
+ 237 0016 FFF7FEFF 		bl	PGA_1_Start
+  82:speed_manager.c ****     /*
+  83:speed_manager.c ****     Channel_2_isr_StartEx(Channel2_isr_Handler); 
+  84:speed_manager.c ****     Channel_2_Timer_Start();
+  85:speed_manager.c ****     DVDAC_2_Start();
+  86:speed_manager.c ****     Comp_2_Start();
+  87:speed_manager.c ****     PGA_2_Start();
+  88:speed_manager.c ****     */
+  89:speed_manager.c ****     Channel_3_isr_StartEx(Channel3_isr_Handler); 
+ 238              		.loc 1 89 0
+ 239 001a 0C48     		ldr	r0, .L14+4
+ 240 001c FFF7FEFF 		bl	Channel_3_isr_StartEx
+  90:speed_manager.c ****     Channel_3_Timer_Start();
+ 241              		.loc 1 90 0
+ 242 0020 FFF7FEFF 		bl	Channel_3_Timer_Start
+  91:speed_manager.c ****     DVDAC_3_Start();
+ 243              		.loc 1 91 0
+ 244 0024 FFF7FEFF 		bl	DVDAC_3_Start
+  92:speed_manager.c ****     Comp_3_Start();
+ 245              		.loc 1 92 0
+ 246 0028 FFF7FEFF 		bl	Comp_3_Start
+  93:speed_manager.c ****     PGA_3_Start();
+ 247              		.loc 1 93 0
+ 248 002c FFF7FEFF 		bl	PGA_3_Start
+  94:speed_manager.c **** 	
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 7
+
+
+  95:speed_manager.c **** 	Channel_4_isr_StartEx(Channel4_isr_Handler); 
+ 249              		.loc 1 95 0
+ 250 0030 0748     		ldr	r0, .L14+8
+ 251 0032 FFF7FEFF 		bl	Channel_4_isr_StartEx
+  96:speed_manager.c ****     Channel_4_Timer_Start();
+ 252              		.loc 1 96 0
+ 253 0036 FFF7FEFF 		bl	Channel_4_Timer_Start
+  97:speed_manager.c ****     DVDAC_4_Start();
+ 254              		.loc 1 97 0
+ 255 003a FFF7FEFF 		bl	DVDAC_4_Start
+  98:speed_manager.c ****     Comp_4_Start();
+ 256              		.loc 1 98 0
+ 257 003e FFF7FEFF 		bl	Comp_4_Start
+  99:speed_manager.c ****     PGA_4_Start();
+ 258              		.loc 1 99 0
+ 259 0042 FFF7FEFF 		bl	PGA_4_Start
+ 100:speed_manager.c **** 	
+ 101:speed_manager.c **** 	//TestPWM_Start();
+ 102:speed_manager.c **** }
+ 260              		.loc 1 102 0
+ 261 0046 80BD     		pop	{r7, pc}
+ 262              	.L15:
+ 263              		.align	2
+ 264              	.L14:
+ 265 0048 00000000 		.word	Channel1_isr_Handler
+ 266 004c 00000000 		.word	Channel3_isr_Handler
+ 267 0050 00000000 		.word	Channel4_isr_Handler
+ 268              		.cfi_endproc
+ 269              	.LFE66:
+ 270              		.size	speed_init, .-speed_init
+ 271              		.global	__aeabi_ui2f
+ 272              		.global	__aeabi_fdiv
+ 273              		.global	__aeabi_fadd
+ 274              		.section	.text.speed_sense,"ax",%progbits
+ 275              		.align	2
+ 276              		.global	speed_sense
+ 277              		.thumb
+ 278              		.thumb_func
+ 279              		.type	speed_sense, %function
+ 280              	speed_sense:
+ 281              	.LFB67:
+ 103:speed_manager.c **** 
+ 104:speed_manager.c **** void speed_sense() {
+ 282              		.loc 1 104 0
+ 283              		.cfi_startproc
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 1, uses_anonymous_args = 0
+ 286 0000 80B5     		push	{r7, lr}
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 7, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 00AF     		add	r7, sp, #0
+ 291              		.cfi_def_cfa_register 7
+ 105:speed_manager.c ****     /*debugging
+ 106:speed_manager.c **** 	if(UART_1_ReadRxStatus() == UART_1_RX_STS_FIFO_NOTEMPTY){
+ 107:speed_manager.c ****         Serial_Command=UART_1_GetChar();
+ 108:speed_manager.c ****     }
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 8
+
+
+ 109:speed_manager.c ****     //UART_1_ClearTxBuffer();
+ 110:speed_manager.c ****     //UART_1_ClearTxBuffer();
+ 111:speed_manager.c ****     My_ADC_StartConvert();
+ 112:speed_manager.c ****     voltage = My_ADC_CountsTo_Volts(My_ADC_GetResult32());
+ 113:speed_manager.c **** 	*/
+ 114:speed_manager.c **** 	
+ 115:speed_manager.c ****    	if(Channel_1_Count >= threshold){
+ 292              		.loc 1 115 0
+ 293 0004 484B     		ldr	r3, .L23
+ 294 0006 1B68     		ldr	r3, [r3]
+ 295 0008 484A     		ldr	r2, .L23+4
+ 296 000a 9342     		cmp	r3, r2
+ 297 000c 04D9     		bls	.L17
+ 116:speed_manager.c ****         Tacho_freq = 0;
+ 298              		.loc 1 116 0
+ 299 000e 484B     		ldr	r3, .L23+8
+ 300 0010 4FF00002 		mov	r2, #0
+ 301 0014 1A60     		str	r2, [r3]	@ float
+ 302 0016 24E0     		b	.L18
+ 303              	.L17:
+ 117:speed_manager.c ****     }
+ 118:speed_manager.c ****     else {
+ 119:speed_manager.c ****     	pulselen = (Ch1Period - Channel_1_Count)/((float) timerCLK);
+ 304              		.loc 1 119 0
+ 305 0018 434B     		ldr	r3, .L23
+ 306 001a 1A68     		ldr	r2, [r3]
+ 307 001c 454B     		ldr	r3, .L23+12
+ 308 001e 9B1A     		subs	r3, r3, r2
+ 309 0020 1846     		mov	r0, r3
+ 310 0022 FFF7FEFF 		bl	__aeabi_ui2f
+ 311 0026 0346     		mov	r3, r0
+ 312 0028 1846     		mov	r0, r3
+ 313 002a 4349     		ldr	r1, .L23+16
+ 314 002c FFF7FEFF 		bl	__aeabi_fdiv
+ 315 0030 0346     		mov	r3, r0
+ 316 0032 1A46     		mov	r2, r3
+ 317 0034 414B     		ldr	r3, .L23+20
+ 318 0036 1A60     		str	r2, [r3]	@ float
+ 120:speed_manager.c ****     	Tacho_freq = (1/(2*pulselen))/numSpokes1;
+ 319              		.loc 1 120 0
+ 320 0038 404B     		ldr	r3, .L23+20
+ 321 003a 1B68     		ldr	r3, [r3]	@ float
+ 322 003c 1846     		mov	r0, r3
+ 323 003e 1946     		mov	r1, r3
+ 324 0040 FFF7FEFF 		bl	__aeabi_fadd
+ 325 0044 0346     		mov	r3, r0
+ 326 0046 4FF07E50 		mov	r0, #1065353216
+ 327 004a 1946     		mov	r1, r3
+ 328 004c FFF7FEFF 		bl	__aeabi_fdiv
+ 329 0050 0346     		mov	r3, r0
+ 330 0052 1846     		mov	r0, r3
+ 331 0054 3A49     		ldr	r1, .L23+24
+ 332 0056 FFF7FEFF 		bl	__aeabi_fdiv
+ 333 005a 0346     		mov	r3, r0
+ 334 005c 1A46     		mov	r2, r3
+ 335 005e 344B     		ldr	r3, .L23+8
+ 336 0060 1A60     		str	r2, [r3]	@ float
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 9
+
+
+ 337              	.L18:
+ 121:speed_manager.c ****     }
+ 122:speed_manager.c ****     /*
+ 123:speed_manager.c ****     if(Channel_2_Count >= threshold) {
+ 124:speed_manager.c ****         Tacho_freq2 = 0;
+ 125:speed_manager.c ****     }
+ 126:speed_manager.c ****     else {
+ 127:speed_manager.c ****    		pulselen2 = (Ch2Period - Channel_2_Count)/((float) timerCLK);
+ 128:speed_manager.c ****     	Tacho_freq2 = (1/(2*pulselen2))/numSpokes2;
+ 129:speed_manager.c ****     }
+ 130:speed_manager.c ****     */
+ 131:speed_manager.c ****     if(Channel_3_Count >= threshold) {
+ 338              		.loc 1 131 0
+ 339 0062 384B     		ldr	r3, .L23+28
+ 340 0064 1B68     		ldr	r3, [r3]
+ 341 0066 314A     		ldr	r2, .L23+4
+ 342 0068 9342     		cmp	r3, r2
+ 343 006a 04D9     		bls	.L19
+ 132:speed_manager.c ****         Tacho_freq3 = 0;
+ 344              		.loc 1 132 0
+ 345 006c 364B     		ldr	r3, .L23+32
+ 346 006e 4FF00002 		mov	r2, #0
+ 347 0072 1A60     		str	r2, [r3]	@ float
+ 348 0074 24E0     		b	.L20
+ 349              	.L19:
+ 133:speed_manager.c ****     }
+ 134:speed_manager.c ****     else {
+ 135:speed_manager.c **** 	    pulselen3 = (Ch3Period - Channel_3_Count)/((float) timerCLK);
+ 350              		.loc 1 135 0
+ 351 0076 334B     		ldr	r3, .L23+28
+ 352 0078 1A68     		ldr	r2, [r3]
+ 353 007a 2E4B     		ldr	r3, .L23+12
+ 354 007c 9B1A     		subs	r3, r3, r2
+ 355 007e 1846     		mov	r0, r3
+ 356 0080 FFF7FEFF 		bl	__aeabi_ui2f
+ 357 0084 0346     		mov	r3, r0
+ 358 0086 1846     		mov	r0, r3
+ 359 0088 2B49     		ldr	r1, .L23+16
+ 360 008a FFF7FEFF 		bl	__aeabi_fdiv
+ 361 008e 0346     		mov	r3, r0
+ 362 0090 1A46     		mov	r2, r3
+ 363 0092 2E4B     		ldr	r3, .L23+36
+ 364 0094 1A60     		str	r2, [r3]	@ float
+ 136:speed_manager.c **** 	    Tacho_freq3 = (1/(2*pulselen3))/numSpokes3;
+ 365              		.loc 1 136 0
+ 366 0096 2D4B     		ldr	r3, .L23+36
+ 367 0098 1B68     		ldr	r3, [r3]	@ float
+ 368 009a 1846     		mov	r0, r3
+ 369 009c 1946     		mov	r1, r3
+ 370 009e FFF7FEFF 		bl	__aeabi_fadd
+ 371 00a2 0346     		mov	r3, r0
+ 372 00a4 4FF07E50 		mov	r0, #1065353216
+ 373 00a8 1946     		mov	r1, r3
+ 374 00aa FFF7FEFF 		bl	__aeabi_fdiv
+ 375 00ae 0346     		mov	r3, r0
+ 376 00b0 1846     		mov	r0, r3
+ 377 00b2 2349     		ldr	r1, .L23+24
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 10
+
+
+ 378 00b4 FFF7FEFF 		bl	__aeabi_fdiv
+ 379 00b8 0346     		mov	r3, r0
+ 380 00ba 1A46     		mov	r2, r3
+ 381 00bc 224B     		ldr	r3, .L23+32
+ 382 00be 1A60     		str	r2, [r3]	@ float
+ 383              	.L20:
+ 137:speed_manager.c ****     }
+ 138:speed_manager.c ****     
+ 139:speed_manager.c **** 	if(Channel_4_Count >= threshold) {
+ 384              		.loc 1 139 0
+ 385 00c0 234B     		ldr	r3, .L23+40
+ 386 00c2 1B68     		ldr	r3, [r3]
+ 387 00c4 194A     		ldr	r2, .L23+4
+ 388 00c6 9342     		cmp	r3, r2
+ 389 00c8 04D9     		bls	.L21
+ 140:speed_manager.c ****         Tacho_freq4 = 0;
+ 390              		.loc 1 140 0
+ 391 00ca 224B     		ldr	r3, .L23+44
+ 392 00cc 4FF00002 		mov	r2, #0
+ 393 00d0 1A60     		str	r2, [r3]	@ float
+ 394 00d2 24E0     		b	.L22
+ 395              	.L21:
+ 141:speed_manager.c ****     }
+ 142:speed_manager.c ****     else {
+ 143:speed_manager.c **** 	    pulselen4 = (Ch4Period - Channel_4_Count)/((float) timerCLK);
+ 396              		.loc 1 143 0
+ 397 00d4 1E4B     		ldr	r3, .L23+40
+ 398 00d6 1A68     		ldr	r2, [r3]
+ 399 00d8 164B     		ldr	r3, .L23+12
+ 400 00da 9B1A     		subs	r3, r3, r2
+ 401 00dc 1846     		mov	r0, r3
+ 402 00de FFF7FEFF 		bl	__aeabi_ui2f
+ 403 00e2 0346     		mov	r3, r0
+ 404 00e4 1846     		mov	r0, r3
+ 405 00e6 1449     		ldr	r1, .L23+16
+ 406 00e8 FFF7FEFF 		bl	__aeabi_fdiv
+ 407 00ec 0346     		mov	r3, r0
+ 408 00ee 1A46     		mov	r2, r3
+ 409 00f0 194B     		ldr	r3, .L23+48
+ 410 00f2 1A60     		str	r2, [r3]	@ float
+ 144:speed_manager.c **** 	    Tacho_freq4 = (1/(2*pulselen4))/numSpokes4;
+ 411              		.loc 1 144 0
+ 412 00f4 184B     		ldr	r3, .L23+48
+ 413 00f6 1B68     		ldr	r3, [r3]	@ float
+ 414 00f8 1846     		mov	r0, r3
+ 415 00fa 1946     		mov	r1, r3
+ 416 00fc FFF7FEFF 		bl	__aeabi_fadd
+ 417 0100 0346     		mov	r3, r0
+ 418 0102 4FF07E50 		mov	r0, #1065353216
+ 419 0106 1946     		mov	r1, r3
+ 420 0108 FFF7FEFF 		bl	__aeabi_fdiv
+ 421 010c 0346     		mov	r3, r0
+ 422 010e 1846     		mov	r0, r3
+ 423 0110 0B49     		ldr	r1, .L23+24
+ 424 0112 FFF7FEFF 		bl	__aeabi_fdiv
+ 425 0116 0346     		mov	r3, r0
+ 426 0118 1A46     		mov	r2, r3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 11
+
+
+ 427 011a 0E4B     		ldr	r3, .L23+44
+ 428 011c 1A60     		str	r2, [r3]	@ float
+ 429              	.L22:
+ 145:speed_manager.c ****     }
+ 146:speed_manager.c ****     
+ 147:speed_manager.c **** 	//sprintf(StringToPrint," %lf  %lf %d \r\n",Tacho_freq,voltage,comparator_out_Read());
+ 148:speed_manager.c **** 	//sprintf(StringToPrint," %lf  %lf %lf \r\n",Tacho_freq,Tacho_freq2,Tacho_freq3);
+ 149:speed_manager.c **** 	//UART_1_PutString(StringToPrint);
+ 150:speed_manager.c **** 	CyDelay(2);  
+ 430              		.loc 1 150 0
+ 431 011e 0220     		movs	r0, #2
+ 432 0120 FFF7FEFF 		bl	CyDelay
+ 151:speed_manager.c **** }...
+ 433              		.loc 1 151 0
+ 434 0124 80BD     		pop	{r7, pc}
+ 435              	.L24:
+ 436 0126 00BF     		.align	2
+ 437              	.L23:
+ 438 0128 00000000 		.word	Channel_1_Count
+ 439 012c DB4A4C00 		.word	4999899
+ 440 0130 00000000 		.word	Tacho_freq
+ 441 0134 404B4C00 		.word	5000000
+ 442 0138 00247449 		.word	1232348160
+ 443 013c 00000000 		.word	pulselen
+ 444 0140 0000C040 		.word	1086324736
+ 445 0144 00000000 		.word	Channel_3_Count
+ 446 0148 00000000 		.word	Tacho_freq3
+ 447 014c 00000000 		.word	pulselen3
+ 448 0150 00000000 		.word	Channel_4_Count
+ 449 0154 00000000 		.word	Tacho_freq4
+ 450 0158 00000000 		.word	pulselen4
+ 451              		.cfi_endproc
+ 452              	.LFE67:
+ 453              		.size	speed_sense, .-speed_sense
+ 454              		.text
+ 455              	.Letext0:
+ 456              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 457              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 458              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 459              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 460              		.section	.debug_info,"",%progbits
+ 461              	.Ldebug_info0:
+ 462 0000 83020000 		.4byte	0x283
+ 463 0004 0400     		.2byte	0x4
+ 464 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 465 000a 04       		.byte	0x4
+ 466 000b 01       		.uleb128 0x1
+ 467 000c 44000000 		.4byte	.LASF44
+ 468 0010 01       		.byte	0x1
+ 469 0011 1C020000 		.4byte	.LASF45
+ 470 0015 C2010000 		.4byte	.LASF46
+ 471 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 472 001d 00000000 		.4byte	0
+ 473 0021 00000000 		.4byte	.Ldebug_line0
+ 474 0025 02       		.uleb128 0x2
+ 475 0026 01       		.byte	0x1
+ 476 0027 06       		.byte	0x6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 12
+
+
+ 477 0028 C4020000 		.4byte	.LASF0
+ 478 002c 02       		.uleb128 0x2
+ 479 002d 01       		.byte	0x1
+ 480 002e 08       		.byte	0x8
+ 481 002f FA000000 		.4byte	.LASF1
+ 482 0033 02       		.uleb128 0x2
+ 483 0034 02       		.byte	0x2
+ 484 0035 05       		.byte	0x5
+ 485 0036 8A020000 		.4byte	.LASF2
+ 486 003a 02       		.uleb128 0x2
+ 487 003b 02       		.byte	0x2
+ 488 003c 07       		.byte	0x7
+ 489 003d 26010000 		.4byte	.LASF3
+ 490 0041 03       		.uleb128 0x3
+ 491 0042 25000000 		.4byte	.LASF9
+ 492 0046 02       		.byte	0x2
+ 493 0047 3F       		.byte	0x3f
+ 494 0048 4C000000 		.4byte	0x4c
+ 495 004c 02       		.uleb128 0x2
+ 496 004d 04       		.byte	0x4
+ 497 004e 05       		.byte	0x5
+ 498 004f AA020000 		.4byte	.LASF4
+ 499 0053 02       		.uleb128 0x2
+ 500 0054 04       		.byte	0x4
+ 501 0055 07       		.byte	0x7
+ 502 0056 14010000 		.4byte	.LASF5
+ 503 005a 02       		.uleb128 0x2
+ 504 005b 08       		.byte	0x8
+ 505 005c 05       		.byte	0x5
+ 506 005d 55020000 		.4byte	.LASF6
+ 507 0061 02       		.uleb128 0x2
+ 508 0062 08       		.byte	0x8
+ 509 0063 07       		.byte	0x7
+ 510 0064 05020000 		.4byte	.LASF7
+ 511 0068 04       		.uleb128 0x4
+ 512 0069 04       		.byte	0x4
+ 513 006a 05       		.byte	0x5
+ 514 006b 696E7400 		.ascii	"int\000"
+ 515 006f 02       		.uleb128 0x2
+ 516 0070 04       		.byte	0x4
+ 517 0071 07       		.byte	0x7
+ 518 0072 B5010000 		.4byte	.LASF8
+ 519 0076 03       		.uleb128 0x3
+ 520 0077 38020000 		.4byte	.LASF10
+ 521 007b 03       		.byte	0x3
+ 522 007c 2C       		.byte	0x2c
+ 523 007d 41000000 		.4byte	0x41
+ 524 0081 05       		.uleb128 0x5
+ 525 0082 94020000 		.4byte	.LASF11
+ 526 0086 04       		.byte	0x4
+ 527 0087 9201     		.2byte	0x192
+ 528 0089 2C000000 		.4byte	0x2c
+ 529 008d 05       		.uleb128 0x5
+ 530 008e AE010000 		.4byte	.LASF12
+ 531 0092 04       		.byte	0x4
+ 532 0093 9401     		.2byte	0x194
+ 533 0095 53000000 		.4byte	0x53
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 13
+
+
+ 534 0099 05       		.uleb128 0x5
+ 535 009a 85010000 		.4byte	.LASF13
+ 536 009e 04       		.byte	0x4
+ 537 009f 9801     		.2byte	0x198
+ 538 00a1 A5000000 		.4byte	0xa5
+ 539 00a5 02       		.uleb128 0x2
+ 540 00a6 04       		.byte	0x4
+ 541 00a7 04       		.byte	0x4
+ 542 00a8 E6000000 		.4byte	.LASF14
+ 543 00ac 02       		.uleb128 0x2
+ 544 00ad 08       		.byte	0x8
+ 545 00ae 04       		.byte	0x4
+ 546 00af 74010000 		.4byte	.LASF15
+ 547 00b3 02       		.uleb128 0x2
+ 548 00b4 01       		.byte	0x1
+ 549 00b5 08       		.byte	0x8
+ 550 00b6 B3020000 		.4byte	.LASF16
+ 551 00ba 06       		.uleb128 0x6
+ 552 00bb 8D000000 		.4byte	0x8d
+ 553 00bf 02       		.uleb128 0x2
+ 554 00c0 04       		.byte	0x4
+ 555 00c1 07       		.byte	0x7
+ 556 00c2 4C020000 		.4byte	.LASF17
+ 557 00c6 02       		.uleb128 0x2
+ 558 00c7 08       		.byte	0x8
+ 559 00c8 04       		.byte	0x4
+ 560 00c9 B8020000 		.4byte	.LASF18
+ 561 00cd 07       		.uleb128 0x7
+ 562 00ce 10000000 		.4byte	.LASF19
+ 563 00d2 01       		.byte	0x1
+ 564 00d3 29       		.byte	0x29
+ 565 00d4 00000000 		.4byte	.LFB63
+ 566 00d8 40000000 		.4byte	.LFE63-.LFB63
+ 567 00dc 01       		.uleb128 0x1
+ 568 00dd 9C       		.byte	0x9c
+ 569 00de 07       		.uleb128 0x7
+ 570 00df 8D010000 		.4byte	.LASF20
+ 571 00e3 01       		.byte	0x1
+ 572 00e4 3B       		.byte	0x3b
+ 573 00e5 00000000 		.4byte	.LFB64
+ 574 00e9 40000000 		.4byte	.LFE64-.LFB64
+ 575 00ed 01       		.uleb128 0x1
+ 576 00ee 9C       		.byte	0x9c
+ 577 00ef 07       		.uleb128 0x7
+ 578 00f0 2F000000 		.4byte	.LASF21
+ 579 00f4 01       		.byte	0x1
+ 580 00f5 43       		.byte	0x43
+ 581 00f6 00000000 		.4byte	.LFB65
+ 582 00fa 40000000 		.4byte	.LFE65-.LFB65
+ 583 00fe 01       		.uleb128 0x1
+ 584 00ff 9C       		.byte	0x9c
+ 585 0100 08       		.uleb128 0x8
+ 586 0101 DB000000 		.4byte	.LASF22
+ 587 0105 01       		.byte	0x1
+ 588 0106 4B       		.byte	0x4b
+ 589 0107 00000000 		.4byte	.LFB66
+ 590 010b 54000000 		.4byte	.LFE66-.LFB66
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 14
+
+
+ 591 010f 01       		.uleb128 0x1
+ 592 0110 9C       		.byte	0x9c
+ 593 0111 08       		.uleb128 0x8
+ 594 0112 08010000 		.4byte	.LASF23
+ 595 0116 01       		.byte	0x1
+ 596 0117 68       		.byte	0x68
+ 597 0118 00000000 		.4byte	.LFB67
+ 598 011c 5C010000 		.4byte	.LFE67-.LFB67
+ 599 0120 01       		.uleb128 0x1
+ 600 0121 9C       		.byte	0x9c
+ 601 0122 09       		.uleb128 0x9
+ 602 0123 72020000 		.4byte	.LASF24
+ 603 0127 01       		.byte	0x1
+ 604 0128 1B       		.byte	0x1b
+ 605 0129 68000000 		.4byte	0x68
+ 606 012d 05       		.uleb128 0x5
+ 607 012e 03       		.byte	0x3
+ 608 012f 00000000 		.4byte	intFlag
+ 609 0133 09       		.uleb128 0x9
+ 610 0134 4E010000 		.4byte	.LASF25
+ 611 0138 01       		.byte	0x1
+ 612 0139 1C       		.byte	0x1c
+ 613 013a 68000000 		.4byte	0x68
+ 614 013e 05       		.uleb128 0x5
+ 615 013f 03       		.byte	0x3
+ 616 0140 04000000 		.4byte	intFlag2
+ 617 0144 09       		.uleb128 0x9
+ 618 0145 57010000 		.4byte	.LASF26
+ 619 0149 01       		.byte	0x1
+ 620 014a 1D       		.byte	0x1d
+ 621 014b 68000000 		.4byte	0x68
+ 622 014f 05       		.uleb128 0x5
+ 623 0150 03       		.byte	0x3
+ 624 0151 08000000 		.4byte	intFlag3
+ 625 0155 09       		.uleb128 0x9
+ 626 0156 60010000 		.4byte	.LASF27
+ 627 015a 01       		.byte	0x1
+ 628 015b 1E       		.byte	0x1e
+ 629 015c 68000000 		.4byte	0x68
+ 630 0160 05       		.uleb128 0x5
+ 631 0161 03       		.byte	0x3
+ 632 0162 0C000000 		.4byte	intFlag4
+ 633 0166 0A       		.uleb128 0xa
+ 634 0167 41010000 		.4byte	.LASF28
+ 635 016b 05       		.byte	0x5
+ 636 016c 9606     		.2byte	0x696
+ 637 016e 72010000 		.4byte	0x172
+ 638 0172 06       		.uleb128 0x6
+ 639 0173 76000000 		.4byte	0x76
+ 640 0177 0B       		.uleb128 0xb
+ 641 0178 63020000 		.4byte	.LASF29
+ 642 017c 01       		.byte	0x1
+ 643 017d 18       		.byte	0x18
+ 644 017e B3000000 		.4byte	0xb3
+ 645 0182 05       		.uleb128 0x5
+ 646 0183 03       		.byte	0x3
+ 647 0184 00000000 		.4byte	Serial_Command
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 15
+
+
+ 648 0188 0C       		.uleb128 0xc
+ 649 0189 B3000000 		.4byte	0xb3
+ 650 018d 98010000 		.4byte	0x198
+ 651 0191 0D       		.uleb128 0xd
+ 652 0192 BF000000 		.4byte	0xbf
+ 653 0196 59       		.byte	0x59
+ 654 0197 00       		.byte	0
+ 655 0198 0B       		.uleb128 0xb
+ 656 0199 EC000000 		.4byte	.LASF30
+ 657 019d 01       		.byte	0x1
+ 658 019e 19       		.byte	0x19
+ 659 019f 88010000 		.4byte	0x188
+ 660 01a3 05       		.uleb128 0x5
+ 661 01a4 03       		.byte	0x3
+ 662 01a5 00000000 		.4byte	StringToPrint
+ 663 01a9 0B       		.uleb128 0xb
+ 664 01aa 9A020000 		.4byte	.LASF31
+ 665 01ae 01       		.byte	0x1
+ 666 01af 1A       		.byte	0x1a
+ 667 01b0 BA000000 		.4byte	0xba
+ 668 01b4 05       		.uleb128 0x5
+ 669 01b5 03       		.byte	0x3
+ 670 01b6 00000000 		.4byte	Channel_1_Count
+ 671 01ba 0B       		.uleb128 0xb
+ 672 01bb D0020000 		.4byte	.LASF32
+ 673 01bf 01       		.byte	0x1
+ 674 01c0 1A       		.byte	0x1a
+ 675 01c1 BA000000 		.4byte	0xba
+ 676 01c5 05       		.uleb128 0x5
+ 677 01c6 03       		.byte	0x3
+ 678 01c7 00000000 		.4byte	Channel_2_Count
+ 679 01cb 0B       		.uleb128 0xb
+ 680 01cc 00000000 		.4byte	.LASF33
+ 681 01d0 01       		.byte	0x1
+ 682 01d1 1A       		.byte	0x1a
+ 683 01d2 BA000000 		.4byte	0xba
+ 684 01d6 05       		.uleb128 0x5
+ 685 01d7 03       		.byte	0x3
+ 686 01d8 00000000 		.4byte	Channel_3_Count
+ 687 01dc 0B       		.uleb128 0xb
+ 688 01dd 7A020000 		.4byte	.LASF34
+ 689 01e1 01       		.byte	0x1
+ 690 01e2 1A       		.byte	0x1a
+ 691 01e3 BA000000 		.4byte	0xba
+ 692 01e7 05       		.uleb128 0x5
+ 693 01e8 03       		.byte	0x3
+ 694 01e9 00000000 		.4byte	Channel_4_Count
+ 695 01ed 0B       		.uleb128 0xb
+ 696 01ee 69010000 		.4byte	.LASF35
+ 697 01f2 01       		.byte	0x1
+ 698 01f3 1F       		.byte	0x1f
+ 699 01f4 99000000 		.4byte	0x99
+ 700 01f8 05       		.uleb128 0x5
+ 701 01f9 03       		.byte	0x3
+ 702 01fa 00000000 		.4byte	Tacho_freq
+ 703 01fe 0B       		.uleb128 0xb
+ 704 01ff D2000000 		.4byte	.LASF36
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 16
+
+
+ 705 0203 01       		.byte	0x1
+ 706 0204 20       		.byte	0x20
+ 707 0205 99000000 		.4byte	0x99
+ 708 0209 05       		.uleb128 0x5
+ 709 020a 03       		.byte	0x3
+ 710 020b 00000000 		.4byte	pulselen
+ 711 020f 0B       		.uleb128 0xb
+ 712 0210 2C020000 		.4byte	.LASF37
+ 713 0214 01       		.byte	0x1
+ 714 0215 21       		.byte	0x21
+ 715 0216 99000000 		.4byte	0x99
+ 716 021a 05       		.uleb128 0x5
+ 717 021b 03       		.byte	0x3
+ 718 021c 00000000 		.4byte	Tacho_freq2
+ 719 0220 0B       		.uleb128 0xb
+ 720 0221 7B010000 		.4byte	.LASF38
+ 721 0225 01       		.byte	0x1
+ 722 0226 22       		.byte	0x22
+ 723 0227 99000000 		.4byte	0x99
+ 724 022b 05       		.uleb128 0x5
+ 725 022c 03       		.byte	0x3
+ 726 022d 00000000 		.4byte	pulselen2
+ 727 0231 0B       		.uleb128 0xb
+ 728 0232 40020000 		.4byte	.LASF39
+ 729 0236 01       		.byte	0x1
+ 730 0237 23       		.byte	0x23
+ 731 0238 99000000 		.4byte	0x99
+ 732 023c 05       		.uleb128 0x5
+ 733 023d 03       		.byte	0x3
+ 734 023e 00000000 		.4byte	Tacho_freq3
+ 735 0242 0B       		.uleb128 0xb
+ 736 0243 E0020000 		.4byte	.LASF40
+ 737 0247 01       		.byte	0x1
+ 738 0248 24       		.byte	0x24
+ 739 0249 99000000 		.4byte	0x99
+ 740 024d 05       		.uleb128 0x5
+ 741 024e 03       		.byte	0x3
+ 742 024f 00000000 		.4byte	pulselen3
+ 743 0253 0B       		.uleb128 0xb
+ 744 0254 A2010000 		.4byte	.LASF41
+ 745 0258 01       		.byte	0x1
+ 746 0259 25       		.byte	0x25
+ 747 025a 99000000 		.4byte	0x99
+ 748 025e 05       		.uleb128 0x5
+ 749 025f 03       		.byte	0x3
+ 750 0260 00000000 		.4byte	Tacho_freq4
+ 751 0264 0B       		.uleb128 0xb
+ 752 0265 EA020000 		.4byte	.LASF42
+ 753 0269 01       		.byte	0x1
+ 754 026a 26       		.byte	0x26
+ 755 026b 99000000 		.4byte	0x99
+ 756 026f 05       		.uleb128 0x5
+ 757 0270 03       		.byte	0x3
+ 758 0271 00000000 		.4byte	pulselen4
+ 759 0275 0B       		.uleb128 0xb
+ 760 0276 39010000 		.4byte	.LASF43
+ 761 027a 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 17
+
+
+ 762 027b 27       		.byte	0x27
+ 763 027c 99000000 		.4byte	0x99
+ 764 0280 05       		.uleb128 0x5
+ 765 0281 03       		.byte	0x3
+ 766 0282 00000000 		.4byte	voltage
+ 767 0286 00       		.byte	0
+ 768              		.section	.debug_abbrev,"",%progbits
+ 769              	.Ldebug_abbrev0:
+ 770 0000 01       		.uleb128 0x1
+ 771 0001 11       		.uleb128 0x11
+ 772 0002 01       		.byte	0x1
+ 773 0003 25       		.uleb128 0x25
+ 774 0004 0E       		.uleb128 0xe
+ 775 0005 13       		.uleb128 0x13
+ 776 0006 0B       		.uleb128 0xb
+ 777 0007 03       		.uleb128 0x3
+ 778 0008 0E       		.uleb128 0xe
+ 779 0009 1B       		.uleb128 0x1b
+ 780 000a 0E       		.uleb128 0xe
+ 781 000b 55       		.uleb128 0x55
+ 782 000c 17       		.uleb128 0x17
+ 783 000d 11       		.uleb128 0x11
+ 784 000e 01       		.uleb128 0x1
+ 785 000f 10       		.uleb128 0x10
+ 786 0010 17       		.uleb128 0x17
+ 787 0011 00       		.byte	0
+ 788 0012 00       		.byte	0
+ 789 0013 02       		.uleb128 0x2
+ 790 0014 24       		.uleb128 0x24
+ 791 0015 00       		.byte	0
+ 792 0016 0B       		.uleb128 0xb
+ 793 0017 0B       		.uleb128 0xb
+ 794 0018 3E       		.uleb128 0x3e
+ 795 0019 0B       		.uleb128 0xb
+ 796 001a 03       		.uleb128 0x3
+ 797 001b 0E       		.uleb128 0xe
+ 798 001c 00       		.byte	0
+ 799 001d 00       		.byte	0
+ 800 001e 03       		.uleb128 0x3
+ 801 001f 16       		.uleb128 0x16
+ 802 0020 00       		.byte	0
+ 803 0021 03       		.uleb128 0x3
+ 804 0022 0E       		.uleb128 0xe
+ 805 0023 3A       		.uleb128 0x3a
+ 806 0024 0B       		.uleb128 0xb
+ 807 0025 3B       		.uleb128 0x3b
+ 808 0026 0B       		.uleb128 0xb
+ 809 0027 49       		.uleb128 0x49
+ 810 0028 13       		.uleb128 0x13
+ 811 0029 00       		.byte	0
+ 812 002a 00       		.byte	0
+ 813 002b 04       		.uleb128 0x4
+ 814 002c 24       		.uleb128 0x24
+ 815 002d 00       		.byte	0
+ 816 002e 0B       		.uleb128 0xb
+ 817 002f 0B       		.uleb128 0xb
+ 818 0030 3E       		.uleb128 0x3e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 18
+
+
+ 819 0031 0B       		.uleb128 0xb
+ 820 0032 03       		.uleb128 0x3
+ 821 0033 08       		.uleb128 0x8
+ 822 0034 00       		.byte	0
+ 823 0035 00       		.byte	0
+ 824 0036 05       		.uleb128 0x5
+ 825 0037 16       		.uleb128 0x16
+ 826 0038 00       		.byte	0
+ 827 0039 03       		.uleb128 0x3
+ 828 003a 0E       		.uleb128 0xe
+ 829 003b 3A       		.uleb128 0x3a
+ 830 003c 0B       		.uleb128 0xb
+ 831 003d 3B       		.uleb128 0x3b
+ 832 003e 05       		.uleb128 0x5
+ 833 003f 49       		.uleb128 0x49
+ 834 0040 13       		.uleb128 0x13
+ 835 0041 00       		.byte	0
+ 836 0042 00       		.byte	0
+ 837 0043 06       		.uleb128 0x6
+ 838 0044 35       		.uleb128 0x35
+ 839 0045 00       		.byte	0
+ 840 0046 49       		.uleb128 0x49
+ 841 0047 13       		.uleb128 0x13
+ 842 0048 00       		.byte	0
+ 843 0049 00       		.byte	0
+ 844 004a 07       		.uleb128 0x7
+ 845 004b 2E       		.uleb128 0x2e
+ 846 004c 00       		.byte	0
+ 847 004d 3F       		.uleb128 0x3f
+ 848 004e 19       		.uleb128 0x19
+ 849 004f 03       		.uleb128 0x3
+ 850 0050 0E       		.uleb128 0xe
+ 851 0051 3A       		.uleb128 0x3a
+ 852 0052 0B       		.uleb128 0xb
+ 853 0053 3B       		.uleb128 0x3b
+ 854 0054 0B       		.uleb128 0xb
+ 855 0055 27       		.uleb128 0x27
+ 856 0056 19       		.uleb128 0x19
+ 857 0057 11       		.uleb128 0x11
+ 858 0058 01       		.uleb128 0x1
+ 859 0059 12       		.uleb128 0x12
+ 860 005a 06       		.uleb128 0x6
+ 861 005b 40       		.uleb128 0x40
+ 862 005c 18       		.uleb128 0x18
+ 863 005d 9642     		.uleb128 0x2116
+ 864 005f 19       		.uleb128 0x19
+ 865 0060 00       		.byte	0
+ 866 0061 00       		.byte	0
+ 867 0062 08       		.uleb128 0x8
+ 868 0063 2E       		.uleb128 0x2e
+ 869 0064 00       		.byte	0
+ 870 0065 3F       		.uleb128 0x3f
+ 871 0066 19       		.uleb128 0x19
+ 872 0067 03       		.uleb128 0x3
+ 873 0068 0E       		.uleb128 0xe
+ 874 0069 3A       		.uleb128 0x3a
+ 875 006a 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 19
+
+
+ 876 006b 3B       		.uleb128 0x3b
+ 877 006c 0B       		.uleb128 0xb
+ 878 006d 11       		.uleb128 0x11
+ 879 006e 01       		.uleb128 0x1
+ 880 006f 12       		.uleb128 0x12
+ 881 0070 06       		.uleb128 0x6
+ 882 0071 40       		.uleb128 0x40
+ 883 0072 18       		.uleb128 0x18
+ 884 0073 9642     		.uleb128 0x2116
+ 885 0075 19       		.uleb128 0x19
+ 886 0076 00       		.byte	0
+ 887 0077 00       		.byte	0
+ 888 0078 09       		.uleb128 0x9
+ 889 0079 34       		.uleb128 0x34
+ 890 007a 00       		.byte	0
+ 891 007b 03       		.uleb128 0x3
+ 892 007c 0E       		.uleb128 0xe
+ 893 007d 3A       		.uleb128 0x3a
+ 894 007e 0B       		.uleb128 0xb
+ 895 007f 3B       		.uleb128 0x3b
+ 896 0080 0B       		.uleb128 0xb
+ 897 0081 49       		.uleb128 0x49
+ 898 0082 13       		.uleb128 0x13
+ 899 0083 02       		.uleb128 0x2
+ 900 0084 18       		.uleb128 0x18
+ 901 0085 00       		.byte	0
+ 902 0086 00       		.byte	0
+ 903 0087 0A       		.uleb128 0xa
+ 904 0088 34       		.uleb128 0x34
+ 905 0089 00       		.byte	0
+ 906 008a 03       		.uleb128 0x3
+ 907 008b 0E       		.uleb128 0xe
+ 908 008c 3A       		.uleb128 0x3a
+ 909 008d 0B       		.uleb128 0xb
+ 910 008e 3B       		.uleb128 0x3b
+ 911 008f 05       		.uleb128 0x5
+ 912 0090 49       		.uleb128 0x49
+ 913 0091 13       		.uleb128 0x13
+ 914 0092 3F       		.uleb128 0x3f
+ 915 0093 19       		.uleb128 0x19
+ 916 0094 3C       		.uleb128 0x3c
+ 917 0095 19       		.uleb128 0x19
+ 918 0096 00       		.byte	0
+ 919 0097 00       		.byte	0
+ 920 0098 0B       		.uleb128 0xb
+ 921 0099 34       		.uleb128 0x34
+ 922 009a 00       		.byte	0
+ 923 009b 03       		.uleb128 0x3
+ 924 009c 0E       		.uleb128 0xe
+ 925 009d 3A       		.uleb128 0x3a
+ 926 009e 0B       		.uleb128 0xb
+ 927 009f 3B       		.uleb128 0x3b
+ 928 00a0 0B       		.uleb128 0xb
+ 929 00a1 49       		.uleb128 0x49
+ 930 00a2 13       		.uleb128 0x13
+ 931 00a3 3F       		.uleb128 0x3f
+ 932 00a4 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 20
+
+
+ 933 00a5 02       		.uleb128 0x2
+ 934 00a6 18       		.uleb128 0x18
+ 935 00a7 00       		.byte	0
+ 936 00a8 00       		.byte	0
+ 937 00a9 0C       		.uleb128 0xc
+ 938 00aa 01       		.uleb128 0x1
+ 939 00ab 01       		.byte	0x1
+ 940 00ac 49       		.uleb128 0x49
+ 941 00ad 13       		.uleb128 0x13
+ 942 00ae 01       		.uleb128 0x1
+ 943 00af 13       		.uleb128 0x13
+ 944 00b0 00       		.byte	0
+ 945 00b1 00       		.byte	0
+ 946 00b2 0D       		.uleb128 0xd
+ 947 00b3 21       		.uleb128 0x21
+ 948 00b4 00       		.byte	0
+ 949 00b5 49       		.uleb128 0x49
+ 950 00b6 13       		.uleb128 0x13
+ 951 00b7 2F       		.uleb128 0x2f
+ 952 00b8 0B       		.uleb128 0xb
+ 953 00b9 00       		.byte	0
+ 954 00ba 00       		.byte	0
+ 955 00bb 00       		.byte	0
+ 956              		.section	.debug_aranges,"",%progbits
+ 957 0000 3C000000 		.4byte	0x3c
+ 958 0004 0200     		.2byte	0x2
+ 959 0006 00000000 		.4byte	.Ldebug_info0
+ 960 000a 04       		.byte	0x4
+ 961 000b 00       		.byte	0
+ 962 000c 0000     		.2byte	0
+ 963 000e 0000     		.2byte	0
+ 964 0010 00000000 		.4byte	.LFB63
+ 965 0014 40000000 		.4byte	.LFE63-.LFB63
+ 966 0018 00000000 		.4byte	.LFB64
+ 967 001c 40000000 		.4byte	.LFE64-.LFB64
+ 968 0020 00000000 		.4byte	.LFB65
+ 969 0024 40000000 		.4byte	.LFE65-.LFB65
+ 970 0028 00000000 		.4byte	.LFB66
+ 971 002c 54000000 		.4byte	.LFE66-.LFB66
+ 972 0030 00000000 		.4byte	.LFB67
+ 973 0034 5C010000 		.4byte	.LFE67-.LFB67
+ 974 0038 00000000 		.4byte	0
+ 975 003c 00000000 		.4byte	0
+ 976              		.section	.debug_ranges,"",%progbits
+ 977              	.Ldebug_ranges0:
+ 978 0000 00000000 		.4byte	.LFB63
+ 979 0004 40000000 		.4byte	.LFE63
+ 980 0008 00000000 		.4byte	.LFB64
+ 981 000c 40000000 		.4byte	.LFE64
+ 982 0010 00000000 		.4byte	.LFB65
+ 983 0014 40000000 		.4byte	.LFE65
+ 984 0018 00000000 		.4byte	.LFB66
+ 985 001c 54000000 		.4byte	.LFE66
+ 986 0020 00000000 		.4byte	.LFB67
+ 987 0024 5C010000 		.4byte	.LFE67
+ 988 0028 00000000 		.4byte	0
+ 989 002c 00000000 		.4byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 21
+
+
+ 990              		.section	.debug_line,"",%progbits
+ 991              	.Ldebug_line0:
+ 992 0000 CB010000 		.section	.debug_str,"MS",%progbits,1
+ 992      02004001 
+ 992      00000201 
+ 992      FB0E0D00 
+ 992      01010101 
+ 993              	.LASF33:
+ 994 0000 4368616E 		.ascii	"Channel_3_Count\000"
+ 994      6E656C5F 
+ 994      335F436F 
+ 994      756E7400 
+ 995              	.LASF19:
+ 996 0010 4368616E 		.ascii	"Channel1_isr_Handler\000"
+ 996      6E656C31 
+ 996      5F697372 
+ 996      5F48616E 
+ 996      646C6572 
+ 997              	.LASF9:
+ 998 0025 5F5F696E 		.ascii	"__int32_t\000"
+ 998      7433325F 
+ 998      7400
+ 999              	.LASF21:
+ 1000 002f 4368616E 		.ascii	"Channel4_isr_Handler\000"
+ 1000      6E656C34 
+ 1000      5F697372 
+ 1000      5F48616E 
+ 1000      646C6572 
+ 1001              	.LASF44:
+ 1002 0044 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1002      4320342E 
+ 1002      392E3320 
+ 1002      32303135 
+ 1002      30333033 
+ 1003 0077 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1003      20726576 
+ 1003      6973696F 
+ 1003      6E203232 
+ 1003      31323230 
+ 1004 00aa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1004      66756E63 
+ 1004      74696F6E 
+ 1004      2D736563 
+ 1004      74696F6E 
+ 1005              	.LASF36:
+ 1006 00d2 70756C73 		.ascii	"pulselen\000"
+ 1006      656C656E 
+ 1006      00
+ 1007              	.LASF22:
+ 1008 00db 73706565 		.ascii	"speed_init\000"
+ 1008      645F696E 
+ 1008      697400
+ 1009              	.LASF14:
+ 1010 00e6 666C6F61 		.ascii	"float\000"
+ 1010      7400
+ 1011              	.LASF30:
+ 1012 00ec 53747269 		.ascii	"StringToPrint\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 22
+
+
+ 1012      6E67546F 
+ 1012      5072696E 
+ 1012      7400
+ 1013              	.LASF1:
+ 1014 00fa 756E7369 		.ascii	"unsigned char\000"
+ 1014      676E6564 
+ 1014      20636861 
+ 1014      7200
+ 1015              	.LASF23:
+ 1016 0108 73706565 		.ascii	"speed_sense\000"
+ 1016      645F7365 
+ 1016      6E736500 
+ 1017              	.LASF5:
+ 1018 0114 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1018      20756E73 
+ 1018      69676E65 
+ 1018      6420696E 
+ 1018      7400
+ 1019              	.LASF3:
+ 1020 0126 73686F72 		.ascii	"short unsigned int\000"
+ 1020      7420756E 
+ 1020      7369676E 
+ 1020      65642069 
+ 1020      6E7400
+ 1021              	.LASF43:
+ 1022 0139 766F6C74 		.ascii	"voltage\000"
+ 1022      61676500 
+ 1023              	.LASF28:
+ 1024 0141 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1024      52784275 
+ 1024      66666572 
+ 1024      00
+ 1025              	.LASF25:
+ 1026 014e 696E7446 		.ascii	"intFlag2\000"
+ 1026      6C616732 
+ 1026      00
+ 1027              	.LASF26:
+ 1028 0157 696E7446 		.ascii	"intFlag3\000"
+ 1028      6C616733 
+ 1028      00
+ 1029              	.LASF27:
+ 1030 0160 696E7446 		.ascii	"intFlag4\000"
+ 1030      6C616734 
+ 1030      00
+ 1031              	.LASF35:
+ 1032 0169 54616368 		.ascii	"Tacho_freq\000"
+ 1032      6F5F6672 
+ 1032      657100
+ 1033              	.LASF15:
+ 1034 0174 646F7562 		.ascii	"double\000"
+ 1034      6C6500
+ 1035              	.LASF38:
+ 1036 017b 70756C73 		.ascii	"pulselen2\000"
+ 1036      656C656E 
+ 1036      3200
+ 1037              	.LASF13:
+ 1038 0185 666C6F61 		.ascii	"float32\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 23
+
+
+ 1038      74333200 
+ 1039              	.LASF20:
+ 1040 018d 4368616E 		.ascii	"Channel3_isr_Handler\000"
+ 1040      6E656C33 
+ 1040      5F697372 
+ 1040      5F48616E 
+ 1040      646C6572 
+ 1041              	.LASF41:
+ 1042 01a2 54616368 		.ascii	"Tacho_freq4\000"
+ 1042      6F5F6672 
+ 1042      65713400 
+ 1043              	.LASF12:
+ 1044 01ae 75696E74 		.ascii	"uint32\000"
+ 1044      333200
+ 1045              	.LASF8:
+ 1046 01b5 756E7369 		.ascii	"unsigned int\000"
+ 1046      676E6564 
+ 1046      20696E74 
+ 1046      00
+ 1047              	.LASF46:
+ 1048 01c2 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
+ 1048      6F776E6C 
+ 1048      6F616473 
+ 1048      5C465255 
+ 1048      43445C4E 
+ 1049 01f1 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
+ 1049      2D436170 
+ 1049      79626172 
+ 1049      612E6379 
+ 1049      64736E00 
+ 1050              	.LASF7:
+ 1051 0205 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1051      206C6F6E 
+ 1051      6720756E 
+ 1051      7369676E 
+ 1051      65642069 
+ 1052              	.LASF45:
+ 1053 021c 73706565 		.ascii	"speed_manager.c\000"
+ 1053      645F6D61 
+ 1053      6E616765 
+ 1053      722E6300 
+ 1054              	.LASF37:
+ 1055 022c 54616368 		.ascii	"Tacho_freq2\000"
+ 1055      6F5F6672 
+ 1055      65713200 
+ 1056              	.LASF10:
+ 1057 0238 696E7433 		.ascii	"int32_t\000"
+ 1057      325F7400 
+ 1058              	.LASF39:
+ 1059 0240 54616368 		.ascii	"Tacho_freq3\000"
+ 1059      6F5F6672 
+ 1059      65713300 
+ 1060              	.LASF17:
+ 1061 024c 73697A65 		.ascii	"sizetype\000"
+ 1061      74797065 
+ 1061      00
+ 1062              	.LASF6:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 24
+
+
+ 1063 0255 6C6F6E67 		.ascii	"long long int\000"
+ 1063      206C6F6E 
+ 1063      6720696E 
+ 1063      7400
+ 1064              	.LASF29:
+ 1065 0263 53657269 		.ascii	"Serial_Command\000"
+ 1065      616C5F43 
+ 1065      6F6D6D61 
+ 1065      6E6400
+ 1066              	.LASF24:
+ 1067 0272 696E7446 		.ascii	"intFlag\000"
+ 1067      6C616700 
+ 1068              	.LASF34:
+ 1069 027a 4368616E 		.ascii	"Channel_4_Count\000"
+ 1069      6E656C5F 
+ 1069      345F436F 
+ 1069      756E7400 
+ 1070              	.LASF2:
+ 1071 028a 73686F72 		.ascii	"short int\000"
+ 1071      7420696E 
+ 1071      7400
+ 1072              	.LASF11:
+ 1073 0294 75696E74 		.ascii	"uint8\000"
+ 1073      3800
+ 1074              	.LASF31:
+ 1075 029a 4368616E 		.ascii	"Channel_1_Count\000"
+ 1075      6E656C5F 
+ 1075      315F436F 
+ 1075      756E7400 
+ 1076              	.LASF4:
+ 1077 02aa 6C6F6E67 		.ascii	"long int\000"
+ 1077      20696E74 
+ 1077      00
+ 1078              	.LASF16:
+ 1079 02b3 63686172 		.ascii	"char\000"
+ 1079      00
+ 1080              	.LASF18:
+ 1081 02b8 6C6F6E67 		.ascii	"long double\000"
+ 1081      20646F75 
+ 1081      626C6500 
+ 1082              	.LASF0:
+ 1083 02c4 7369676E 		.ascii	"signed char\000"
+ 1083      65642063 
+ 1083      68617200 
+ 1084              	.LASF32:
+ 1085 02d0 4368616E 		.ascii	"Channel_2_Count\000"
+ 1085      6E656C5F 
+ 1085      325F436F 
+ 1085      756E7400 
+ 1086              	.LASF40:
+ 1087 02e0 70756C73 		.ascii	"pulselen3\000"
+ 1087      656C656E 
+ 1087      3300
+ 1088              	.LASF42:
+ 1089 02ea 70756C73 		.ascii	"pulselen4\000"
+ 1089      656C656E 
+ 1089      3400
+ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 25
+
+
+ 1090              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

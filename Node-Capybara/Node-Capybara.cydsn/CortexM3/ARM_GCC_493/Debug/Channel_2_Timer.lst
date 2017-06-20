@@ -1,0 +1,2618 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Channel_2_Timer.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	Channel_2_Timer_initVar
+  19              		.bss
+  20              		.type	Channel_2_Timer_initVar, %object
+  21              		.size	Channel_2_Timer_initVar, 1
+  22              	Channel_2_Timer_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.Channel_2_Timer_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	Channel_2_Timer_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	Channel_2_Timer_Init, %function
+  30              	Channel_2_Timer_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\Channel_2_Timer.c"
+   1:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Channel_2_Timer.c **** * File Name: Channel_2_Timer.c
+   3:Generated_Source\PSoC5/Channel_2_Timer.c **** * Version 2.70
+   4:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+   5:Generated_Source\PSoC5/Channel_2_Timer.c **** * Description:
+   6:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The Timer component consists of a 8, 16, 24 or 32-bit timer with
+   7:Generated_Source\PSoC5/Channel_2_Timer.c **** *  a selectable period between 2 and 2^Width - 1.  The timer may free run
+   8:Generated_Source\PSoC5/Channel_2_Timer.c **** *  or be used as a capture timer as well.  The capture can be initiated
+   9:Generated_Source\PSoC5/Channel_2_Timer.c **** *  by a positive or negative edge signal as well as via software.
+  10:Generated_Source\PSoC5/Channel_2_Timer.c **** *  A trigger input can be programmed to enable the timer on rising edge
+  11:Generated_Source\PSoC5/Channel_2_Timer.c **** *  falling edge, either edge or continous run.
+  12:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Interrupts may be generated due to a terminal count condition
+  13:Generated_Source\PSoC5/Channel_2_Timer.c **** *  or a capture event.
+  14:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  15:Generated_Source\PSoC5/Channel_2_Timer.c **** * Note:
+  16:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  17:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+  18:Generated_Source\PSoC5/Channel_2_Timer.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/Channel_2_Timer.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/Channel_2_Timer.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/Channel_2_Timer.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  24:Generated_Source\PSoC5/Channel_2_Timer.c **** #include "Channel_2_Timer.h"
+  25:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 2
+
+
+  26:Generated_Source\PSoC5/Channel_2_Timer.c **** uint8 Channel_2_Timer_initVar = 0u;
+  27:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  28:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  29:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_Init
+  31:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+  32:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  33:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+  34:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Initialize to the schematic state
+  35:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  36:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+  37:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+  38:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  39:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+  40:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+  41:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+  42:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_Init(void) 
+  44:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+  33              		.loc 1 44 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 82B0     		sub	sp, sp, #8
+  42              		.cfi_def_cfa_offset 16
+  43 0004 00AF     		add	r7, sp, #0
+  44              		.cfi_def_cfa_register 7
+  45:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(!Channel_2_Timer_UsingFixedFunction)
+  46:Generated_Source\PSoC5/Channel_2_Timer.c ****             /* Interrupt State Backup for Critical Region*/
+  47:Generated_Source\PSoC5/Channel_2_Timer.c ****             uint8 Channel_2_Timer_interruptState;
+  48:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Interrupt state back up for Fixed Function only */
+  49:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  50:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (Channel_2_Timer_UsingFixedFunction)
+  51:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
+  52:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= Channel_2_Timer_CTRL_ENABLE;
+  53:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  54:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear the mode bits for continuous run mode */
+  55:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (CY_PSOC5A)
+  56:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_CONTROL2 &= ((uint8)(~Channel_2_Timer_CTRL_MODE_MASK));
+  57:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Clear bits in CONTROL2 only in PSOC5A */
+  58:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  59:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (CY_PSOC3 || CY_PSOC5LP)
+  60:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_CONTROL3 &= ((uint8)(~Channel_2_Timer_CTRL_MODE_MASK));
+  61:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
+  62:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  63:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  64:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_RunModeUsed != 0x0u)
+  65:Generated_Source\PSoC5/Channel_2_Timer.c ****             /* Set 3rd bit of Control register to enable one shot mode */
+  66:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_CONTROL |= 0x04u;
+  67:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* One Shot enabled only when RunModeUsed is not Continuous*/
+  68:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  69:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_RunModeUsed == 2)
+  70:Generated_Source\PSoC5/Channel_2_Timer.c ****             #if (CY_PSOC5A)
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 3
+
+
+  71:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Set last 2 bits of control2 register if one shot(halt on
+  72:Generated_Source\PSoC5/Channel_2_Timer.c ****                 interrupt) is enabled*/
+  73:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL2 |= 0x03u;
+  74:Generated_Source\PSoC5/Channel_2_Timer.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL2 for PSoC5A */
+  75:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  76:Generated_Source\PSoC5/Channel_2_Timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  77:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
+  78:Generated_Source\PSoC5/Channel_2_Timer.c ****                 interrupt) is enabled*/
+  79:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 |= 0x03u;
+  80:Generated_Source\PSoC5/Channel_2_Timer.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL3 for PSoC3 or PSoC5LP */
+  81:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  82:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Remove section if One Shot Halt on Interrupt is not enabled */
+  83:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  84:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_UsingHWEnable != 0)
+  85:Generated_Source\PSoC5/Channel_2_Timer.c ****             #if (CY_PSOC5A)
+  86:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+  87:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL2 |= Channel_2_Timer_CTRL_MODE_PULSEWIDTH;
+  88:Generated_Source\PSoC5/Channel_2_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
+  89:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  90:Generated_Source\PSoC5/Channel_2_Timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  91:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
+  92:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 &= ((uint8)(~Channel_2_Timer_CTRL_RCOD_MASK));
+  93:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 |= Channel_2_Timer_CTRL_RCOD;
+  94:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  95:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Clear and Enable the HW enable bit in CFG2 register */
+  96:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 &= ((uint8)(~Channel_2_Timer_CTRL_ENBL_MASK));
+  97:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 |= Channel_2_Timer_CTRL_ENBL;
+  98:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+  99:Generated_Source\PSoC5/Channel_2_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+ 100:Generated_Source\PSoC5/Channel_2_Timer.c ****                 Channel_2_Timer_CONTROL3 |= Channel_2_Timer_CTRL_MODE_CONTINUOUS;
+ 101:Generated_Source\PSoC5/Channel_2_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL3 for PSoC3ES3 or PSoC5A */
+ 102:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 103:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Configure Run Mode with hardware enable */
+ 104:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 105:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 106:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_RT1 &= ((uint8)(~Channel_2_Timer_RT1_MASK));
+ 107:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_RT1 |= Channel_2_Timer_SYNC;
+ 108:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 109:Generated_Source\PSoC5/Channel_2_Timer.c ****         /*Enable DSI Sync all all inputs of the Timer*/
+ 110:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_RT1 &= ((uint8)(~Channel_2_Timer_SYNCDSI_MASK));
+ 111:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_RT1 |= Channel_2_Timer_SYNCDSI_EN;
+ 112:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 113:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Set the IRQ to use the status register interrupts */
+ 114:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL2 |= Channel_2_Timer_CTRL2_IRQ_SEL;
+ 115:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
+ 116:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 117:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Set Initial values from Configuration */
+ 118:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_WritePeriod(Channel_2_Timer_INIT_PERIOD);
+  45              		.loc 1 118 0
+  46 0006 41F28730 		movw	r0, #4999
+  47 000a FFF7FEFF 		bl	Channel_2_Timer_WritePeriod
+ 119:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_WriteCounter(Channel_2_Timer_INIT_PERIOD);
+  48              		.loc 1 119 0
+  49 000e 41F28730 		movw	r0, #4999
+  50 0012 FFF7FEFF 		bl	Channel_2_Timer_WriteCounter
+ 120:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 121:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (Channel_2_Timer_UsingHWCaptureCounter)/* Capture counter is enabled */
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 4
+
+
+ 122:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CAPTURE_COUNT_CTRL |= Channel_2_Timer_CNTR_ENABLE;
+ 123:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_SetCaptureCount(Channel_2_Timer_INIT_CAPTURE_COUNT);
+ 124:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Configure capture counter value */
+ 125:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 126:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UsingFixedFunction)
+ 127:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_SoftwareCaptureMode)
+ 128:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_SetCaptureMode(Channel_2_Timer_INIT_CAPTURE_MODE);
+ 129:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Set Capture Mode for UDB implementation if capture mode is software controlled */
+ 130:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 131:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_SoftwareTriggerMode)
+ 132:Generated_Source\PSoC5/Channel_2_Timer.c ****             #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED)
+ 133:Generated_Source\PSoC5/Channel_2_Timer.c ****                 if (0u == (Channel_2_Timer_CONTROL & Channel_2_Timer__B_TIMER__TM_SOFTWARE))
+ 134:Generated_Source\PSoC5/Channel_2_Timer.c ****                 {
+ 135:Generated_Source\PSoC5/Channel_2_Timer.c ****                     Channel_2_Timer_SetTriggerMode(Channel_2_Timer_INIT_TRIGGER_MODE);
+ 136:Generated_Source\PSoC5/Channel_2_Timer.c ****                 }
+ 137:Generated_Source\PSoC5/Channel_2_Timer.c ****             #endif /* (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) */
+ 138:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Set trigger mode for UDB Implementation if trigger mode is software controlled */
+ 139:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 140:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critica
+ 141:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Enter Critical Region*/
+ 142:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_interruptState = CyEnterCriticalSection();
+  51              		.loc 1 142 0
+  52 0016 FFF7FEFF 		bl	CyEnterCriticalSection
+  53 001a 0346     		mov	r3, r0
+  54 001c FB71     		strb	r3, [r7, #7]
+ 143:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 144:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Use the interrupt output of the status register for IRQ output */
+ 145:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_STATUS_AUX_CTRL |= Channel_2_Timer_STATUS_ACTL_INT_EN_MASK;
+  55              		.loc 1 145 0
+  56 001e 0C4A     		ldr	r2, .L2
+  57 0020 0B4B     		ldr	r3, .L2
+  58 0022 1B78     		ldrb	r3, [r3]
+  59 0024 DBB2     		uxtb	r3, r3
+  60 0026 43F01003 		orr	r3, r3, #16
+  61 002a DBB2     		uxtb	r3, r3
+  62 002c 1370     		strb	r3, [r2]
+ 146:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 147:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Exit Critical Region*/
+ 148:Generated_Source\PSoC5/Channel_2_Timer.c ****         CyExitCriticalSection(Channel_2_Timer_interruptState);
+  63              		.loc 1 148 0
+  64 002e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  65 0030 1846     		mov	r0, r3
+  66 0032 FFF7FEFF 		bl	CyExitCriticalSection
+ 149:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 150:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_EnableTriggerMode)
+ 151:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_EnableTrigger();
+  67              		.loc 1 151 0
+  68 0036 FFF7FEFF 		bl	Channel_2_Timer_EnableTrigger
+ 152:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Set Trigger enable bit for UDB implementation in the control register*/
+ 153:Generated_Source\PSoC5/Channel_2_Timer.c **** 		
+ 154:Generated_Source\PSoC5/Channel_2_Timer.c **** 		
+ 155:Generated_Source\PSoC5/Channel_2_Timer.c ****         #if (Channel_2_Timer_InterruptOnCaptureCount && !Channel_2_Timer_UDB_CONTROL_REG_REMOVED)
+ 156:Generated_Source\PSoC5/Channel_2_Timer.c ****             Channel_2_Timer_SetInterruptCount(Channel_2_Timer_INIT_INT_CAPTURE_COUNT);
+  69              		.loc 1 156 0
+  70 003a 0020     		movs	r0, #0
+  71 003c FFF7FEFF 		bl	Channel_2_Timer_SetInterruptCount
+ 157:Generated_Source\PSoC5/Channel_2_Timer.c ****         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 5
+
+
+ 158:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 159:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_ClearFIFO();
+  72              		.loc 1 159 0
+  73 0040 FFF7FEFF 		bl	Channel_2_Timer_ClearFIFO
+ 160:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Configure additional features of UDB implementation */
+ 161:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 162:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_SetInterruptMode(Channel_2_Timer_INIT_INTERRUPT_MODE);
+  74              		.loc 1 162 0
+  75 0044 0320     		movs	r0, #3
+  76 0046 FFF7FEFF 		bl	Channel_2_Timer_SetInterruptMode
+ 163:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+  77              		.loc 1 163 0
+  78 004a 0837     		adds	r7, r7, #8
+  79              		.cfi_def_cfa_offset 8
+  80 004c BD46     		mov	sp, r7
+  81              		.cfi_def_cfa_register 13
+  82              		@ sp needed
+  83 004e 80BD     		pop	{r7, pc}
+  84              	.L3:
+  85              		.align	2
+  86              	.L2:
+  87 0050 98640040 		.word	1073767576
+  88              		.cfi_endproc
+  89              	.LFE0:
+  90              		.size	Channel_2_Timer_Init, .-Channel_2_Timer_Init
+  91              		.section	.text.Channel_2_Timer_Enable,"ax",%progbits
+  92              		.align	2
+  93              		.global	Channel_2_Timer_Enable
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	Channel_2_Timer_Enable, %function
+  97              	Channel_2_Timer_Enable:
+  98              	.LFB1:
+ 164:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 165:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 166:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 167:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_Enable
+ 168:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 169:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 170:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 171:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Enable the Timer
+ 172:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 173:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 174:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 175:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 176:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 177:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 178:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 179:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 180:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_Enable(void) 
+ 181:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+  99              		.loc 1 181 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 1, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104 0000 80B4     		push	{r7}
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 6
+
+
+ 105              		.cfi_def_cfa_offset 4
+ 106              		.cfi_offset 7, -4
+ 107 0002 00AF     		add	r7, sp, #0
+ 108              		.cfi_def_cfa_register 7
+ 182:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 183:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (Channel_2_Timer_UsingFixedFunction)
+ 184:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_GLOBAL_ENABLE |= Channel_2_Timer_BLOCK_EN_MASK;
+ 185:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_GLOBAL_STBY_ENABLE |= Channel_2_Timer_BLOCK_STBY_EN_MASK;
+ 186:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
+ 187:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 188:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Remove assignment if control register is removed */
+ 189:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED || Channel_2_Timer_UsingFixedFunction)
+ 190:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL |= Channel_2_Timer_CTRL_ENABLE;
+ 109              		.loc 1 190 0
+ 110 0004 054A     		ldr	r2, .L5
+ 111 0006 054B     		ldr	r3, .L5
+ 112 0008 1B78     		ldrb	r3, [r3]
+ 113 000a DBB2     		uxtb	r3, r3
+ 114 000c 63F07F03 		orn	r3, r3, #127
+ 115 0010 DBB2     		uxtb	r3, r3
+ 116 0012 1370     		strb	r3, [r2]
+ 191:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Remove assignment if control register is removed */
+ 192:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 117              		.loc 1 192 0
+ 118 0014 BD46     		mov	sp, r7
+ 119              		.cfi_def_cfa_register 13
+ 120              		@ sp needed
+ 121 0016 5DF8047B 		ldr	r7, [sp], #4
+ 122              		.cfi_restore 7
+ 123              		.cfi_def_cfa_offset 0
+ 124 001a 7047     		bx	lr
+ 125              	.L6:
+ 126              		.align	2
+ 127              	.L5:
+ 128 001c 79640040 		.word	1073767545
+ 129              		.cfi_endproc
+ 130              	.LFE1:
+ 131              		.size	Channel_2_Timer_Enable, .-Channel_2_Timer_Enable
+ 132              		.section	.text.Channel_2_Timer_Start,"ax",%progbits
+ 133              		.align	2
+ 134              		.global	Channel_2_Timer_Start
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	Channel_2_Timer_Start, %function
+ 138              	Channel_2_Timer_Start:
+ 139              	.LFB2:
+ 193:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 194:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 195:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 196:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_Start
+ 197:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 198:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 199:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 200:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The start function initializes the timer with the default values, the
+ 201:Generated_Source\PSoC5/Channel_2_Timer.c **** *  enables the timerto begin counting.  It does not enable interrupts,
+ 202:Generated_Source\PSoC5/Channel_2_Timer.c **** *  the EnableInt command should be called if interrupt generation is required.
+ 203:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 7
+
+
+ 204:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 205:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 206:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 207:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 208:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 209:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 210:Generated_Source\PSoC5/Channel_2_Timer.c **** * Global variables:
+ 211:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Channel_2_Timer_initVar: Is modified when this function is called for the
+ 212:Generated_Source\PSoC5/Channel_2_Timer.c **** *   first time. Is used to ensure that initialization happens only once.
+ 213:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 214:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 215:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_Start(void) 
+ 216:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 140              		.loc 1 216 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 1, uses_anonymous_args = 0
+ 144 0000 80B5     		push	{r7, lr}
+ 145              		.cfi_def_cfa_offset 8
+ 146              		.cfi_offset 7, -8
+ 147              		.cfi_offset 14, -4
+ 148 0002 00AF     		add	r7, sp, #0
+ 149              		.cfi_def_cfa_register 7
+ 217:Generated_Source\PSoC5/Channel_2_Timer.c ****     if(Channel_2_Timer_initVar == 0u)
+ 150              		.loc 1 217 0
+ 151 0004 054B     		ldr	r3, .L9
+ 152 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 153 0008 002B     		cmp	r3, #0
+ 154 000a 04D1     		bne	.L8
+ 218:Generated_Source\PSoC5/Channel_2_Timer.c ****     {
+ 219:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_Init();
+ 155              		.loc 1 219 0
+ 156 000c FFF7FEFF 		bl	Channel_2_Timer_Init
+ 220:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 221:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_initVar = 1u;   /* Clear this bit for Initialization */
+ 157              		.loc 1 221 0
+ 158 0010 024B     		ldr	r3, .L9
+ 159 0012 0122     		movs	r2, #1
+ 160 0014 1A70     		strb	r2, [r3]
+ 161              	.L8:
+ 222:Generated_Source\PSoC5/Channel_2_Timer.c ****     }
+ 223:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 224:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Enable the Timer */
+ 225:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_Enable();
+ 162              		.loc 1 225 0
+ 163 0016 FFF7FEFF 		bl	Channel_2_Timer_Enable
+ 226:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 164              		.loc 1 226 0
+ 165 001a 80BD     		pop	{r7, pc}
+ 166              	.L10:
+ 167              		.align	2
+ 168              	.L9:
+ 169 001c 00000000 		.word	Channel_2_Timer_initVar
+ 170              		.cfi_endproc
+ 171              	.LFE2:
+ 172              		.size	Channel_2_Timer_Start, .-Channel_2_Timer_Start
+ 173              		.section	.text.Channel_2_Timer_Stop,"ax",%progbits
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 8
+
+
+ 174              		.align	2
+ 175              		.global	Channel_2_Timer_Stop
+ 176              		.thumb
+ 177              		.thumb_func
+ 178              		.type	Channel_2_Timer_Stop, %function
+ 179              	Channel_2_Timer_Stop:
+ 180              	.LFB3:
+ 227:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 228:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 229:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 230:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_Stop
+ 231:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 232:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 233:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 234:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The stop function halts the timer, but does not change any modes or disable
+ 235:Generated_Source\PSoC5/Channel_2_Timer.c **** *  interrupts.
+ 236:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 237:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 238:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 239:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 240:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 241:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 242:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 243:Generated_Source\PSoC5/Channel_2_Timer.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 244:Generated_Source\PSoC5/Channel_2_Timer.c **** *               has no effect on the operation of the timer.
+ 245:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 246:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 247:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_Stop(void) 
+ 248:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 181              		.loc 1 248 0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 1, uses_anonymous_args = 0
+ 185              		@ link register save eliminated.
+ 186 0000 80B4     		push	{r7}
+ 187              		.cfi_def_cfa_offset 4
+ 188              		.cfi_offset 7, -4
+ 189 0002 00AF     		add	r7, sp, #0
+ 190              		.cfi_def_cfa_register 7
+ 249:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Disable Timer */
+ 250:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(!Channel_2_Timer_UDB_CONTROL_REG_REMOVED || Channel_2_Timer_UsingFixedFunction)
+ 251:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= ((uint8)(~Channel_2_Timer_CTRL_ENABLE));
+ 191              		.loc 1 251 0
+ 192 0004 054A     		ldr	r2, .L12
+ 193 0006 054B     		ldr	r3, .L12
+ 194 0008 1B78     		ldrb	r3, [r3]
+ 195 000a DBB2     		uxtb	r3, r3
+ 196 000c 03F07F03 		and	r3, r3, #127
+ 197 0010 DBB2     		uxtb	r3, r3
+ 198 0012 1370     		strb	r3, [r2]
+ 252:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Remove assignment if control register is removed */
+ 253:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 254:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Globally disable the Fixed Function Block chosen */
+ 255:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (Channel_2_Timer_UsingFixedFunction)
+ 256:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_GLOBAL_ENABLE &= ((uint8)(~Channel_2_Timer_BLOCK_EN_MASK));
+ 257:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_GLOBAL_STBY_ENABLE &= ((uint8)(~Channel_2_Timer_BLOCK_STBY_EN_MASK));
+ 258:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 9
+
+
+ 259:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 199              		.loc 1 259 0
+ 200 0014 BD46     		mov	sp, r7
+ 201              		.cfi_def_cfa_register 13
+ 202              		@ sp needed
+ 203 0016 5DF8047B 		ldr	r7, [sp], #4
+ 204              		.cfi_restore 7
+ 205              		.cfi_def_cfa_offset 0
+ 206 001a 7047     		bx	lr
+ 207              	.L13:
+ 208              		.align	2
+ 209              	.L12:
+ 210 001c 79640040 		.word	1073767545
+ 211              		.cfi_endproc
+ 212              	.LFE3:
+ 213              		.size	Channel_2_Timer_Stop, .-Channel_2_Timer_Stop
+ 214              		.section	.text.Channel_2_Timer_SetInterruptMode,"ax",%progbits
+ 215              		.align	2
+ 216              		.global	Channel_2_Timer_SetInterruptMode
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.type	Channel_2_Timer_SetInterruptMode, %function
+ 220              	Channel_2_Timer_SetInterruptMode:
+ 221              	.LFB4:
+ 260:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 261:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 262:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 263:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SetInterruptMode
+ 264:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 265:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 266:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 267:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function selects which of the interrupt inputs may cause an interrupt.
+ 268:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The twosources are caputure and terminal.  One, both or neither may
+ 269:Generated_Source\PSoC5/Channel_2_Timer.c **** *  be selected.
+ 270:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 271:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 272:Generated_Source\PSoC5/Channel_2_Timer.c **** *  interruptMode:   This parameter is used to enable interrups on either/or
+ 273:Generated_Source\PSoC5/Channel_2_Timer.c **** *                   terminal count or capture.
+ 274:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 275:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 276:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 277:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 278:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 279:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SetInterruptMode(uint8 interruptMode) 
+ 280:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 222              		.loc 1 280 0
+ 223              		.cfi_startproc
+ 224              		@ args = 0, pretend = 0, frame = 8
+ 225              		@ frame_needed = 1, uses_anonymous_args = 0
+ 226              		@ link register save eliminated.
+ 227 0000 80B4     		push	{r7}
+ 228              		.cfi_def_cfa_offset 4
+ 229              		.cfi_offset 7, -4
+ 230 0002 83B0     		sub	sp, sp, #12
+ 231              		.cfi_def_cfa_offset 16
+ 232 0004 00AF     		add	r7, sp, #0
+ 233              		.cfi_def_cfa_register 7
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 10
+
+
+ 234 0006 0346     		mov	r3, r0
+ 235 0008 FB71     		strb	r3, [r7, #7]
+ 281:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_STATUS_MASK = interruptMode;
+ 236              		.loc 1 281 0
+ 237 000a 044A     		ldr	r2, .L15
+ 238 000c FB79     		ldrb	r3, [r7, #7]
+ 239 000e 1370     		strb	r3, [r2]
+ 282:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 240              		.loc 1 282 0
+ 241 0010 0C37     		adds	r7, r7, #12
+ 242              		.cfi_def_cfa_offset 4
+ 243 0012 BD46     		mov	sp, r7
+ 244              		.cfi_def_cfa_register 13
+ 245              		@ sp needed
+ 246 0014 5DF8047B 		ldr	r7, [sp], #4
+ 247              		.cfi_restore 7
+ 248              		.cfi_def_cfa_offset 0
+ 249 0018 7047     		bx	lr
+ 250              	.L16:
+ 251 001a 00BF     		.align	2
+ 252              	.L15:
+ 253 001c 88640040 		.word	1073767560
+ 254              		.cfi_endproc
+ 255              	.LFE4:
+ 256              		.size	Channel_2_Timer_SetInterruptMode, .-Channel_2_Timer_SetInterruptMode
+ 257              		.section	.text.Channel_2_Timer_SoftwareCapture,"ax",%progbits
+ 258              		.align	2
+ 259              		.global	Channel_2_Timer_SoftwareCapture
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	Channel_2_Timer_SoftwareCapture, %function
+ 263              	Channel_2_Timer_SoftwareCapture:
+ 264              	.LFB5:
+ 283:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 284:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 285:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SoftwareCapture
+ 287:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 288:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 289:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 290:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function forces a capture independent of the capture signal.
+ 291:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 292:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 293:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 294:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 295:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 296:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 297:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 298:Generated_Source\PSoC5/Channel_2_Timer.c **** * Side Effects:
+ 299:Generated_Source\PSoC5/Channel_2_Timer.c **** *  An existing hardware capture could be overwritten.
+ 300:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 301:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SoftwareCapture(void) 
+ 303:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 265              		.loc 1 303 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 11
+
+
+ 268              		@ frame_needed = 1, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 270 0000 80B4     		push	{r7}
+ 271              		.cfi_def_cfa_offset 4
+ 272              		.cfi_offset 7, -4
+ 273 0002 00AF     		add	r7, sp, #0
+ 274              		.cfi_def_cfa_register 7
+ 304:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Generate a software capture by reading the counter register */
+ 305:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(Channel_2_Timer_UsingFixedFunction)
+ 306:Generated_Source\PSoC5/Channel_2_Timer.c ****         (void)CY_GET_REG16(Channel_2_Timer_COUNTER_LSB_PTR);
+ 307:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 308:Generated_Source\PSoC5/Channel_2_Timer.c ****         (void)CY_GET_REG8(Channel_2_Timer_COUNTER_LSB_PTR_8BIT);
+ 275              		.loc 1 308 0
+ 276 0004 024B     		ldr	r3, .L18
+ 277 0006 1B78     		ldrb	r3, [r3]
+ 309:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif/* (Channel_2_Timer_UsingFixedFunction) */
+ 310:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Capture Data is now in the FIFO */
+ 311:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 278              		.loc 1 311 0
+ 279 0008 BD46     		mov	sp, r7
+ 280              		.cfi_def_cfa_register 13
+ 281              		@ sp needed
+ 282 000a 5DF8047B 		ldr	r7, [sp], #4
+ 283              		.cfi_restore 7
+ 284              		.cfi_def_cfa_offset 0
+ 285 000e 7047     		bx	lr
+ 286              	.L19:
+ 287              		.align	2
+ 288              	.L18:
+ 289 0010 0C640040 		.word	1073767436
+ 290              		.cfi_endproc
+ 291              	.LFE5:
+ 292              		.size	Channel_2_Timer_SoftwareCapture, .-Channel_2_Timer_SoftwareCapture
+ 293              		.section	.text.Channel_2_Timer_ReadStatusRegister,"ax",%progbits
+ 294              		.align	2
+ 295              		.global	Channel_2_Timer_ReadStatusRegister
+ 296              		.thumb
+ 297              		.thumb_func
+ 298              		.type	Channel_2_Timer_ReadStatusRegister, %function
+ 299              	Channel_2_Timer_ReadStatusRegister:
+ 300              	.LFB6:
+ 312:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 313:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 314:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadStatusRegister
+ 316:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 317:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 318:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 319:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Reads the status register and returns it's state. This function should use
+ 320:Generated_Source\PSoC5/Channel_2_Timer.c **** *  defined types for the bit-field information as the bits in this register may
+ 321:Generated_Source\PSoC5/Channel_2_Timer.c **** *  be permuteable.
+ 322:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 323:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 324:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 325:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 326:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 327:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The contents of the status register
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 12
+
+
+ 328:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 329:Generated_Source\PSoC5/Channel_2_Timer.c **** * Side Effects:
+ 330:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Status register bits may be clear on read.
+ 331:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 332:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC5/Channel_2_Timer.c **** uint8   Channel_2_Timer_ReadStatusRegister(void) 
+ 334:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 301              		.loc 1 334 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 1, uses_anonymous_args = 0
+ 305              		@ link register save eliminated.
+ 306 0000 80B4     		push	{r7}
+ 307              		.cfi_def_cfa_offset 4
+ 308              		.cfi_offset 7, -4
+ 309 0002 00AF     		add	r7, sp, #0
+ 310              		.cfi_def_cfa_register 7
+ 335:Generated_Source\PSoC5/Channel_2_Timer.c ****     return (Channel_2_Timer_STATUS);
+ 311              		.loc 1 335 0
+ 312 0004 034B     		ldr	r3, .L22
+ 313 0006 1B78     		ldrb	r3, [r3]
+ 314 0008 DBB2     		uxtb	r3, r3
+ 336:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 315              		.loc 1 336 0
+ 316 000a 1846     		mov	r0, r3
+ 317 000c BD46     		mov	sp, r7
+ 318              		.cfi_def_cfa_register 13
+ 319              		@ sp needed
+ 320 000e 5DF8047B 		ldr	r7, [sp], #4
+ 321              		.cfi_restore 7
+ 322              		.cfi_def_cfa_offset 0
+ 323 0012 7047     		bx	lr
+ 324              	.L23:
+ 325              		.align	2
+ 326              	.L22:
+ 327 0014 68640040 		.word	1073767528
+ 328              		.cfi_endproc
+ 329              	.LFE6:
+ 330              		.size	Channel_2_Timer_ReadStatusRegister, .-Channel_2_Timer_ReadStatusRegister
+ 331              		.section	.text.Channel_2_Timer_ReadControlRegister,"ax",%progbits
+ 332              		.align	2
+ 333              		.global	Channel_2_Timer_ReadControlRegister
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.type	Channel_2_Timer_ReadControlRegister, %function
+ 337              	Channel_2_Timer_ReadControlRegister:
+ 338              	.LFB7:
+ 337:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 338:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 339:Generated_Source\PSoC5/Channel_2_Timer.c **** #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
+ 340:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 341:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 342:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadControlRegister
+ 344:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 346:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 13
+
+
+ 347:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Reads the control register and returns it's value.
+ 348:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 349:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 350:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 351:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 352:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 353:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The contents of the control register
+ 354:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 355:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/Channel_2_Timer.c **** uint8 Channel_2_Timer_ReadControlRegister(void) 
+ 357:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 339              		.loc 1 357 0
+ 340              		.cfi_startproc
+ 341              		@ args = 0, pretend = 0, frame = 0
+ 342              		@ frame_needed = 1, uses_anonymous_args = 0
+ 343              		@ link register save eliminated.
+ 344 0000 80B4     		push	{r7}
+ 345              		.cfi_def_cfa_offset 4
+ 346              		.cfi_offset 7, -4
+ 347 0002 00AF     		add	r7, sp, #0
+ 348              		.cfi_def_cfa_register 7
+ 358:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) 
+ 359:Generated_Source\PSoC5/Channel_2_Timer.c ****         return ((uint8)Channel_2_Timer_CONTROL);
+ 349              		.loc 1 359 0
+ 350 0004 034B     		ldr	r3, .L26
+ 351 0006 1B78     		ldrb	r3, [r3]
+ 352 0008 DBB2     		uxtb	r3, r3
+ 360:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 361:Generated_Source\PSoC5/Channel_2_Timer.c ****         return (0);
+ 362:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) */
+ 363:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 353              		.loc 1 363 0
+ 354 000a 1846     		mov	r0, r3
+ 355 000c BD46     		mov	sp, r7
+ 356              		.cfi_def_cfa_register 13
+ 357              		@ sp needed
+ 358 000e 5DF8047B 		ldr	r7, [sp], #4
+ 359              		.cfi_restore 7
+ 360              		.cfi_def_cfa_offset 0
+ 361 0012 7047     		bx	lr
+ 362              	.L27:
+ 363              		.align	2
+ 364              	.L26:
+ 365 0014 79640040 		.word	1073767545
+ 366              		.cfi_endproc
+ 367              	.LFE7:
+ 368              		.size	Channel_2_Timer_ReadControlRegister, .-Channel_2_Timer_ReadControlRegister
+ 369              		.section	.text.Channel_2_Timer_WriteControlRegister,"ax",%progbits
+ 370              		.align	2
+ 371              		.global	Channel_2_Timer_WriteControlRegister
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.type	Channel_2_Timer_WriteControlRegister, %function
+ 375              	Channel_2_Timer_WriteControlRegister:
+ 376              	.LFB8:
+ 364:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 365:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 14
+
+
+ 366:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 367:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_WriteControlRegister
+ 368:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 369:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 370:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 371:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Sets the bit-field of the control register.
+ 372:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 373:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 374:Generated_Source\PSoC5/Channel_2_Timer.c **** *  control: The contents of the control register
+ 375:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 376:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 377:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 378:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 379:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_WriteControlRegister(uint8 control) 
+ 380:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 377              		.loc 1 380 0
+ 378              		.cfi_startproc
+ 379              		@ args = 0, pretend = 0, frame = 8
+ 380              		@ frame_needed = 1, uses_anonymous_args = 0
+ 381              		@ link register save eliminated.
+ 382 0000 80B4     		push	{r7}
+ 383              		.cfi_def_cfa_offset 4
+ 384              		.cfi_offset 7, -4
+ 385 0002 83B0     		sub	sp, sp, #12
+ 386              		.cfi_def_cfa_offset 16
+ 387 0004 00AF     		add	r7, sp, #0
+ 388              		.cfi_def_cfa_register 7
+ 389 0006 0346     		mov	r3, r0
+ 390 0008 FB71     		strb	r3, [r7, #7]
+ 381:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) 
+ 382:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL = control;
+ 391              		.loc 1 382 0
+ 392 000a 044A     		ldr	r2, .L29
+ 393 000c FB79     		ldrb	r3, [r7, #7]
+ 394 000e 1370     		strb	r3, [r2]
+ 383:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 384:Generated_Source\PSoC5/Channel_2_Timer.c ****         control = 0u;
+ 385:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) */
+ 386:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 395              		.loc 1 386 0
+ 396 0010 0C37     		adds	r7, r7, #12
+ 397              		.cfi_def_cfa_offset 4
+ 398 0012 BD46     		mov	sp, r7
+ 399              		.cfi_def_cfa_register 13
+ 400              		@ sp needed
+ 401 0014 5DF8047B 		ldr	r7, [sp], #4
+ 402              		.cfi_restore 7
+ 403              		.cfi_def_cfa_offset 0
+ 404 0018 7047     		bx	lr
+ 405              	.L30:
+ 406 001a 00BF     		.align	2
+ 407              	.L29:
+ 408 001c 79640040 		.word	1073767545
+ 409              		.cfi_endproc
+ 410              	.LFE8:
+ 411              		.size	Channel_2_Timer_WriteControlRegister, .-Channel_2_Timer_WriteControlRegister
+ 412              		.section	.text.Channel_2_Timer_ReadPeriod,"ax",%progbits
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 15
+
+
+ 413              		.align	2
+ 414              		.global	Channel_2_Timer_ReadPeriod
+ 415              		.thumb
+ 416              		.thumb_func
+ 417              		.type	Channel_2_Timer_ReadPeriod, %function
+ 418              	Channel_2_Timer_ReadPeriod:
+ 419              	.LFB9:
+ 387:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 388:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Remove API if control register is unused */
+ 389:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 390:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 391:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 392:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadPeriod
+ 393:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 394:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 395:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 396:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function returns the current value of the Period.
+ 397:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 398:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 399:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 400:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 401:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 402:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The present value of the counter.
+ 403:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 404:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 405:Generated_Source\PSoC5/Channel_2_Timer.c **** uint32 Channel_2_Timer_ReadPeriod(void) 
+ 406:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 420              		.loc 1 406 0
+ 421              		.cfi_startproc
+ 422              		@ args = 0, pretend = 0, frame = 0
+ 423              		@ frame_needed = 1, uses_anonymous_args = 0
+ 424              		@ link register save eliminated.
+ 425 0000 80B4     		push	{r7}
+ 426              		.cfi_def_cfa_offset 4
+ 427              		.cfi_offset 7, -4
+ 428 0002 00AF     		add	r7, sp, #0
+ 429              		.cfi_def_cfa_register 7
+ 407:Generated_Source\PSoC5/Channel_2_Timer.c ****    #if(Channel_2_Timer_UsingFixedFunction)
+ 408:Generated_Source\PSoC5/Channel_2_Timer.c ****        return ((uint32)CY_GET_REG16(Channel_2_Timer_PERIOD_LSB_PTR));
+ 409:Generated_Source\PSoC5/Channel_2_Timer.c ****    #else
+ 410:Generated_Source\PSoC5/Channel_2_Timer.c ****        return (CY_GET_REG32(Channel_2_Timer_PERIOD_LSB_PTR));
+ 430              		.loc 1 410 0
+ 431 0004 034B     		ldr	r3, .L33
+ 432 0006 1B68     		ldr	r3, [r3]
+ 411:Generated_Source\PSoC5/Channel_2_Timer.c ****    #endif /* (Channel_2_Timer_UsingFixedFunction) */
+ 412:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 433              		.loc 1 412 0
+ 434 0008 1846     		mov	r0, r3
+ 435 000a BD46     		mov	sp, r7
+ 436              		.cfi_def_cfa_register 13
+ 437              		@ sp needed
+ 438 000c 5DF8047B 		ldr	r7, [sp], #4
+ 439              		.cfi_restore 7
+ 440              		.cfi_def_cfa_offset 0
+ 441 0010 7047     		bx	lr
+ 442              	.L34:
+ 443 0012 00BF     		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 16
+
+
+ 444              	.L33:
+ 445 0014 2C640040 		.word	1073767468
+ 446              		.cfi_endproc
+ 447              	.LFE9:
+ 448              		.size	Channel_2_Timer_ReadPeriod, .-Channel_2_Timer_ReadPeriod
+ 449              		.section	.text.Channel_2_Timer_WritePeriod,"ax",%progbits
+ 450              		.align	2
+ 451              		.global	Channel_2_Timer_WritePeriod
+ 452              		.thumb
+ 453              		.thumb_func
+ 454              		.type	Channel_2_Timer_WritePeriod, %function
+ 455              	Channel_2_Timer_WritePeriod:
+ 456              	.LFB10:
+ 413:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 414:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 415:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 416:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_WritePeriod
+ 417:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 418:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 419:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 420:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function is used to change the period of the counter.  The new period
+ 421:Generated_Source\PSoC5/Channel_2_Timer.c **** *  will be loaded the next time terminal count is detected.
+ 422:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 423:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 424:Generated_Source\PSoC5/Channel_2_Timer.c **** *  period: This value may be between 1 and (2^Resolution)-1.  A value of 0 will
+ 425:Generated_Source\PSoC5/Channel_2_Timer.c **** *          result in the counter remaining at zero.
+ 426:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 427:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 428:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 429:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 430:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 431:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_WritePeriod(uint32 period) 
+ 432:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 457              		.loc 1 432 0
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 8
+ 460              		@ frame_needed = 1, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 462 0000 80B4     		push	{r7}
+ 463              		.cfi_def_cfa_offset 4
+ 464              		.cfi_offset 7, -4
+ 465 0002 83B0     		sub	sp, sp, #12
+ 466              		.cfi_def_cfa_offset 16
+ 467 0004 00AF     		add	r7, sp, #0
+ 468              		.cfi_def_cfa_register 7
+ 469 0006 7860     		str	r0, [r7, #4]
+ 433:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(Channel_2_Timer_UsingFixedFunction)
+ 434:Generated_Source\PSoC5/Channel_2_Timer.c ****         uint16 period_temp = (uint16)period;
+ 435:Generated_Source\PSoC5/Channel_2_Timer.c ****         CY_SET_REG16(Channel_2_Timer_PERIOD_LSB_PTR, period_temp);
+ 436:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 437:Generated_Source\PSoC5/Channel_2_Timer.c ****         CY_SET_REG32(Channel_2_Timer_PERIOD_LSB_PTR, period);
+ 470              		.loc 1 437 0
+ 471 0008 034A     		ldr	r2, .L36
+ 472 000a 7B68     		ldr	r3, [r7, #4]
+ 473 000c 1360     		str	r3, [r2]
+ 438:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
+ 439:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 17
+
+
+ 474              		.loc 1 439 0
+ 475 000e 0C37     		adds	r7, r7, #12
+ 476              		.cfi_def_cfa_offset 4
+ 477 0010 BD46     		mov	sp, r7
+ 478              		.cfi_def_cfa_register 13
+ 479              		@ sp needed
+ 480 0012 5DF8047B 		ldr	r7, [sp], #4
+ 481              		.cfi_restore 7
+ 482              		.cfi_def_cfa_offset 0
+ 483 0016 7047     		bx	lr
+ 484              	.L37:
+ 485              		.align	2
+ 486              	.L36:
+ 487 0018 2C640040 		.word	1073767468
+ 488              		.cfi_endproc
+ 489              	.LFE10:
+ 490              		.size	Channel_2_Timer_WritePeriod, .-Channel_2_Timer_WritePeriod
+ 491              		.section	.text.Channel_2_Timer_ReadCapture,"ax",%progbits
+ 492              		.align	2
+ 493              		.global	Channel_2_Timer_ReadCapture
+ 494              		.thumb
+ 495              		.thumb_func
+ 496              		.type	Channel_2_Timer_ReadCapture, %function
+ 497              	Channel_2_Timer_ReadCapture:
+ 498              	.LFB11:
+ 440:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 441:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 442:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 443:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadCapture
+ 444:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 445:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 446:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 447:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function returns the last value captured.
+ 448:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 449:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 450:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 451:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 452:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 453:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Present Capture value.
+ 454:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 455:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 456:Generated_Source\PSoC5/Channel_2_Timer.c **** uint32 Channel_2_Timer_ReadCapture(void) 
+ 457:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 499              		.loc 1 457 0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 0
+ 502              		@ frame_needed = 1, uses_anonymous_args = 0
+ 503              		@ link register save eliminated.
+ 504 0000 80B4     		push	{r7}
+ 505              		.cfi_def_cfa_offset 4
+ 506              		.cfi_offset 7, -4
+ 507 0002 00AF     		add	r7, sp, #0
+ 508              		.cfi_def_cfa_register 7
+ 458:Generated_Source\PSoC5/Channel_2_Timer.c ****    #if(Channel_2_Timer_UsingFixedFunction)
+ 459:Generated_Source\PSoC5/Channel_2_Timer.c ****        return ((uint32)CY_GET_REG16(Channel_2_Timer_CAPTURE_LSB_PTR));
+ 460:Generated_Source\PSoC5/Channel_2_Timer.c ****    #else
+ 461:Generated_Source\PSoC5/Channel_2_Timer.c ****        return (CY_GET_REG32(Channel_2_Timer_CAPTURE_LSB_PTR));
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 18
+
+
+ 509              		.loc 1 461 0
+ 510 0004 034B     		ldr	r3, .L40
+ 511 0006 1B68     		ldr	r3, [r3]
+ 462:Generated_Source\PSoC5/Channel_2_Timer.c ****    #endif /* (Channel_2_Timer_UsingFixedFunction) */
+ 463:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 512              		.loc 1 463 0
+ 513 0008 1846     		mov	r0, r3
+ 514 000a BD46     		mov	sp, r7
+ 515              		.cfi_def_cfa_register 13
+ 516              		@ sp needed
+ 517 000c 5DF8047B 		ldr	r7, [sp], #4
+ 518              		.cfi_restore 7
+ 519              		.cfi_def_cfa_offset 0
+ 520 0010 7047     		bx	lr
+ 521              	.L41:
+ 522 0012 00BF     		.align	2
+ 523              	.L40:
+ 524 0014 4C640040 		.word	1073767500
+ 525              		.cfi_endproc
+ 526              	.LFE11:
+ 527              		.size	Channel_2_Timer_ReadCapture, .-Channel_2_Timer_ReadCapture
+ 528              		.section	.text.Channel_2_Timer_WriteCounter,"ax",%progbits
+ 529              		.align	2
+ 530              		.global	Channel_2_Timer_WriteCounter
+ 531              		.thumb
+ 532              		.thumb_func
+ 533              		.type	Channel_2_Timer_WriteCounter, %function
+ 534              	Channel_2_Timer_WriteCounter:
+ 535              	.LFB12:
+ 464:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 465:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 466:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_WriteCounter
+ 468:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 470:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 471:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This funtion is used to set the counter to a specific value
+ 472:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 473:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 474:Generated_Source\PSoC5/Channel_2_Timer.c **** *  counter:  New counter value.
+ 475:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 476:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 477:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 478:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 479:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 480:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_WriteCounter(uint32 counter) 
+ 481:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 536              		.loc 1 481 0
+ 537              		.cfi_startproc
+ 538              		@ args = 0, pretend = 0, frame = 8
+ 539              		@ frame_needed = 1, uses_anonymous_args = 0
+ 540              		@ link register save eliminated.
+ 541 0000 80B4     		push	{r7}
+ 542              		.cfi_def_cfa_offset 4
+ 543              		.cfi_offset 7, -4
+ 544 0002 83B0     		sub	sp, sp, #12
+ 545              		.cfi_def_cfa_offset 16
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 19
+
+
+ 546 0004 00AF     		add	r7, sp, #0
+ 547              		.cfi_def_cfa_register 7
+ 548 0006 7860     		str	r0, [r7, #4]
+ 482:Generated_Source\PSoC5/Channel_2_Timer.c ****    #if(Channel_2_Timer_UsingFixedFunction)
+ 483:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* This functionality is removed until a FixedFunction HW update to
+ 484:Generated_Source\PSoC5/Channel_2_Timer.c ****          * allow this register to be written
+ 485:Generated_Source\PSoC5/Channel_2_Timer.c ****          */
+ 486:Generated_Source\PSoC5/Channel_2_Timer.c ****         CY_SET_REG16(Channel_2_Timer_COUNTER_LSB_PTR, (uint16)counter);
+ 487:Generated_Source\PSoC5/Channel_2_Timer.c ****         
+ 488:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 489:Generated_Source\PSoC5/Channel_2_Timer.c ****         CY_SET_REG32(Channel_2_Timer_COUNTER_LSB_PTR, counter);
+ 549              		.loc 1 489 0
+ 550 0008 034A     		ldr	r2, .L43
+ 551 000a 7B68     		ldr	r3, [r7, #4]
+ 552 000c 1360     		str	r3, [r2]
+ 490:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
+ 491:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 553              		.loc 1 491 0
+ 554 000e 0C37     		adds	r7, r7, #12
+ 555              		.cfi_def_cfa_offset 4
+ 556 0010 BD46     		mov	sp, r7
+ 557              		.cfi_def_cfa_register 13
+ 558              		@ sp needed
+ 559 0012 5DF8047B 		ldr	r7, [sp], #4
+ 560              		.cfi_restore 7
+ 561              		.cfi_def_cfa_offset 0
+ 562 0016 7047     		bx	lr
+ 563              	.L44:
+ 564              		.align	2
+ 565              	.L43:
+ 566 0018 0C640040 		.word	1073767436
+ 567              		.cfi_endproc
+ 568              	.LFE12:
+ 569              		.size	Channel_2_Timer_WriteCounter, .-Channel_2_Timer_WriteCounter
+ 570              		.section	.text.Channel_2_Timer_ReadCounter,"ax",%progbits
+ 571              		.align	2
+ 572              		.global	Channel_2_Timer_ReadCounter
+ 573              		.thumb
+ 574              		.thumb_func
+ 575              		.type	Channel_2_Timer_ReadCounter, %function
+ 576              	Channel_2_Timer_ReadCounter:
+ 577              	.LFB13:
+ 492:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 493:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 494:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 495:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadCounter
+ 496:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 497:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 498:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 499:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function returns the current counter value.
+ 500:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 501:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 502:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 503:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 504:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 505:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Present compare value.
+ 506:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 20
+
+
+ 507:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 508:Generated_Source\PSoC5/Channel_2_Timer.c **** uint32 Channel_2_Timer_ReadCounter(void) 
+ 509:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 578              		.loc 1 509 0
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 1, uses_anonymous_args = 0
+ 582              		@ link register save eliminated.
+ 583 0000 80B4     		push	{r7}
+ 584              		.cfi_def_cfa_offset 4
+ 585              		.cfi_offset 7, -4
+ 586 0002 00AF     		add	r7, sp, #0
+ 587              		.cfi_def_cfa_register 7
+ 510:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Force capture by reading Accumulator */
+ 511:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Must first do a software capture to be able to read the counter */
+ 512:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 513:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(Channel_2_Timer_UsingFixedFunction)
+ 514:Generated_Source\PSoC5/Channel_2_Timer.c ****         (void)CY_GET_REG16(Channel_2_Timer_COUNTER_LSB_PTR);
+ 515:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 516:Generated_Source\PSoC5/Channel_2_Timer.c ****         (void)CY_GET_REG8(Channel_2_Timer_COUNTER_LSB_PTR_8BIT);
+ 588              		.loc 1 516 0
+ 589 0004 044B     		ldr	r3, .L47
+ 590 0006 1B78     		ldrb	r3, [r3]
+ 517:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif/* (Channel_2_Timer_UsingFixedFunction) */
+ 518:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 519:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 520:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if(Channel_2_Timer_UsingFixedFunction)
+ 521:Generated_Source\PSoC5/Channel_2_Timer.c ****         return ((uint32)CY_GET_REG16(Channel_2_Timer_CAPTURE_LSB_PTR));
+ 522:Generated_Source\PSoC5/Channel_2_Timer.c ****     #else
+ 523:Generated_Source\PSoC5/Channel_2_Timer.c ****         return (CY_GET_REG32(Channel_2_Timer_CAPTURE_LSB_PTR));
+ 591              		.loc 1 523 0
+ 592 0008 044B     		ldr	r3, .L47+4
+ 593 000a 1B68     		ldr	r3, [r3]
+ 524:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* (Channel_2_Timer_UsingFixedFunction) */
+ 525:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 594              		.loc 1 525 0
+ 595 000c 1846     		mov	r0, r3
+ 596 000e BD46     		mov	sp, r7
+ 597              		.cfi_def_cfa_register 13
+ 598              		@ sp needed
+ 599 0010 5DF8047B 		ldr	r7, [sp], #4
+ 600              		.cfi_restore 7
+ 601              		.cfi_def_cfa_offset 0
+ 602 0014 7047     		bx	lr
+ 603              	.L48:
+ 604 0016 00BF     		.align	2
+ 605              	.L47:
+ 606 0018 0C640040 		.word	1073767436
+ 607 001c 4C640040 		.word	1073767500
+ 608              		.cfi_endproc
+ 609              	.LFE13:
+ 610              		.size	Channel_2_Timer_ReadCounter, .-Channel_2_Timer_ReadCounter
+ 611              		.section	.text.Channel_2_Timer_EnableTrigger,"ax",%progbits
+ 612              		.align	2
+ 613              		.global	Channel_2_Timer_EnableTrigger
+ 614              		.thumb
+ 615              		.thumb_func
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 21
+
+
+ 616              		.type	Channel_2_Timer_EnableTrigger, %function
+ 617              	Channel_2_Timer_EnableTrigger:
+ 618              	.LFB14:
+ 526:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 527:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 528:Generated_Source\PSoC5/Channel_2_Timer.c **** #if(!Channel_2_Timer_UsingFixedFunction) /* UDB Specific Functions */
+ 529:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 530:Generated_Source\PSoC5/Channel_2_Timer.c ****     
+ 531:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 532:Generated_Source\PSoC5/Channel_2_Timer.c ****  * The functions below this point are only available using the UDB
+ 533:Generated_Source\PSoC5/Channel_2_Timer.c ****  * implementation.  If a feature is selected, then the API is enabled.
+ 534:Generated_Source\PSoC5/Channel_2_Timer.c ****  ******************************************************************************/
+ 535:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 536:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 537:Generated_Source\PSoC5/Channel_2_Timer.c **** #if (Channel_2_Timer_SoftwareCaptureMode)
+ 538:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 539:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 540:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 541:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SetCaptureMode
+ 542:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 543:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 544:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 545:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function sets the capture mode to either rising or falling edge.
+ 546:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 547:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 548:Generated_Source\PSoC5/Channel_2_Timer.c **** *  captureMode: This parameter sets the capture mode of the UDB capture feature
+ 549:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The parameter values are defined using the
+ 550:Generated_Source\PSoC5/Channel_2_Timer.c **** *  #define Channel_2_Timer__B_TIMER__CM_NONE 0
+ 551:Generated_Source\PSoC5/Channel_2_Timer.c **** #define Channel_2_Timer__B_TIMER__CM_RISINGEDGE 1
+ 552:Generated_Source\PSoC5/Channel_2_Timer.c **** #define Channel_2_Timer__B_TIMER__CM_FALLINGEDGE 2
+ 553:Generated_Source\PSoC5/Channel_2_Timer.c **** #define Channel_2_Timer__B_TIMER__CM_EITHEREDGE 3
+ 554:Generated_Source\PSoC5/Channel_2_Timer.c **** #define Channel_2_Timer__B_TIMER__CM_SOFTWARE 4
+ 555:Generated_Source\PSoC5/Channel_2_Timer.c ****  identifiers
+ 556:Generated_Source\PSoC5/Channel_2_Timer.c **** *  The following are the possible values of the parameter
+ 557:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Channel_2_Timer__B_TIMER__CM_NONE        - Set Capture mode to None
+ 558:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Channel_2_Timer__B_TIMER__CM_RISINGEDGE  - Rising edge of Capture input
+ 559:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Channel_2_Timer__B_TIMER__CM_FALLINGEDGE - Falling edge of Capture input
+ 560:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Channel_2_Timer__B_TIMER__CM_EITHEREDGE  - Either edge of Capture input
+ 561:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 562:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 563:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 564:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 565:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 566:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SetCaptureMode(uint8 captureMode) 
+ 567:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 568:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* This must only set to two bits of the control register associated */
+ 569:Generated_Source\PSoC5/Channel_2_Timer.c ****     captureMode = ((uint8)((uint8)captureMode << Channel_2_Timer_CTRL_CAP_MODE_SHIFT));
+ 570:Generated_Source\PSoC5/Channel_2_Timer.c ****     captureMode &= (Channel_2_Timer_CTRL_CAP_MODE_MASK);
+ 571:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 572:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED)
+ 573:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear the Current Setting */
+ 574:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= ((uint8)(~Channel_2_Timer_CTRL_CAP_MODE_MASK));
+ 575:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 576:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Write The New Setting */
+ 577:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL |= captureMode;
+ 578:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) */
+ 579:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 22
+
+
+ 580:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Remove API if Capture Mode is not Software Controlled */
+ 581:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 582:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 583:Generated_Source\PSoC5/Channel_2_Timer.c **** #if (Channel_2_Timer_SoftwareTriggerMode)
+ 584:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 585:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 586:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 587:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SetTriggerMode
+ 588:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 589:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 590:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 591:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function sets the trigger input mode
+ 592:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 593:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 594:Generated_Source\PSoC5/Channel_2_Timer.c **** *  triggerMode: Pass one of the pre-defined Trigger Modes (except Software)
+ 595:Generated_Source\PSoC5/Channel_2_Timer.c ****     #define Channel_2_Timer__B_TIMER__TM_NONE 0x00u
+ 596:Generated_Source\PSoC5/Channel_2_Timer.c ****     #define Channel_2_Timer__B_TIMER__TM_RISINGEDGE 0x04u
+ 597:Generated_Source\PSoC5/Channel_2_Timer.c ****     #define Channel_2_Timer__B_TIMER__TM_FALLINGEDGE 0x08u
+ 598:Generated_Source\PSoC5/Channel_2_Timer.c ****     #define Channel_2_Timer__B_TIMER__TM_EITHEREDGE 0x0Cu
+ 599:Generated_Source\PSoC5/Channel_2_Timer.c ****     #define Channel_2_Timer__B_TIMER__TM_SOFTWARE 0x10u
+ 600:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 601:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 602:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 603:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 604:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 605:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SetTriggerMode(uint8 triggerMode) 
+ 606:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 607:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* This must only set to two bits of the control register associated */
+ 608:Generated_Source\PSoC5/Channel_2_Timer.c ****     triggerMode &= Channel_2_Timer_CTRL_TRIG_MODE_MASK;
+ 609:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 610:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is re
+ 611:Generated_Source\PSoC5/Channel_2_Timer.c ****     
+ 612:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear the Current Setting */
+ 613:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= ((uint8)(~Channel_2_Timer_CTRL_TRIG_MODE_MASK));
+ 614:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 615:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Write The New Setting */
+ 616:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL |= (triggerMode | Channel_2_Timer__B_TIMER__TM_SOFTWARE);
+ 617:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Remove code section if control register is not used */
+ 618:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 619:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Remove API if Trigger Mode is not Software Controlled */
+ 620:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 621:Generated_Source\PSoC5/Channel_2_Timer.c **** #if (Channel_2_Timer_EnableTriggerMode)
+ 622:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 623:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 624:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 625:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_EnableTrigger
+ 626:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 627:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 628:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 629:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Sets the control bit enabling Hardware Trigger mode
+ 630:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 631:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 632:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 633:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 634:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 635:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 636:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 23
+
+
+ 637:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 638:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_EnableTrigger(void) 
+ 639:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 619              		.loc 1 639 0
+ 620              		.cfi_startproc
+ 621              		@ args = 0, pretend = 0, frame = 0
+ 622              		@ frame_needed = 1, uses_anonymous_args = 0
+ 623              		@ link register save eliminated.
+ 624 0000 80B4     		push	{r7}
+ 625              		.cfi_def_cfa_offset 4
+ 626              		.cfi_offset 7, -4
+ 627 0002 00AF     		add	r7, sp, #0
+ 628              		.cfi_def_cfa_register 7
+ 640:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is re
+ 641:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL |= Channel_2_Timer_CTRL_TRIG_EN;
+ 629              		.loc 1 641 0
+ 630 0004 054A     		ldr	r2, .L50
+ 631 0006 054B     		ldr	r3, .L50
+ 632 0008 1B78     		ldrb	r3, [r3]
+ 633 000a DBB2     		uxtb	r3, r3
+ 634 000c 43F01003 		orr	r3, r3, #16
+ 635 0010 DBB2     		uxtb	r3, r3
+ 636 0012 1370     		strb	r3, [r2]
+ 642:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Remove code section if control register is not used */
+ 643:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 637              		.loc 1 643 0
+ 638 0014 BD46     		mov	sp, r7
+ 639              		.cfi_def_cfa_register 13
+ 640              		@ sp needed
+ 641 0016 5DF8047B 		ldr	r7, [sp], #4
+ 642              		.cfi_restore 7
+ 643              		.cfi_def_cfa_offset 0
+ 644 001a 7047     		bx	lr
+ 645              	.L51:
+ 646              		.align	2
+ 647              	.L50:
+ 648 001c 79640040 		.word	1073767545
+ 649              		.cfi_endproc
+ 650              	.LFE14:
+ 651              		.size	Channel_2_Timer_EnableTrigger, .-Channel_2_Timer_EnableTrigger
+ 652              		.section	.text.Channel_2_Timer_DisableTrigger,"ax",%progbits
+ 653              		.align	2
+ 654              		.global	Channel_2_Timer_DisableTrigger
+ 655              		.thumb
+ 656              		.thumb_func
+ 657              		.type	Channel_2_Timer_DisableTrigger, %function
+ 658              	Channel_2_Timer_DisableTrigger:
+ 659              	.LFB15:
+ 644:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 645:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 646:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 647:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_DisableTrigger
+ 648:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 649:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 650:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 651:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Clears the control bit enabling Hardware Trigger mode
+ 652:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 24
+
+
+ 653:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 654:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 655:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 656:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 657:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 658:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 659:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 660:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_DisableTrigger(void) 
+ 661:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 660              		.loc 1 661 0
+ 661              		.cfi_startproc
+ 662              		@ args = 0, pretend = 0, frame = 0
+ 663              		@ frame_needed = 1, uses_anonymous_args = 0
+ 664              		@ link register save eliminated.
+ 665 0000 80B4     		push	{r7}
+ 666              		.cfi_def_cfa_offset 4
+ 667              		.cfi_offset 7, -4
+ 668 0002 00AF     		add	r7, sp, #0
+ 669              		.cfi_def_cfa_register 7
+ 662:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is r
+ 663:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= ((uint8)(~Channel_2_Timer_CTRL_TRIG_EN));
+ 670              		.loc 1 663 0
+ 671 0004 054A     		ldr	r2, .L53
+ 672 0006 054B     		ldr	r3, .L53
+ 673 0008 1B78     		ldrb	r3, [r3]
+ 674 000a DBB2     		uxtb	r3, r3
+ 675 000c 23F01003 		bic	r3, r3, #16
+ 676 0010 DBB2     		uxtb	r3, r3
+ 677 0012 1370     		strb	r3, [r2]
+ 664:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* Remove code section if control register is not used */
+ 665:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 678              		.loc 1 665 0
+ 679 0014 BD46     		mov	sp, r7
+ 680              		.cfi_def_cfa_register 13
+ 681              		@ sp needed
+ 682 0016 5DF8047B 		ldr	r7, [sp], #4
+ 683              		.cfi_restore 7
+ 684              		.cfi_def_cfa_offset 0
+ 685 001a 7047     		bx	lr
+ 686              	.L54:
+ 687              		.align	2
+ 688              	.L53:
+ 689 001c 79640040 		.word	1073767545
+ 690              		.cfi_endproc
+ 691              	.LFE15:
+ 692              		.size	Channel_2_Timer_DisableTrigger, .-Channel_2_Timer_DisableTrigger
+ 693              		.section	.text.Channel_2_Timer_SetInterruptCount,"ax",%progbits
+ 694              		.align	2
+ 695              		.global	Channel_2_Timer_SetInterruptCount
+ 696              		.thumb
+ 697              		.thumb_func
+ 698              		.type	Channel_2_Timer_SetInterruptCount, %function
+ 699              	Channel_2_Timer_SetInterruptCount:
+ 700              	.LFB16:
+ 666:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Remove API is Trigger Mode is set to None */
+ 667:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 668:Generated_Source\PSoC5/Channel_2_Timer.c **** #if(Channel_2_Timer_InterruptOnCaptureCount)
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 25
+
+
+ 669:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 670:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 671:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 672:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SetInterruptCount
+ 673:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 674:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 675:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 676:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function sets the capture count before an interrupt is triggered.
+ 677:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 678:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 679:Generated_Source\PSoC5/Channel_2_Timer.c **** *  interruptCount:  A value between 0 and 3 is valid.  If the value is 0, then
+ 680:Generated_Source\PSoC5/Channel_2_Timer.c **** *                   an interrupt will occur each time a capture occurs.
+ 681:Generated_Source\PSoC5/Channel_2_Timer.c **** *                   A value of 1 to 3 will cause the interrupt
+ 682:Generated_Source\PSoC5/Channel_2_Timer.c **** *                   to delay by the same number of captures.
+ 683:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 684:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 685:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 686:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 687:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 688:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SetInterruptCount(uint8 interruptCount) 
+ 689:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 701              		.loc 1 689 0
+ 702              		.cfi_startproc
+ 703              		@ args = 0, pretend = 0, frame = 8
+ 704              		@ frame_needed = 1, uses_anonymous_args = 0
+ 705              		@ link register save eliminated.
+ 706 0000 80B4     		push	{r7}
+ 707              		.cfi_def_cfa_offset 4
+ 708              		.cfi_offset 7, -4
+ 709 0002 83B0     		sub	sp, sp, #12
+ 710              		.cfi_def_cfa_offset 16
+ 711 0004 00AF     		add	r7, sp, #0
+ 712              		.cfi_def_cfa_register 7
+ 713 0006 0346     		mov	r3, r0
+ 714 0008 FB71     		strb	r3, [r7, #7]
+ 690:Generated_Source\PSoC5/Channel_2_Timer.c ****     /* This must only set to two bits of the control register associated */
+ 691:Generated_Source\PSoC5/Channel_2_Timer.c ****     interruptCount &= Channel_2_Timer_CTRL_INTCNT_MASK;
+ 715              		.loc 1 691 0
+ 716 000a FB79     		ldrb	r3, [r7, #7]
+ 717 000c 03F00303 		and	r3, r3, #3
+ 718 0010 FB71     		strb	r3, [r7, #7]
+ 692:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 693:Generated_Source\PSoC5/Channel_2_Timer.c ****     #if (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED)
+ 694:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Clear the Current Setting */
+ 695:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL &= ((uint8)(~Channel_2_Timer_CTRL_INTCNT_MASK));
+ 719              		.loc 1 695 0
+ 720 0012 0A4A     		ldr	r2, .L56
+ 721 0014 094B     		ldr	r3, .L56
+ 722 0016 1B78     		ldrb	r3, [r3]
+ 723 0018 DBB2     		uxtb	r3, r3
+ 724 001a 23F00303 		bic	r3, r3, #3
+ 725 001e DBB2     		uxtb	r3, r3
+ 726 0020 1370     		strb	r3, [r2]
+ 696:Generated_Source\PSoC5/Channel_2_Timer.c ****         /* Write The New Setting */
+ 697:Generated_Source\PSoC5/Channel_2_Timer.c ****         Channel_2_Timer_CONTROL |= interruptCount;
+ 727              		.loc 1 697 0
+ 728 0022 0649     		ldr	r1, .L56
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 26
+
+
+ 729 0024 054B     		ldr	r3, .L56
+ 730 0026 1B78     		ldrb	r3, [r3]
+ 731 0028 DAB2     		uxtb	r2, r3
+ 732 002a FB79     		ldrb	r3, [r7, #7]
+ 733 002c 1343     		orrs	r3, r3, r2
+ 734 002e DBB2     		uxtb	r3, r3
+ 735 0030 0B70     		strb	r3, [r1]
+ 698:Generated_Source\PSoC5/Channel_2_Timer.c ****     #endif /* (!Channel_2_Timer_UDB_CONTROL_REG_REMOVED) */
+ 699:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 736              		.loc 1 699 0
+ 737 0032 0C37     		adds	r7, r7, #12
+ 738              		.cfi_def_cfa_offset 4
+ 739 0034 BD46     		mov	sp, r7
+ 740              		.cfi_def_cfa_register 13
+ 741              		@ sp needed
+ 742 0036 5DF8047B 		ldr	r7, [sp], #4
+ 743              		.cfi_restore 7
+ 744              		.cfi_def_cfa_offset 0
+ 745 003a 7047     		bx	lr
+ 746              	.L57:
+ 747              		.align	2
+ 748              	.L56:
+ 749 003c 79640040 		.word	1073767545
+ 750              		.cfi_endproc
+ 751              	.LFE16:
+ 752              		.size	Channel_2_Timer_SetInterruptCount, .-Channel_2_Timer_SetInterruptCount
+ 753              		.section	.text.Channel_2_Timer_ClearFIFO,"ax",%progbits
+ 754              		.align	2
+ 755              		.global	Channel_2_Timer_ClearFIFO
+ 756              		.thumb
+ 757              		.thumb_func
+ 758              		.type	Channel_2_Timer_ClearFIFO, %function
+ 759              	Channel_2_Timer_ClearFIFO:
+ 760              	.LFB17:
+ 700:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Channel_2_Timer_InterruptOnCaptureCount */
+ 701:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 702:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 703:Generated_Source\PSoC5/Channel_2_Timer.c **** #if (Channel_2_Timer_UsingHWCaptureCounter)
+ 704:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 705:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 706:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 707:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_SetCaptureCount
+ 708:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 709:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 710:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 711:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function sets the capture count
+ 712:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 713:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 714:Generated_Source\PSoC5/Channel_2_Timer.c **** *  captureCount: A value between 2 and 127 inclusive is valid.  A value of 1
+ 715:Generated_Source\PSoC5/Channel_2_Timer.c **** *                to 127 will cause the interrupt to delay by the same number of
+ 716:Generated_Source\PSoC5/Channel_2_Timer.c **** *                captures.
+ 717:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 718:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 719:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 720:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 721:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 722:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_SetCaptureCount(uint8 captureCount) 
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 27
+
+
+ 723:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 724:Generated_Source\PSoC5/Channel_2_Timer.c ****     Channel_2_Timer_CAP_COUNT = captureCount;
+ 725:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 726:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 727:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 728:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 729:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ReadCaptureCount
+ 730:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 731:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 732:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 733:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function reads the capture count setting
+ 734:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 735:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 736:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 737:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 738:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 739:Generated_Source\PSoC5/Channel_2_Timer.c **** *  Returns the Capture Count Setting
+ 740:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 741:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 742:Generated_Source\PSoC5/Channel_2_Timer.c **** uint8 Channel_2_Timer_ReadCaptureCount(void) 
+ 743:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 744:Generated_Source\PSoC5/Channel_2_Timer.c ****     return ((uint8)Channel_2_Timer_CAP_COUNT);
+ 745:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 746:Generated_Source\PSoC5/Channel_2_Timer.c **** #endif /* Channel_2_Timer_UsingHWCaptureCounter */
+ 747:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 748:Generated_Source\PSoC5/Channel_2_Timer.c **** 
+ 749:Generated_Source\PSoC5/Channel_2_Timer.c **** /*******************************************************************************
+ 750:Generated_Source\PSoC5/Channel_2_Timer.c **** * Function Name: Channel_2_Timer_ClearFIFO
+ 751:Generated_Source\PSoC5/Channel_2_Timer.c **** ********************************************************************************
+ 752:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 753:Generated_Source\PSoC5/Channel_2_Timer.c **** * Summary:
+ 754:Generated_Source\PSoC5/Channel_2_Timer.c **** *  This function clears all capture data from the capture FIFO
+ 755:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 756:Generated_Source\PSoC5/Channel_2_Timer.c **** * Parameters:
+ 757:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 758:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 759:Generated_Source\PSoC5/Channel_2_Timer.c **** * Return:
+ 760:Generated_Source\PSoC5/Channel_2_Timer.c **** *  void
+ 761:Generated_Source\PSoC5/Channel_2_Timer.c **** *
+ 762:Generated_Source\PSoC5/Channel_2_Timer.c **** *******************************************************************************/
+ 763:Generated_Source\PSoC5/Channel_2_Timer.c **** void Channel_2_Timer_ClearFIFO(void) 
+ 764:Generated_Source\PSoC5/Channel_2_Timer.c **** {
+ 761              		.loc 1 764 0
+ 762              		.cfi_startproc
+ 763              		@ args = 0, pretend = 0, frame = 0
+ 764              		@ frame_needed = 1, uses_anonymous_args = 0
+ 765 0000 80B5     		push	{r7, lr}
+ 766              		.cfi_def_cfa_offset 8
+ 767              		.cfi_offset 7, -8
+ 768              		.cfi_offset 14, -4
+ 769 0002 00AF     		add	r7, sp, #0
+ 770              		.cfi_def_cfa_register 7
+ 765:Generated_Source\PSoC5/Channel_2_Timer.c ****     while(0u != (Channel_2_Timer_ReadStatusRegister() & Channel_2_Timer_STATUS_FIFONEMP))
+ 771              		.loc 1 765 0
+ 772 0004 01E0     		b	.L59
+ 773              	.L60:
+ 766:Generated_Source\PSoC5/Channel_2_Timer.c ****     {
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 28
+
+
+ 767:Generated_Source\PSoC5/Channel_2_Timer.c ****         (void)Channel_2_Timer_ReadCapture();
+ 774              		.loc 1 767 0
+ 775 0006 FFF7FEFF 		bl	Channel_2_Timer_ReadCapture
+ 776              	.L59:
+ 765:Generated_Source\PSoC5/Channel_2_Timer.c ****     while(0u != (Channel_2_Timer_ReadStatusRegister() & Channel_2_Timer_STATUS_FIFONEMP))
+ 777              		.loc 1 765 0
+ 778 000a FFF7FEFF 		bl	Channel_2_Timer_ReadStatusRegister
+ 779 000e 0346     		mov	r3, r0
+ 780 0010 03F00803 		and	r3, r3, #8
+ 781 0014 002B     		cmp	r3, #0
+ 782 0016 F6D1     		bne	.L60
+ 768:Generated_Source\PSoC5/Channel_2_Timer.c ****     }
+ 769:Generated_Source\PSoC5/Channel_2_Timer.c **** }
+ 783              		.loc 1 769 0
+ 784 0018 80BD     		pop	{r7, pc}
+ 785              		.cfi_endproc
+ 786              	.LFE17:
+ 787              		.size	Channel_2_Timer_ClearFIFO, .-Channel_2_Timer_ClearFIFO
+ 788 001a 00BF     		.text
+ 789              	.Letext0:
+ 790              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 791              		.section	.debug_info,"",%progbits
+ 792              	.Ldebug_info0:
+ 793 0000 9A020000 		.4byte	0x29a
+ 794 0004 0400     		.2byte	0x4
+ 795 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 796 000a 04       		.byte	0x4
+ 797 000b 01       		.uleb128 0x1
+ 798 000c E6010000 		.4byte	.LASF40
+ 799 0010 01       		.byte	0x1
+ 800 0011 38000000 		.4byte	.LASF41
+ 801 0015 74000000 		.4byte	.LASF42
+ 802 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 803 001d 00000000 		.4byte	0
+ 804 0021 00000000 		.4byte	.Ldebug_line0
+ 805 0025 02       		.uleb128 0x2
+ 806 0026 01       		.byte	0x1
+ 807 0027 06       		.byte	0x6
+ 808 0028 C2030000 		.4byte	.LASF0
+ 809 002c 02       		.uleb128 0x2
+ 810 002d 01       		.byte	0x1
+ 811 002e 08       		.byte	0x8
+ 812 002f 4E010000 		.4byte	.LASF1
+ 813 0033 02       		.uleb128 0x2
+ 814 0034 02       		.byte	0x2
+ 815 0035 05       		.byte	0x5
+ 816 0036 69030000 		.4byte	.LASF2
+ 817 003a 02       		.uleb128 0x2
+ 818 003b 02       		.byte	0x2
+ 819 003c 07       		.byte	0x7
+ 820 003d 61000000 		.4byte	.LASF3
+ 821 0041 02       		.uleb128 0x2
+ 822 0042 04       		.byte	0x4
+ 823 0043 05       		.byte	0x5
+ 824 0044 90030000 		.4byte	.LASF4
+ 825 0048 02       		.uleb128 0x2
+ 826 0049 04       		.byte	0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 29
+
+
+ 827 004a 07       		.byte	0x7
+ 828 004b B4020000 		.4byte	.LASF5
+ 829 004f 02       		.uleb128 0x2
+ 830 0050 08       		.byte	0x8
+ 831 0051 05       		.byte	0x5
+ 832 0052 35030000 		.4byte	.LASF6
+ 833 0056 02       		.uleb128 0x2
+ 834 0057 08       		.byte	0x8
+ 835 0058 07       		.byte	0x7
+ 836 0059 F4020000 		.4byte	.LASF7
+ 837 005d 03       		.uleb128 0x3
+ 838 005e 04       		.byte	0x4
+ 839 005f 05       		.byte	0x5
+ 840 0060 696E7400 		.ascii	"int\000"
+ 841 0064 02       		.uleb128 0x2
+ 842 0065 04       		.byte	0x4
+ 843 0066 07       		.byte	0x7
+ 844 0067 C6020000 		.4byte	.LASF8
+ 845 006b 04       		.uleb128 0x4
+ 846 006c B9010000 		.4byte	.LASF9
+ 847 0070 02       		.byte	0x2
+ 848 0071 9201     		.2byte	0x192
+ 849 0073 2C000000 		.4byte	0x2c
+ 850 0077 04       		.uleb128 0x4
+ 851 0078 91020000 		.4byte	.LASF10
+ 852 007c 02       		.byte	0x2
+ 853 007d 9401     		.2byte	0x194
+ 854 007f 48000000 		.4byte	0x48
+ 855 0083 02       		.uleb128 0x2
+ 856 0084 04       		.byte	0x4
+ 857 0085 04       		.byte	0x4
+ 858 0086 2B000000 		.4byte	.LASF11
+ 859 008a 02       		.uleb128 0x2
+ 860 008b 08       		.byte	0x8
+ 861 008c 04       		.byte	0x4
+ 862 008d 74020000 		.4byte	.LASF12
+ 863 0091 02       		.uleb128 0x2
+ 864 0092 01       		.byte	0x1
+ 865 0093 08       		.byte	0x8
+ 866 0094 99030000 		.4byte	.LASF13
+ 867 0098 04       		.uleb128 0x4
+ 868 0099 27030000 		.4byte	.LASF14
+ 869 009d 02       		.byte	0x2
+ 870 009e 3C02     		.2byte	0x23c
+ 871 00a0 A4000000 		.4byte	0xa4
+ 872 00a4 05       		.uleb128 0x5
+ 873 00a5 6B000000 		.4byte	0x6b
+ 874 00a9 04       		.uleb128 0x4
+ 875 00aa 25000000 		.4byte	.LASF15
+ 876 00ae 02       		.byte	0x2
+ 877 00af 3E02     		.2byte	0x23e
+ 878 00b1 B5000000 		.4byte	0xb5
+ 879 00b5 05       		.uleb128 0x5
+ 880 00b6 77000000 		.4byte	0x77
+ 881 00ba 02       		.uleb128 0x2
+ 882 00bb 04       		.byte	0x4
+ 883 00bc 07       		.byte	0x7
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 30
+
+
+ 884 00bd 2C030000 		.4byte	.LASF16
+ 885 00c1 06       		.uleb128 0x6
+ 886 00c2 CE030000 		.4byte	.LASF20
+ 887 00c6 01       		.byte	0x1
+ 888 00c7 2B       		.byte	0x2b
+ 889 00c8 00000000 		.4byte	.LFB0
+ 890 00cc 54000000 		.4byte	.LFE0-.LFB0
+ 891 00d0 01       		.uleb128 0x1
+ 892 00d1 9C       		.byte	0x9c
+ 893 00d2 E5000000 		.4byte	0xe5
+ 894 00d6 07       		.uleb128 0x7
+ 895 00d7 E9000000 		.4byte	.LASF43
+ 896 00db 01       		.byte	0x1
+ 897 00dc 2F       		.byte	0x2f
+ 898 00dd 6B000000 		.4byte	0x6b
+ 899 00e1 02       		.uleb128 0x2
+ 900 00e2 91       		.byte	0x91
+ 901 00e3 77       		.sleb128 -9
+ 902 00e4 00       		.byte	0
+ 903 00e5 08       		.uleb128 0x8
+ 904 00e6 D2000000 		.4byte	.LASF17
+ 905 00ea 01       		.byte	0x1
+ 906 00eb B4       		.byte	0xb4
+ 907 00ec 00000000 		.4byte	.LFB1
+ 908 00f0 20000000 		.4byte	.LFE1-.LFB1
+ 909 00f4 01       		.uleb128 0x1
+ 910 00f5 9C       		.byte	0x9c
+ 911 00f6 09       		.uleb128 0x9
+ 912 00f7 7B020000 		.4byte	.LASF18
+ 913 00fb 01       		.byte	0x1
+ 914 00fc D7       		.byte	0xd7
+ 915 00fd 00000000 		.4byte	.LFB2
+ 916 0101 20000000 		.4byte	.LFE2-.LFB2
+ 917 0105 01       		.uleb128 0x1
+ 918 0106 9C       		.byte	0x9c
+ 919 0107 08       		.uleb128 0x8
+ 920 0108 31010000 		.4byte	.LASF19
+ 921 010c 01       		.byte	0x1
+ 922 010d F7       		.byte	0xf7
+ 923 010e 00000000 		.4byte	.LFB3
+ 924 0112 20000000 		.4byte	.LFE3-.LFB3
+ 925 0116 01       		.uleb128 0x1
+ 926 0117 9C       		.byte	0x9c
+ 927 0118 0A       		.uleb128 0xa
+ 928 0119 D3020000 		.4byte	.LASF21
+ 929 011d 01       		.byte	0x1
+ 930 011e 1701     		.2byte	0x117
+ 931 0120 00000000 		.4byte	.LFB4
+ 932 0124 20000000 		.4byte	.LFE4-.LFB4
+ 933 0128 01       		.uleb128 0x1
+ 934 0129 9C       		.byte	0x9c
+ 935 012a 3E010000 		.4byte	0x13e
+ 936 012e 0B       		.uleb128 0xb
+ 937 012f 43030000 		.4byte	.LASF26
+ 938 0133 01       		.byte	0x1
+ 939 0134 1701     		.2byte	0x117
+ 940 0136 6B000000 		.4byte	0x6b
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 31
+
+
+ 941 013a 02       		.uleb128 0x2
+ 942 013b 91       		.byte	0x91
+ 943 013c 77       		.sleb128 -9
+ 944 013d 00       		.byte	0
+ 945 013e 0C       		.uleb128 0xc
+ 946 013f E3030000 		.4byte	.LASF22
+ 947 0143 01       		.byte	0x1
+ 948 0144 2E01     		.2byte	0x12e
+ 949 0146 00000000 		.4byte	.LFB5
+ 950 014a 14000000 		.4byte	.LFE5-.LFB5
+ 951 014e 01       		.uleb128 0x1
+ 952 014f 9C       		.byte	0x9c
+ 953 0150 0D       		.uleb128 0xd
+ 954 0151 78010000 		.4byte	.LASF23
+ 955 0155 01       		.byte	0x1
+ 956 0156 4D01     		.2byte	0x14d
+ 957 0158 6B000000 		.4byte	0x6b
+ 958 015c 00000000 		.4byte	.LFB6
+ 959 0160 18000000 		.4byte	.LFE6-.LFB6
+ 960 0164 01       		.uleb128 0x1
+ 961 0165 9C       		.byte	0x9c
+ 962 0166 0D       		.uleb128 0xd
+ 963 0167 9E030000 		.4byte	.LASF24
+ 964 016b 01       		.byte	0x1
+ 965 016c 6401     		.2byte	0x164
+ 966 016e 6B000000 		.4byte	0x6b
+ 967 0172 00000000 		.4byte	.LFB7
+ 968 0176 18000000 		.4byte	.LFE7-.LFB7
+ 969 017a 01       		.uleb128 0x1
+ 970 017b 9C       		.byte	0x9c
+ 971 017c 0A       		.uleb128 0xa
+ 972 017d 00000000 		.4byte	.LASF25
+ 973 0181 01       		.byte	0x1
+ 974 0182 7B01     		.2byte	0x17b
+ 975 0184 00000000 		.4byte	.LFB8
+ 976 0188 20000000 		.4byte	.LFE8-.LFB8
+ 977 018c 01       		.uleb128 0x1
+ 978 018d 9C       		.byte	0x9c
+ 979 018e A2010000 		.4byte	0x1a2
+ 980 0192 0B       		.uleb128 0xb
+ 981 0193 BF010000 		.4byte	.LASF27
+ 982 0197 01       		.byte	0x1
+ 983 0198 7B01     		.2byte	0x17b
+ 984 019a 6B000000 		.4byte	0x6b
+ 985 019e 02       		.uleb128 0x2
+ 986 019f 91       		.byte	0x91
+ 987 01a0 77       		.sleb128 -9
+ 988 01a1 00       		.byte	0
+ 989 01a2 0D       		.uleb128 0xd
+ 990 01a3 B7000000 		.4byte	.LASF28
+ 991 01a7 01       		.byte	0x1
+ 992 01a8 9501     		.2byte	0x195
+ 993 01aa 77000000 		.4byte	0x77
+ 994 01ae 00000000 		.4byte	.LFB9
+ 995 01b2 18000000 		.4byte	.LFE9-.LFB9
+ 996 01b6 01       		.uleb128 0x1
+ 997 01b7 9C       		.byte	0x9c
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 32
+
+
+ 998 01b8 0A       		.uleb128 0xa
+ 999 01b9 0B030000 		.4byte	.LASF29
+ 1000 01bd 01       		.byte	0x1
+ 1001 01be AF01     		.2byte	0x1af
+ 1002 01c0 00000000 		.4byte	.LFB10
+ 1003 01c4 1C000000 		.4byte	.LFE10-.LFB10
+ 1004 01c8 01       		.uleb128 0x1
+ 1005 01c9 9C       		.byte	0x9c
+ 1006 01ca DE010000 		.4byte	0x1de
+ 1007 01ce 0B       		.uleb128 0xb
+ 1008 01cf 31000000 		.4byte	.LASF30
+ 1009 01d3 01       		.byte	0x1
+ 1010 01d4 AF01     		.2byte	0x1af
+ 1011 01d6 77000000 		.4byte	0x77
+ 1012 01da 02       		.uleb128 0x2
+ 1013 01db 91       		.byte	0x91
+ 1014 01dc 74       		.sleb128 -12
+ 1015 01dd 00       		.byte	0
+ 1016 01de 0D       		.uleb128 0xd
+ 1017 01df 98020000 		.4byte	.LASF31
+ 1018 01e3 01       		.byte	0x1
+ 1019 01e4 C801     		.2byte	0x1c8
+ 1020 01e6 77000000 		.4byte	0x77
+ 1021 01ea 00000000 		.4byte	.LFB11
+ 1022 01ee 18000000 		.4byte	.LFE11-.LFB11
+ 1023 01f2 01       		.uleb128 0x1
+ 1024 01f3 9C       		.byte	0x9c
+ 1025 01f4 0A       		.uleb128 0xa
+ 1026 01f5 73030000 		.4byte	.LASF32
+ 1027 01f9 01       		.byte	0x1
+ 1028 01fa E001     		.2byte	0x1e0
+ 1029 01fc 00000000 		.4byte	.LFB12
+ 1030 0200 1C000000 		.4byte	.LFE12-.LFB12
+ 1031 0204 01       		.uleb128 0x1
+ 1032 0205 9C       		.byte	0x9c
+ 1033 0206 1A020000 		.4byte	0x21a
+ 1034 020a 0B       		.uleb128 0xb
+ 1035 020b 46010000 		.4byte	.LASF33
+ 1036 020f 01       		.byte	0x1
+ 1037 0210 E001     		.2byte	0x1e0
+ 1038 0212 77000000 		.4byte	0x77
+ 1039 0216 02       		.uleb128 0x2
+ 1040 0217 91       		.byte	0x91
+ 1041 0218 74       		.sleb128 -12
+ 1042 0219 00       		.byte	0
+ 1043 021a 0D       		.uleb128 0xd
+ 1044 021b 5C010000 		.4byte	.LASF34
+ 1045 021f 01       		.byte	0x1
+ 1046 0220 FC01     		.2byte	0x1fc
+ 1047 0222 77000000 		.4byte	0x77
+ 1048 0226 00000000 		.4byte	.LFB13
+ 1049 022a 20000000 		.4byte	.LFE13-.LFB13
+ 1050 022e 01       		.uleb128 0x1
+ 1051 022f 9C       		.byte	0x9c
+ 1052 0230 0C       		.uleb128 0xc
+ 1053 0231 9B010000 		.4byte	.LASF35
+ 1054 0235 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 33
+
+
+ 1055 0236 7E02     		.2byte	0x27e
+ 1056 0238 00000000 		.4byte	.LFB14
+ 1057 023c 20000000 		.4byte	.LFE14-.LFB14
+ 1058 0240 01       		.uleb128 0x1
+ 1059 0241 9C       		.byte	0x9c
+ 1060 0242 0C       		.uleb128 0xc
+ 1061 0243 C7010000 		.4byte	.LASF36
+ 1062 0247 01       		.byte	0x1
+ 1063 0248 9402     		.2byte	0x294
+ 1064 024a 00000000 		.4byte	.LFB15
+ 1065 024e 20000000 		.4byte	.LFE15-.LFB15
+ 1066 0252 01       		.uleb128 0x1
+ 1067 0253 9C       		.byte	0x9c
+ 1068 0254 0A       		.uleb128 0xa
+ 1069 0255 03040000 		.4byte	.LASF37
+ 1070 0259 01       		.byte	0x1
+ 1071 025a B002     		.2byte	0x2b0
+ 1072 025c 00000000 		.4byte	.LFB16
+ 1073 0260 40000000 		.4byte	.LFE16-.LFB16
+ 1074 0264 01       		.uleb128 0x1
+ 1075 0265 9C       		.byte	0x9c
+ 1076 0266 7A020000 		.4byte	0x27a
+ 1077 026a 0B       		.uleb128 0xb
+ 1078 026b 22010000 		.4byte	.LASF38
+ 1079 026f 01       		.byte	0x1
+ 1080 0270 B002     		.2byte	0x2b0
+ 1081 0272 6B000000 		.4byte	0x6b
+ 1082 0276 02       		.uleb128 0x2
+ 1083 0277 91       		.byte	0x91
+ 1084 0278 77       		.sleb128 -9
+ 1085 0279 00       		.byte	0
+ 1086 027a 0E       		.uleb128 0xe
+ 1087 027b 08010000 		.4byte	.LASF39
+ 1088 027f 01       		.byte	0x1
+ 1089 0280 FB02     		.2byte	0x2fb
+ 1090 0282 00000000 		.4byte	.LFB17
+ 1091 0286 1A000000 		.4byte	.LFE17-.LFB17
+ 1092 028a 01       		.uleb128 0x1
+ 1093 028b 9C       		.byte	0x9c
+ 1094 028c 0F       		.uleb128 0xf
+ 1095 028d 51030000 		.4byte	.LASF44
+ 1096 0291 01       		.byte	0x1
+ 1097 0292 1A       		.byte	0x1a
+ 1098 0293 6B000000 		.4byte	0x6b
+ 1099 0297 05       		.uleb128 0x5
+ 1100 0298 03       		.byte	0x3
+ 1101 0299 00000000 		.4byte	Channel_2_Timer_initVar
+ 1102 029d 00       		.byte	0
+ 1103              		.section	.debug_abbrev,"",%progbits
+ 1104              	.Ldebug_abbrev0:
+ 1105 0000 01       		.uleb128 0x1
+ 1106 0001 11       		.uleb128 0x11
+ 1107 0002 01       		.byte	0x1
+ 1108 0003 25       		.uleb128 0x25
+ 1109 0004 0E       		.uleb128 0xe
+ 1110 0005 13       		.uleb128 0x13
+ 1111 0006 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 34
+
+
+ 1112 0007 03       		.uleb128 0x3
+ 1113 0008 0E       		.uleb128 0xe
+ 1114 0009 1B       		.uleb128 0x1b
+ 1115 000a 0E       		.uleb128 0xe
+ 1116 000b 55       		.uleb128 0x55
+ 1117 000c 17       		.uleb128 0x17
+ 1118 000d 11       		.uleb128 0x11
+ 1119 000e 01       		.uleb128 0x1
+ 1120 000f 10       		.uleb128 0x10
+ 1121 0010 17       		.uleb128 0x17
+ 1122 0011 00       		.byte	0
+ 1123 0012 00       		.byte	0
+ 1124 0013 02       		.uleb128 0x2
+ 1125 0014 24       		.uleb128 0x24
+ 1126 0015 00       		.byte	0
+ 1127 0016 0B       		.uleb128 0xb
+ 1128 0017 0B       		.uleb128 0xb
+ 1129 0018 3E       		.uleb128 0x3e
+ 1130 0019 0B       		.uleb128 0xb
+ 1131 001a 03       		.uleb128 0x3
+ 1132 001b 0E       		.uleb128 0xe
+ 1133 001c 00       		.byte	0
+ 1134 001d 00       		.byte	0
+ 1135 001e 03       		.uleb128 0x3
+ 1136 001f 24       		.uleb128 0x24
+ 1137 0020 00       		.byte	0
+ 1138 0021 0B       		.uleb128 0xb
+ 1139 0022 0B       		.uleb128 0xb
+ 1140 0023 3E       		.uleb128 0x3e
+ 1141 0024 0B       		.uleb128 0xb
+ 1142 0025 03       		.uleb128 0x3
+ 1143 0026 08       		.uleb128 0x8
+ 1144 0027 00       		.byte	0
+ 1145 0028 00       		.byte	0
+ 1146 0029 04       		.uleb128 0x4
+ 1147 002a 16       		.uleb128 0x16
+ 1148 002b 00       		.byte	0
+ 1149 002c 03       		.uleb128 0x3
+ 1150 002d 0E       		.uleb128 0xe
+ 1151 002e 3A       		.uleb128 0x3a
+ 1152 002f 0B       		.uleb128 0xb
+ 1153 0030 3B       		.uleb128 0x3b
+ 1154 0031 05       		.uleb128 0x5
+ 1155 0032 49       		.uleb128 0x49
+ 1156 0033 13       		.uleb128 0x13
+ 1157 0034 00       		.byte	0
+ 1158 0035 00       		.byte	0
+ 1159 0036 05       		.uleb128 0x5
+ 1160 0037 35       		.uleb128 0x35
+ 1161 0038 00       		.byte	0
+ 1162 0039 49       		.uleb128 0x49
+ 1163 003a 13       		.uleb128 0x13
+ 1164 003b 00       		.byte	0
+ 1165 003c 00       		.byte	0
+ 1166 003d 06       		.uleb128 0x6
+ 1167 003e 2E       		.uleb128 0x2e
+ 1168 003f 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 35
+
+
+ 1169 0040 3F       		.uleb128 0x3f
+ 1170 0041 19       		.uleb128 0x19
+ 1171 0042 03       		.uleb128 0x3
+ 1172 0043 0E       		.uleb128 0xe
+ 1173 0044 3A       		.uleb128 0x3a
+ 1174 0045 0B       		.uleb128 0xb
+ 1175 0046 3B       		.uleb128 0x3b
+ 1176 0047 0B       		.uleb128 0xb
+ 1177 0048 27       		.uleb128 0x27
+ 1178 0049 19       		.uleb128 0x19
+ 1179 004a 11       		.uleb128 0x11
+ 1180 004b 01       		.uleb128 0x1
+ 1181 004c 12       		.uleb128 0x12
+ 1182 004d 06       		.uleb128 0x6
+ 1183 004e 40       		.uleb128 0x40
+ 1184 004f 18       		.uleb128 0x18
+ 1185 0050 9642     		.uleb128 0x2116
+ 1186 0052 19       		.uleb128 0x19
+ 1187 0053 01       		.uleb128 0x1
+ 1188 0054 13       		.uleb128 0x13
+ 1189 0055 00       		.byte	0
+ 1190 0056 00       		.byte	0
+ 1191 0057 07       		.uleb128 0x7
+ 1192 0058 34       		.uleb128 0x34
+ 1193 0059 00       		.byte	0
+ 1194 005a 03       		.uleb128 0x3
+ 1195 005b 0E       		.uleb128 0xe
+ 1196 005c 3A       		.uleb128 0x3a
+ 1197 005d 0B       		.uleb128 0xb
+ 1198 005e 3B       		.uleb128 0x3b
+ 1199 005f 0B       		.uleb128 0xb
+ 1200 0060 49       		.uleb128 0x49
+ 1201 0061 13       		.uleb128 0x13
+ 1202 0062 02       		.uleb128 0x2
+ 1203 0063 18       		.uleb128 0x18
+ 1204 0064 00       		.byte	0
+ 1205 0065 00       		.byte	0
+ 1206 0066 08       		.uleb128 0x8
+ 1207 0067 2E       		.uleb128 0x2e
+ 1208 0068 00       		.byte	0
+ 1209 0069 3F       		.uleb128 0x3f
+ 1210 006a 19       		.uleb128 0x19
+ 1211 006b 03       		.uleb128 0x3
+ 1212 006c 0E       		.uleb128 0xe
+ 1213 006d 3A       		.uleb128 0x3a
+ 1214 006e 0B       		.uleb128 0xb
+ 1215 006f 3B       		.uleb128 0x3b
+ 1216 0070 0B       		.uleb128 0xb
+ 1217 0071 27       		.uleb128 0x27
+ 1218 0072 19       		.uleb128 0x19
+ 1219 0073 11       		.uleb128 0x11
+ 1220 0074 01       		.uleb128 0x1
+ 1221 0075 12       		.uleb128 0x12
+ 1222 0076 06       		.uleb128 0x6
+ 1223 0077 40       		.uleb128 0x40
+ 1224 0078 18       		.uleb128 0x18
+ 1225 0079 9742     		.uleb128 0x2117
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 36
+
+
+ 1226 007b 19       		.uleb128 0x19
+ 1227 007c 00       		.byte	0
+ 1228 007d 00       		.byte	0
+ 1229 007e 09       		.uleb128 0x9
+ 1230 007f 2E       		.uleb128 0x2e
+ 1231 0080 00       		.byte	0
+ 1232 0081 3F       		.uleb128 0x3f
+ 1233 0082 19       		.uleb128 0x19
+ 1234 0083 03       		.uleb128 0x3
+ 1235 0084 0E       		.uleb128 0xe
+ 1236 0085 3A       		.uleb128 0x3a
+ 1237 0086 0B       		.uleb128 0xb
+ 1238 0087 3B       		.uleb128 0x3b
+ 1239 0088 0B       		.uleb128 0xb
+ 1240 0089 27       		.uleb128 0x27
+ 1241 008a 19       		.uleb128 0x19
+ 1242 008b 11       		.uleb128 0x11
+ 1243 008c 01       		.uleb128 0x1
+ 1244 008d 12       		.uleb128 0x12
+ 1245 008e 06       		.uleb128 0x6
+ 1246 008f 40       		.uleb128 0x40
+ 1247 0090 18       		.uleb128 0x18
+ 1248 0091 9642     		.uleb128 0x2116
+ 1249 0093 19       		.uleb128 0x19
+ 1250 0094 00       		.byte	0
+ 1251 0095 00       		.byte	0
+ 1252 0096 0A       		.uleb128 0xa
+ 1253 0097 2E       		.uleb128 0x2e
+ 1254 0098 01       		.byte	0x1
+ 1255 0099 3F       		.uleb128 0x3f
+ 1256 009a 19       		.uleb128 0x19
+ 1257 009b 03       		.uleb128 0x3
+ 1258 009c 0E       		.uleb128 0xe
+ 1259 009d 3A       		.uleb128 0x3a
+ 1260 009e 0B       		.uleb128 0xb
+ 1261 009f 3B       		.uleb128 0x3b
+ 1262 00a0 05       		.uleb128 0x5
+ 1263 00a1 27       		.uleb128 0x27
+ 1264 00a2 19       		.uleb128 0x19
+ 1265 00a3 11       		.uleb128 0x11
+ 1266 00a4 01       		.uleb128 0x1
+ 1267 00a5 12       		.uleb128 0x12
+ 1268 00a6 06       		.uleb128 0x6
+ 1269 00a7 40       		.uleb128 0x40
+ 1270 00a8 18       		.uleb128 0x18
+ 1271 00a9 9742     		.uleb128 0x2117
+ 1272 00ab 19       		.uleb128 0x19
+ 1273 00ac 01       		.uleb128 0x1
+ 1274 00ad 13       		.uleb128 0x13
+ 1275 00ae 00       		.byte	0
+ 1276 00af 00       		.byte	0
+ 1277 00b0 0B       		.uleb128 0xb
+ 1278 00b1 05       		.uleb128 0x5
+ 1279 00b2 00       		.byte	0
+ 1280 00b3 03       		.uleb128 0x3
+ 1281 00b4 0E       		.uleb128 0xe
+ 1282 00b5 3A       		.uleb128 0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 37
+
+
+ 1283 00b6 0B       		.uleb128 0xb
+ 1284 00b7 3B       		.uleb128 0x3b
+ 1285 00b8 05       		.uleb128 0x5
+ 1286 00b9 49       		.uleb128 0x49
+ 1287 00ba 13       		.uleb128 0x13
+ 1288 00bb 02       		.uleb128 0x2
+ 1289 00bc 18       		.uleb128 0x18
+ 1290 00bd 00       		.byte	0
+ 1291 00be 00       		.byte	0
+ 1292 00bf 0C       		.uleb128 0xc
+ 1293 00c0 2E       		.uleb128 0x2e
+ 1294 00c1 00       		.byte	0
+ 1295 00c2 3F       		.uleb128 0x3f
+ 1296 00c3 19       		.uleb128 0x19
+ 1297 00c4 03       		.uleb128 0x3
+ 1298 00c5 0E       		.uleb128 0xe
+ 1299 00c6 3A       		.uleb128 0x3a
+ 1300 00c7 0B       		.uleb128 0xb
+ 1301 00c8 3B       		.uleb128 0x3b
+ 1302 00c9 05       		.uleb128 0x5
+ 1303 00ca 27       		.uleb128 0x27
+ 1304 00cb 19       		.uleb128 0x19
+ 1305 00cc 11       		.uleb128 0x11
+ 1306 00cd 01       		.uleb128 0x1
+ 1307 00ce 12       		.uleb128 0x12
+ 1308 00cf 06       		.uleb128 0x6
+ 1309 00d0 40       		.uleb128 0x40
+ 1310 00d1 18       		.uleb128 0x18
+ 1311 00d2 9742     		.uleb128 0x2117
+ 1312 00d4 19       		.uleb128 0x19
+ 1313 00d5 00       		.byte	0
+ 1314 00d6 00       		.byte	0
+ 1315 00d7 0D       		.uleb128 0xd
+ 1316 00d8 2E       		.uleb128 0x2e
+ 1317 00d9 00       		.byte	0
+ 1318 00da 3F       		.uleb128 0x3f
+ 1319 00db 19       		.uleb128 0x19
+ 1320 00dc 03       		.uleb128 0x3
+ 1321 00dd 0E       		.uleb128 0xe
+ 1322 00de 3A       		.uleb128 0x3a
+ 1323 00df 0B       		.uleb128 0xb
+ 1324 00e0 3B       		.uleb128 0x3b
+ 1325 00e1 05       		.uleb128 0x5
+ 1326 00e2 27       		.uleb128 0x27
+ 1327 00e3 19       		.uleb128 0x19
+ 1328 00e4 49       		.uleb128 0x49
+ 1329 00e5 13       		.uleb128 0x13
+ 1330 00e6 11       		.uleb128 0x11
+ 1331 00e7 01       		.uleb128 0x1
+ 1332 00e8 12       		.uleb128 0x12
+ 1333 00e9 06       		.uleb128 0x6
+ 1334 00ea 40       		.uleb128 0x40
+ 1335 00eb 18       		.uleb128 0x18
+ 1336 00ec 9742     		.uleb128 0x2117
+ 1337 00ee 19       		.uleb128 0x19
+ 1338 00ef 00       		.byte	0
+ 1339 00f0 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 38
+
+
+ 1340 00f1 0E       		.uleb128 0xe
+ 1341 00f2 2E       		.uleb128 0x2e
+ 1342 00f3 00       		.byte	0
+ 1343 00f4 3F       		.uleb128 0x3f
+ 1344 00f5 19       		.uleb128 0x19
+ 1345 00f6 03       		.uleb128 0x3
+ 1346 00f7 0E       		.uleb128 0xe
+ 1347 00f8 3A       		.uleb128 0x3a
+ 1348 00f9 0B       		.uleb128 0xb
+ 1349 00fa 3B       		.uleb128 0x3b
+ 1350 00fb 05       		.uleb128 0x5
+ 1351 00fc 27       		.uleb128 0x27
+ 1352 00fd 19       		.uleb128 0x19
+ 1353 00fe 11       		.uleb128 0x11
+ 1354 00ff 01       		.uleb128 0x1
+ 1355 0100 12       		.uleb128 0x12
+ 1356 0101 06       		.uleb128 0x6
+ 1357 0102 40       		.uleb128 0x40
+ 1358 0103 18       		.uleb128 0x18
+ 1359 0104 9642     		.uleb128 0x2116
+ 1360 0106 19       		.uleb128 0x19
+ 1361 0107 00       		.byte	0
+ 1362 0108 00       		.byte	0
+ 1363 0109 0F       		.uleb128 0xf
+ 1364 010a 34       		.uleb128 0x34
+ 1365 010b 00       		.byte	0
+ 1366 010c 03       		.uleb128 0x3
+ 1367 010d 0E       		.uleb128 0xe
+ 1368 010e 3A       		.uleb128 0x3a
+ 1369 010f 0B       		.uleb128 0xb
+ 1370 0110 3B       		.uleb128 0x3b
+ 1371 0111 0B       		.uleb128 0xb
+ 1372 0112 49       		.uleb128 0x49
+ 1373 0113 13       		.uleb128 0x13
+ 1374 0114 3F       		.uleb128 0x3f
+ 1375 0115 19       		.uleb128 0x19
+ 1376 0116 02       		.uleb128 0x2
+ 1377 0117 18       		.uleb128 0x18
+ 1378 0118 00       		.byte	0
+ 1379 0119 00       		.byte	0
+ 1380 011a 00       		.byte	0
+ 1381              		.section	.debug_aranges,"",%progbits
+ 1382 0000 A4000000 		.4byte	0xa4
+ 1383 0004 0200     		.2byte	0x2
+ 1384 0006 00000000 		.4byte	.Ldebug_info0
+ 1385 000a 04       		.byte	0x4
+ 1386 000b 00       		.byte	0
+ 1387 000c 0000     		.2byte	0
+ 1388 000e 0000     		.2byte	0
+ 1389 0010 00000000 		.4byte	.LFB0
+ 1390 0014 54000000 		.4byte	.LFE0-.LFB0
+ 1391 0018 00000000 		.4byte	.LFB1
+ 1392 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1393 0020 00000000 		.4byte	.LFB2
+ 1394 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1395 0028 00000000 		.4byte	.LFB3
+ 1396 002c 20000000 		.4byte	.LFE3-.LFB3
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 39
+
+
+ 1397 0030 00000000 		.4byte	.LFB4
+ 1398 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1399 0038 00000000 		.4byte	.LFB5
+ 1400 003c 14000000 		.4byte	.LFE5-.LFB5
+ 1401 0040 00000000 		.4byte	.LFB6
+ 1402 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1403 0048 00000000 		.4byte	.LFB7
+ 1404 004c 18000000 		.4byte	.LFE7-.LFB7
+ 1405 0050 00000000 		.4byte	.LFB8
+ 1406 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1407 0058 00000000 		.4byte	.LFB9
+ 1408 005c 18000000 		.4byte	.LFE9-.LFB9
+ 1409 0060 00000000 		.4byte	.LFB10
+ 1410 0064 1C000000 		.4byte	.LFE10-.LFB10
+ 1411 0068 00000000 		.4byte	.LFB11
+ 1412 006c 18000000 		.4byte	.LFE11-.LFB11
+ 1413 0070 00000000 		.4byte	.LFB12
+ 1414 0074 1C000000 		.4byte	.LFE12-.LFB12
+ 1415 0078 00000000 		.4byte	.LFB13
+ 1416 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1417 0080 00000000 		.4byte	.LFB14
+ 1418 0084 20000000 		.4byte	.LFE14-.LFB14
+ 1419 0088 00000000 		.4byte	.LFB15
+ 1420 008c 20000000 		.4byte	.LFE15-.LFB15
+ 1421 0090 00000000 		.4byte	.LFB16
+ 1422 0094 40000000 		.4byte	.LFE16-.LFB16
+ 1423 0098 00000000 		.4byte	.LFB17
+ 1424 009c 1A000000 		.4byte	.LFE17-.LFB17
+ 1425 00a0 00000000 		.4byte	0
+ 1426 00a4 00000000 		.4byte	0
+ 1427              		.section	.debug_ranges,"",%progbits
+ 1428              	.Ldebug_ranges0:
+ 1429 0000 00000000 		.4byte	.LFB0
+ 1430 0004 54000000 		.4byte	.LFE0
+ 1431 0008 00000000 		.4byte	.LFB1
+ 1432 000c 20000000 		.4byte	.LFE1
+ 1433 0010 00000000 		.4byte	.LFB2
+ 1434 0014 20000000 		.4byte	.LFE2
+ 1435 0018 00000000 		.4byte	.LFB3
+ 1436 001c 20000000 		.4byte	.LFE3
+ 1437 0020 00000000 		.4byte	.LFB4
+ 1438 0024 20000000 		.4byte	.LFE4
+ 1439 0028 00000000 		.4byte	.LFB5
+ 1440 002c 14000000 		.4byte	.LFE5
+ 1441 0030 00000000 		.4byte	.LFB6
+ 1442 0034 18000000 		.4byte	.LFE6
+ 1443 0038 00000000 		.4byte	.LFB7
+ 1444 003c 18000000 		.4byte	.LFE7
+ 1445 0040 00000000 		.4byte	.LFB8
+ 1446 0044 20000000 		.4byte	.LFE8
+ 1447 0048 00000000 		.4byte	.LFB9
+ 1448 004c 18000000 		.4byte	.LFE9
+ 1449 0050 00000000 		.4byte	.LFB10
+ 1450 0054 1C000000 		.4byte	.LFE10
+ 1451 0058 00000000 		.4byte	.LFB11
+ 1452 005c 18000000 		.4byte	.LFE11
+ 1453 0060 00000000 		.4byte	.LFB12
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 40
+
+
+ 1454 0064 1C000000 		.4byte	.LFE12
+ 1455 0068 00000000 		.4byte	.LFB13
+ 1456 006c 20000000 		.4byte	.LFE13
+ 1457 0070 00000000 		.4byte	.LFB14
+ 1458 0074 20000000 		.4byte	.LFE14
+ 1459 0078 00000000 		.4byte	.LFB15
+ 1460 007c 20000000 		.4byte	.LFE15
+ 1461 0080 00000000 		.4byte	.LFB16
+ 1462 0084 40000000 		.4byte	.LFE16
+ 1463 0088 00000000 		.4byte	.LFB17
+ 1464 008c 1A000000 		.4byte	.LFE17
+ 1465 0090 00000000 		.4byte	0
+ 1466 0094 00000000 		.4byte	0
+ 1467              		.section	.debug_line,"",%progbits
+ 1468              	.Ldebug_line0:
+ 1469 0000 AC010000 		.section	.debug_str,"MS",%progbits,1
+ 1469      02004C00 
+ 1469      00000201 
+ 1469      FB0E0D00 
+ 1469      01010101 
+ 1470              	.LASF25:
+ 1471 0000 4368616E 		.ascii	"Channel_2_Timer_WriteControlRegister\000"
+ 1471      6E656C5F 
+ 1471      325F5469 
+ 1471      6D65725F 
+ 1471      57726974 
+ 1472              	.LASF15:
+ 1473 0025 72656733 		.ascii	"reg32\000"
+ 1473      3200
+ 1474              	.LASF11:
+ 1475 002b 666C6F61 		.ascii	"float\000"
+ 1475      7400
+ 1476              	.LASF30:
+ 1477 0031 70657269 		.ascii	"period\000"
+ 1477      6F6400
+ 1478              	.LASF41:
+ 1479 0038 47656E65 		.ascii	"Generated_Source\\PSoC5\\Channel_2_Timer.c\000"
+ 1479      72617465 
+ 1479      645F536F 
+ 1479      75726365 
+ 1479      5C50536F 
+ 1480              	.LASF3:
+ 1481 0061 73686F72 		.ascii	"short unsigned int\000"
+ 1481      7420756E 
+ 1481      7369676E 
+ 1481      65642069 
+ 1481      6E7400
+ 1482              	.LASF42:
+ 1483 0074 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
+ 1483      6F776E6C 
+ 1483      6F616473 
+ 1483      5C465255 
+ 1483      43445C4E 
+ 1484 00a3 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
+ 1484      2D436170 
+ 1484      79626172 
+ 1484      612E6379 
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 41
+
+
+ 1484      64736E00 
+ 1485              	.LASF28:
+ 1486 00b7 4368616E 		.ascii	"Channel_2_Timer_ReadPeriod\000"
+ 1486      6E656C5F 
+ 1486      325F5469 
+ 1486      6D65725F 
+ 1486      52656164 
+ 1487              	.LASF17:
+ 1488 00d2 4368616E 		.ascii	"Channel_2_Timer_Enable\000"
+ 1488      6E656C5F 
+ 1488      325F5469 
+ 1488      6D65725F 
+ 1488      456E6162 
+ 1489              	.LASF43:
+ 1490 00e9 4368616E 		.ascii	"Channel_2_Timer_interruptState\000"
+ 1490      6E656C5F 
+ 1490      325F5469 
+ 1490      6D65725F 
+ 1490      696E7465 
+ 1491              	.LASF39:
+ 1492 0108 4368616E 		.ascii	"Channel_2_Timer_ClearFIFO\000"
+ 1492      6E656C5F 
+ 1492      325F5469 
+ 1492      6D65725F 
+ 1492      436C6561 
+ 1493              	.LASF38:
+ 1494 0122 696E7465 		.ascii	"interruptCount\000"
+ 1494      72727570 
+ 1494      74436F75 
+ 1494      6E7400
+ 1495              	.LASF19:
+ 1496 0131 4368616E 		.ascii	"Channel_2_Timer_Stop\000"
+ 1496      6E656C5F 
+ 1496      325F5469 
+ 1496      6D65725F 
+ 1496      53746F70 
+ 1497              	.LASF33:
+ 1498 0146 636F756E 		.ascii	"counter\000"
+ 1498      74657200 
+ 1499              	.LASF1:
+ 1500 014e 756E7369 		.ascii	"unsigned char\000"
+ 1500      676E6564 
+ 1500      20636861 
+ 1500      7200
+ 1501              	.LASF34:
+ 1502 015c 4368616E 		.ascii	"Channel_2_Timer_ReadCounter\000"
+ 1502      6E656C5F 
+ 1502      325F5469 
+ 1502      6D65725F 
+ 1502      52656164 
+ 1503              	.LASF23:
+ 1504 0178 4368616E 		.ascii	"Channel_2_Timer_ReadStatusRegister\000"
+ 1504      6E656C5F 
+ 1504      325F5469 
+ 1504      6D65725F 
+ 1504      52656164 
+ 1505              	.LASF35:
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 42
+
+
+ 1506 019b 4368616E 		.ascii	"Channel_2_Timer_EnableTrigger\000"
+ 1506      6E656C5F 
+ 1506      325F5469 
+ 1506      6D65725F 
+ 1506      456E6162 
+ 1507              	.LASF9:
+ 1508 01b9 75696E74 		.ascii	"uint8\000"
+ 1508      3800
+ 1509              	.LASF27:
+ 1510 01bf 636F6E74 		.ascii	"control\000"
+ 1510      726F6C00 
+ 1511              	.LASF36:
+ 1512 01c7 4368616E 		.ascii	"Channel_2_Timer_DisableTrigger\000"
+ 1512      6E656C5F 
+ 1512      325F5469 
+ 1512      6D65725F 
+ 1512      44697361 
+ 1513              	.LASF40:
+ 1514 01e6 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1514      4320342E 
+ 1514      392E3320 
+ 1514      32303135 
+ 1514      30333033 
+ 1515 0219 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1515      20726576 
+ 1515      6973696F 
+ 1515      6E203232 
+ 1515      31323230 
+ 1516 024c 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1516      66756E63 
+ 1516      74696F6E 
+ 1516      2D736563 
+ 1516      74696F6E 
+ 1517              	.LASF12:
+ 1518 0274 646F7562 		.ascii	"double\000"
+ 1518      6C6500
+ 1519              	.LASF18:
+ 1520 027b 4368616E 		.ascii	"Channel_2_Timer_Start\000"
+ 1520      6E656C5F 
+ 1520      325F5469 
+ 1520      6D65725F 
+ 1520      53746172 
+ 1521              	.LASF10:
+ 1522 0291 75696E74 		.ascii	"uint32\000"
+ 1522      333200
+ 1523              	.LASF31:
+ 1524 0298 4368616E 		.ascii	"Channel_2_Timer_ReadCapture\000"
+ 1524      6E656C5F 
+ 1524      325F5469 
+ 1524      6D65725F 
+ 1524      52656164 
+ 1525              	.LASF5:
+ 1526 02b4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1526      20756E73 
+ 1526      69676E65 
+ 1526      6420696E 
+ 1526      7400
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 43
+
+
+ 1527              	.LASF8:
+ 1528 02c6 756E7369 		.ascii	"unsigned int\000"
+ 1528      676E6564 
+ 1528      20696E74 
+ 1528      00
+ 1529              	.LASF21:
+ 1530 02d3 4368616E 		.ascii	"Channel_2_Timer_SetInterruptMode\000"
+ 1530      6E656C5F 
+ 1530      325F5469 
+ 1530      6D65725F 
+ 1530      53657449 
+ 1531              	.LASF7:
+ 1532 02f4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1532      206C6F6E 
+ 1532      6720756E 
+ 1532      7369676E 
+ 1532      65642069 
+ 1533              	.LASF29:
+ 1534 030b 4368616E 		.ascii	"Channel_2_Timer_WritePeriod\000"
+ 1534      6E656C5F 
+ 1534      325F5469 
+ 1534      6D65725F 
+ 1534      57726974 
+ 1535              	.LASF14:
+ 1536 0327 72656738 		.ascii	"reg8\000"
+ 1536      00
+ 1537              	.LASF16:
+ 1538 032c 73697A65 		.ascii	"sizetype\000"
+ 1538      74797065 
+ 1538      00
+ 1539              	.LASF6:
+ 1540 0335 6C6F6E67 		.ascii	"long long int\000"
+ 1540      206C6F6E 
+ 1540      6720696E 
+ 1540      7400
+ 1541              	.LASF26:
+ 1542 0343 696E7465 		.ascii	"interruptMode\000"
+ 1542      72727570 
+ 1542      744D6F64 
+ 1542      6500
+ 1543              	.LASF44:
+ 1544 0351 4368616E 		.ascii	"Channel_2_Timer_initVar\000"
+ 1544      6E656C5F 
+ 1544      325F5469 
+ 1544      6D65725F 
+ 1544      696E6974 
+ 1545              	.LASF2:
+ 1546 0369 73686F72 		.ascii	"short int\000"
+ 1546      7420696E 
+ 1546      7400
+ 1547              	.LASF32:
+ 1548 0373 4368616E 		.ascii	"Channel_2_Timer_WriteCounter\000"
+ 1548      6E656C5F 
+ 1548      325F5469 
+ 1548      6D65725F 
+ 1548      57726974 
+ 1549              	.LASF4:
+ARM GAS  D:\Windows\AppData\Local\Temp\cczWgBSa.s 			page 44
+
+
+ 1550 0390 6C6F6E67 		.ascii	"long int\000"
+ 1550      20696E74 
+ 1550      00
+ 1551              	.LASF13:
+ 1552 0399 63686172 		.ascii	"char\000"
+ 1552      00
+ 1553              	.LASF24:
+ 1554 039e 4368616E 		.ascii	"Channel_2_Timer_ReadControlRegister\000"
+ 1554      6E656C5F 
+ 1554      325F5469 
+ 1554      6D65725F 
+ 1554      52656164 
+ 1555              	.LASF0:
+ 1556 03c2 7369676E 		.ascii	"signed char\000"
+ 1556      65642063 
+ 1556      68617200 
+ 1557              	.LASF20:
+ 1558 03ce 4368616E 		.ascii	"Channel_2_Timer_Init\000"
+ 1558      6E656C5F 
+ 1558      325F5469 
+ 1558      6D65725F 
+ 1558      496E6974 
+ 1559              	.LASF22:
+ 1560 03e3 4368616E 		.ascii	"Channel_2_Timer_SoftwareCapture\000"
+ 1560      6E656C5F 
+ 1560      325F5469 
+ 1560      6D65725F 
+ 1560      536F6674 
+ 1561              	.LASF37:
+ 1562 0403 4368616E 		.ascii	"Channel_2_Timer_SetInterruptCount\000"
+ 1562      6E656C5F 
+ 1562      325F5469 
+ 1562      6D65725F 
+ 1562      53657449 
+ 1563              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -36,7 +36,7 @@ extern uint8 sd_timer_initVar;
 *           Parameter Defaults
 **************************************/
 
-#define sd_timer_Resolution                 24u
+#define sd_timer_Resolution                 16u
 #define sd_timer_UsingFixedFunction         0u
 #define sd_timer_UsingHWCaptureCounter      0u
 #define sd_timer_SoftwareCaptureMode        0u
@@ -69,7 +69,7 @@ typedef struct
     uint8 TimerEnableState;
     #if(!sd_timer_UsingFixedFunction)
 
-        uint32 TimerUdb;
+        uint16 TimerUdb;
         uint8 InterruptMaskValue;
         #if (sd_timer_UsingHWCaptureCounter)
             uint8 TimerCaptureCounter;
@@ -100,11 +100,11 @@ uint8   sd_timer_ReadStatusRegister(void) ;
     void    sd_timer_WriteControlRegister(uint8 control) ;
 #endif /* (!sd_timer_UDB_CONTROL_REG_REMOVED) */
 
-uint32  sd_timer_ReadPeriod(void) ;
-void    sd_timer_WritePeriod(uint32 period) ;
-uint32  sd_timer_ReadCounter(void) ;
-void    sd_timer_WriteCounter(uint32 counter) ;
-uint32  sd_timer_ReadCapture(void) ;
+uint16  sd_timer_ReadPeriod(void) ;
+void    sd_timer_WritePeriod(uint16 period) ;
+uint16  sd_timer_ReadCounter(void) ;
+void    sd_timer_WriteCounter(uint16 counter) ;
+uint16  sd_timer_ReadCapture(void) ;
 void    sd_timer_SoftwareCapture(void) ;
 
 #if(!sd_timer_UsingFixedFunction) /* UDB Prototypes */
@@ -313,54 +313,54 @@ void sd_timer_Wakeup(void)        ;
     #define sd_timer_CONTROL             (* (reg8 *) sd_timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG )
     
     #if(sd_timer_Resolution <= 8u) /* 8-bit Timer */
-        #define sd_timer_CAPTURE_LSB         (* (reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-        #define sd_timer_CAPTURE_LSB_PTR       ((reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-        #define sd_timer_PERIOD_LSB          (* (reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-        #define sd_timer_PERIOD_LSB_PTR        ((reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-        #define sd_timer_COUNTER_LSB         (* (reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
-        #define sd_timer_COUNTER_LSB_PTR       ((reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
+        #define sd_timer_CAPTURE_LSB         (* (reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define sd_timer_CAPTURE_LSB_PTR       ((reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define sd_timer_PERIOD_LSB          (* (reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define sd_timer_PERIOD_LSB_PTR        ((reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define sd_timer_COUNTER_LSB         (* (reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define sd_timer_COUNTER_LSB_PTR       ((reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #elif(sd_timer_Resolution <= 16u) /* 8-bit Timer */
         #if(CY_PSOC3) /* 8-bit addres space */
-            #define sd_timer_CAPTURE_LSB         (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-            #define sd_timer_CAPTURE_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-            #define sd_timer_PERIOD_LSB          (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-            #define sd_timer_PERIOD_LSB_PTR        ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-            #define sd_timer_COUNTER_LSB         (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
-            #define sd_timer_COUNTER_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
+            #define sd_timer_CAPTURE_LSB         (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define sd_timer_CAPTURE_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define sd_timer_PERIOD_LSB          (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define sd_timer_PERIOD_LSB_PTR        ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define sd_timer_COUNTER_LSB         (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define sd_timer_COUNTER_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 16-bit address space */
-            #define sd_timer_CAPTURE_LSB         (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_F0_REG )
-            #define sd_timer_CAPTURE_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_F0_REG )
-            #define sd_timer_PERIOD_LSB          (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_D0_REG )
-            #define sd_timer_PERIOD_LSB_PTR        ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_D0_REG )
-            #define sd_timer_COUNTER_LSB         (* (reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_A0_REG )
-            #define sd_timer_COUNTER_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT24_timerdp_u0__16BIT_A0_REG )
+            #define sd_timer_CAPTURE_LSB         (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define sd_timer_CAPTURE_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define sd_timer_PERIOD_LSB          (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define sd_timer_PERIOD_LSB_PTR        ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define sd_timer_COUNTER_LSB         (* (reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
+            #define sd_timer_COUNTER_LSB_PTR       ((reg16 *) sd_timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
         #endif /* CY_PSOC3 */
     #elif(sd_timer_Resolution <= 24u)/* 24-bit Timer */
-        #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-        #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-        #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-        #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-        #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
-        #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
+        #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #else /* 32-bit Timer */
         #if(CY_PSOC3 || CY_PSOC5) /* 8-bit address space */
-            #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-            #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__F0_REG )
-            #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-            #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__D0_REG )
-            #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
-            #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
+            #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 32-bit address space */
-            #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_F0_REG )
-            #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_F0_REG )
-            #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_D0_REG )
-            #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_D0_REG )
-            #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_A0_REG )
-            #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT24_timerdp_u0__32BIT_A0_REG )
+            #define sd_timer_CAPTURE_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define sd_timer_CAPTURE_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define sd_timer_PERIOD_LSB          (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define sd_timer_PERIOD_LSB_PTR        ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define sd_timer_COUNTER_LSB         (* (reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
+            #define sd_timer_COUNTER_LSB_PTR       ((reg32 *) sd_timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
         #endif /* CY_PSOC3 || CY_PSOC5 */ 
     #endif
 
-    #define sd_timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) sd_timer_TimerUDB_sT24_timerdp_u0__A0_REG )
+    #define sd_timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) sd_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     
     #if (sd_timer_UsingHWCaptureCounter)
         #define sd_timer_CAP_COUNT              (*(reg8 *) sd_timer_TimerUDB_sCapCount_counter__PERIOD_REG )

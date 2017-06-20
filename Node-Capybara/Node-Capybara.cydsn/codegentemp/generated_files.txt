@@ -90,16 +90,80 @@
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\sd_timer_PM.c" value="SOURCE_C;CortexM3;;;;sd_timer" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\sd_isr.c" value="SOURCE_C;CortexM3;;;;sd_isr" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\sd_isr.h" value="HEADER;;;;;sd_isr" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\watchdog_timer.c" value="SOURCE_C;CortexM3;;;;watchdog_timer" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\watchdog_timer.h" value="HEADER;;;;;watchdog_timer" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\watchdog_timer_PM.c" value="SOURCE_C;CortexM3;;;;watchdog_timer" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\wdt_reset_isr.c" value="SOURCE_C;CortexM3;;;;wdt_reset_isr" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\wdt_reset_isr.h" value="HEADER;;;;;wdt_reset_isr" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\heartbeat_isr.c" value="SOURCE_C;CortexM3;;;;heartbeat_isr" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\heartbeat_isr.h" value="HEADER;;;;;heartbeat_isr" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\heartbeat_timer.c" value="SOURCE_C;CortexM3;;;;heartbeat_timer" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\heartbeat_timer.h" value="HEADER;;;;;heartbeat_timer" />
-  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\heartbeat_timer_PM.c" value="SOURCE_C;CortexM3;;;;heartbeat_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\status_isr.c" value="SOURCE_C;CortexM3;;;;status_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\status_isr.h" value="HEADER;;;;;status_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\status_timer.c" value="SOURCE_C;CortexM3;;;;status_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\status_timer.h" value="HEADER;;;;;status_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\status_timer_PM.c" value="SOURCE_C;CortexM3;;;;status_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_1.c" value="SOURCE_C;CortexM3;;;;PGA_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_1.h" value="HEADER;;;;;PGA_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_1_PM.c" value="SOURCE_C;CortexM3;;;;PGA_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_1_aliases.h" value="HEADER;;;;;comparator_out_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_1.c" value="SOURCE_C;CortexM3;;;;comparator_out_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_1.h" value="HEADER;;;;;comparator_out_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1.h" value="HEADER;;;;;DVDAC_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1.c" value="SOURCE_C;CortexM3;;;;DVDAC_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_1.c" value="SOURCE_C;CortexM3;;;;Comp_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_1.h" value="HEADER;;;;;Comp_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_1_PM.c" value="SOURCE_C;CortexM3;;;;Comp_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_1_aliases.h" value="HEADER;;;;;Tachometer_pin_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_1.c" value="SOURCE_C;CortexM3;;;;Tachometer_pin_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_1.h" value="HEADER;;;;;Tachometer_pin_1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR1.h" value="HEADER;;;;;CR1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR1.c" value="SOURCE_C;CortexM3;;;;CR1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR1_PM.c" value="SOURCE_C;CortexM3;;;;CR1" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_1_isr.c" value="SOURCE_C;CortexM3;;;;Channel_1_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_1_isr.h" value="HEADER;;;;;Channel_1_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_1_Timer.c" value="SOURCE_C;CortexM3;;;;Channel_1_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_1_Timer.h" value="HEADER;;;;;Channel_1_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_1_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Channel_1_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_3_Timer.c" value="SOURCE_C;CortexM3;;;;Channel_3_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_3_Timer.h" value="HEADER;;;;;Channel_3_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_3_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Channel_3_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_3_isr.c" value="SOURCE_C;CortexM3;;;;Channel_3_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_3_isr.h" value="HEADER;;;;;Channel_3_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR3.h" value="HEADER;;;;;CR3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR3.c" value="SOURCE_C;CortexM3;;;;CR3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR3_PM.c" value="SOURCE_C;CortexM3;;;;CR3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_3_aliases.h" value="HEADER;;;;;Tachometer_pin_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_3.c" value="SOURCE_C;CortexM3;;;;Tachometer_pin_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_3.h" value="HEADER;;;;;Tachometer_pin_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_3.c" value="SOURCE_C;CortexM3;;;;Comp_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_3.h" value="HEADER;;;;;Comp_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_3_PM.c" value="SOURCE_C;CortexM3;;;;Comp_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3.h" value="HEADER;;;;;DVDAC_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3.c" value="SOURCE_C;CortexM3;;;;DVDAC_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_3_aliases.h" value="HEADER;;;;;comparator_out_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_3.c" value="SOURCE_C;CortexM3;;;;comparator_out_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_3.h" value="HEADER;;;;;comparator_out_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_3.c" value="SOURCE_C;CortexM3;;;;PGA_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_3.h" value="HEADER;;;;;PGA_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_3_PM.c" value="SOURCE_C;CortexM3;;;;PGA_3" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_4_Timer.c" value="SOURCE_C;CortexM3;;;;Channel_4_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_4_Timer.h" value="HEADER;;;;;Channel_4_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_4_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Channel_4_Timer" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_4_isr.c" value="SOURCE_C;CortexM3;;;;Channel_4_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Channel_4_isr.h" value="HEADER;;;;;Channel_4_isr" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR4.h" value="HEADER;;;;;CR4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR4.c" value="SOURCE_C;CortexM3;;;;CR4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\CR4_PM.c" value="SOURCE_C;CortexM3;;;;CR4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_4_aliases.h" value="HEADER;;;;;Tachometer_pin_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_4.c" value="SOURCE_C;CortexM3;;;;Tachometer_pin_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Tachometer_pin_4.h" value="HEADER;;;;;Tachometer_pin_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_4.c" value="SOURCE_C;CortexM3;;;;Comp_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_4.h" value="HEADER;;;;;Comp_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Comp_4_PM.c" value="SOURCE_C;CortexM3;;;;Comp_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4.h" value="HEADER;;;;;DVDAC_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4.c" value="SOURCE_C;CortexM3;;;;DVDAC_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_4_aliases.h" value="HEADER;;;;;comparator_out_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_4.c" value="SOURCE_C;CortexM3;;;;comparator_out_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\comparator_out_4.h" value="HEADER;;;;;comparator_out_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_4.c" value="SOURCE_C;CortexM3;;;;PGA_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_4.h" value="HEADER;;;;;PGA_4" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\PGA_4_PM.c" value="SOURCE_C;CortexM3;;;;PGA_4" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\emFile_1_SPI0.c" value="SOURCE_C;CortexM3;;;;emFile_1_SPI0" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\emFile_1_SPI0.h" value="HEADER;;;;;emFile_1_SPI0" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\emFile_1_SPI0_PM.c" value="SOURCE_C;CortexM3;;;;emFile_1_SPI0" />
@@ -125,6 +189,27 @@
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\USBUART_1_Dp_aliases.h" value="HEADER;;;;;USBUART_1_Dp" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\USBUART_1_Dp.c" value="SOURCE_C;CortexM3;;;;USBUART_1_Dp" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\USBUART_1_Dp.h" value="HEADER;;;;;USBUART_1_Dp" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_DMA_dma.c" value="SOURCE_C;CortexM3;;;;DVDAC_1_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_DMA_dma.h" value="HEADER;;;;;DVDAC_1_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_VDAC8.c" value="SOURCE_C;CortexM3;;;;DVDAC_1_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_VDAC8.h" value="HEADER;;;;;DVDAC_1_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_VDAC8_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_1_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_IntClock.c" value="SOURCE_C;CortexM3;;;;DVDAC_1_IntClock" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_1_IntClock.h" value="HEADER;;;;;DVDAC_1_IntClock" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_DMA_dma.c" value="SOURCE_C;CortexM3;;;;DVDAC_3_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_DMA_dma.h" value="HEADER;;;;;DVDAC_3_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_VDAC8.c" value="SOURCE_C;CortexM3;;;;DVDAC_3_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_VDAC8.h" value="HEADER;;;;;DVDAC_3_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_VDAC8_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_3_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_IntClock.c" value="SOURCE_C;CortexM3;;;;DVDAC_3_IntClock" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_3_IntClock.h" value="HEADER;;;;;DVDAC_3_IntClock" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_DMA_dma.c" value="SOURCE_C;CortexM3;;;;DVDAC_4_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_DMA_dma.h" value="HEADER;;;;;DVDAC_4_DMA" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_VDAC8.c" value="SOURCE_C;CortexM3;;;;DVDAC_4_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_VDAC8.h" value="HEADER;;;;;DVDAC_4_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_VDAC8_PM.c" value="SOURCE_C;CortexM3;;;;DVDAC_4_VDAC8" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_IntClock.c" value="SOURCE_C;CortexM3;;;;DVDAC_4_IntClock" />
+  <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\DVDAC_4_IntClock.h" value="HEADER;;;;;DVDAC_4_IntClock" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="D:\Downloads\FRUCD\Node-Capybara\Node-Capybara\Node-Capybara.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />

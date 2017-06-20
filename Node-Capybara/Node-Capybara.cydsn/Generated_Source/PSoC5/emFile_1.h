@@ -31,7 +31,7 @@
 #define emFile_1_NUMBER_SD_CARDS    (1u)
 
 /* Max frequency in KHz */
-#define emFile_1_MAX_SPI_FREQ       (4000u)
+#define emFile_1_MAX_SPI_FREQ       (10000u)
 
 /* Enable Write Protect */
 #define emFile_1_WP0_EN             (0u)

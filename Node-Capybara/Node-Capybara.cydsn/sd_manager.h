@@ -1,9 +1,6 @@
 #ifndef SD_MANAGER_H
 #define SD_MANAGER_H
 
-
-#include <project.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 

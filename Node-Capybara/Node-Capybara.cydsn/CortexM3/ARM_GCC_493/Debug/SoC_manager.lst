@@ -1,0 +1,866 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SoC_manager.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.SoC_init,"ax",%progbits
+  19              		.align	2
+  20              		.global	SoC_init
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	SoC_init, %function
+  24              	SoC_init:
+  25              	.LFB63:
+  26              		.file 1 "SoC_manager.c"
+   1:SoC_manager.c **** 
+   2:SoC_manager.c **** #include "SoC_manager.h"
+   3:SoC_manager.c **** 
+   4:SoC_manager.c **** extern DataPacket BMS_CURRENT;
+   5:SoC_manager.c **** extern DataPacket BMS_VOLTAGE;
+   6:SoC_manager.c **** 
+   7:SoC_manager.c **** extern CAN_1_TX_MSG SENS_STAT;		//0x247
+   8:SoC_manager.c **** extern CAN_1_DATA_BYTES_MSG data;
+   9:SoC_manager.c **** 
+  10:SoC_manager.c **** void SoC_init() {
+  27              		.loc 1 10 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+  11:SoC_manager.c **** 	millis_timer_Start();	
+  37              		.loc 1 11 0
+  38 0004 FFF7FEFF 		bl	millis_timer_Start
+  12:SoC_manager.c **** }
+  39              		.loc 1 12 0
+  40 0008 80BD     		pop	{r7, pc}
+  41              		.cfi_endproc
+  42              	.LFE63:
+  43              		.size	SoC_init, .-SoC_init
+  44 000a 00BF     		.section	.text.SoC_volt_calc,"ax",%progbits
+  45              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 2
+
+
+  46              		.global	SoC_volt_calc
+  47              		.thumb
+  48              		.thumb_func
+  49              		.type	SoC_volt_calc, %function
+  50              	SoC_volt_calc:
+  51              	.LFB64:
+  13:SoC_manager.c **** 
+  14:SoC_manager.c **** //voltage SoC
+  15:SoC_manager.c **** void SoC_volt_calc() {
+  52              		.loc 1 15 0
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 24
+  55              		@ frame_needed = 1, uses_anonymous_args = 0
+  56              		@ link register save eliminated.
+  57 0000 80B4     		push	{r7}
+  58              		.cfi_def_cfa_offset 4
+  59              		.cfi_offset 7, -4
+  60 0002 87B0     		sub	sp, sp, #28
+  61              		.cfi_def_cfa_offset 32
+  62 0004 00AF     		add	r7, sp, #0
+  63              		.cfi_def_cfa_register 7
+  16:SoC_manager.c **** 	uint32_t voltage_hex;
+  17:SoC_manager.c **** 	uint32_t byte4 = BMS_VOLTAGE.data[7] << 24;
+  64              		.loc 1 17 0
+  65 0006 114B     		ldr	r3, .L3
+  66 0008 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
+  67 000a 1B06     		lsls	r3, r3, #24
+  68 000c 7B61     		str	r3, [r7, #20]
+  18:SoC_manager.c **** 	uint32_t byte3 = BMS_VOLTAGE.data[6] << 16;
+  69              		.loc 1 18 0
+  70 000e 0F4B     		ldr	r3, .L3
+  71 0010 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+  72 0012 1B04     		lsls	r3, r3, #16
+  73 0014 3B61     		str	r3, [r7, #16]
+  19:SoC_manager.c **** 	uint32_t byte2 = BMS_VOLTAGE.data[5] << 8;
+  74              		.loc 1 19 0
+  75 0016 0D4B     		ldr	r3, .L3
+  76 0018 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+  77 001a 1B02     		lsls	r3, r3, #8
+  78 001c FB60     		str	r3, [r7, #12]
+  20:SoC_manager.c **** 	uint32_t byte1 = BMS_VOLTAGE.data[4];
+  79              		.loc 1 20 0
+  80 001e 0B4B     		ldr	r3, .L3
+  81 0020 DB7A     		ldrb	r3, [r3, #11]	@ zero_extendqisi2
+  82 0022 BB60     		str	r3, [r7, #8]
+  21:SoC_manager.c **** 	voltage_hex = byte4 | byte3 | byte2 | byte1;
+  83              		.loc 1 21 0
+  84 0024 7A69     		ldr	r2, [r7, #20]
+  85 0026 3B69     		ldr	r3, [r7, #16]
+  86 0028 1A43     		orrs	r2, r2, r3
+  87 002a FB68     		ldr	r3, [r7, #12]
+  88 002c 1A43     		orrs	r2, r2, r3
+  89 002e BB68     		ldr	r3, [r7, #8]
+  90 0030 1343     		orrs	r3, r3, r2
+  91 0032 7B60     		str	r3, [r7, #4]
+  22:SoC_manager.c **** 	
+  23:SoC_manager.c **** 	//voltage = 0x0001C3E3;
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 3
+
+
+  24:SoC_manager.c **** 	//sprintf(volt_string, "%03d.%01dV", voltage/1000, voltage/100%10);
+  25:SoC_manager.c ****     
+  26:SoC_manager.c ****     long voltage = (voltage_hex/1000);
+  92              		.loc 1 26 0
+  93 0034 7B68     		ldr	r3, [r7, #4]
+  94 0036 064A     		ldr	r2, .L3+4
+  95 0038 A2FB0323 		umull	r2, r3, r2, r3
+  96 003c 9B09     		lsrs	r3, r3, #6
+  97 003e 3B60     		str	r3, [r7]
+  27:SoC_manager.c ****     int SoC_pct;
+  28:SoC_manager.c **** }...
+  98              		.loc 1 28 0
+  99 0040 1C37     		adds	r7, r7, #28
+ 100              		.cfi_def_cfa_offset 4
+ 101 0042 BD46     		mov	sp, r7
+ 102              		.cfi_def_cfa_register 13
+ 103              		@ sp needed
+ 104 0044 5DF8047B 		ldr	r7, [sp], #4
+ 105              		.cfi_restore 7
+ 106              		.cfi_def_cfa_offset 0
+ 107 0048 7047     		bx	lr
+ 108              	.L4:
+ 109 004a 00BF     		.align	2
+ 110              	.L3:
+ 111 004c 00000000 		.word	BMS_VOLTAGE
+ 112 0050 D34D6210 		.word	274877907
+ 113              		.cfi_endproc
+ 114              	.LFE64:
+ 115              		.size	SoC_volt_calc, .-SoC_volt_calc
+ 116              		.text
+ 117              	.Letext0:
+ 118              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 119              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 120              		.file 4 "data.h"
+ 121              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 122              		.section	.debug_info,"",%progbits
+ 123              	.Ldebug_info0:
+ 124 0000 D1010000 		.4byte	0x1d1
+ 125 0004 0400     		.2byte	0x4
+ 126 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 127 000a 04       		.byte	0x4
+ 128 000b 01       		.uleb128 0x1
+ 129 000c 5F000000 		.4byte	.LASF33
+ 130 0010 01       		.byte	0x1
+ 131 0011 73010000 		.4byte	.LASF34
+ 132 0015 00000000 		.4byte	.LASF35
+ 133 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 134 001d 00000000 		.4byte	0
+ 135 0021 00000000 		.4byte	.Ldebug_line0
+ 136 0025 02       		.uleb128 0x2
+ 137 0026 01       		.byte	0x1
+ 138 0027 06       		.byte	0x6
+ 139 0028 20020000 		.4byte	.LASF0
+ 140 002c 03       		.uleb128 0x3
+ 141 002d 43000000 		.4byte	.LASF3
+ 142 0031 02       		.byte	0x2
+ 143 0032 1D       		.byte	0x1d
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 4
+
+
+ 144 0033 37000000 		.4byte	0x37
+ 145 0037 02       		.uleb128 0x2
+ 146 0038 01       		.byte	0x1
+ 147 0039 08       		.byte	0x8
+ 148 003a 05010000 		.4byte	.LASF1
+ 149 003e 02       		.uleb128 0x2
+ 150 003f 02       		.byte	0x2
+ 151 0040 05       		.byte	0x5
+ 152 0041 69010000 		.4byte	.LASF2
+ 153 0045 03       		.uleb128 0x3
+ 154 0046 57010000 		.4byte	.LASF4
+ 155 004a 02       		.byte	0x2
+ 156 004b 2B       		.byte	0x2b
+ 157 004c 50000000 		.4byte	0x50
+ 158 0050 02       		.uleb128 0x2
+ 159 0051 02       		.byte	0x2
+ 160 0052 07       		.byte	0x7
+ 161 0053 2C020000 		.4byte	.LASF5
+ 162 0057 03       		.uleb128 0x3
+ 163 0058 55000000 		.4byte	.LASF6
+ 164 005c 02       		.byte	0x2
+ 165 005d 3F       		.byte	0x3f
+ 166 005e 62000000 		.4byte	0x62
+ 167 0062 02       		.uleb128 0x2
+ 168 0063 04       		.byte	0x4
+ 169 0064 05       		.byte	0x5
+ 170 0065 11020000 		.4byte	.LASF7
+ 171 0069 03       		.uleb128 0x3
+ 172 006a 13010000 		.4byte	.LASF8
+ 173 006e 02       		.byte	0x2
+ 174 006f 41       		.byte	0x41
+ 175 0070 74000000 		.4byte	0x74
+ 176 0074 02       		.uleb128 0x2
+ 177 0075 04       		.byte	0x4
+ 178 0076 07       		.byte	0x7
+ 179 0077 1E010000 		.4byte	.LASF9
+ 180 007b 02       		.uleb128 0x2
+ 181 007c 08       		.byte	0x8
+ 182 007d 05       		.byte	0x5
+ 183 007e D7010000 		.4byte	.LASF10
+ 184 0082 02       		.uleb128 0x2
+ 185 0083 08       		.byte	0x8
+ 186 0084 07       		.byte	0x7
+ 187 0085 A7010000 		.4byte	.LASF11
+ 188 0089 04       		.uleb128 0x4
+ 189 008a 04       		.byte	0x4
+ 190 008b 05       		.byte	0x5
+ 191 008c 696E7400 		.ascii	"int\000"
+ 192 0090 02       		.uleb128 0x2
+ 193 0091 04       		.byte	0x4
+ 194 0092 07       		.byte	0x7
+ 195 0093 8F010000 		.4byte	.LASF12
+ 196 0097 03       		.uleb128 0x3
+ 197 0098 BE010000 		.4byte	.LASF13
+ 198 009c 03       		.byte	0x3
+ 199 009d 15       		.byte	0x15
+ 200 009e 2C000000 		.4byte	0x2c
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 5
+
+
+ 201 00a2 03       		.uleb128 0x3
+ 202 00a3 FF010000 		.4byte	.LASF14
+ 203 00a7 03       		.byte	0x3
+ 204 00a8 21       		.byte	0x21
+ 205 00a9 45000000 		.4byte	0x45
+ 206 00ad 03       		.uleb128 0x3
+ 207 00ae C6010000 		.4byte	.LASF15
+ 208 00b2 03       		.byte	0x3
+ 209 00b3 2C       		.byte	0x2c
+ 210 00b4 57000000 		.4byte	0x57
+ 211 00b8 03       		.uleb128 0x3
+ 212 00b9 08020000 		.4byte	.LASF16
+ 213 00bd 03       		.byte	0x3
+ 214 00be 2D       		.byte	0x2d
+ 215 00bf 69000000 		.4byte	0x69
+ 216 00c3 02       		.uleb128 0x2
+ 217 00c4 04       		.byte	0x4
+ 218 00c5 04       		.byte	0x4
+ 219 00c6 FA000000 		.4byte	.LASF17
+ 220 00ca 02       		.uleb128 0x2
+ 221 00cb 08       		.byte	0x8
+ 222 00cc 04       		.byte	0x4
+ 223 00cd 62010000 		.4byte	.LASF18
+ 224 00d1 02       		.uleb128 0x2
+ 225 00d2 01       		.byte	0x1
+ 226 00d3 08       		.byte	0x8
+ 227 00d4 F1010000 		.4byte	.LASF19
+ 228 00d8 02       		.uleb128 0x2
+ 229 00d9 04       		.byte	0x4
+ 230 00da 07       		.byte	0x7
+ 231 00db CE010000 		.4byte	.LASF20
+ 232 00df 05       		.uleb128 0x5
+ 233 00e0 10       		.byte	0x10
+ 234 00e1 04       		.byte	0x4
+ 235 00e2 0A       		.byte	0xa
+ 236 00e3 17010000 		.4byte	0x117
+ 237 00e7 06       		.uleb128 0x6
+ 238 00e8 ED000000 		.4byte	.LASF21
+ 239 00ec 04       		.byte	0x4
+ 240 00ed 0B       		.byte	0xb
+ 241 00ee B8000000 		.4byte	0xb8
+ 242 00f2 00       		.byte	0
+ 243 00f3 07       		.uleb128 0x7
+ 244 00f4 696400   		.ascii	"id\000"
+ 245 00f7 04       		.byte	0x4
+ 246 00f8 0C       		.byte	0xc
+ 247 00f9 A2000000 		.4byte	0xa2
+ 248 00fd 04       		.byte	0x4
+ 249 00fe 06       		.uleb128 0x6
+ 250 00ff 3F020000 		.4byte	.LASF22
+ 251 0103 04       		.byte	0x4
+ 252 0104 0D       		.byte	0xd
+ 253 0105 97000000 		.4byte	0x97
+ 254 0109 06       		.byte	0x6
+ 255 010a 06       		.uleb128 0x6
+ 256 010b 00010000 		.4byte	.LASF23
+ 257 010f 04       		.byte	0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 6
+
+
+ 258 0110 0E       		.byte	0xe
+ 259 0111 17010000 		.4byte	0x117
+ 260 0115 07       		.byte	0x7
+ 261 0116 00       		.byte	0
+ 262 0117 08       		.uleb128 0x8
+ 263 0118 97000000 		.4byte	0x97
+ 264 011c 27010000 		.4byte	0x127
+ 265 0120 09       		.uleb128 0x9
+ 266 0121 D8000000 		.4byte	0xd8
+ 267 0125 07       		.byte	0x7
+ 268 0126 00       		.byte	0
+ 269 0127 03       		.uleb128 0x3
+ 270 0128 9C010000 		.4byte	.LASF24
+ 271 012c 04       		.byte	0x4
+ 272 012d 0F       		.byte	0xf
+ 273 012e DF000000 		.4byte	0xdf
+ 274 0132 0A       		.uleb128 0xa
+ 275 0133 F6010000 		.4byte	.LASF36
+ 276 0137 01       		.byte	0x1
+ 277 0138 0A       		.byte	0xa
+ 278 0139 00000000 		.4byte	.LFB63
+ 279 013d 0A000000 		.4byte	.LFE63-.LFB63
+ 280 0141 01       		.uleb128 0x1
+ 281 0142 9C       		.byte	0x9c
+ 282 0143 0B       		.uleb128 0xb
+ 283 0144 81010000 		.4byte	.LASF37
+ 284 0148 01       		.byte	0x1
+ 285 0149 0F       		.byte	0xf
+ 286 014a 00000000 		.4byte	.LFB64
+ 287 014e 54000000 		.4byte	.LFE64-.LFB64
+ 288 0152 01       		.uleb128 0x1
+ 289 0153 9C       		.byte	0x9c
+ 290 0154 B8010000 		.4byte	0x1b8
+ 291 0158 0C       		.uleb128 0xc
+ 292 0159 E5010000 		.4byte	.LASF25
+ 293 015d 01       		.byte	0x1
+ 294 015e 10       		.byte	0x10
+ 295 015f B8000000 		.4byte	0xb8
+ 296 0163 02       		.uleb128 0x2
+ 297 0164 91       		.byte	0x91
+ 298 0165 64       		.sleb128 -28
+ 299 0166 0C       		.uleb128 0xc
+ 300 0167 1A020000 		.4byte	.LASF26
+ 301 016b 01       		.byte	0x1
+ 302 016c 11       		.byte	0x11
+ 303 016d B8000000 		.4byte	0xb8
+ 304 0171 02       		.uleb128 0x2
+ 305 0172 91       		.byte	0x91
+ 306 0173 74       		.sleb128 -12
+ 307 0174 0C       		.uleb128 0xc
+ 308 0175 3C010000 		.4byte	.LASF27
+ 309 0179 01       		.byte	0x1
+ 310 017a 12       		.byte	0x12
+ 311 017b B8000000 		.4byte	0xb8
+ 312 017f 02       		.uleb128 0x2
+ 313 0180 91       		.byte	0x91
+ 314 0181 70       		.sleb128 -16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 7
+
+
+ 315 0182 0C       		.uleb128 0xc
+ 316 0183 36010000 		.4byte	.LASF28
+ 317 0187 01       		.byte	0x1
+ 318 0188 13       		.byte	0x13
+ 319 0189 B8000000 		.4byte	0xb8
+ 320 018d 02       		.uleb128 0x2
+ 321 018e 91       		.byte	0x91
+ 322 018f 6C       		.sleb128 -20
+ 323 0190 0C       		.uleb128 0xc
+ 324 0191 30010000 		.4byte	.LASF29
+ 325 0195 01       		.byte	0x1
+ 326 0196 14       		.byte	0x14
+ 327 0197 B8000000 		.4byte	0xb8
+ 328 019b 02       		.uleb128 0x2
+ 329 019c 91       		.byte	0x91
+ 330 019d 68       		.sleb128 -24
+ 331 019e 0C       		.uleb128 0xc
+ 332 019f 42010000 		.4byte	.LASF30
+ 333 01a3 01       		.byte	0x1
+ 334 01a4 1A       		.byte	0x1a
+ 335 01a5 62000000 		.4byte	0x62
+ 336 01a9 02       		.uleb128 0x2
+ 337 01aa 91       		.byte	0x91
+ 338 01ab 60       		.sleb128 -32
+ 339 01ac 0D       		.uleb128 0xd
+ 340 01ad 4D000000 		.4byte	.LASF38
+ 341 01b1 01       		.byte	0x1
+ 342 01b2 1B       		.byte	0x1b
+ 343 01b3 89000000 		.4byte	0x89
+ 344 01b7 00       		.byte	0
+ 345 01b8 0E       		.uleb128 0xe
+ 346 01b9 4A010000 		.4byte	.LASF31
+ 347 01bd 05       		.byte	0x5
+ 348 01be 9606     		.2byte	0x696
+ 349 01c0 C4010000 		.4byte	0x1c4
+ 350 01c4 0F       		.uleb128 0xf
+ 351 01c5 AD000000 		.4byte	0xad
+ 352 01c9 10       		.uleb128 0x10
+ 353 01ca 46020000 		.4byte	.LASF32
+ 354 01ce 01       		.byte	0x1
+ 355 01cf 05       		.byte	0x5
+ 356 01d0 27010000 		.4byte	0x127
+ 357 01d4 00       		.byte	0
+ 358              		.section	.debug_abbrev,"",%progbits
+ 359              	.Ldebug_abbrev0:
+ 360 0000 01       		.uleb128 0x1
+ 361 0001 11       		.uleb128 0x11
+ 362 0002 01       		.byte	0x1
+ 363 0003 25       		.uleb128 0x25
+ 364 0004 0E       		.uleb128 0xe
+ 365 0005 13       		.uleb128 0x13
+ 366 0006 0B       		.uleb128 0xb
+ 367 0007 03       		.uleb128 0x3
+ 368 0008 0E       		.uleb128 0xe
+ 369 0009 1B       		.uleb128 0x1b
+ 370 000a 0E       		.uleb128 0xe
+ 371 000b 55       		.uleb128 0x55
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 8
+
+
+ 372 000c 17       		.uleb128 0x17
+ 373 000d 11       		.uleb128 0x11
+ 374 000e 01       		.uleb128 0x1
+ 375 000f 10       		.uleb128 0x10
+ 376 0010 17       		.uleb128 0x17
+ 377 0011 00       		.byte	0
+ 378 0012 00       		.byte	0
+ 379 0013 02       		.uleb128 0x2
+ 380 0014 24       		.uleb128 0x24
+ 381 0015 00       		.byte	0
+ 382 0016 0B       		.uleb128 0xb
+ 383 0017 0B       		.uleb128 0xb
+ 384 0018 3E       		.uleb128 0x3e
+ 385 0019 0B       		.uleb128 0xb
+ 386 001a 03       		.uleb128 0x3
+ 387 001b 0E       		.uleb128 0xe
+ 388 001c 00       		.byte	0
+ 389 001d 00       		.byte	0
+ 390 001e 03       		.uleb128 0x3
+ 391 001f 16       		.uleb128 0x16
+ 392 0020 00       		.byte	0
+ 393 0021 03       		.uleb128 0x3
+ 394 0022 0E       		.uleb128 0xe
+ 395 0023 3A       		.uleb128 0x3a
+ 396 0024 0B       		.uleb128 0xb
+ 397 0025 3B       		.uleb128 0x3b
+ 398 0026 0B       		.uleb128 0xb
+ 399 0027 49       		.uleb128 0x49
+ 400 0028 13       		.uleb128 0x13
+ 401 0029 00       		.byte	0
+ 402 002a 00       		.byte	0
+ 403 002b 04       		.uleb128 0x4
+ 404 002c 24       		.uleb128 0x24
+ 405 002d 00       		.byte	0
+ 406 002e 0B       		.uleb128 0xb
+ 407 002f 0B       		.uleb128 0xb
+ 408 0030 3E       		.uleb128 0x3e
+ 409 0031 0B       		.uleb128 0xb
+ 410 0032 03       		.uleb128 0x3
+ 411 0033 08       		.uleb128 0x8
+ 412 0034 00       		.byte	0
+ 413 0035 00       		.byte	0
+ 414 0036 05       		.uleb128 0x5
+ 415 0037 13       		.uleb128 0x13
+ 416 0038 01       		.byte	0x1
+ 417 0039 0B       		.uleb128 0xb
+ 418 003a 0B       		.uleb128 0xb
+ 419 003b 3A       		.uleb128 0x3a
+ 420 003c 0B       		.uleb128 0xb
+ 421 003d 3B       		.uleb128 0x3b
+ 422 003e 0B       		.uleb128 0xb
+ 423 003f 01       		.uleb128 0x1
+ 424 0040 13       		.uleb128 0x13
+ 425 0041 00       		.byte	0
+ 426 0042 00       		.byte	0
+ 427 0043 06       		.uleb128 0x6
+ 428 0044 0D       		.uleb128 0xd
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 9
+
+
+ 429 0045 00       		.byte	0
+ 430 0046 03       		.uleb128 0x3
+ 431 0047 0E       		.uleb128 0xe
+ 432 0048 3A       		.uleb128 0x3a
+ 433 0049 0B       		.uleb128 0xb
+ 434 004a 3B       		.uleb128 0x3b
+ 435 004b 0B       		.uleb128 0xb
+ 436 004c 49       		.uleb128 0x49
+ 437 004d 13       		.uleb128 0x13
+ 438 004e 38       		.uleb128 0x38
+ 439 004f 0B       		.uleb128 0xb
+ 440 0050 00       		.byte	0
+ 441 0051 00       		.byte	0
+ 442 0052 07       		.uleb128 0x7
+ 443 0053 0D       		.uleb128 0xd
+ 444 0054 00       		.byte	0
+ 445 0055 03       		.uleb128 0x3
+ 446 0056 08       		.uleb128 0x8
+ 447 0057 3A       		.uleb128 0x3a
+ 448 0058 0B       		.uleb128 0xb
+ 449 0059 3B       		.uleb128 0x3b
+ 450 005a 0B       		.uleb128 0xb
+ 451 005b 49       		.uleb128 0x49
+ 452 005c 13       		.uleb128 0x13
+ 453 005d 38       		.uleb128 0x38
+ 454 005e 0B       		.uleb128 0xb
+ 455 005f 00       		.byte	0
+ 456 0060 00       		.byte	0
+ 457 0061 08       		.uleb128 0x8
+ 458 0062 01       		.uleb128 0x1
+ 459 0063 01       		.byte	0x1
+ 460 0064 49       		.uleb128 0x49
+ 461 0065 13       		.uleb128 0x13
+ 462 0066 01       		.uleb128 0x1
+ 463 0067 13       		.uleb128 0x13
+ 464 0068 00       		.byte	0
+ 465 0069 00       		.byte	0
+ 466 006a 09       		.uleb128 0x9
+ 467 006b 21       		.uleb128 0x21
+ 468 006c 00       		.byte	0
+ 469 006d 49       		.uleb128 0x49
+ 470 006e 13       		.uleb128 0x13
+ 471 006f 2F       		.uleb128 0x2f
+ 472 0070 0B       		.uleb128 0xb
+ 473 0071 00       		.byte	0
+ 474 0072 00       		.byte	0
+ 475 0073 0A       		.uleb128 0xa
+ 476 0074 2E       		.uleb128 0x2e
+ 477 0075 00       		.byte	0
+ 478 0076 3F       		.uleb128 0x3f
+ 479 0077 19       		.uleb128 0x19
+ 480 0078 03       		.uleb128 0x3
+ 481 0079 0E       		.uleb128 0xe
+ 482 007a 3A       		.uleb128 0x3a
+ 483 007b 0B       		.uleb128 0xb
+ 484 007c 3B       		.uleb128 0x3b
+ 485 007d 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 10
+
+
+ 486 007e 11       		.uleb128 0x11
+ 487 007f 01       		.uleb128 0x1
+ 488 0080 12       		.uleb128 0x12
+ 489 0081 06       		.uleb128 0x6
+ 490 0082 40       		.uleb128 0x40
+ 491 0083 18       		.uleb128 0x18
+ 492 0084 9642     		.uleb128 0x2116
+ 493 0086 19       		.uleb128 0x19
+ 494 0087 00       		.byte	0
+ 495 0088 00       		.byte	0
+ 496 0089 0B       		.uleb128 0xb
+ 497 008a 2E       		.uleb128 0x2e
+ 498 008b 01       		.byte	0x1
+ 499 008c 3F       		.uleb128 0x3f
+ 500 008d 19       		.uleb128 0x19
+ 501 008e 03       		.uleb128 0x3
+ 502 008f 0E       		.uleb128 0xe
+ 503 0090 3A       		.uleb128 0x3a
+ 504 0091 0B       		.uleb128 0xb
+ 505 0092 3B       		.uleb128 0x3b
+ 506 0093 0B       		.uleb128 0xb
+ 507 0094 11       		.uleb128 0x11
+ 508 0095 01       		.uleb128 0x1
+ 509 0096 12       		.uleb128 0x12
+ 510 0097 06       		.uleb128 0x6
+ 511 0098 40       		.uleb128 0x40
+ 512 0099 18       		.uleb128 0x18
+ 513 009a 9742     		.uleb128 0x2117
+ 514 009c 19       		.uleb128 0x19
+ 515 009d 01       		.uleb128 0x1
+ 516 009e 13       		.uleb128 0x13
+ 517 009f 00       		.byte	0
+ 518 00a0 00       		.byte	0
+ 519 00a1 0C       		.uleb128 0xc
+ 520 00a2 34       		.uleb128 0x34
+ 521 00a3 00       		.byte	0
+ 522 00a4 03       		.uleb128 0x3
+ 523 00a5 0E       		.uleb128 0xe
+ 524 00a6 3A       		.uleb128 0x3a
+ 525 00a7 0B       		.uleb128 0xb
+ 526 00a8 3B       		.uleb128 0x3b
+ 527 00a9 0B       		.uleb128 0xb
+ 528 00aa 49       		.uleb128 0x49
+ 529 00ab 13       		.uleb128 0x13
+ 530 00ac 02       		.uleb128 0x2
+ 531 00ad 18       		.uleb128 0x18
+ 532 00ae 00       		.byte	0
+ 533 00af 00       		.byte	0
+ 534 00b0 0D       		.uleb128 0xd
+ 535 00b1 34       		.uleb128 0x34
+ 536 00b2 00       		.byte	0
+ 537 00b3 03       		.uleb128 0x3
+ 538 00b4 0E       		.uleb128 0xe
+ 539 00b5 3A       		.uleb128 0x3a
+ 540 00b6 0B       		.uleb128 0xb
+ 541 00b7 3B       		.uleb128 0x3b
+ 542 00b8 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 11
+
+
+ 543 00b9 49       		.uleb128 0x49
+ 544 00ba 13       		.uleb128 0x13
+ 545 00bb 00       		.byte	0
+ 546 00bc 00       		.byte	0
+ 547 00bd 0E       		.uleb128 0xe
+ 548 00be 34       		.uleb128 0x34
+ 549 00bf 00       		.byte	0
+ 550 00c0 03       		.uleb128 0x3
+ 551 00c1 0E       		.uleb128 0xe
+ 552 00c2 3A       		.uleb128 0x3a
+ 553 00c3 0B       		.uleb128 0xb
+ 554 00c4 3B       		.uleb128 0x3b
+ 555 00c5 05       		.uleb128 0x5
+ 556 00c6 49       		.uleb128 0x49
+ 557 00c7 13       		.uleb128 0x13
+ 558 00c8 3F       		.uleb128 0x3f
+ 559 00c9 19       		.uleb128 0x19
+ 560 00ca 3C       		.uleb128 0x3c
+ 561 00cb 19       		.uleb128 0x19
+ 562 00cc 00       		.byte	0
+ 563 00cd 00       		.byte	0
+ 564 00ce 0F       		.uleb128 0xf
+ 565 00cf 35       		.uleb128 0x35
+ 566 00d0 00       		.byte	0
+ 567 00d1 49       		.uleb128 0x49
+ 568 00d2 13       		.uleb128 0x13
+ 569 00d3 00       		.byte	0
+ 570 00d4 00       		.byte	0
+ 571 00d5 10       		.uleb128 0x10
+ 572 00d6 34       		.uleb128 0x34
+ 573 00d7 00       		.byte	0
+ 574 00d8 03       		.uleb128 0x3
+ 575 00d9 0E       		.uleb128 0xe
+ 576 00da 3A       		.uleb128 0x3a
+ 577 00db 0B       		.uleb128 0xb
+ 578 00dc 3B       		.uleb128 0x3b
+ 579 00dd 0B       		.uleb128 0xb
+ 580 00de 49       		.uleb128 0x49
+ 581 00df 13       		.uleb128 0x13
+ 582 00e0 3F       		.uleb128 0x3f
+ 583 00e1 19       		.uleb128 0x19
+ 584 00e2 3C       		.uleb128 0x3c
+ 585 00e3 19       		.uleb128 0x19
+ 586 00e4 00       		.byte	0
+ 587 00e5 00       		.byte	0
+ 588 00e6 00       		.byte	0
+ 589              		.section	.debug_aranges,"",%progbits
+ 590 0000 24000000 		.4byte	0x24
+ 591 0004 0200     		.2byte	0x2
+ 592 0006 00000000 		.4byte	.Ldebug_info0
+ 593 000a 04       		.byte	0x4
+ 594 000b 00       		.byte	0
+ 595 000c 0000     		.2byte	0
+ 596 000e 0000     		.2byte	0
+ 597 0010 00000000 		.4byte	.LFB63
+ 598 0014 0A000000 		.4byte	.LFE63-.LFB63
+ 599 0018 00000000 		.4byte	.LFB64
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 12
+
+
+ 600 001c 54000000 		.4byte	.LFE64-.LFB64
+ 601 0020 00000000 		.4byte	0
+ 602 0024 00000000 		.4byte	0
+ 603              		.section	.debug_ranges,"",%progbits
+ 604              	.Ldebug_ranges0:
+ 605 0000 00000000 		.4byte	.LFB63
+ 606 0004 0A000000 		.4byte	.LFE63
+ 607 0008 00000000 		.4byte	.LFB64
+ 608 000c 54000000 		.4byte	.LFE64
+ 609 0010 00000000 		.4byte	0
+ 610 0014 00000000 		.4byte	0
+ 611              		.section	.debug_line,"",%progbits
+ 612              	.Ldebug_line0:
+ 613 0000 68010000 		.section	.debug_str,"MS",%progbits,1
+ 613      02003B01 
+ 613      00000201 
+ 613      FB0E0D00 
+ 613      01010101 
+ 614              	.LASF35:
+ 615 0000 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Capybara\\Node-Capybara\\"
+ 615      6F776E6C 
+ 615      6F616473 
+ 615      5C465255 
+ 615      43445C4E 
+ 616 002f 4E6F6465 		.ascii	"Node-Capybara.cydsn\000"
+ 616      2D436170 
+ 616      79626172 
+ 616      612E6379 
+ 616      64736E00 
+ 617              	.LASF3:
+ 618 0043 5F5F7569 		.ascii	"__uint8_t\000"
+ 618      6E74385F 
+ 618      7400
+ 619              	.LASF38:
+ 620 004d 536F435F 		.ascii	"SoC_pct\000"
+ 620      70637400 
+ 621              	.LASF6:
+ 622 0055 5F5F696E 		.ascii	"__int32_t\000"
+ 622      7433325F 
+ 622      7400
+ 623              	.LASF33:
+ 624 005f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 624      4320342E 
+ 624      392E3320 
+ 624      32303135 
+ 624      30333033 
+ 625 0092 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 625      20726576 
+ 625      6973696F 
+ 625      6E203232 
+ 625      31323230 
+ 626 00c5 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 626      66756E63 
+ 626      74696F6E 
+ 626      2D736563 
+ 626      74696F6E 
+ 627              	.LASF21:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 13
+
+
+ 628 00ed 6D696C6C 		.ascii	"millicounter\000"
+ 628      69636F75 
+ 628      6E746572 
+ 628      00
+ 629              	.LASF17:
+ 630 00fa 666C6F61 		.ascii	"float\000"
+ 630      7400
+ 631              	.LASF23:
+ 632 0100 64617461 		.ascii	"data\000"
+ 632      00
+ 633              	.LASF1:
+ 634 0105 756E7369 		.ascii	"unsigned char\000"
+ 634      676E6564 
+ 634      20636861 
+ 634      7200
+ 635              	.LASF8:
+ 636 0113 5F5F7569 		.ascii	"__uint32_t\000"
+ 636      6E743332 
+ 636      5F7400
+ 637              	.LASF9:
+ 638 011e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 638      20756E73 
+ 638      69676E65 
+ 638      6420696E 
+ 638      7400
+ 639              	.LASF29:
+ 640 0130 62797465 		.ascii	"byte1\000"
+ 640      3100
+ 641              	.LASF28:
+ 642 0136 62797465 		.ascii	"byte2\000"
+ 642      3200
+ 643              	.LASF27:
+ 644 013c 62797465 		.ascii	"byte3\000"
+ 644      3300
+ 645              	.LASF30:
+ 646 0142 766F6C74 		.ascii	"voltage\000"
+ 646      61676500 
+ 647              	.LASF31:
+ 648 014a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 648      52784275 
+ 648      66666572 
+ 648      00
+ 649              	.LASF4:
+ 650 0157 5F5F7569 		.ascii	"__uint16_t\000"
+ 650      6E743136 
+ 650      5F7400
+ 651              	.LASF18:
+ 652 0162 646F7562 		.ascii	"double\000"
+ 652      6C6500
+ 653              	.LASF2:
+ 654 0169 73686F72 		.ascii	"short int\000"
+ 654      7420696E 
+ 654      7400
+ 655              	.LASF34:
+ 656 0173 536F435F 		.ascii	"SoC_manager.c\000"
+ 656      6D616E61 
+ 656      6765722E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 14
+
+
+ 656      6300
+ 657              	.LASF37:
+ 658 0181 536F435F 		.ascii	"SoC_volt_calc\000"
+ 658      766F6C74 
+ 658      5F63616C 
+ 658      6300
+ 659              	.LASF12:
+ 660 018f 756E7369 		.ascii	"unsigned int\000"
+ 660      676E6564 
+ 660      20696E74 
+ 660      00
+ 661              	.LASF24:
+ 662 019c 44617461 		.ascii	"DataPacket\000"
+ 662      5061636B 
+ 662      657400
+ 663              	.LASF11:
+ 664 01a7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 664      206C6F6E 
+ 664      6720756E 
+ 664      7369676E 
+ 664      65642069 
+ 665              	.LASF13:
+ 666 01be 75696E74 		.ascii	"uint8_t\000"
+ 666      385F7400 
+ 667              	.LASF15:
+ 668 01c6 696E7433 		.ascii	"int32_t\000"
+ 668      325F7400 
+ 669              	.LASF20:
+ 670 01ce 73697A65 		.ascii	"sizetype\000"
+ 670      74797065 
+ 670      00
+ 671              	.LASF10:
+ 672 01d7 6C6F6E67 		.ascii	"long long int\000"
+ 672      206C6F6E 
+ 672      6720696E 
+ 672      7400
+ 673              	.LASF25:
+ 674 01e5 766F6C74 		.ascii	"voltage_hex\000"
+ 674      6167655F 
+ 674      68657800 
+ 675              	.LASF19:
+ 676 01f1 63686172 		.ascii	"char\000"
+ 676      00
+ 677              	.LASF36:
+ 678 01f6 536F435F 		.ascii	"SoC_init\000"
+ 678      696E6974 
+ 678      00
+ 679              	.LASF14:
+ 680 01ff 75696E74 		.ascii	"uint16_t\000"
+ 680      31365F74 
+ 680      00
+ 681              	.LASF16:
+ 682 0208 75696E74 		.ascii	"uint32_t\000"
+ 682      33325F74 
+ 682      00
+ 683              	.LASF7:
+ 684 0211 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccyawUhw.s 			page 15
+
+
+ 684      20696E74 
+ 684      00
+ 685              	.LASF26:
+ 686 021a 62797465 		.ascii	"byte4\000"
+ 686      3400
+ 687              	.LASF0:
+ 688 0220 7369676E 		.ascii	"signed char\000"
+ 688      65642063 
+ 688      68617200 
+ 689              	.LASF5:
+ 690 022c 73686F72 		.ascii	"short unsigned int\000"
+ 690      7420756E 
+ 690      7369676E 
+ 690      65642069 
+ 690      6E7400
+ 691              	.LASF22:
+ 692 023f 6C656E67 		.ascii	"length\000"
+ 692      746800
+ 693              	.LASF32:
+ 694 0246 424D535F 		.ascii	"BMS_VOLTAGE\000"
+ 694      564F4C54 
+ 694      41474500 
+ 695              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

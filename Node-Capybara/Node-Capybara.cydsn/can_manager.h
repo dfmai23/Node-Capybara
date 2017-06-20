@@ -4,7 +4,6 @@
     
 #include <project.h>
 #include "data.h"
-
     
 void can_init();
 void can_msg_init(DataPacket* can_msg, uint16_t id);

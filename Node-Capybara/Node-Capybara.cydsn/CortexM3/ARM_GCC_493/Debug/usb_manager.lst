@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
   43              		@ args = 0, pretend = 0, frame = 0
   44              		@ frame_needed = 1, uses_anonymous_args = 0
   45 0000 80B5     		push	{r7, lr}
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 2
 
 
   46              		.cfi_def_cfa_offset 8
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
   45:usb_manager.c **** 				data_queue[pos].data[3],
   46:usb_manager.c **** 				data_queue[pos].data[4],
   47:usb_manager.c **** 				data_queue[pos].data[5],
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 3
 
 
   48:usb_manager.c **** 				data_queue[pos].data[6],
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  102:usb_manager.c **** 			USBUART_1_PutData(buffer, buff_end);
  103:usb_manager.c **** 		} // for all messages in data queue
  104:usb_manager.c **** 	}	// if configuration successful
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 4
 
 
  105:usb_manager.c **** 	// close multiline comment here
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  103              		.cfi_startproc
  104              		@ args = 0, pretend = 0, frame = 16
  105              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 5
 
 
  106              		@ link register save eliminated.
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  129:usb_manager.c **** 		buffer[(*buff_end)++] = byte;
  155              		.loc 1 129 0
  156 004e BB68     		ldr	r3, [r7, #8]
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 6
 
 
  157 0050 1B88     		ldrh	r3, [r3]
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  202 0006 FFF7FEFF 		bl	USBUART_1_DataIsReady
  203 000a 0346     		mov	r3, r0
  204 000c 002B     		cmp	r3, #0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 7
 
 
  205 000e 13D0     		beq	.L7
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  250 000c 60000000 		.4byte	.LASF34
  251 0010 01       		.byte	0x1
  252 0011 36020000 		.4byte	.LASF35
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 8
 
 
  253 0015 00000000 		.4byte	.LASF36
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  307 0084 07       		.byte	0x7
  308 0085 B1010000 		.4byte	.LASF11
  309 0089 04       		.uleb128 0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 9
 
 
  310 008a 04       		.byte	0x4
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  364 00f3 07       		.uleb128 0x7
  365 00f4 696400   		.ascii	"id\000"
  366 00f7 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 10
 
 
  367 00f8 0C       		.byte	0xc
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  421 0167 0D       		.uleb128 0xd
  422 0168 04       		.byte	0x4
  423 0169 27010000 		.4byte	0x127
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 11
 
 
  424 016d 0B       		.uleb128 0xb
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  478 01d9 02       		.uleb128 0x2
  479 01da 91       		.byte	0x91
  480 01db 77       		.sleb128 -9
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 12
 
 
  481 01dc 10       		.uleb128 0x10
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  535 0014 24       		.uleb128 0x24
  536 0015 00       		.byte	0
  537 0016 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 13
 
 
  538 0017 0B       		.uleb128 0xb
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  592 004d 13       		.uleb128 0x13
  593 004e 38       		.uleb128 0x38
  594 004f 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 14
 
 
  595 0050 00       		.byte	0
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  649 0087 00       		.byte	0
  650 0088 00       		.byte	0
  651 0089 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 15
 
 
  652 008a 2E       		.uleb128 0x2e
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  706 00c1 0B       		.uleb128 0xb
  707 00c2 3B       		.uleb128 0x3b
  708 00c3 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 16
 
 
  709 00c4 49       		.uleb128 0x49
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  763 00fb 13       		.uleb128 0x13
  764 00fc 3F       		.uleb128 0x3f
  765 00fd 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 17
 
 
  766 00fe 3C       		.uleb128 0x3c
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  820 0014 6E000000 		.4byte	.LFE65
  821 0018 00000000 		.4byte	.LFB66
  822 001c 3E000000 		.4byte	.LFE66
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 18
 
 
  823 0020 00000000 		.4byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  844      00
  845              	.LASF21:
  846 00fe 6D696C6C 		.ascii	"millicounter\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 19
 
 
  846      69636F75 
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  871              	.LASF28:
  872 0190 62756666 		.ascii	"buff_end\000"
  872      5F656E64 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 20
 
 
  872      00
@@ -1198,7 +1198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 1
  900      5F6D6573 
  900      73616765 
  900      00
-ARM GAS  D:\Windows\AppData\Local\Temp\ccQt5I9n.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\ccx2DxkT.s 			page 21
 
 
  901              	.LASF16:
