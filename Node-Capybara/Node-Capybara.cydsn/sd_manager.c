@@ -14,9 +14,8 @@ uint16_t sd_head = 0, sd_tail = 0;
 CY_ISR(power_isr_custom) {
 	sd_stop();
 	power_isr_ClearPending();
-    CyDelay(1000);
-    //CySoftwareReset();
-    for(;;);	// halt program until IC shuts down
+    CySoftwareReset();
+    for(;;);	// halt program
 } // CY_ISR(power_interrupt)
 
 //triggers every second

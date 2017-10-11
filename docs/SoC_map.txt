@@ -1,0 +1,10 @@
+28 in series with 3 sets in parallel
+
+
+5 bars >50%	4.2 * 28 ~ 116V	
+4 bars 50%	3.6 * 28 ~ 100.8V
+3 bars 35% 	3.55 * 28 ~ 99.4V
+2 bars 25%	3.5 * 28 ~ 98V
+1 bars 15%	3.45 * 28 ~ 96.6V
+
+blinking 10%	3.4 * 28 ~ 95.2V

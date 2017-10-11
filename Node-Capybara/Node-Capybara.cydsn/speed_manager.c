@@ -19,7 +19,7 @@ freq = 1/[2pulselen]
 #include <stdio.h>
 
 extern CAN_1_TX_MSG SENS_STAT;		//0x247
-extern CAN_1_DATA_BYTES_MSG data;
+extern CAN_1_DATA_BYTES_MSG sens_data;
 
 char Serial_Command;
 char StringToPrint[90];

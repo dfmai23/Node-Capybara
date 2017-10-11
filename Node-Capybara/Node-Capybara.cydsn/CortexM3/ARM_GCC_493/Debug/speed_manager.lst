@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
    1:speed_manager.c **** /*
    2:speed_manager.c **** Reciprocal Counter based frequency measurement of tachometer sensor
    3:speed_manager.c **** resolution = 1/sysclk  (hz) = 1 us currently
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 2
 
 
    4:speed_manager.c **** highest freq = sysclk/2 = 500000Hz currently
@@ -79,7 +79,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
   19:speed_manager.c **** #include <stdio.h>
   20:speed_manager.c **** 
   21:speed_manager.c **** extern CAN_1_TX_MSG SENS_STAT;		//0x247
-  22:speed_manager.c **** extern CAN_1_DATA_BYTES_MSG data;
+  22:speed_manager.c **** extern CAN_1_DATA_BYTES_MSG sens_data;
   23:speed_manager.c **** 
   24:speed_manager.c **** char Serial_Command;
   25:speed_manager.c **** char StringToPrint[90];
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
   70 000e 1A60     		str	r2, [r3]
   43:speed_manager.c ****     intFlag = Channel_1_Timer_ReadStatusRegister();  
   71              		.loc 1 43 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 3
 
 
   72 0010 FFF7FEFF 		bl	Channel_1_Timer_ReadStatusRegister
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  110              		.cfi_startproc
  111              		@ args = 0, pretend = 0, frame = 0
  112              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 4
 
 
  113 0000 80B5     		push	{r7, lr}
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  160              		.type	Channel4_isr_Handler, %function
  161              	Channel4_isr_Handler:
  162              	.LFB65:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 5
 
 
   67:speed_manager.c **** CY_ISR(Channel4_isr_Handler){
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  209              		.section	.text.speed_init,"ax",%progbits
  210              		.align	2
  211              		.global	speed_init
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 6
 
 
  212              		.thumb
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  247              		.loc 1 93 0
  248 002c FFF7FEFF 		bl	PGA_3_Start
   94:speed_manager.c **** 	
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 7
 
 
   95:speed_manager.c **** 	Channel_4_isr_StartEx(Channel4_isr_Handler); 
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  106:speed_manager.c **** 	if(UART_1_ReadRxStatus() == UART_1_RX_STS_FIFO_NOTEMPTY){
  107:speed_manager.c ****         Serial_Command=UART_1_GetChar();
  108:speed_manager.c ****     }
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 8
 
 
  109:speed_manager.c ****     //UART_1_ClearTxBuffer();
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  334 005c 1A46     		mov	r2, r3
  335 005e 344B     		ldr	r3, .L23+8
  336 0060 1A60     		str	r2, [r3]	@ float
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 9
 
 
  337              	.L18:
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  375 00ae 0346     		mov	r3, r0
  376 00b0 1846     		mov	r0, r3
  377 00b2 2349     		ldr	r1, .L23+24
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 10
 
 
  378 00b4 FFF7FEFF 		bl	__aeabi_fdiv
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  424 0112 FFF7FEFF 		bl	__aeabi_fdiv
  425 0116 0346     		mov	r3, r0
  426 0118 1A46     		mov	r2, r3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 11
 
 
  427 011a 0E4B     		ldr	r3, .L23+44
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  474 0025 02       		.uleb128 0x2
  475 0026 01       		.byte	0x1
  476 0027 06       		.byte	0x6
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 12
 
 
  477 0028 C4020000 		.4byte	.LASF0
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  531 0092 04       		.byte	0x4
  532 0093 9401     		.2byte	0x194
  533 0095 53000000 		.4byte	0x53
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 13
 
 
  534 0099 05       		.uleb128 0x5
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  588 0106 4B       		.byte	0x4b
  589 0107 00000000 		.4byte	.LFB66
  590 010b 54000000 		.4byte	.LFE66-.LFB66
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 14
 
 
  591 010f 01       		.uleb128 0x1
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  645 0182 05       		.uleb128 0x5
  646 0183 03       		.byte	0x3
  647 0184 00000000 		.4byte	Serial_Command
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 15
 
 
  648 0188 0C       		.uleb128 0xc
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  702 01fa 00000000 		.4byte	Tacho_freq
  703 01fe 0B       		.uleb128 0xb
  704 01ff D2000000 		.4byte	.LASF36
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 16
 
 
  705 0203 01       		.byte	0x1
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  759 0275 0B       		.uleb128 0xb
  760 0276 39010000 		.4byte	.LASF43
  761 027a 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 17
 
 
  762 027b 27       		.byte	0x27
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  816 002e 0B       		.uleb128 0xb
  817 002f 0B       		.uleb128 0xb
  818 0030 3E       		.uleb128 0x3e
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 18
 
 
  819 0031 0B       		.uleb128 0xb
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  873 0068 0E       		.uleb128 0xe
  874 0069 3A       		.uleb128 0x3a
  875 006a 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 19
 
 
  876 006b 3B       		.uleb128 0x3b
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  930 00a2 13       		.uleb128 0x13
  931 00a3 3F       		.uleb128 0x3f
  932 00a4 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 20
 
 
  933 00a5 02       		.uleb128 0x2
@@ -1198,7 +1198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  987 0024 5C010000 		.4byte	.LFE67
  988 0028 00000000 		.4byte	0
  989 002c 00000000 		.4byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 21
 
 
  990              		.section	.debug_line,"",%progbits
@@ -1258,7 +1258,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  1010      7400
  1011              	.LASF30:
  1012 00ec 53747269 		.ascii	"StringToPrint\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 22
 
 
  1012      6E67546F 
@@ -1318,7 +1318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  1036      3200
  1037              	.LASF13:
  1038 0185 666C6F61 		.ascii	"float32\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 23
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 23
 
 
  1038      74333200 
@@ -1378,7 +1378,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  1061      74797065 
  1061      00
  1062              	.LASF6:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 24
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 24
 
 
  1063 0255 6C6F6E67 		.ascii	"long long int\000"
@@ -1438,7 +1438,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 1
  1089 02ea 70756C73 		.ascii	"pulselen4\000"
  1089      656C656E 
  1089      3400
-ARM GAS  D:\Windows\AppData\Local\Temp\ccVWsfag.s 			page 25
+ARM GAS  D:\Windows\AppData\Local\Temp\cchTQ61V.s 			page 25
 
 
  1090              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

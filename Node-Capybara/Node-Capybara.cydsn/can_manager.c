@@ -13,7 +13,7 @@ DataPacket BMS_CURRENT;		//0x288
 DataPacket BMS_VOLTAGE;		//0x388
 
 CAN_1_TX_MSG SENS_STAT;		//0x247
-CAN_1_DATA_BYTES_MSG data;
+CAN_1_DATA_BYTES_MSG sens_data;
 
 
 CY_ISR(status_isr_custom) {
@@ -48,33 +48,32 @@ void can_msg_init(DataPacket* can_msg, uint16_t id) {
 		can_msg->data[i] = 0xFF;
 	}
 	
-	if(id == SENSOR_STATUS_ID) {		//set up status message to send to CAN bus
+	if(id == SENSOR_STATUS_ID) {		//set up sensor message to send to CAN bus
 		SENS_STAT.id = SENSOR_STATUS_ID;
 		SENS_STAT.rtr = 0;
 		SENS_STAT.ide = 0;
 		SENS_STAT.dlc = 0x08;
 		SENS_STAT.irq = 1;
-		SENS_STAT.msg = &data;
+		SENS_STAT.msg = &sens_data;
 		for(i=0; i<SENS_STAT.dlc; i++)
-			data.byte[i] = 0x00;
-        data.byte[7] = 0x01;
+			sens_data.byte[i] = 0x00;   //sens_stat data
+        sens_data.byte[7] = 0x01;       //heartbeat
 	}
 } //can_msg_init()
 
 /*  recieves can message from bus can compares it with is respective id*/
-int can_process(DataPacket* can_msg){
+void can_process(DataPacket* can_msg){
 	int status = 0;		//returns 1 if message is updated
     switch (can_msg->id) {
     case BMS_CURRENT_ID:    //0x288
 	case BMS_VOLTAGE_ID:	//0x388
-		status = can_compare(&BMS_VOLTAGE, can_msg);	break;
+		status = can_compare(&BMS_VOLTAGE, can_msg);
         if(status)
            SoC_volt_calc();
-    default:
-		status = 1;
         break;
-    }
-	return status;
+    default:
+        break;
+    } //switch
 }
 
 /*	compares received can message with the latest can message of the same id.
@@ -110,7 +109,6 @@ int can_compare(DataPacket* prev_msg, DataPacket* new_msg) {
 			for(j=0; j<new_msg->length; j++) {
 				prev_msg->data[j] = new_msg->data[j];
 			}
-			
 			return 1;
 		}//if
 	}//for
@@ -155,6 +153,6 @@ void can_test_receive() {
 		test_msg.data[6]= 7;
         test_msg.data[7]= 8;
 		
-		msg_recieve(&test_msg);
+		can_process(&test_msg);
     } //for
 }

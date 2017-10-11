@@ -14,5 +14,4 @@ typedef struct {
 	uint8_t data[8];            //8bytes for each data packet
 } DataPacket;
 
-void msg_recieve(DataPacket * msg);
 #endif

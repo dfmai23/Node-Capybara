@@ -26,6 +26,7 @@
 
 /* `#START TX_RX_FUNCTION` */
 #include "data.h"
+#include "can_manager.h"
 // ReceiveMsg() at around line 533
 /* `#END` */
 
@@ -640,7 +641,7 @@ void CAN_1_ReceiveMsg(uint8 rxMailbox)
             can_msg.data[i] = CAN_1_RX[rxMailbox].rxdata.byte[i];
 				
 		DataPacket* can_msg_ptr = &can_msg;	  
-		msg_recieve(can_msg_ptr);
+		can_process(can_msg_ptr);
             /* `#END` */
 
             #ifdef CAN_1_RECEIVE_MSG_CALLBACK

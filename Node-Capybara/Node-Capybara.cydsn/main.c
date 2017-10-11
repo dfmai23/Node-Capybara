@@ -18,7 +18,7 @@ int main(void) {
 	speed_init();
 	//usb_init();
 	//wdt_init();
-	CyDelay(100);				//give some time to finish setup
+	CyDelay(50);				//give some time to finish setup
 	CyExitCriticalSection(atomic_state);               // END ATOMIC
 	
 	for(;;)	{
@@ -30,14 +30,3 @@ int main(void) {
 
 	return 0;
 } // main()
-
-/* when a can message is recieved will immediately save messages to external devices
-	- transmit over xbee
-	- write to sd
-	- write to usb	*/
-void msg_recieve(DataPacket * msg) {
-	if(can_process(msg)) {	//if message is new data value
-		//sd_buffer(msg);
-		//usb_write(msg);
-	}
-}
